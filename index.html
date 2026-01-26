@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MillersonXIII - Сайты на HTML/CSS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+    --primary: #0a0a0a;
+    --secondary: #1a1a1a;
+    --accent: #FF6B35;
+    --accent-light: #FF9E3D;
+    --text: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --card-bg: rgba(30, 30, 30, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+body.light-theme {
+    --primary: #f5f5f5;
+    --secondary: #e8e8e8;
+    --accent: #2563eb;
+    --accent-light: #3b82f6;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --card-bg: rgba(255, 255, 255, 0.95);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.menu-toggle span:nth-child(1) { width: 100%; }
+.menu-toggle span:nth-child(2) { width: 70%; margin-left: 30%; }
+.menu-toggle span:nth-child(3) { width: 40%; margin-left: 60%; }
+
+#menu-checkbox {
+    display: none;
+}
+
+.theme-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background: var(--card-bg);
+    padding: 80px 30px 30px;
+    z-index: 999;
+    transition: 0.4s;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+    border-left: 3px solid var(--accent);
+}
+
+#menu-checkbox:checked ~ .theme-menu {
+    right: 0;
+}
+
+.theme-switcher {
+    margin-top: 30px;
+}
+
+.theme-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.theme-label span {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.profile-header {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+body.light-theme .profile-header {
+    border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 3rem;
+    color: var(--primary);
+    border: 4px solid var(--accent);
+    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+}
+
+body.light-theme .profile-avatar {
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.profile-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, var(--accent), var(--accent-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.profile-tagline {
+    font-size: 1.1rem;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-description {
+    max-width: 800px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    background: rgba(30, 30, 30, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    margin: 0 auto;
+}
+
+body.light-theme .profile-description {
+    background: rgba(236, 240, 241, 0.5);
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.service-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    position: relative;
+}
+
+body.light-theme .service-card {
+    border: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255, 107, 53, 0.2);
+}
+
+body.light-theme .service-card:hover {
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent), var(--accent-light));
+}
+
+.service-content {
+    padding: 25px;
+}
+
+.service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--accent-light);
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: var(--accent-light);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.service-features li {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+body.light-theme .service-features li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.service-features li:last-child {
+    border-bottom: none;
+}
+
+.service-features li i {
+    color: var(--accent);
+    margin-right: 8px;
+    width: 18px;
+}
+
+.service-footer {
+    background: rgba(20, 20, 20, 0.9);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+body.light-theme .service-footer {
+    background: rgba(220, 220, 220, 0.9);
+    border-top: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.price-main {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent-light);
+}
+
+.price-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: normal;
+}
+
+.delivery-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.delivery-time .time {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.delivery-time .label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    max-width: 100px;
+}
+
+.contacts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 50px 0 30px;
+}
+
+.contact-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    width: 260px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+body.light-theme .contact-card {
+    border: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.2);
+}
+
+body.light-theme .contact-card:hover {
+    box-shadow: 0 12px 25px rgba(52, 152, 219, 0.2);
+}
+
+.contact-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    color: var(--accent-light);
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--accent-light);
+}
+
+.contact-card p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.contact-link {
+    display: inline-block;
+    background: linear-gradient(to right, var(--accent), var(--accent-light));
+    color: var(--primary);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+body.light-theme .contact-link {
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.contact-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
+}
+
+body.light-theme .contact-link:hover {
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+body.light-theme footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin-bottom: 8px;
+}
+
+.tech-note {
+    background: rgba(255, 107, 53, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 2px solid var(--accent);
+    font-size: 0.85rem;
+}
+
+body.light-theme .tech-note {
+    background: rgba(52, 152, 219, 0.1);
+}
+
+.floating-elements {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-element {
+    position: absolute;
+    opacity: 0.05;
+    animation: float 20s infinite linear;
+}
+
+.floating-element:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    left: 5%;
+    background: linear-gradient(45deg, var(--accent), var(--accent-light));
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation-duration: 25s;
+}
+
+.floating-element:nth-child(2) {
+    width: 70px;
+    height: 70px;
+    top: 70%;
+    right: 10%;
+    background: linear-gradient(45deg, var(--accent), var(--accent-light));
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+    animation-duration: 20s;
+    animation-delay: -5s;
+}
+
+.floating-element:nth-child(3) {
+    width: 130px;
+    height: 130px;
+    bottom: 10%;
+    left: 20%;
+    background: linear-gradient(45deg, var(--accent-light), var(--accent));
+    border-radius: 50%;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(5deg); }
+    66% { transform: translateY(8px) rotate(-5deg); }
+}
+
+@media (max-width: 768px) {
+    .profile-header {
+        padding: 20px 15px;
+    }
+    
+    .profile-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .profile-tagline {
+        font-size: 1rem;
+    }
+    
+    .services {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .delivery-time {
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .contacts {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+    
+    .service-content,
+    .service-footer {
+        padding: 20px;
+    }
+    
+    .contact-card {
+        width: 100%;
+    }
+    
+    .theme-menu {
+        width: 250px;
+        padding: 70px 20px 20px;
+    }
+}
+</style>
+</head>
+<body>
+<input type="checkbox" id="menu-checkbox">
+<label for="menu-checkbox" class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+
+<div class="theme-menu">
+    <h3>Настройки темы</h3>
+    <div class="theme-switcher">
+        <label class="theme-label">
+            <span>Светлая тема</span>
+            <label class="switch">
+                <input type="checkbox" id="theme-switcher">
+                <span class="slider"></span>
+            </label>
+        </label>
+    </div>
+</div>
+
+<div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+</div>
+
+<div class="container">
+    <header class="profile-header">
+        <div class="profile-avatar"><i class="fas fa-code"></i></div>
+        <h1>MILLERSON XIII</h1>
+        <p class="profile-tagline">Создание сайтов на HTML и CSS</p>
+        <div class="profile-description">
+            <p>Разработка быстрых и адаптивных сайтов без JavaScript. Исключение - кнопки, переключение тем, поиск и другие базовые функции </p>
+            <p style="margin-top: 10px;"><strong>Важно:</strong> Я предоставляю только готовый код HTML/CSS. Работа с серверами, хостингом и дальнейшая поддержка не входят в услуги.</p>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-id-card"></i></div>
+                <h3>Сайт-визитка</h3>
+                <p>Представление себя или бизнеса в интернете.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i>Адаптивный дизайн</li>
+                    <li><i class="fas fa-check"></i>Контакты и карта</li>
+                    <li><i class="fas fa-check"></i>Портфолио работ</li>
+                    <li><i class="fas fa-check"></i>Форма обратной связи</li>
+                </ul>
+            </div>
+            <div class="service-footer">
+                <div class="price-container">
+                    <div class="price-main">800 ₽</div>
+                    <div class="price-note">цена за страницу</div>
+                </div>
+                <div class="delivery-time">
+                    <div class="time">2-3 дня</div>
+                    <div class="label">срок выполнения</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Лендинг</h3>
+                <p>Сайт-Одностраничник</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i>Ваша Статья</li>
+                    <li><i class="fas fa-check"></i>Ваши хотелки по дизайну</li>
+                    <li><i class="fas fa-check"></i>SEO-Оптимизация</li>
+                </ul>
+            </div>
+            <div class="service-footer">
+                <div class="price-container">
+                    <div class="price-main">500 ₽</div>
+                    <div class="price-note">цена за одностраничный сайт</div>
+                </div>
+                <div class="delivery-time">
+                    <div class="time">1-2</div>дня</div>
+                    <div class="label">срок выполнения</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-blog"></i></div>
+                <h3>Блог / Портфолио</h3>
+                <p>Сайт для демонстрации работ или статей.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i>Галерея работ (первичное заполнение)</li>
+                    <li><i class="fas fa-check"></i>Категории и теги</li>
+                    <li><i class="fas fa-check"></i>Адаптивные изображения</li>
+                    <li><i class="fas fa-check"></i>Социальные интеграции</li>
+                </ul>
+                <p><small>Первичное заполнение данных делаю я. После передачи файлов заполнение - ваша задача.</small></p>
+            </div>
+            <div class="service-footer">
+                <div class="price-container">
+                    <div class="price-main">750 ₽</div>
+                    <div class="price-note">цена за страницу</div>
+                </div>
+                <div class="delivery-time">
+                    <div class="time">2-3 дня</div>
+                    <div class="label">срок выполнения</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-store"></i></div>
+                <h3>Каталог товаров</h3>
+                <p>Сайт с каталогом продукции без корзины.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i>Фильтрация на CSS</li>
+                    <li><i class="fas fa-check"></i>Детальные карточки</li>
+                    <li><i class="fas fa-check"></i>Удобная навигация через JS</li>
+                    <li><i class="fas fa-check"></i>Форма заказа</li>
+                </ul>
+            </div>
+            <div class="service-footer">
+                <div class="price-container">
+                    <div class="price-main">800 ₽ + 25 ₽/товар</div>
+                    <div class="price-note">цена за страницу + за каждый товар</div>
+                </div>
+                <div class="delivery-time">
+                    <div class="time">от 3 дней</div>
+                    <div class="label">срок выполнения</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-question-circle"></i></div>
+                <h3>Сайт-справка / FAQ</h3>
+                <p>Информационный ресурс с аккордеонами.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i>Вкладки и фильтры</li>
+                    <li><i class="fas fa-check"></i>Поиск через JS</li>
+                    <li><i class="fas fa-check"></i>Чистая структура</li>
+                </ul>
+            </div>
+            <div class="service-footer">
+                <div class="price-container">
+                    <div class="price-main">300 ₽</div>
+                    <div class="price-note">цена за страницу</div>
+                </div>
+                <div class="delivery-time">
+                    <div class="time">2-3 дня</div>
+                    <div class="label">срок выполнения</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="contacts">
+        <div class="contact-card">
+            <div class="contact-icon"><i class="fab fa-telegram"></i></div>
+            <h3>Telegram</h3>
+            <p>Напишите для обсуждения проекта</p>
+            <a href="https://t.me/MillersonXIII" class="contact-link" target="_blank">@MillersonXIII</a>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon"><i class="fab fa-vk"></i></div>
+            <h3>ВКонтакте</h3>
+            <p>Свяжитесь для обсуждения сотрудничества</p>
+            <a href="https://vk.ru/millerson_xiii" class="contact-link" target="_blank">millerson_xiii</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025-2026 MillersonXIII. Создание сайтов на HTML и CSS.</p>
+    <p>Все работы без JavaScript (кроме базовых элементов)</p>
+    <div class="tech-note">
+        <p><strong>Примечание:</strong> Сайт создан на HTML и CSS. Анимации и адаптивность реализованы без JavaScript. Предоставляется только код, работа с серверами не осуществляется.</p>
+    </div>
+</footer>
+
+<script>
+document.getElementById('theme-switcher').addEventListener('change', function() {
+    if(this.checked) {
+        document.body.classList.add('light-theme');
+    } else {
+        document.body.classList.remove('light-theme');
+    }
+});
+</script>
+</body>
+</html>
