@@ -2,10 +2,23 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MillersonXIII - Сайты на HTML/CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>MillersonXIII - Профессиональная вёрстка на HTML/CSS</title>
+<meta name="description" content="Профессиональная вёрстка сайтов на HTML/CSS. Создание адаптивных, быстрых сайтов без JavaScript. Работаю с Figma, PSD, AI. Срок от 1 дня.">
+<meta name="keywords" content="вёрстка HTML CSS, создание сайтов, адаптивный дизайн, фронтенд разработка">
+<meta property="og:title" content="MillersonXIII - Профессиональная вёрстка">
+<meta property="og:description" content="Создание современных сайтов на чистом HTML/CSS">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
 :root {
     --primary: #0a0a0a;
     --secondary: #1a1a1a;
@@ -13,113 +26,348 @@
     --accent-light: #FF9E3D;
     --text: #f0f0f0;
     --text-secondary: #b0b0b0;
-    --card-bg: rgba(30, 30, 30, 0.9);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    --card-bg: rgba(30, 30, 30, 0.98);
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    --border-radius: 20px;
+    --transition: all 0.3s ease;
 }
 
 body {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: var(--text);
     min-height: 100vh;
+    font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
     overflow-x: hidden;
-    line-height: 1.5;
+    position: relative;
+    width: 100%;
 }
 
 body.light-theme {
-    --primary: #f5f5f5;
-    --secondary: #e8e8e8;
+    --primary: #ffffff;
+    --secondary: #f5f7fa;
     --accent: #2563eb;
     --accent-light: #3b82f6;
     --text: #1e293b;
-    --text-secondary: #64748b;
-    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-secondary: #475569;
+    --card-bg: rgba(255, 255, 255, 0.98);
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
+    width: 100%;
 }
 
-.menu-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    cursor: pointer;
-    width: 30px;
-    height: 24px;
+.warning-note {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 107, 53, 0.1);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.warning-note strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.main-header {
+    padding: 30px 0;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+}
+
+.header-content {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.menu-toggle span {
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: 1002;
+}
+
+.logo-icon {
+    font-size: 2.2rem;
+    color: var(--accent);
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 8px 0;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent);
+    transition: width 0.4s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.desktop-menu-toggle {
+    display: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-left: 30px;
+    z-index: 1002;
+    background: transparent;
+    border: none;
+}
+
+.desktop-menu-toggle span {
     display: block;
     height: 3px;
     background: var(--accent);
     border-radius: 2px;
-    transition: 0.3s;
+    transition: var(--transition);
+    width: 30px;
 }
 
-.menu-toggle span:nth-child(1) { width: 100%; }
-.menu-toggle span:nth-child(2) { width: 70%; margin-left: 30%; }
-.menu-toggle span:nth-child(3) { width: 40%; margin-left: 60%; }
+.desktop-menu-toggle span:nth-child(2) {
+    width: 24px;
+}
 
-#menu-checkbox {
+.desktop-menu-toggle span:nth-child(3) {
+    width: 18px;
+}
+
+.mobile-menu-toggle {
     display: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    z-index: 1001;
+    background: transparent;
+    border: none;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: var(--transition);
+    width: 30px;
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+    width: 24px;
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+    width: 18px;
 }
 
 .theme-menu {
     position: fixed;
     top: 0;
-    right: -300px;
-    width: 280px;
+    right: -100%;
+    width: 100%;
     height: 100vh;
     background: var(--card-bg);
-    padding: 80px 30px 30px;
     z-index: 999;
-    transition: 0.4s;
-    box-shadow: -5px 0 20px rgba(0,0,0,0.2);
-    border-left: 3px solid var(--accent);
+    transition: 0.4s ease;
+    overflow-y: auto;
+    padding: 100px 20px 40px;
 }
 
-#menu-checkbox:checked ~ .theme-menu {
+.theme-menu.active {
     right: 0;
 }
 
-.theme-switcher {
-    margin-top: 30px;
+.menu-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    border: none;
+    z-index: 1000;
 }
 
-.theme-label {
+.menu-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.menu-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+.menu-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.menu-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 107, 53, 0.2);
+}
+
+.menu-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--accent-light);
+}
+
+.contact-info-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-info-menu a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text);
+    text-decoration: none;
+    padding: 15px;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.contact-info-menu a:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateX(5px);
+}
+
+.contact-info-menu i {
+    font-size: 1.2rem;
+    width: 24px;
+}
+
+.theme-switcher {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    background: rgba(0,0,0,0.1);
+    background: rgba(255, 107, 53, 0.1);
     border-radius: 10px;
-    cursor: pointer;
-    color: var(--text);
-    font-weight: 600;
-}
-
-.theme-label span {
-    font-size: 0.9em;
-    opacity: 0.8;
+    margin-top: 10px;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 24px;
+    width: 60px;
+    height: 30px;
 }
 
 .switch input {
@@ -135,124 +383,201 @@ body.light-theme {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background: #666;
     transition: .4s;
-    border-radius: 24px;
+    border-radius: 34px;
 }
 
 .slider:before {
     position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
+    content: "🌙";
+    height: 22px;
+    width: 22px;
     left: 4px;
     bottom: 4px;
     background-color: white;
     transition: .4s;
     border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: var(--accent);
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-.profile-header {
-    text-align: center;
-    padding: 30px 20px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 107, 53, 0.3);
-}
-
-body.light-theme .profile-header {
-    border-bottom: 1px solid rgba(52, 152, 219, 0.3);
-}
-
-.profile-avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 3rem;
-    color: var(--primary);
-    border: 4px solid var(--accent);
-    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+    font-size: 12px;
 }
 
-body.light-theme .profile-avatar {
-    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+input:checked + .slider {
+    background: var(--accent);
 }
 
-.profile-header h1 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    background: linear-gradient(to right, var(--accent), var(--accent-light));
+input:checked + .slider:before {
+    transform: translateX(30px);
+    content: "☀️";
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.4);
+}
+
+.hero {
+    padding: 60px 0 80px;
+    position: relative;
+    width: 100%;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-avatar {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 40px;
+}
+
+.avatar-circle {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: white;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    line-height: 1.1;
 }
 
-.profile-tagline {
-    font-size: 1.1rem;
+.hero-tagline {
+    font-size: 1.6rem;
     color: var(--accent-light);
-    margin-bottom: 20px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 30px;
+    font-weight: 600;
 }
 
-.profile-description {
-    max-width: 800px;
-    font-size: 1rem;
-    line-height: 1.6;
+.hero-description {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    font-size: 1.2rem;
+    line-height: 1.7;
     color: var(--text-secondary);
-    background: rgba(30, 30, 30, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 3px solid var(--accent);
-    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent);
 }
 
-body.light-theme .profile-description {
-    background: rgba(236, 240, 241, 0.5);
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 150px;
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent), var(--accent-light));
+    border-radius: 2px;
+}
+
+.section-header p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px;
-    margin: 40px 0;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin: 60px 0 100px;
 }
 
 .service-card {
     background: var(--card-bg);
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 107, 53, 0.1);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
     position: relative;
-}
-
-body.light-theme .service-card {
-    border: 1px solid rgba(52, 152, 219, 0.1);
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(255, 107, 53, 0.2);
-}
-
-body.light-theme .service-card:hover {
-    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card::before {
@@ -260,47 +585,77 @@ body.light-theme .service-card:hover {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, var(--accent), var(--accent-light));
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(255, 107, 53, 0.2);
+    border-color: var(--accent);
+}
+
+.service-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    z-index: 2;
 }
 
 .service-content {
-    padding: 25px;
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-icon {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
+    font-size: 3rem;
+    margin-bottom: 20px;
     color: var(--accent-light);
+    background: rgba(255, 107, 53, 0.1);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
     color: var(--accent-light);
+    line-height: 1.3;
 }
 
 .service-card p {
     color: var(--text-secondary);
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    flex-grow: 1;
 }
 
 .service-features {
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .service-features li {
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-body.light-theme .service-features li {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .service-features li:last-child {
@@ -309,22 +664,18 @@ body.light-theme .service-features li {
 
 .service-features li i {
     color: var(--accent);
-    margin-right: 8px;
-    width: 18px;
+    margin-right: 10px;
+    font-size: 1.1rem;
 }
 
 .service-footer {
+    padding: 25px 30px;
     background: rgba(20, 20, 20, 0.9);
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
+    border-top: 2px solid rgba(255, 107, 53, 0.2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     align-items: center;
-    border-top: 1px solid rgba(255, 107, 53, 0.1);
-}
-
-body.light-theme .service-footer {
-    background: rgba(220, 220, 220, 0.9);
-    border-top: 1px solid rgba(52, 152, 219, 0.1);
 }
 
 .price-container {
@@ -334,448 +685,2282 @@ body.light-theme .service-footer {
 }
 
 .price-main {
-    font-size: 1.8rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 900;
     color: var(--accent-light);
+    line-height: 1;
 }
 
 .price-note {
     font-size: 0.9rem;
     color: var(--text-secondary);
-    font-weight: normal;
+    font-weight: 500;
+}
+
+.service-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detail-btn, .order-btn {
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.detail-btn {
+    background: rgba(255, 107, 53, 0.1);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.detail-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.order-btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+}
+
+.order-btn:hover {
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    transform: translateY(-2px);
 }
 
 .delivery-time {
+    grid-column: 1 / -1;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 2px solid rgba(255, 107, 53, 0.1);
 }
 
 .delivery-time .time {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 800;
     color: var(--accent);
 }
 
 .delivery-time .label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    max-width: 100px;
+    text-align: right;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.service-modal {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    width: 95%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow);
+    border: 3px solid var(--accent);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .service-modal {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    border: 2px solid white;
+}
+
+.modal-close:hover {
+    background: var(--accent-light);
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    padding: 40px 40px 20px;
+    border-bottom: 2px solid rgba(255, 107, 53, 0.3);
+    position: relative;
+}
+
+.modal-header h3 {
+    font-size: 2rem;
+    color: var(--accent-light);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.modal-price {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent);
+    background: rgba(255, 107, 53, 0.1);
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 2px solid var(--accent);
+}
+
+.modal-content {
+    padding: 30px 40px;
+}
+
+.modal-section {
+    margin-bottom: 25px;
+}
+
+.modal-section h4 {
+    font-size: 1.4rem;
+    color: var(--accent-light);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 107, 53, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-section h4 i {
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.modal-section p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.process {
+    margin: 80px 0;
+    position: relative;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.process-step {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+.process-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+    border-color: var(--accent);
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+    border: 3px solid white;
+}
+
+.process-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--accent-light);
+    line-height: 1.3;
+}
+
+.process-step p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.portfolio-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.portfolio-item {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(255, 107, 53, 0.2);
+    border-color: var(--accent);
+}
+
+.portfolio-preview {
+    height: 200px;
+    background: rgba(255, 107, 53, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover .portfolio-preview img {
+    transform: scale(1.05);
+}
+
+.portfolio-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.portfolio-info h3 {
+    font-size: 1.6rem;
+    color: var(--accent-light);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.portfolio-info p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.portfolio-count {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 900;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid white;
+    z-index: 2;
+}
+
+.portfolio-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.portfolio-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.portfolio-modal-content {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    width: 95%;
+    max-width: 1200px;
+    max-height: 95vh;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid var(--accent);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-modal.active .portfolio-modal-content {
+    transform: translateY(0);
+}
+
+.portfolio-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    border: 2px solid white;
+}
+
+.portfolio-close:hover {
+    background: var(--accent-light);
+    transform: rotate(90deg);
+}
+
+.portfolio-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--accent);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    border: 2px solid white;
+    border: none;
+}
+
+.portfolio-nav:hover {
+    background: var(--accent-light);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.portfolio-prev {
+    left: 20px;
+}
+
+.portfolio-next {
+    right: 20px;
+}
+
+.portfolio-modal-body {
+    padding: 60px 30px 30px;
+    overflow-y: auto;
+    max-height: calc(95vh - 60px);
+}
+
+.portfolio-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.portfolio-image {
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 15px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.portfolio-image:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-image:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-description {
+    background: rgba(20, 20, 20, 0.7);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent);
+}
+
+.portfolio-description h4 {
+    font-size: 1.8rem;
+    color: var(--accent-light);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.portfolio-description p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.image-viewer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.image-viewer-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-viewer-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-viewer-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.image-viewer-modal.active .image-viewer-content img {
+    transform: scale(1);
+}
+
+.image-viewer-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    border: 2px solid white;
+}
+
+.image-viewer-close:hover {
+    background: var(--accent-light);
+    transform: rotate(90deg);
+}
+
+.image-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--accent);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    border: 2px solid white;
+}
+
+.image-nav:hover {
+    background: var(--accent-light);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.image-prev {
+    left: 20px;
+}
+
+.image-next {
+    right: 20px;
+}
+
+.image-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.faq-section {
+    padding: 80px 0;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    border-color: var(--accent);
+}
+
+.faq-question {
+    padding: 25px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+    background: rgba(255, 107, 53, 0.1);
+}
+
+.faq-question:hover {
+    background: rgba(255, 107, 53, 0.15);
+}
+
+.faq-question i {
+    color: var(--accent);
+    transition: transform 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 25px 25px;
+    max-height: 1000px;
 }
 
 .contacts {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin: 50px 0 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 80px 0;
 }
 
 .contact-card {
     background: var(--card-bg);
-    border-radius: 12px;
-    padding: 20px;
-    width: 260px;
+    border-radius: var(--border-radius);
+    padding: 35px 25px;
     text-align: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 107, 53, 0.1);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
 }
 
-body.light-theme .contact-card {
-    border: 1px solid rgba(52, 152, 219, 0.1);
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.2);
-}
-
-body.light-theme .contact-card:hover {
-    box-shadow: 0 12px 25px rgba(52, 152, 219, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(255, 107, 53, 0.2);
+    border-color: var(--accent);
 }
 
 .contact-icon {
-    font-size: 2.2rem;
-    margin-bottom: 12px;
+    font-size: 3rem;
+    margin-bottom: 20px;
     color: var(--accent-light);
+    background: rgba(255, 107, 53, 0.1);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    border: 3px solid var(--accent);
 }
 
 .contact-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 12px;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
     color: var(--accent-light);
+    line-height: 1.3;
 }
 
 .contact-card p {
     color: var(--text-secondary);
-    margin-bottom: 15px;
-    font-size: 0.9rem;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .contact-link {
-    display: inline-block;
-    background: linear-gradient(to right, var(--accent), var(--accent-light));
-    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 15px 30px;
     border-radius: 50px;
     font-weight: 700;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-}
-
-body.light-theme .contact-link {
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
 }
 
 .contact-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
-}
-
-body.light-theme .contact-link:hover {
-    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.4);
 }
 
 footer {
     text-align: center;
-    padding: 30px 20px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 20px;
+    margin-top: 80px;
+    border-top: 3px solid rgba(255, 255, 255, 0.1);
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 1rem;
+    background: rgba(10, 10, 10, 0.7);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    position: relative;
+    overflow: hidden;
 }
 
-body.light-theme footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 footer p {
-    margin-bottom: 8px;
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
 .tech-note {
     background: rgba(255, 107, 53, 0.1);
-    padding: 12px;
-    border-radius: 8px;
-    margin-top: 15px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    border-left: 2px solid var(--accent);
-    font-size: 0.85rem;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin-top: 30px;
+    border-left: 4px solid var(--accent);
+    text-align: left;
 }
 
-body.light-theme .tech-note {
-    background: rgba(52, 152, 219, 0.1);
+.tech-note strong {
+    color: var(--accent);
+    font-size: 1.1rem;
 }
 
-.floating-elements {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.floating-element {
-    position: absolute;
-    opacity: 0.05;
-    animation: float 20s infinite linear;
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.floating-element:nth-child(1) {
-    width: 100px;
-    height: 100px;
-    top: 10%;
-    left: 5%;
-    background: linear-gradient(45deg, var(--accent), var(--accent-light));
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    animation-duration: 25s;
-}
-
-.floating-element:nth-child(2) {
-    width: 70px;
-    height: 70px;
-    top: 70%;
-    right: 10%;
-    background: linear-gradient(45deg, var(--accent), var(--accent-light));
-    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-    animation-duration: 20s;
-    animation-delay: -5s;
-}
-
-.floating-element:nth-child(3) {
-    width: 130px;
-    height: 130px;
-    bottom: 10%;
-    left: 20%;
-    background: linear-gradient(45deg, var(--accent-light), var(--accent));
-    border-radius: 50%;
-    animation-duration: 30s;
-    animation-delay: -10s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    33% { transform: translateY(-15px) rotate(5deg); }
-    66% { transform: translateY(8px) rotate(-5deg); }
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .contacts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
 }
 
 @media (max-width: 768px) {
-    .profile-header {
-        padding: 20px 15px;
+    .desktop-nav {
+        display: none;
     }
     
-    .profile-header h1 {
-        font-size: 1.8rem;
+    .desktop-menu-toggle {
+        display: flex;
     }
     
-    .profile-tagline {
-        font-size: 1rem;
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.2rem;
     }
     
     .services {
         grid-template-columns: 1fr;
-        gap: 20px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
-    .service-footer {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-    }
-    
-    .delivery-time {
-        align-items: flex-start;
-        text-align: left;
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .contacts {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .portfolio-images {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .portfolio-prev {
+        left: 10px;
+    }
+    
+    .portfolio-next {
+        right: 10px;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .image-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .image-viewer-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .profile-avatar {
-        width: 100px;
-        height: 100px;
-        font-size: 2.5rem;
+    .mobile-menu-toggle {
+        display: flex;
     }
     
-    .service-content,
+    .desktop-menu-toggle {
+        display: none;
+    }
+    
+    .hero {
+        padding: 40px 0 60px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        padding: 20px;
+        font-size: 1rem;
+    }
+    
+    .profile-avatar {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .avatar-circle {
+        font-size: 3rem;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .service-card {
+        max-width: 100%;
+    }
+    
+    .service-content {
+        padding: 25px;
+    }
+    
     .service-footer {
+        padding: 20px 25px;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .service-buttons {
+        grid-column: 1;
+    }
+    
+    .delivery-time {
+        grid-column: 1;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .modal-header {
+        padding: 30px 20px 15px;
+    }
+    
+    .modal-content {
         padding: 20px;
     }
     
-    .contact-card {
-        width: 100%;
+    .portfolio-modal-body {
+        padding: 50px 20px 20px;
     }
     
-    .theme-menu {
-        width: 250px;
-        padding: 70px 20px 20px;
+    .portfolio-image {
+        height: 180px;
+    }
+    
+    .portfolio-description {
+        padding: 25px;
+    }
+    
+    .faq-question {
+        padding: 20px;
+        font-size: 1.2rem;
+    }
+    
+    .faq-answer {
+        padding: 0 20px;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+    }
+    
+    .contact-card {
+        padding: 30px 20px;
+    }
+    
+    .contact-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+    }
+    
+    .tech-note {
+        padding: 20px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .image-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .image-prev {
+        left: 10px;
+    }
+    
+    .image-next {
+        right: 10px;
+    }
+}
+
+.touch-button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.order-btn, .detail-btn, .contact-link, .cta-button {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .service-card:hover {
+        transform: none;
+    }
+    
+    .portfolio-item:hover {
+        transform: none;
+    }
+    
+    .contact-card:hover {
+        transform: none;
+    }
+    
+    .process-step:hover {
+        transform: none;
+    }
+    
+    .portfolio-image:hover {
+        transform: none;
+        border-color: transparent;
+    }
+    
+    .nav-link:hover::after {
+        width: 0;
     }
 }
 </style>
 </head>
 <body>
-<input type="checkbox" id="menu-checkbox">
-<label for="menu-checkbox" class="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-</label>
+<div class="scroll-progress"></div>
+<button class="back-to-top" id="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+</button>
 
-<div class="theme-menu">
-    <h3>Настройки темы</h3>
-    <div class="theme-switcher">
-        <label class="theme-label">
-            <span>Светлая тема</span>
+<div class="theme-menu" id="theme-menu">
+    <button class="menu-close" id="menu-close">&times;</button>
+    <div class="menu-header">
+        <h2>MILLERSON XIII</h2>
+        <p>Профессиональная вёрстка на HTML/CSS</p>
+    </div>
+    
+    <div class="menu-section">
+        <h3>Навигация</h3>
+        <div class="contact-info-menu">
+            <a href="#services" class="menu-link">
+                <i class="fas fa-concierge-bell"></i>
+                <span>Мои услуги</span>
+            </a>
+            <a href="#portfolio" class="menu-link">
+                <i class="fas fa-images"></i>
+                <span>Портфолио</span>
+            </a>
+            <a href="#process" class="menu-link">
+                <i class="fas fa-tasks"></i>
+                <span>Процесс работы</span>
+            </a>
+            <a href="#faq" class="menu-link">
+                <i class="fas fa-question-circle"></i>
+                <span>FAQ</span>
+            </a>
+            <a href="#contacts" class="menu-link">
+                <i class="fas fa-address-book"></i>
+                <span>Контакты</span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="menu-section">
+        <h3>Настройки темы</h3>
+        <div class="theme-switcher">
+            <span>Тёмная тема</span>
             <label class="switch">
                 <input type="checkbox" id="theme-switcher">
                 <span class="slider"></span>
             </label>
-        </label>
+            <span>Светлая тема</span>
+        </div>
+    </div>
+    
+    <div class="menu-section">
+        <h3>Свяжитесь со мной</h3>
+        <div class="contact-info-menu">
+            <a href="https://t.me/MillersonXIII" target="_blank">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram: @MillersonXIII</span>
+            </a>
+            <a href="https://vk.ru/millerson_xiii" target="_blank">
+                <i class="fab fa-vk"></i>
+                <span>ВКонтакте: millerson_xiii</span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="menu-section">
+        <h3>Спецпредложение</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 1rem;">Первым 3 клиентам этого месяца скидка 30% на любой заказ!</p>
+        <a href="https://t.me/MillersonXIII" class="cta-button" target="_blank" style="width: 100%; text-align: center; padding: 15px;">
+            <i class="fab fa-telegram"></i> Заказать со скидкой
+        </a>
     </div>
 </div>
 
-<div class="floating-elements">
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-</div>
-
 <div class="container">
-    <header class="profile-header">
-        <div class="profile-avatar"><i class="fas fa-code"></i></div>
-        <h1>MILLERSON XIII</h1>
-        <p class="profile-tagline">Создание сайтов на HTML и CSS</p>
-        <div class="profile-description">
-            <p>Разработка быстрых и адаптивных сайтов без JavaScript. Исключение - кнопки, переключение тем, поиск и другие базовые функции </p>
-            <p style="margin-top: 10px;"><strong>Важно:</strong> Я предоставляю только готовый код HTML/CSS. Работа с серверами, хостингом и дальнейшая поддержка не входят в услуги.</p>
+    <div class="warning-note">
+        <strong>ВНИМАНИЕ:</strong> Сайт изначально создавался для компьютеров. На мобильных устройствах некоторые элементы могут отображаться неидеально. Для лучшего опыта рекомендуется использовать ПК.
+    </div>
+    
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-code logo-icon"></i>
+                <span>MILLERSON XIII</span>
+            </div>
+            
+            <nav class="desktop-nav">
+                <a href="#services" class="nav-link">Услуги</a>
+                <a href="#portfolio" class="nav-link">Портфолио</a>
+                <a href="#process" class="nav-link">Процесс</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+                <a href="https://t.me/MillersonXIII" class="cta-button" target="_blank">Заказать сайт</a>
+            </nav>
+            
+            <button class="desktop-menu-toggle" id="desktop-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
-    <section class="services">
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon"><i class="fas fa-id-card"></i></div>
-                <h3>Сайт-визитка</h3>
-                <p>Представление себя или бизнеса в интернете.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i>Адаптивный дизайн</li>
-                    <li><i class="fas fa-check"></i>Контакты и карта</li>
-                    <li><i class="fas fa-check"></i>Портфолио работ</li>
-                    <li><i class="fas fa-check"></i>Форма обратной связи</li>
-                </ul>
-            </div>
-            <div class="service-footer">
-                <div class="price-container">
-                    <div class="price-main">800 ₽</div>
-                    <div class="price-note">цена за страницу</div>
-                </div>
-                <div class="delivery-time">
-                    <div class="time">2-3 дня</div>
-                    <div class="label">срок выполнения</div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="profile-avatar">
+                <div class="avatar-circle">
+                    <i class="fas fa-laptop-code"></i>
                 </div>
             </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon"><i class="fas fa-rocket"></i></div>
-                <h3>Лендинг</h3>
-                <p>Сайт-Одностраничник</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i>Ваша Статья</li>
-                    <li><i class="fas fa-check"></i>Ваши хотелки по дизайну</li>
-                    <li><i class="fas fa-check"></i>SEO-Оптимизация</li>
-                </ul>
+            <h1>ПРОФЕССИОНАЛЬНАЯ ВЁРСТКА</h1>
+            <p class="hero-tagline">Современные сайты на чистом HTML и CSS</p>
+            <div class="hero-description">
+                <p>Создаю быстрые, адаптивные и эстетичные веб-сайты без использования JavaScript. Идеальное решение для презентации бизнеса, портфолио или интернет-магазина. Каждый проект оптимизирован для поисковых систем и мобильных устройств.</p>
+                <p style="margin-top: 15px;"><strong>Примечание:</strong>Предоставляю чистый код без комментариев (только по просьбе). Работа с хостингом и доменами не входит в услуги. Исключение по JS: наводки, навигаторы, базовые настройки, переключения тем и тому подобное  </p>
             </div>
-            <div class="service-footer">
-                <div class="price-container">
-                    <div class="price-main">500 ₽</div>
-                    <div class="price-note">цена за одностраничный сайт</div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">80+</div>
+                    <div class="stat-label">Выполненных проектов</div>
                 </div>
-                <div class="delivery-time">
-                    <div class="time">1-2</div>дня</div>
-                    <div class="label">срок выполнения</div>
+                <div class="stat-item">
+                    <div class="stat-number">8ч</div>
+                    <div class="stat-label">Средний срок вёрстки</div>
                 </div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon"><i class="fas fa-blog"></i></div>
-                <h3>Блог / Портфолио</h3>
-                <p>Сайт для демонстрации работ или статей.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i>Галерея работ (первичное заполнение)</li>
-                    <li><i class="fas fa-check"></i>Категории и теги</li>
-                    <li><i class="fas fa-check"></i>Адаптивные изображения</li>
-                    <li><i class="fas fa-check"></i>Социальные интеграции</li>
-                </ul>
-                <p><small>Первичное заполнение данных делаю я. После передачи файлов заполнение - ваша задача.</small></p>
-            </div>
-            <div class="service-footer">
-                <div class="price-container">
-                    <div class="price-main">750 ₽</div>
-                    <div class="price-note">цена за страницу</div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Адаптивность</div>
                 </div>
-                <div class="delivery-time">
-                    <div class="time">2-3 дня</div>
-                    <div class="label">срок выполнения</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon"><i class="fas fa-store"></i></div>
-                <h3>Каталог товаров</h3>
-                <p>Сайт с каталогом продукции без корзины.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i>Фильтрация на CSS</li>
-                    <li><i class="fas fa-check"></i>Детальные карточки</li>
-                    <li><i class="fas fa-check"></i>Удобная навигация через JS</li>
-                    <li><i class="fas fa-check"></i>Форма заказа</li>
-                </ul>
-            </div>
-            <div class="service-footer">
-                <div class="price-container">
-                    <div class="price-main">800 ₽ + 25 ₽/товар</div>
-                    <div class="price-note">цена за страницу + за каждый товар</div>
-                </div>
-                <div class="delivery-time">
-                    <div class="time">от 3 дней</div>
-                    <div class="label">срок выполнения</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon"><i class="fas fa-question-circle"></i></div>
-                <h3>Сайт-справка / FAQ</h3>
-                <p>Информационный ресурс с аккордеонами.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i>Вкладки и фильтры</li>
-                    <li><i class="fas fa-check"></i>Поиск через JS</li>
-                    <li><i class="fas fa-check"></i>Чистая структура</li>
-                </ul>
-            </div>
-            <div class="service-footer">
-                <div class="price-container">
-                    <div class="price-main">300 ₽</div>
-                    <div class="price-note">цена за страницу</div>
-                </div>
-                <div class="delivery-time">
-                    <div class="time">2-3 дня</div>
-                    <div class="label">срок выполнения</div>
+                <div class="stat-item">
+                    <div class="stat-number">10%</div>
+                    <div class="stat-label">JavaScript (опционально)</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="contacts">
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>МОИ УСЛУГИ</h2>
+            <p>Выберите подходящий вариант или предложите свой. Цены указаны за базовую реализацию, сроки могут меняться в зависимости от сложности (подробнее в описаниях или FAQ)</p>
+        </div>
+        
+        <div class="services">
+            <div class="service-card" data-modal="card">
+                <div class="service-badge">Популярно</div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-id-card"></i></div>
+                    <h3>Сайт-визитка</h3>
+                    <p>Идеальное решение для представления себя, своего бизнеса или услуг в интернете. Просто, эффективно, профессионально.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Полностью адаптивный дизайн</li>
+                        <li><i class="fas fa-check"></i>Контакты и интерактивная карта</li>
+                        <li><i class="fas fa-check"></i>Секция портфолио/отзывов (доп плата 200₽)</li>
+                        <li><i class="fas fa-check"></i>Форма обратной связи</li>
+                        <li><i class="fas fa-check"></i>Оптимизация под любые устройства</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">от 700 ₽</div>
+                        <div class="price-note">цена за страницу</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="card">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">2-3 дня</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card" data-modal="landing">
+                <div class="service-badge">Выгодно</div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Лендинг</h3>
+                    <p>Одностраничный сайт для максимальной концентрации на цели: заявка, продажа, статья </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Ваш текст и контент</li>
+                        <li><i class="fas fa-check"></i>Индивидуальный дизайн</li>
+                        <li><i class="fas fa-check"></i>Базовая SEO-оптимизация</li>
+                        <li><i class="fas fa-check"></i>Призывы к дедизайн (кнопки)</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">500 ₽</div>
+                        <div class="price-note">цена за сайт</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="landing">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">1-2 дня</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card" data-modal="blog">
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-blog"></i></div>
+                    <h3>Блог / Портфолио</h3>
+                    <p>Сайт для демонстрации ваших работ, статей или проектов. Удобная навигация и приятный визуал для посетителей.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Галерея работ</li>
+                        <li><i class="fas fa-check"></i>Категории и теги</li>
+                        <li><i class="fas fa-check"></i>Адаптивные изображения</li>
+                        <li><i class="fas fa-check"></i>Интеграция с соцсетями</li>
+                        <li><i class="fas fa-check"></i>Комментарии и оценки</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">750 ₽</div>
+                        <div class="price-note">цена за страницу</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="blog">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">2-3 дня</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card" data-modal="catalog">
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-store"></i></div>
+                    <h3>Каталог товаров</h3>
+                    <p>Презентация вашей продукции с фильтрацией и детальным описанием. Без корзины и онлайн-оплаты.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Фильтрация на CSS</li>
+                        <li><i class="fas fa-check"></i>Детальные карточки</li>
+                        <li><i class="fas fa-check"></i>Удобная навигация</li>
+                        <li><i class="fas fa-check"></i>Форма заказа</li>
+                        <li><i class="fas fa-check"></i>Система сортировки</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">800 ₽ + 25 ₽/товар</div>
+                        <div class="price-note">базовая цена + товары</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="catalog">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">от 3 дней</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card" data-modal="faq">
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3>Сайт-справка / FAQ</h3>
+                    <p>Информационный ресурс с аккордеонами, вкладками и поиском. Идеально для базы знаний или вопросов.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Интерактивные вкладки</li>
+                        <li><i class="fas fa-check"></i>Поиск по контенту</li>
+                        <li><i class="fas fa-check"></i>Чистая структура</li>
+                        <li><i class="fas fa-check"></i>Категории и подкатегории</li>
+                        <li><i class="fas fa-check"></i>Возможность печати</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">300 ₽</div>
+                        <div class="price-note">цена за страницу</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="faq">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">2-3 дня</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card" data-modal="article">
+                <div class="service-badge">Новое</div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-newspaper"></i></div>
+                    <h3>Сайт для статьи</h3>
+                    <p>Оптимальное решение для публикации длинных текстов, исследований, обзоров. Чистый дизайн без отвлекающих элементов.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Удобное чтение</li>
+                        <li><i class="fas fa-check"></i>Оглавление с навигацией</li>
+                        <li><i class="fas fa-check"></i>Подсветка кода (CSS)</li>
+                        <li><i class="fas fa-check"></i>Адаптивные изображения</li>
+                        <li><i class="fas fa-check"></i>Кнопка печати</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">250 ₽</div>
+                        <div class="price-note">цена за страницу</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="article">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">1-2 дня</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card" data-modal="custom">
+                <div class="service-badge">Индивидуально</div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Индивидуальный проект</h3>
+                    <p>Не нашли подходящий вариант? Обсудим вашу задачу и создадим уникальное решение под ваши требования.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Индивидуальный дизайн</li>
+                        <li><i class="fas fa-check"></i>Любое количество страниц</li>
+                        <li><i class="fas fa-check"></i>Сложные анимации</li>
+                        <li><i class="fas fa-check"></i>Интеграция с API</li>
+                        <li><i class="fas fa-check"></i>Техническая документация</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">Договорная</div>
+                        <div class="price-note">цена обсуждается</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="custom">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">от 5 дней</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card" data-modal="css">
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-css3-alt"></i></div>
+                    <h3>CSS на заказ</h3>
+                    <p>Уникальные анимации, сложные эффекты, кастомные стили под ваш проект. От отдельных элементов до полного дизайна.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Сложные CSS-анимации</li>
+                        <li><i class="fas fa-check"></i>Кастомные hover-эффекты</li>
+                        <li><i class="fas fa-check"></i>Адаптивная типографика</li>
+                        <li><i class="fas fa-check"></i>Современные Grid и Flexbox</li>
+                        <li><i class="fas fa-check"></i>Кроссбраузерная совместимость</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">400-2000 ₽</div>
+                        <div class="price-note">цена зависит от сложности</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="css">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">1-5 дней</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card" data-modal="fix">
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Исправление кода</h3>
+                    <p>Оптимизация, рефакторинг, исправление ошибок в существующем HTML/CSS коде. Без JavaScript.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Починка багов и ошибок</li>
+                        <li><i class="fas fa-check"></i>Оптимизация скорости</li>
+                        <li><i class="fas fa-check"></i>Улучшение адаптивности</li>
+                        <li><i class="fas fa-check"></i>Рефакторинг и чистка кода</li>
+                        <li><i class="fas fa-check"></i>Совместимость с браузерами</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <div class="price-container">
+                        <div class="price-main">300-1500 ₽</div>
+                        <div class="price-note">цена зависит от объёма</div>
+                    </div>
+                    <div class="service-buttons">
+                        <a href="#" class="detail-btn" data-modal="fix">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </a>
+                        <a href="https://t.me/MillersonXIII" class="order-btn" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Заказать
+                        </a>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="time">1-3 дня</div>
+                        <div class="label">срок выполнения</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-header">
+            <h2>МОЁ ПОРТФОЛИО</h2>
+            <p>Примеры выполненных работ. Каждый проект создан с учетом требований заказчика и современных стандартов вёрстки.</p>
+        </div>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-portfolio="1" data-count="2">
+                <div class="portfolio-count">2</div>
+                <div class="portfolio-preview">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=200&q=80" alt="Магазин сувениров">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Магазин сувениров</h3>
+                    <p>Интернет-магазин с каталогом товаров, фильтрацией и адаптивным дизайном.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-portfolio="2" data-count="3">
+                <div class="portfolio-count">3</div>
+                <div class="portfolio-preview">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=200&q=80" alt="Квантовые вычисления">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Квантовые вычисления</h3>
+                    <p>Корпоративный сайт для компании, занимающейся квантовыми технологиями.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-portfolio="3" data-count="4">
+                <div class="portfolio-count">4</div>
+                <div class="portfolio-preview">
+                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=200&q=80" alt="Сайт-визитка">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Сайт-визитка</h3>
+                    <p>Элегантное портфолио для фотографа с галереей и формой обратной связи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="section-header">
+            <h2>ПРОЦЕСС РАБОТЫ</h2>
+            <p>Четкая и прозрачная схема сотрудничества от обсуждения до передачи готового проекта</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Обсуждение проекта</h3>
+                <p>Вы рассказываете о своих пожеланиях, я задаю уточняющие вопросы. Определяем цели, сроки и бюджет.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Прототип и дизайн</h3>
+                <p>Создаю прототип в Figma, утверждаем структуру и визуальное оформление. Вносим правки до полного согласования.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Вёрстка и программирование</h3>
+                <p>Пишу чистый, семантичный HTML и современный CSS. Добавляю анимации, адаптивность и интерактивные элементы.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Тестирование и передача</h3>
+                <p>Тестирую на разных устройствах и браузерах. Передаю архив с файлами и документацией. Консультирую по размещению.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="section-header">
+            <h2>ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
+            <p>Ответы на популярные вопросы, которые помогут понять процесс работы и принять решение</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Сколько времени занимает создание сайта?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Срок зависит от сложности проекта: лендинг - 1-2 дня, сайт-визитка - 2-3 дня, каталог товаров - от 3 дней. Сроки могут измениться при добавлении дополнительных функций или сложных анимаций.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Что входит в стоимость услуг?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>В стоимость входит: вёрстка по вашему макету или создание дизайна, адаптация под все устройства, базовая SEO-оптимизация, чистый код. Дополнительные функции оплачиваются отдельно.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Нужен ли мне дизайн перед вёрсткой?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Если у вас уже есть готовый дизайн в Figma, Photoshop или даже набросок на бумаге - отлично. Если нет, я могу создать дизайн по вашим пожеланиям </p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Вы делаете сайты на WordPress или Tilda?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Нет, я специализируюсь на чистой вёрстке HTML/CSS. Это обеспечивает максимальную скорость загрузки и полный контроль над кодом. WordPress и Tilda используют готовые шаблоны и CMS.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Как происходит оплата?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Оплата происходит поэтапно: 50% предоплата, 50% после завершения работы. Принимаю оплату через СБП, криптовалюту или на карту. Для небольших проектов возможна полная предоплата.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Вы оказываете поддержку после сдачи проекта?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, в течение 30 дней после сдачи проекта бесплатно исправляю недочёты, если они возникли по моей вине. Дальнейшая поддержка и доработки обсуждаются отдельно.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Можно ли добавить JavaScript на сайт?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, но в ограниченном объёме. Я добавляю только базовый JavaScript для интерактивных элементов (слайдеры, модальные окна, аккордеоны). Сложная логика и функциональность не входят в мои услуги.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Вы занимаетесь размещением сайта на хостинге?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Нет, это не входит в мои услуги. Я предоставляю архив с готовым кодом, который вы можете разместить на любом хостинге. Могу порекомендовать проверенные хостинг-провайдеры.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Что если мне не понравится результат?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Мы работаем по этапам и согласовываем каждый шаг. Если на каком-то этапе вас что-то не устроит, вносим правки. Если не сможем договориться - возвращаю предоплату.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Можно ли изменить сайт после сдачи проекта?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, изменения возможны за дополнительную плату. Стоимость зависит от объёма изменений. Также вы можете обратиться к другому разработчику - код будет чистым и понятным.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
         <div class="contact-card">
             <div class="contact-icon"><i class="fab fa-telegram"></i></div>
             <h3>Telegram</h3>
-            <p>Напишите для обсуждения проекта</p>
-            <a href="https://t.me/MillersonXIII" class="contact-link" target="_blank">@MillersonXIII</a>
+            <p>Самый быстрый способ связаться. Отвечаю в течение 30 минут в рабочее время. Идеально для срочных вопросов и обсуждения деталей.</p>
+            <a href="https://t.me/MillersonXIII" class="contact-link" target="_blank">
+                <i class="fab fa-telegram"></i> Написать в Telegram
+            </a>
         </div>
 
         <div class="contact-card">
             <div class="contact-icon"><i class="fab fa-vk"></i></div>
             <h3>ВКонтакте</h3>
-            <p>Свяжитесь для обсуждения сотрудничества</p>
-            <a href="https://vk.ru/millerson_xiii" class="contact-link" target="_blank">millerson_xiii</a>
+            <p>Для подробного обсуждения проекта, отправки референсов и файлов. Отвечаю в течение 2-3 часов в рабочее время.</p>
+            <a href="https://vk.ru/millerson_xiii" class="contact-link" target="_blank">
+                <i class="fab fa-vk"></i> Написать ВКонтакте
+            </a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>© 2025-2026 MillersonXIII. Профессиональная вёрстка на HTML и CSS.</p>
+        <p>Все работы выполняются без использования JavaScript (кроме базовых интерактивных элементов по желанию клиента).</p>
+        
+        <div class="tech-note">
+            <p><strong>Техническое примечание:</strong> Этот сайт создан исключительно на HTML и CSS. Все анимации, адаптивность и интерактивные элементы реализованы без JavaScript. Код предоставляется в чистом виде с подробными комментариями. Работа с серверами, базами данных и хостингом не осуществляется.</p>
+            <p style="margin-top: 15px;">Для демонстрации возможностей использованы: CSS Grid, Flexbox, CSS-анимации, градиенты, переменные CSS (Custom Properties), медиазапросы, псевдоэлементы и современные подходы к вёрстке.</p>
+        </div>
+    </div>
+</footer>
+
+<div class="modal-overlay" id="service-modal">
+    <div class="service-modal">
+        <div class="modal-close" id="modal-close">&times;</div>
+        <div class="modal-header">
+            <h3 id="modal-title">Название услуги</h3>
+            <div class="modal-price" id="modal-price">Цена</div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-section">
+                <h4><i class="fas fa-info-circle"></i> Описание</h4>
+                <p id="modal-description"></p>
+            </div>
+            <div class="modal-section">
+                <h4><i class="fas fa-clock"></i> Сроки выполнения</h4>
+                <p id="modal-time"></p>
+            </div>
+            <div class="modal-section">
+                <h4><i class="fas fa-tag"></i> От чего зависит цена</h4>
+                <p id="modal-price-details"></p>
+            </div>
         </div>
     </div>
 </div>
 
-<footer>
-    <p>© 2025-2026 MillersonXIII. Создание сайтов на HTML и CSS.</p>
-    <p>Все работы без JavaScript (кроме базовых элементов)</p>
-    <div class="tech-note">
-        <p><strong>Примечание:</strong> Сайт создан на HTML и CSS. Анимации и адаптивность реализованы без JavaScript. Предоставляется только код, работа с серверами не осуществляется.</p>
+<div class="portfolio-modal" id="portfolio-modal">
+    <div class="portfolio-modal-content">
+        <button class="portfolio-close" id="portfolio-close">&times;</button>
+        <button class="portfolio-nav portfolio-prev" id="portfolio-prev">‹</button>
+        <button class="portfolio-nav portfolio-next" id="portfolio-next">›</button>
+        <div class="portfolio-modal-body">
+            <div class="portfolio-images" id="portfolio-images">
+            </div>
+            <div class="portfolio-description" id="portfolio-description">
+                <h4 id="portfolio-title">Название проекта</h4>
+                <p id="portfolio-text">Описание проекта будет здесь</p>
+            </div>
+        </div>
     </div>
-</footer>
+</div>
+
+<div class="image-viewer-modal" id="image-viewer-modal">
+    <button class="image-viewer-close" id="image-viewer-close">&times;</button>
+    <button class="image-nav image-prev" id="image-prev">‹</button>
+    <button class="image-nav image-next" id="image-next">›</button>
+    <div class="image-viewer-content">
+        <img id="full-size-image" src="" alt="">
+    </div>
+    <div class="image-counter" id="image-counter">1 / 1</div>
+</div>
 
 <script>
-document.getElementById('theme-switcher').addEventListener('change', function() {
-    if(this.checked) {
-        document.body.classList.add('light-theme');
-    } else {
-        document.body.classList.remove('light-theme');
+document.addEventListener('DOMContentLoaded', function() {
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const themeMenu = document.getElementById('theme-menu');
+    const desktopMenuToggle = document.getElementById('desktop-menu-toggle');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const menuLinks = document.querySelectorAll('.menu-link');
+    const body = document.body;
+    const scrollProgress = document.querySelector('.scroll-progress');
+    const backToTop = document.getElementById('back-to-top');
+    
+    if (localStorage.getItem('theme') === 'light') {
+        themeSwitcher.checked = true;
+        body.classList.add('light-theme');
     }
+    
+    themeSwitcher.addEventListener('change', function() {
+        if(this.checked) {
+            body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.classList.remove('light-theme');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+    
+    function toggleMenu() {
+        themeMenu.classList.toggle('active');
+        body.classList.toggle('no-scroll');
+    }
+    
+    function closeMenu() {
+        themeMenu.classList.remove('active');
+        body.classList.remove('no-scroll');
+    }
+    
+    desktopMenuToggle.addEventListener('click', toggleMenu);
+    mobileMenuToggle.addEventListener('click', toggleMenu);
+    menuClose.addEventListener('click', closeMenu);
+    
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                closeMenu();
+            }
+        });
+    });
+    
+    document.querySelectorAll('a[href^="#"]:not(.menu-link)').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
+    const serviceModal = document.getElementById('service-modal');
+    const modalClose = document.getElementById('modal-close');
+    const detailButtons = document.querySelectorAll('.detail-btn');
+    
+    const serviceData = {
+        card: {
+            title: 'Сайт-визитка',
+            price: '700 ₽ за страницу',
+            description: 'Идеальное решение для представления себя, своего бизнеса или услуг в интернете. Просто, эффективно, профессионально. Включает все необходимые секции: о компании, услуги, портфолио, контакты. Полностью адаптивный дизайн, работает на всех устройствах.',
+            time: '2-3 рабочих дня. Срок может увеличиться при добавлении дополнительных секций или сложных анимаций.',
+            priceDetails: 'Цена зависит от количества страниц, сложности дизайна и дополнительных элементов. Базовая цена включает до 5 стандартных секций на странице. Каждая дополнительная секция +100₽. Сложные анимации обсуждаются отдельно.'
+        },
+        landing: {
+            title: 'Лендинг (Одностраничник)',
+            price: '500 ₽ за сайт',
+            description: 'Одностраничный сайт для максимальной концентрации на одной цели: заявка, продажа, регистрация. Высокая конверсия и четкая структура. Идеально для рекламных кампаний и презентации одного продукта или услуги.',
+            time: '1-2 рабочих дня. Срок зависит от сложности структуры и количества блоков.',
+            priceDetails: 'Стоимость зависит от количества блоков, сложности анимаций и интеграций. Базовая цена включает до 7 стандартных блоков. Каждый дополнительный блок +50₽. Сложные интерактивные элементы обсуждаются отдельно.'
+        },
+        blog: {
+            title: 'Блог / Портфолио',
+            price: '750 ₽ за страницу',
+            description: 'Сайт для демонстрации ваших работ, статей или проектов. Удобная навигация и приятный визуал для посетителей. Включает галерею, категории и систему навигации. Идеально для творческих людей и специалистов.',
+            time: '2-3 рабочих дня. Срок может увеличиться при добавлении сложной системы фильтрации или галереи.',
+            priceDetails: 'Цена зависит от количества страниц, сложности галереи и системы навигации. Базовая цена включает до 3 категорий и 10 элементов галереи. Каждая дополнительная категория +100₽, элемент галереи +20₽.'
+        },
+        catalog: {
+            title: 'Каталог товаров',
+            price: '800 ₽ + 25 ₽/товар',
+            description: 'Презентация вашей продукции с удобной фильтрацией и детальным описанием. Без корзины и онлайн-оплаты. Идеально для демонстрации ассортимента. Включает систему фильтрации, сортировки и детальные карточки товаров.',
+            time: 'от 3 рабочих дней. Срок зависит от количества товаров и сложности фильтрации.',
+            priceDetails: 'Базовая стоимость включает структуру каталога. Дополнительно оплачивается каждый товар (25₽ за товар). Сложная фильтрация увеличивает стоимость на 200-500₽ в зависимости от сложности.'
+        },
+        faq: {
+            title: 'Сайт-справка / FAQ',
+            price: '300 ₽ за страницу',
+            description: 'Информационный ресурс с аккордеонами, вкладками и поиском. Идеально для базы знаний или часто задаваемых вопросов. Удобная навигация по разделам. Включает систему поиска и категоризацию контента.',
+            time: '2-3 рабочих дня. Срок зависит от количества вопросов и сложности системы навигации.',
+            priceDetails: 'Стоимость зависит от количества вопросов/ответов и сложности системы навигации. Базовая цена включает до 20 вопросов. Каждый дополнительный вопрос +10₽. Сложная система поиска +200₽.'
+        },
+        article: {
+            title: 'Сайт для статьи',
+            price: '250 ₽ за страницу',
+            description: 'Оптимальное решение для публикации длинных текстов, исследований, обзоров. Чистый дизайн без отвлекающих элементов, фокус на контенте. Идеально для блогеров, журналистов и исследователей.',
+            time: '1-2 рабочих дня. Срок зависит от объема текста и сложности структуры.',
+            priceDetails: 'Цена фиксированная за страницу. Дополнительные функции (оглавление, подсветка кода, кнопка печати) включены в стоимость. Большие объемы текста обсуждаются отдельно.'
+        },
+        custom: {
+            title: 'Индивидуальный проект',
+            price: 'Договорная',
+            description: 'Не нашли подходящий вариант? Обсудим вашу задачу и создадим уникальное решение под ваши требования. Полная кастомизация под ваш бренд. Любая сложность и функциональность (в рамках HTML/CSS).',
+            time: 'от 5 рабочих дней. Точный срок определяется после обсуждения проекта.',
+            priceDetails: 'Цена рассчитывается индивидуально исходя из сложности проекта, количества страниц и уникальных требований. Минимальная стоимость от 1500₽. Составляем подробное ТЗ и согласовываем бюджет перед началом работы.'
+        },
+        css: {
+            title: 'CSS на заказ',
+            price: '400-2000 ₽',
+            description: 'Уникальные анимации, сложные эффекты, кастомные стили под ваш проект. От отдельных элементов до полного дизайна. Работаю с современными CSS-технологиями: CSS Grid, Flexbox, анимации, градиенты, переменные.',
+            time: '1-5 рабочих дней. Срок зависит от сложности задач и объема работы.',
+            priceDetails: 'Стоимость зависит от сложности анимаций, количества элементов и необходимости адаптации под разные устройства. Простые анимации от 400₽. Сложные комплексные решения до 2000₽. Каждый элемент оценивается отдельно.'
+        },
+        fix: {
+            title: 'Исправление вашего кода',
+            price: '300-1500 ₽',
+            description: 'Оптимизация, рефакторинг, исправление ошибок в существующем HTML/CSS коде. Улучшаю производительность и исправляю баги. Без JavaScript. Работаю с любым существующим кодом.',
+            time: '1-3 рабочих дня. Срок зависит от объема кода и количества ошибок.',
+            priceDetails: 'Цена зависит от объёма кода, количества ошибок и сложности требуемых исправлений. Минимальная стоимость 300₽ за анализ и мелкие исправления. Крупный рефакторинг до 1500₽. Оцениваю по факту просмотра кода.'
+        }
+    };
+    
+    detailButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const modalType = this.getAttribute('data-modal');
+            const data = serviceData[modalType];
+            
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-price').textContent = data.price;
+            document.getElementById('modal-description').textContent = data.description;
+            document.getElementById('modal-time').textContent = data.time;
+            document.getElementById('modal-price-details').textContent = data.priceDetails;
+            
+            serviceModal.classList.add('active');
+            body.classList.add('no-scroll');
+        });
+    });
+    
+    modalClose.addEventListener('click', function() {
+        serviceModal.classList.remove('active');
+        body.classList.remove('no-scroll');
+    });
+    
+    serviceModal.addEventListener('click', function(e) {
+        if (e.target === serviceModal) {
+            serviceModal.classList.remove('active');
+            body.classList.remove('no-scroll');
+        }
+    });
+    
+    const portfolioModal = document.getElementById('portfolio-modal');
+    const portfolioClose = document.getElementById('portfolio-close');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const portfolioImages = document.getElementById('portfolio-images');
+    const portfolioTitle = document.getElementById('portfolio-title');
+    const portfolioText = document.getElementById('portfolio-text');
+    const portfolioPrev = document.getElementById('portfolio-prev');
+    const portfolioNext = document.getElementById('portfolio-next');
+    
+    const imageViewerModal = document.getElementById('image-viewer-modal');
+    const imageViewerClose = document.getElementById('image-viewer-close');
+    const fullSizeImage = document.getElementById('full-size-image');
+    const imagePrev = document.getElementById('image-prev');
+    const imageNext = document.getElementById('image-next');
+    const imageCounter = document.getElementById('image-counter');
+    
+    const portfolioData = {
+        1: {
+            title: 'Магазин сувениров',
+            description: 'Интернет-магазин с каталогом товаров, фильтрацией по категориям и адаптивным дизайном. Реализована удобная система просмотра товаров, детальные карточки с описанием и ценами. Сайт оптимизирован для мобильных устройств и имеет быструю загрузку страниц.',
+            images: [
+                'images/port1.jpg',
+                'images/port2.jpg'
+            ]
+        },
+        2: {
+            title: 'Квантовые вычисления',
+            description: 'Корпоративный сайт для компании, занимающейся квантовыми технологиями. Современный дизайн с анимациями, разделы о технологиях, команде и проектах. Реализована адаптивная галерея проектов и система отзывов клиентов.',
+            images: [
+                'images/port3.jpg',
+                'images/port4.jpg',
+                'images/port5.jpg'
+            ]
+        },
+        3: {
+            title: 'Сайт-визитка фотографа',
+            description: 'Элегантное портфолио для профессионального фотографа. Галерея работ с фильтрацией по категориям, раздел об авторе, контакты и форма обратной связи. Адаптивный дизайн с акцентом на визуальный контент.',
+            images: [
+                'images/port6.jpg',
+                'images/port7.jpg',
+                'images/port8.jpg',
+                'images/port9.jpg'
+            ]
+        }
+    };
+    
+    let currentPortfolio = 1;
+    let currentImageIndex = 0;
+    let currentImages = [];
+    const totalPortfolios = 3;
+    
+    function loadPortfolioImages(images) {
+        portfolioImages.innerHTML = '';
+        currentImages = images;
+        
+        images.forEach((imgSrc, index) => {
+            const imgDiv = document.createElement('div');
+            imgDiv.className = 'portfolio-image';
+            imgDiv.dataset.index = index;
+            
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = `Проект ${currentPortfolio} - изображение ${index + 1}`;
+            img.loading = 'lazy';
+            
+            imgDiv.appendChild(img);
+            portfolioImages.appendChild(imgDiv);
+            
+            imgDiv.addEventListener('click', () => {
+                openImageViewer(index);
+            });
+        });
+    }
+    
+    function openPortfolio(id) {
+        currentPortfolio = id;
+        const data = portfolioData[id];
+        
+        if (!data) return;
+        
+        portfolioTitle.textContent = data.title;
+        portfolioText.textContent = data.description;
+        loadPortfolioImages(data.images);
+        
+        portfolioModal.classList.add('active');
+        body.classList.add('no-scroll');
+    }
+    
+    function openImageViewer(index) {
+        currentImageIndex = index;
+        updateImageViewer();
+        imageViewerModal.classList.add('active');
+        body.classList.add('no-scroll');
+    }
+    
+    function updateImageViewer() {
+        if (currentImages.length === 0) return;
+        
+        fullSizeImage.src = currentImages[currentImageIndex];
+        fullSizeImage.alt = `Проект ${currentPortfolio} - изображение ${currentImageIndex + 1}`;
+        imageCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+    }
+    
+    portfolioItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (e.target.closest('.portfolio-count') || e.target.closest('a')) return;
+            
+            const id = parseInt(this.getAttribute('data-portfolio'));
+            openPortfolio(id);
+        });
+    });
+    
+    portfolioClose.addEventListener('click', function() {
+        portfolioModal.classList.remove('active');
+        body.classList.remove('no-scroll');
+    });
+    
+    portfolioModal.addEventListener('click', function(e) {
+        if (e.target === portfolioModal) {
+            portfolioModal.classList.remove('active');
+            body.classList.remove('no-scroll');
+        }
+    });
+    
+    portfolioPrev.addEventListener('click', function() {
+        currentPortfolio = currentPortfolio > 1 ? currentPortfolio - 1 : totalPortfolios;
+        openPortfolio(currentPortfolio);
+    });
+    
+    portfolioNext.addEventListener('click', function() {
+        currentPortfolio = currentPortfolio < totalPortfolios ? currentPortfolio + 1 : 1;
+        openPortfolio(currentPortfolio);
+    });
+    
+    imageViewerClose.addEventListener('click', function() {
+        imageViewerModal.classList.remove('active');
+        body.classList.remove('no-scroll');
+    });
+    
+    imageViewerModal.addEventListener('click', function(e) {
+        if (e.target === imageViewerModal) {
+            imageViewerModal.classList.remove('active');
+            body.classList.remove('no-scroll');
+        }
+    });
+    
+    imagePrev.addEventListener('click', function() {
+        currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : currentImages.length - 1;
+        updateImageViewer();
+    });
+    
+    imageNext.addEventListener('click', function() {
+        currentImageIndex = currentImageIndex < currentImages.length - 1 ? currentImageIndex + 1 : 0;
+        updateImageViewer();
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (imageViewerModal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                imageViewerModal.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
+            if (e.key === 'ArrowLeft') {
+                imagePrev.click();
+            }
+            if (e.key === 'ArrowRight') {
+                imageNext.click();
+            }
+        }
+        
+        if (portfolioModal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                portfolioModal.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
+            if (e.key === 'ArrowLeft') {
+                portfolioPrev.click();
+            }
+            if (e.key === 'ArrowRight') {
+                portfolioNext.click();
+            }
+        }
+        
+        if (serviceModal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                serviceModal.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
+        }
+    });
+    
+    window.addEventListener('scroll', function() {
+        const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        scrollProgress.style.width = scrolled + '%';
+        
+        if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+        
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            if (elementTop < window.innerHeight - 100) {
+                element.classList.add('visible');
+            }
+        });
+    });
+    
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    const fadeElements = document.querySelectorAll('.service-card, .process-step, .portfolio-item, .contact-card');
+    fadeElements.forEach(element => {
+        element.classList.add('fade-in');
+    });
+    
+    window.dispatchEvent(new Event('scroll'));
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            mobileMenuToggle.style.display = 'none';
+            desktopMenuToggle.style.display = 'flex';
+        } else {
+            mobileMenuToggle.style.display = 'flex';
+            desktopMenuToggle.style.display = 'none';
+        }
+    });
+    
+    window.dispatchEvent(new Event('resize'));
+    
+    const buttons = document.querySelectorAll('.order-btn, .detail-btn, .contact-link, .cta-button');
+    buttons.forEach(button => {
+        button.classList.add('touch-button');
+    });
 });
 </script>
 </body>
