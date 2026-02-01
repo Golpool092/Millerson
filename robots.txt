@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://millerson.shop/sitemap.xml

@@ -1,0 +1,13 @@
+/* TEAM */
+Верстальщик: Millerson
+Сайт: https://millerson.shop
+Telegram: @MillersonShop
+
+/* THANKS */
+Font Awesome: https://fontawesome.com
+Unsplash: https://unsplash.com
+Google Fonts: https://fonts.google.com
+
+/* SITE */
+Last update: 2026-02-02
+Standards: HTML5, CSS3
