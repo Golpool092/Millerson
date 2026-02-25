@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Кредитный калькулятор – Millerson Company</title>
+    <meta name="description" content="Рассчитайте кредит с учётом первоначального взноса и комиссии банка. График платежей, аннуитет и дифференциал.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/credit.html">
+    <meta property="og:title" content="Кредитный калькулятор – Millerson Company">
+    <meta property="og:description" content="Рассчитайте кредит с учётом первоначального взноса и комиссии. График платежей, переплата, два типа платежей.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="https://millerson.shop/credit.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106524351', 'ym');
+
+    ym(106524351, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106524351" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <span class="header__logo">Millerson Company</span>
+            <button class="burger" aria-label="Меню" id="burgerBtn">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+            <nav class="nav nav--desktop">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Главная</a></li>
+                    <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                    <li><a href="about.html" class="nav__link">О компании</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    <li>
+                        <div class="theme-switch">
+                            <span class="theme-switch__label">Тёмная тема</span>
+                            <label class="switch">
+                                <input type="checkbox" id="themeToggleDesktop">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="nav nav--mobile" id="navMobile">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Главная</a></li>
+                    <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                    <li><a href="about.html" class="nav__link">О компании</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    <li>
+                        <div class="theme-switch">
+                            <span class="theme-switch__label">Тёмная тема</span>
+                            <label class="switch">
+                                <input type="checkbox" id="themeToggleMobile">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Купить Сайт Millerson SHOP</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="main__title">Кредитный калькулятор</h1>
+            <p class="main__description">Рассчитайте ежемесячный платёж, переплату и посмотрите график погашения с учётом первоначального взноса и комиссии банка.</p>
+
+            <div class="calculator glass">
+                <form class="calculator__form" id="calcForm">
+                    <div class="form-group">
+                        <label for="amount" class="form-label">Сумма кредита</label>
+                        <input type="number" id="amount" class="form-input" value="1000000" min="1000" step="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="downPayment" class="form-label">Первоначальный взнос</label>
+                        <input type="number" id="downPayment" class="form-input" value="0" min="0" step="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="commission" class="form-label">Комиссия банка (%)</label>
+                        <input type="number" id="commission" class="form-input" value="0" min="0" max="20" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Срок</label>
+                        <div class="input-group">
+                            <input type="number" id="term" class="form-input" value="12" min="1" required>
+                            <div class="radio-switch">
+                                <label class="radio-switch__item">
+                                    <input type="radio" name="termUnit" value="months" checked> мес
+                                </label>
+                                <label class="radio-switch__item">
+                                    <input type="radio" name="termUnit" value="years"> лет
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rate" class="form-label">Процентная ставка (% годовых)</label>
+                        <input type="number" id="rate" class="form-input" value="12" min="0.1" max="100" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Тип платежа</label>
+                        <div class="radio-switch">
+                            <label class="radio-switch__item">
+                                <input type="radio" name="paymentType" value="annuity" checked> Аннуитетный
+                            </label>
+                            <label class="radio-switch__item">
+                                <input type="radio" name="paymentType" value="differentiated"> Дифференцированный
+                            </label>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="results">
+                    <div class="result-card">
+                        <span class="result-card__label">Ежемесячный платёж</span>
+                        <span class="result-card__value" id="monthlyPayment">0 ₽</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label">Переплата</span>
+                        <span class="result-card__value" id="overpayment">0 ₽</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label">Общая сумма выплат</span>
+                        <span class="result-card__value" id="totalPayment">0 ₽</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label">Процент переплаты</span>
+                        <span class="result-card__value" id="overpaymentPercent">0%</span>
+                    </div>
+                </div>
+
+                <div class="share-actions">
+                    <button class="share-btn" id="copyResultsBtn" title="Копировать результаты">📋</button>
+                    <button class="share-btn" id="shareResultsBtn" title="Поделиться">🔗</button>
+                </div>
+
+                <div class="table-section">
+                    <button class="btn btn--secondary" id="toggleTableBtn">Показать график платежей</button>
+                    <div class="table-wrapper hidden" id="paymentTableWrapper">
+                        <table class="payment-table">
+                            <thead>
+                                <tr>
+                                    <th>Месяц</th>
+                                    <th>Платёж</th>
+                                    <th>Основной долг</th>
+                                    <th>Проценты</th>
+                                    <th>Остаток</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seo-text">
+                <h2>Как работает кредитный калькулятор</h2>
+                <p>Кредитный калькулятор — это удобный онлайн-инструмент, позволяющий заранее рассчитать параметры займа и оценить финансовую нагрузку. Перед оформлением кредита важно понимать, какой будет ежемесячный платеж, сколько составит общая переплата и какую сумму придется вернуть банку за весь срок действия договора.</p>
+                <p>Расчет ежемесячного платежа зависит от суммы кредита, процентной ставки и срока займа. При аннуитетной схеме платеж остается одинаковым на протяжении всего периода. В первые месяцы большая часть платежа направляется на погашение процентов, а затем постепенно увеличивается доля основного долга. Формула аннуитетного платежа учитывает процентную ставку и количество периодов, благодаря чему сумма выплат распределяется равномерно.</p>
+                <p>При дифференцированной схеме основной долг делится на равные части, а проценты начисляются на остаток задолженности. В этом случае первые платежи выше, но со временем уменьшаются. Такой способ может привести к меньшей общей переплате, однако требует большей финансовой нагрузки в начале срока.</p>
+                <p>Онлайн-калькулятор подходит тем, кто планирует взять потребительский кредит, оформить ипотеку или сравнить условия разных банков. С его помощью можно быстро изменить параметры займа и увидеть, как меняется ежемесячный платеж и итоговая сумма выплат.</p>
+                <p>Предварительный расчет позволяет избежать лишних рисков. Даже небольшое изменение процентной ставки способно существенно повлиять на переплату. Поэтому важно заранее оценить несколько сценариев и выбрать оптимальный вариант с учетом личного бюджета.</p>
+                <p>Использование кредитного калькулятора помогает принимать более обоснованные финансовые решения и планировать расходы без неожиданностей.</p>
+            </div>
+
+            <section class="faq-section">
+                <h2 class="faq-title">Часто задаваемые вопросы</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">Как рассчитать кредит онлайн?</summary>
+                        <div class="faq-answer">Чтобы рассчитать кредит онлайн, введите сумму займа, срок и процентную ставку в кредитный калькулятор. Система автоматически посчитает ежемесячный платеж, общую сумму выплат и переплату по кредиту.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Что такое аннуитетный платеж?</summary>
+                        <div class="faq-answer">Аннуитетный платеж — это способ погашения кредита, при котором сумма ежемесячного платежа остается одинаковой на протяжении всего срока. В начале срока большая часть платежа уходит на проценты, а ближе к концу — на основной долг.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Что такое дифференцированный платеж?</summary>
+                        <div class="faq-answer">Дифференцированный платеж — это способ погашения кредита, при котором основной долг делится на равные части, а проценты начисляются на остаток задолженности. В этом случае первые платежи выше, а затем постепенно уменьшаются.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Как узнать переплату по кредиту?</summary>
+                        <div class="faq-answer">Переплата по кредиту рассчитывается как разница между общей суммой выплат и суммой займа. Кредитный калькулятор показывает переплату автоматически после ввода всех данных.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Какой способ погашения выгоднее — аннуитетный или дифференцированный?</summary>
+                        <div class="faq-answer">Дифференцированный платеж обычно позволяет уменьшить общую переплату, но первые ежемесячные платежи будут выше. Аннуитетный платеж удобнее для планирования бюджета, так как сумма фиксирована.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Можно ли рассчитать ипотеку этим калькулятором?</summary>
+                        <div class="faq-answer">Да, ипотечный кредит можно рассчитать так же, как и обычный потребительский кредит. Нужно указать сумму займа, срок и процентную ставку, после чего калькулятор покажет примерный график платежей.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Учитывает ли калькулятор досрочное погашение?</summary>
+                        <div class="faq-answer">Базовый расчет показывает стандартный график выплат. При досрочном погашении итоговая переплата может быть ниже, так как проценты начисляются на фактический остаток долга.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Почему ежемесячный платеж отличается от расчета банка?</summary>
+                        <div class="faq-answer">Банк может учитывать дополнительные комиссии, страховку или индивидуальные условия договора. Онлайн-калькулятор показывает предварительный расчет на основе введенных данных.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Зачем использовать кредитный калькулятор перед оформлением кредита?</summary>
+                        <div class="faq-answer">Кредитный калькулятор помогает заранее оценить финансовую нагрузку, сравнить разные условия и выбрать оптимальный срок и сумму займа.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Как влияет процентная ставка на размер платежа?</summary>
+                        <div class="faq-answer">Чем выше процентная ставка, тем больше сумма ежемесячного платежа и общая переплата. Даже разница в 1–2 процента может значительно повлиять на итоговую стоимость кредита.</div>
+                    </details>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p>© 2026 Millerson Company</p>
+                <p>Все расчеты носят информационный характер и не являются публичной офертой.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+            const themeToggleMobile = document.getElementById('themeToggleMobile');
+            const savedTheme = localStorage.getItem('theme');
+
+            function setTheme(checked) {
+                if (checked) {
+                    document.body.classList.add('dark-theme');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                }
+                localStorage.setItem('theme', checked ? 'dark' : 'light');
+                if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+                if (themeToggleMobile) themeToggleMobile.checked = checked;
+            }
+
+            if (savedTheme === 'dark') {
+                setTheme(true);
+            } else {
+                setTheme(false);
+            }
+
+            if (themeToggleDesktop) {
+                themeToggleDesktop.addEventListener('change', function(e) {
+                    setTheme(e.target.checked);
+                });
+            }
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('change', function(e) {
+                    setTheme(e.target.checked);
+                });
+            }
+
+            const burgerBtn = document.getElementById('burgerBtn');
+            const navMobile = document.getElementById('navMobile');
+            function closeMobileMenu() {
+                navMobile.classList.remove('active');
+                burgerBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            burgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMobile.classList.toggle('active');
+                burgerBtn.classList.toggle('active');
+                document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+            });
+            navMobile.querySelectorAll('.nav__link, .btn').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            document.addEventListener('click', function(event) {
+                if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) {
+                    closeMobileMenu();
+                }
+            });
+
+            const amountInput = document.getElementById('amount');
+            const downPaymentInput = document.getElementById('downPayment');
+            const commissionInput = document.getElementById('commission');
+            const termInput = document.getElementById('term');
+            const rateInput = document.getElementById('rate');
+            const termUnitRadios = document.querySelectorAll('input[name="termUnit"]');
+            const paymentTypeRadios = document.querySelectorAll('input[name="paymentType"]');
+            const monthlyPaymentSpan = document.getElementById('monthlyPayment');
+            const overpaymentSpan = document.getElementById('overpayment');
+            const totalPaymentSpan = document.getElementById('totalPayment');
+            const overpaymentPercentSpan = document.getElementById('overpaymentPercent');
+            const tableBody = document.getElementById('tableBody');
+            const toggleTableBtn = document.getElementById('toggleTableBtn');
+            const tableWrapper = document.getElementById('paymentTableWrapper');
+            const copyBtn = document.getElementById('copyResultsBtn');
+            const shareBtn = document.getElementById('shareResultsBtn');
+
+            let currentSchedule = [];
+            let animationFrame = null;
+            let currentValues = { monthly: 0, overpayment: 0, total: 0, percent: 0 };
+
+            function formatNumber(num) {
+                return num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$& ');
+            }
+
+            function animateValue(element, start, end, duration, suffix = ' ₽') {
+                const startTime = performance.now();
+                const update = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const value = start + (end - start) * progress;
+                    element.textContent = formatNumber(value) + suffix;
+                    if (progress < 1) {
+                        animationFrame = requestAnimationFrame(update);
+                    } else {
+                        element.textContent = formatNumber(end) + suffix;
+                    }
+                };
+                if (animationFrame) cancelAnimationFrame(animationFrame);
+                animationFrame = requestAnimationFrame(update);
+            }
+
+            function calculate() {
+                let amount = parseFloat(amountInput.value) || 0;
+                let downPayment = parseFloat(downPaymentInput.value) || 0;
+                let commissionPercent = parseFloat(commissionInput.value) || 0;
+                let term = parseFloat(termInput.value) || 1;
+                const rateYear = parseFloat(rateInput.value) || 0;
+                const termUnit = document.querySelector('input[name="termUnit"]:checked').value;
+                const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
+
+                if (amount < 0) amount = 0;
+                if (downPayment < 0) downPayment = 0;
+                if (downPayment > amount) downPayment = amount;
+                const loanAmount = amount - downPayment;
+
+                if (termUnit === 'years') term *= 12;
+                const n = Math.round(term);
+                if (n <= 0) return;
+
+                const monthlyRate = rateYear / 100 / 12;
+                const commission = loanAmount * (commissionPercent / 100);
+
+                let monthly = 0, totalInterest = 0, total = 0;
+                let schedule = [];
+
+                if (paymentType === 'annuity') {
+                    if (monthlyRate === 0) {
+                        monthly = loanAmount / n;
+                        total = loanAmount;
+                        totalInterest = 0;
+                        for (let i = 1; i <= n; i++) {
+                            schedule.push({
+                                month: i,
+                                payment: monthly,
+                                principal: monthly,
+                                interest: 0,
+                                balance: loanAmount - monthly * i
+                            });
+                        }
+                    } else {
+                        const r = monthlyRate;
+                        const annuityFactor = (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+                        monthly = loanAmount * annuityFactor;
+                        total = monthly * n;
+                        totalInterest = total - loanAmount;
+
+                        let balance = loanAmount;
+                        for (let i = 1; i <= n; i++) {
+                            const interest = balance * r;
+                            const principal = monthly - interest;
+                            balance -= principal;
+                            schedule.push({
+                                month: i,
+                                payment: monthly,
+                                principal: principal,
+                                interest: interest,
+                                balance: balance > 0 ? balance : 0
+                            });
+                        }
+                    }
+                } else {
+                    const principalPart = loanAmount / n;
+                    let balance = loanAmount;
+                    totalInterest = 0;
+                    for (let i = 1; i <= n; i++) {
+                        const interest = balance * monthlyRate;
+                        const payment = principalPart + interest;
+                        balance -= principalPart;
+                        totalInterest += interest;
+                        schedule.push({
+                            month: i,
+                            payment: payment,
+                            principal: principalPart,
+                            interest: interest,
+                            balance: balance > 0 ? balance : 0
+                        });
+                    }
+                    monthly = schedule[0].payment;
+                    total = loanAmount + totalInterest;
+                }
+
+                const totalWithCommission = total + commission;
+                const overpayment = totalInterest + commission;
+                const percent = loanAmount > 0 ? (overpayment / loanAmount) * 100 : 0;
+
+                animateValue(monthlyPaymentSpan, currentValues.monthly, monthly, 300, ' ₽');
+                animateValue(overpaymentSpan, currentValues.overpayment, overpayment, 300, ' ₽');
+                animateValue(totalPaymentSpan, currentValues.total, totalWithCommission, 300, ' ₽');
+                animateValue(overpaymentPercentSpan, currentValues.percent, percent, 300, '%');
+
+                currentValues = { monthly, overpayment, total: totalWithCommission, percent };
+                currentSchedule = schedule;
+
+                renderTable(schedule);
+            }
+
+            function renderTable(schedule) {
+                let html = '';
+                schedule.forEach(row => {
+                    html += `<tr>
+                        <td>${row.month}</td>
+                        <td>${formatNumber(row.payment)} ₽</td>
+                        <td>${formatNumber(row.principal)} ₽</td>
+                        <td>${formatNumber(row.interest)} ₽</td>
+                        <td>${formatNumber(row.balance)} ₽</td>
+                    </tr>`;
+                });
+                tableBody.innerHTML = html;
+            }
+
+            [amountInput, downPaymentInput, commissionInput, termInput, rateInput].forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.value < 0) this.value = 0;
+                    if (this.id === 'rate' && this.value > 100) this.value = 100;
+                    calculate();
+                });
+            });
+
+            termUnitRadios.forEach(radio => radio.addEventListener('change', calculate));
+            paymentTypeRadios.forEach(radio => radio.addEventListener('change', calculate));
+
+            toggleTableBtn.addEventListener('click', function() {
+                tableWrapper.classList.toggle('hidden');
+                this.textContent = tableWrapper.classList.contains('hidden') ? 'Показать график платежей' : 'Скрыть график платежей';
+            });
+
+            copyBtn.addEventListener('click', function() {
+                const text = `Кредитный калькулятор Millerson\nЕжемесячный платёж: ${monthlyPaymentSpan.textContent}\nПереплата: ${overpaymentSpan.textContent}\nОбщая сумма: ${totalPaymentSpan.textContent}\nПроцент переплаты: ${overpaymentPercentSpan.textContent}`;
+                navigator.clipboard.writeText(text).then(() => alert('Результаты скопированы!')).catch(() => alert('Не удалось скопировать'));
+            });
+
+            shareBtn.addEventListener('click', function() {
+                const text = `Кредитный калькулятор Millerson\nЕжемесячный платёж: ${monthlyPaymentSpan.textContent}\nПереплата: ${overpaymentSpan.textContent}\nОбщая сумма: ${totalPaymentSpan.textContent}\nПроцент переплаты: ${overpaymentPercentSpan.textContent}`;
+                if (navigator.share) {
+                    navigator.share({ title: 'Кредитный калькулятор', text: text, url: window.location.href }).catch(() => {});
+                } else {
+                    navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => alert('Ссылка и результаты скопированы!'));
+                }
+            });
+
+            calculate();
+        })();
+    </script>
+</body>
+</html>

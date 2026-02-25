@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Калькулятор НДФЛ онлайн 2026— расчет налога 13%, 15%, 30%</title>
+    <meta name="description" content="Онлайн калькулятор НДФЛ. Рассчитать налог 13%, 15% или 30% от суммы дохода. Узнайте сколько удержат и сколько останется на руки.">
+    <meta name="keywords" content="калькулятор НДФЛ, налог 13 процентов, налог 15 процентов, налог 30 процентов, расчет налога онлайн">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/ndfl.html">
+    <meta property="og:title" content="Калькулятор НДФЛ – Millerson Company">
+    <meta property="og:description" content="Рассчитайте НДФЛ 13%, 15%, 30% онлайн. Узнайте сумму налога и доход после вычета.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="https://millerson.shop/ndfl.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106524351', 'ym');
+
+    ym(106524351, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106524351" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <span class="header__logo">Millerson Company</span>
+            <button class="burger" aria-label="Меню" id="burgerBtn">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+            <nav class="nav nav--desktop">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Главная</a></li>
+                    <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                    <li><a href="about.html" class="nav__link">О компании</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    <li>
+                        <div class="theme-switch">
+                            <span class="theme-switch__label">Тёмная тема</span>
+                            <label class="switch">
+                                <input type="checkbox" id="themeToggleDesktop">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="nav nav--mobile" id="navMobile">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Главная</a></li>
+                   <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                    <li><a href="about.html" class="nav__link">О компании</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    <li>
+                        <div class="theme-switch">
+                            <span class="theme-switch__label">Тёмная тема</span>
+                            <label class="switch">
+                                <input type="checkbox" id="themeToggleMobile">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Купить Сайт Millerson SHOP</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="main__title">Калькулятор НДФЛ онлайн 13%, 15%, 30%</h1>
+            <p class="main__description">Рассчитайте налог на доходы физических лиц по ставкам 13%, 15% или 30%. Узнайте сумму к удержанию и остаток на руки.</p>
+
+            <div class="calculator glass">
+                <form class="calculator__form" id="calcForm">
+                    <div class="form-group">
+                        <label for="income" class="form-label">Сумма дохода</label>
+                        <input type="number" id="income" class="form-input" value="100000" min="0" step="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rateSelect" class="form-label">Тип ставки</label>
+                        <select id="rateSelect" class="form-input">
+                            <option value="13">13% — основная ставка</option>
+                            <option value="15">15% — доходы свыше 5 млн</option>
+                            <option value="30">30% — нерезидент</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Режим расчёта</label>
+                        <div class="radio-switch">
+                            <label class="radio-switch__item">
+                                <input type="radio" name="calcMode" value="tax" checked> Рассчитать налог
+                            </label>
+                            <label class="radio-switch__item">
+                                <input type="radio" name="calcMode" value="hand"> Рассчитать доход на руки
+                            </label>
+                        </div>
+                    </div>
+                </form>
+
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn--primary" id="calculateBtn">Рассчитать</button>
+                </div>
+
+                <div class="results">
+                    <div class="result-card">
+                        <span class="result-card__label">Сумма налога</span>
+                        <span class="result-card__value" id="taxAmount">0 ₽</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label" id="secondLabel">Сумма на руки</span>
+                        <span class="result-card__value" id="secondAmount">0 ₽</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label">Использованная ставка</span>
+                        <span class="result-card__value" id="rateUsed">13%</span>
+                    </div>
+                </div>
+
+                <div class="share-actions">
+                    <button class="share-btn" id="copyResultsBtn" title="Копировать результаты">📋</button>
+                    <button class="share-btn" id="shareResultsBtn" title="Поделиться">🔗</button>
+                </div>
+            </div>
+
+            <div class="seo-text">
+                <h2>Что такое НДФЛ и как его рассчитать</h2>
+                <p>Налог на доходы физических лиц (НДФЛ) — это прямой налог, который удерживается из доходов граждан Российской Федерации. Его плательщиками являются все физические лица, получающие доходы от источников в России: зарплата, вознаграждения по договорам, дивиденды, проценты, доходы от продажи имущества и другие выплаты. По общему правилу работодатель выступает налоговым агентом и самостоятельно перечисляет налог в бюджет, а сотрудник получает сумму уже за вычетом НДФЛ.</p>
+                <p>В России действуют три основные ставки НДФЛ, которые зависят от статуса налогоплательщика и размера дохода. Ставка 13% применяется к большинству доходов резидентов (лиц, находящихся в стране не менее 183 дней в году). Если годовой доход резидента превышает 5 миллионов рублей, то с суммы превышения взимается налог по ставке 15% (прогрессивная шкала). Для нерезидентов, то есть тех, кто проводит в России менее 183 дней, ставка составляет 30% со всех доходов, полученных от российских источников.</p>
+                <p>Расчёт НДФЛ выполняется по простой формуле: налог = налоговая база × ставка / 100. Налоговая база — это сумма дохода, которая может быть уменьшена на налоговые вычеты (стандартные, социальные, имущественные и др.). Однако базовый калькулятор показывает предварительный расчёт без учёта вычетов. Важно понимать разницу между доходом «гросс» (до вычета налога) и доходом «нетто» (после удержания). Обычно в трудовых договорах и объявлениях указывается зарплата до вычета НДФЛ, а на руки сотрудник получает на 13% меньше.</p>
+                <p>Онлайн‑калькулятор НДФЛ (калькулятор налога 13 процентов онлайн) позволяет быстро оценить сумму налога и спланировать личный бюджет. Например, зная желаемый доход на руки, можно вычислить, какой размер гросс‑зарплаты необходимо указать в резюме или обсудить с работодателем. Также калькулятор поможет при расчёте налогов с доходов от подработок, аренды имущества или продажи ценностей.</p>
+                <p>Почему важно считать налог заранее? Во‑первых, это даёт реалистичное представление о финансах. Во‑вторых, позволяет сравнивать предложения о работе с разными системами оплаты. В‑третьих, знание ставок помогает избежать ошибок при заполнении декларации 3‑НДФЛ. Даже если вы не обязаны подавать декларацию самостоятельно, понимание механизма расчёта делает вас более финансово грамотным.</p>
+                <p>Помните, что представленный калькулятор выполняет базовые вычисления и не учитывает возможные льготы и вычеты. Для точного расчёта с учётом вашей ситуации обратитесь к налоговому консультанту или используйте сервисы ФНС. Тем не менее, инструмент даёт надёжную ориентировочную оценку и помогает принимать взвешенные решения.</p>
+            </div>
+
+            <section class="faq-section">
+                <h2 class="faq-title">Часто задаваемые вопросы</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">Как считается НДФЛ?</summary>
+                        <div class="faq-answer">НДФЛ исчисляется как произведение налоговой базы (дохода) и соответствующей ставки налога. Стандартная ставка для резидентов — 13%, для доходов свыше 5 млн рублей — 15%, для нерезидентов — 30%.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Сколько процентов налог с зарплаты?</summary>
+                        <div class="faq-answer">С зарплаты резидентов РФ удерживается 13% (или 15% с суммы превышения 5 млн рублей в год). Нерезиденты платят 30% со всех доходов от источников в России.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Когда применяется ставка 15%?</summary>
+                        <div class="faq-answer">Ставка 15% применяется к части годового дохода резидента, превышающей 5 миллионов рублей. Например, при доходе 6 млн рублей налог составит: 13% с 5 млн + 15% с 1 млн.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Кто платит НДФЛ по ставке 30%?</summary>
+                        <div class="faq-answer">По ставке 30% облагаются доходы нерезидентов — лиц, находящихся на территории России менее 183 дней в течение 12 следующих подряд месяцев.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Учитываются ли налоговые вычеты?</summary>
+                        <div class="faq-answer">Данный калькулятор выполняет базовый расчёт без учёта вычетов. В реальности налоговая база может быть уменьшена на стандартные, социальные, имущественные или профессиональные вычеты.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Что значит «доход до вычета»?</summary>
+                        <div class="faq-answer">«Доход до вычета» (гросс) — это сумма, на которую начисляется налог. «Доход после вычета» (нетто) — сумма, которую вы получаете на руки после удержания НДФЛ.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Можно ли вернуть НДФЛ?</summary>
+                        <div class="faq-answer">Да, при наличии права на вычет (покупка квартиры, обучение, лечение и др.) можно вернуть часть ранее уплаченного налога через налоговую инспекцию или работодателя.</div>
+                    </details>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p>© 2026 Millerson Company</p>
+                <p>Все расчеты носят информационный характер и не являются публичной офертой.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Как считается НДФЛ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "НДФЛ исчисляется как произведение налоговой базы (дохода) и соответствующей ставки налога. Стандартная ставка для резидентов — 13%, для доходов свыше 5 млн рублей — 15%, для нерезидентов — 30%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Сколько процентов налог с зарплаты?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "С зарплаты резидентов РФ удерживается 13% (или 15% с суммы превышения 5 млн рублей в год). Нерезиденты платят 30% со всех доходов от источников в России."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Когда применяется ставка 15%?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ставка 15% применяется к части годового дохода резидента, превышающей 5 миллионов рублей. Например, при доходе 6 млн рублей налог составит: 13% с 5 млн + 15% с 1 млн."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Кто платит НДФЛ по ставке 30%?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "По ставке 30% облагаются доходы нерезидентов — лиц, находящихся на территории России менее 183 дней в течение 12 следующих подряд месяцев."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Учитываются ли налоговые вычеты?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Данный калькулятор выполняет базовый расчёт без учёта вычетов. В реальности налоговая база может быть уменьшена на стандартные, социальные, имущественные или профессиональные вычеты."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Что значит «доход до вычета»?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "«Доход до вычета» (гросс) — это сумма, на которую начисляется налог. «Доход после вычета» (нетто) — сумма, которую вы получаете на руки после удержания НДФЛ."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Можно ли вернуть НДФЛ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да, при наличии права на вычет (покупка квартиры, обучение, лечение и др.) можно вернуть часть ранее уплаченного налога через налоговую инспекцию или работодателя."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script>
+        (function() {
+            const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+            const themeToggleMobile = document.getElementById('themeToggleMobile');
+            const savedTheme = localStorage.getItem('theme');
+
+            function setTheme(checked) {
+                if (checked) {
+                    document.body.classList.add('dark-theme');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                }
+                localStorage.setItem('theme', checked ? 'dark' : 'light');
+                if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+                if (themeToggleMobile) themeToggleMobile.checked = checked;
+            }
+
+            if (savedTheme === 'dark') {
+                setTheme(true);
+            } else {
+                setTheme(false);
+            }
+
+            if (themeToggleDesktop) {
+                themeToggleDesktop.addEventListener('change', function(e) {
+                    setTheme(e.target.checked);
+                });
+            }
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('change', function(e) {
+                    setTheme(e.target.checked);
+                });
+            }
+
+            const burgerBtn = document.getElementById('burgerBtn');
+            const navMobile = document.getElementById('navMobile');
+
+            function closeMobileMenu() {
+                navMobile.classList.remove('active');
+                burgerBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            burgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMobile.classList.toggle('active');
+                burgerBtn.classList.toggle('active');
+                document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+            });
+
+            navMobile.querySelectorAll('.nav__link, .btn').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) {
+                    closeMobileMenu();
+                }
+            });
+
+            const incomeInput = document.getElementById('income');
+            const rateSelect = document.getElementById('rateSelect');
+            const modeRadios = document.querySelectorAll('input[name="calcMode"]');
+            const taxSpan = document.getElementById('taxAmount');
+            const secondSpan = document.getElementById('secondAmount');
+            const secondLabel = document.getElementById('secondLabel');
+            const rateUsedSpan = document.getElementById('rateUsed');
+            const copyBtn = document.getElementById('copyResultsBtn');
+            const shareBtn = document.getElementById('shareResultsBtn');
+            const calculateBtn = document.getElementById('calculateBtn');
+
+            let currentValues = { tax: 0, second: 0, rate: 13 };
+
+            function formatNumber(num) {
+                return num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$& ');
+            }
+
+            function animateValue(element, start, end, duration, suffix = ' ₽') {
+                const startTime = performance.now();
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const value = start + (end - start) * progress;
+                    element.textContent = formatNumber(value) + suffix;
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        element.textContent = formatNumber(end) + suffix;
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+
+            function calculate() {
+                let income = parseFloat(incomeInput.value) || 0;
+                if (income < 0) income = 0;
+                const rate = parseFloat(rateSelect.value) || 13;
+                const mode = document.querySelector('input[name="calcMode"]:checked').value;
+
+                let tax, displaySecond;
+                if (mode === 'tax') {
+                    tax = income * rate / 100;
+                    displaySecond = income - tax;
+                    secondLabel.textContent = 'Сумма на руки';
+                } else {
+                    const net = income;
+                    const gross = net / (1 - rate / 100);
+                    tax = gross - net;
+                    displaySecond = gross;
+                    secondLabel.textContent = 'Необходимый доход (гросс)';
+                }
+
+                animateValue(taxSpan, currentValues.tax, tax, 300, ' ₽');
+                animateValue(secondSpan, currentValues.second, displaySecond, 300, ' ₽');
+                rateUsedSpan.textContent = rate + '%';
+
+                currentValues = { tax: tax, second: displaySecond, rate: rate };
+            }
+
+            function handleInput() {
+                calculate();
+            }
+
+            incomeInput.addEventListener('input', handleInput);
+            rateSelect.addEventListener('change', handleInput);
+            modeRadios.forEach(radio => radio.addEventListener('change', handleInput));
+            calculateBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                calculate();
+            });
+
+            copyBtn.addEventListener('click', function() {
+                const mode = document.querySelector('input[name="calcMode"]:checked').value;
+                const secondText = (mode === 'tax') ? 'Сумма на руки' : 'Необходимый доход';
+                const text = `Калькулятор НДФЛ Millerson\nСумма налога: ${taxSpan.textContent}\n${secondText}: ${secondSpan.textContent}\nСтавка: ${rateUsedSpan.textContent}`;
+                navigator.clipboard.writeText(text).then(() => alert('Результаты скопированы!')).catch(() => alert('Не удалось скопировать'));
+            });
+
+            shareBtn.addEventListener('click', function() {
+                const mode = document.querySelector('input[name="calcMode"]:checked').value;
+                const secondText = (mode === 'tax') ? 'Сумма на руки' : 'Необходимый доход';
+                const text = `Калькулятор НДФЛ Millerson\nСумма налога: ${taxSpan.textContent}\n${secondText}: ${secondSpan.textContent}\nСтавка: ${rateUsedSpan.textContent}`;
+                if (navigator.share) {
+                    navigator.share({ title: 'Калькулятор НДФЛ', text: text, url: window.location.href }).catch(() => {});
+                } else {
+                    navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => alert('Ссылка и результаты скопированы!'));
+                }
+            });
+
+            calculate();
+        })();
+    </script>
+</body>
+</html>
