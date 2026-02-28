@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Калькулятор шарового сектора онлайн: объём, площадь поверхности | Millerson</title>
+    <meta name="description" content="Бесплатный онлайн калькулятор для шарового сектора: найдите объём, площадь полной поверхности, радиус сферы и высоту сегмента. Пошаговое решение, супер-простой режим.">
+    <meta name="keywords" content="шаровой сектор онлайн, объём шарового сектора, площадь поверхности шарового сектора, радиус сферы, высота сегмента, калькулятор шарового сектора">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/spherical-sector.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:title" content="Калькулятор шарового сектора – Millerson">
+    <meta property="og:description" content="Мгновенный расчёт объёма и полной поверхности шарового сектора. Подробное решение.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://millerson.shop/spherical-sector.html">
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Калькулятор шарового сектора">
+    <meta name="twitter:description" content="Объём, площадь поверхности. Бесплатно.">
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="theme-switch" style="justify-content: space-between;">
+                        <span class="theme-switch__label">Супер-простой режим</span>
+                        <label class="switch">
+                            <input type="checkbox" id="simpleModeToggleDesktop">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="theme-switch" style="justify-content: space-between;">
+                        <span class="theme-switch__label">Супер-простой режим</span>
+                        <label class="switch">
+                            <input type="checkbox" id="simpleModeToggleMobile">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        <h1 class="main__title">Калькулятор шарового сектора</h1>
+        <p class="main__description">Рассчитайте объём и площадь полной поверхности шарового сектора по радиусу сферы и высоте сегмента.</p>
+
+        <div class="calculator glass">
+            <div style="margin-bottom:20px;">
+                <h2 style="font-size:1.8rem; margin:0;">Шаровой сектор</h2>
+            </div>
+
+            <div class="unit-selector" id="unitSelector">
+                <span style="font-weight:500;">Единицы ввода:</span>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="mm"> мм</label>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="cm" checked> см</label>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="m"> м</label>
+            </div>
+
+            <div id="submodeContainer" style="margin-bottom:20px;"></div>
+            <div id="inputGroups" style="margin-bottom:20px;"></div>
+
+            <div class="action-buttons">
+                <button class="action-btn" id="calculateBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
+                <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайная задача</button>
+                <button class="action-btn" id="clearBtn"><i class="fas fa-undo"></i> Очистить</button>
+                <button class="action-btn" id="copyAnswerBtn"><i class="fas fa-copy"></i> Копировать ответ</button>
+                <button class="action-btn" id="copySolutionBtn"><i class="fas fa-file-alt"></i> Копировать решение</button>
+                <button class="action-btn" id="shareBtn"><i class="fas fa-share-alt"></i> Поделиться</button>
+            </div>
+
+            <div class="results" id="resultsContainer"></div>
+
+            <div id="stepByStep" style="margin-top:30px; background:var(--surface-solid); border-radius:24px; padding:20px; border:1px solid var(--border);">
+                <h3 style="margin-bottom:15px;">📝 Подробное решение</h3>
+                <div id="stepText" class="math-formula">Введите данные и нажмите "Рассчитать"</div>
+                <div id="stepTextSimple" class="simple-explanation">Введите данные и нажмите "Рассчитать"</div>
+            </div>
+
+            <div id="formulasUsed" style="margin-top:20px; background:var(--surface-solid); border-radius:24px; padding:20px; border:1px solid var(--border);" class="math-formula">
+                <h3 style="margin-bottom:15px;">📐 Использованные формулы</h3>
+                <div id="formulasText">—</div>
+            </div>
+        </div>
+
+        <div class="tools-links">
+            <a href="sphere.html" class="tool-card"><i class="fas fa-circle"></i> Сфера</a>
+            <a href="spherical-cap.html" class="tool-card"><i class="fas fa-chart-pie"></i> Шаровой сегмент</a>
+            <a href="cylinder.html" class="tool-card"><i class="fas fa-cylinder"></i> Цилиндр</a>
+            <a href="cone.html" class="tool-card"><i class="fas fa-cone"></i> Конус</a>
+            <a href="torus.html" class="tool-card"><i class="fas fa-ring"></i> Тор</a>
+            <a href="allgeometry-3d.html" class="tool-card"><i class="fas fa-th"></i> Все 3D фигуры</a>
+        </div>
+
+        <div class="seo-text">
+            <h2>Онлайн калькулятор шарового сектора</h2>
+            <p>Шаровой сектор — это тело, состоящее из конуса и шарового сегмента на общем основании. Он образуется вращением кругового сектора вокруг диаметра. Наш калькулятор позволяет вычислить:</p>
+            <ul>
+                <li><strong>Объём сектора</strong> V = (2/3)πR²h, где R — радиус сферы, h — высота сегмента.</li>
+                <li><strong>Полную поверхность</strong> (сумма площади сферического сегмента и боковой поверхности конуса) S = 2πRh + πr√(r²+(R−h)²), где r — радиус основания сегмента.</li>
+                <li>Радиус основания вычисляется как r = √(h(2R−h)).</li>
+            </ul>
+            <p>Калькулятор принимает радиус сферы и высоту сегмента. Результаты включают объём, полную поверхность, а также промежуточные радиус основания и образующую конуса.</p>
+            <h3>Пример расчёта</h3>
+            <p>Радиус сферы R = 5 см, высота сегмента h = 2 см. Тогда r = √(2·8) = 4 см, образующая конуса l = √(r²+(R−h)²) = √(16+9)=5 см, объём V = (2/3)π·25·2 = (2/3)·3,1416·50 = 104,72 см³, полная поверхность S = 2π·5·2 + π·4·5 = 62,83 + 62,83 = 125,66 см².</p>
+            <h3>Применение</h3>
+            <p>Шаровые секторы используются в оптике (линзы), в архитектуре (купола с коническими элементами), в физике при расчётах шаровых резервуаров.</p>
+        </div>
+
+        <section class="faq-section">
+            <h2 class="faq-title">Часто задаваемые вопросы</h2>
+            <div class="faq-list" id="faqList"></div>
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+    function setTheme(checked) {
+        if (checked) document.body.classList.add('dark-theme');
+        else document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+    if (savedTheme === 'dark') setTheme(true);
+    else setTheme(false);
+    if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+    function closeMobileMenu() { navMobile.classList.remove('active'); burgerBtn.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+    navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('click', function(event) {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
+    });
+
+    const simpleToggleDesktop = document.getElementById('simpleModeToggleDesktop');
+    const simpleToggleMobile = document.getElementById('simpleModeToggleMobile');
+    const body = document.body;
+    function showGameToast(text) {
+        const existingToast = document.querySelector('.game-toast');
+        if (existingToast) existingToast.remove();
+        const toast = document.createElement('div');
+        toast.className = 'game-toast';
+        toast.innerHTML = `
+            <img src="logo.png" alt="Millerson Company" style="height: 24px; width: auto; margin-right: 8px;">
+            <span style="flex: 1; margin-right: 8px;">${text}</span>
+            <span style="font-size: 1.2rem; cursor: pointer;" onclick="this.parentElement.remove()">✕</span>
+        `;
+        document.body.appendChild(toast);
+        let startX = 0, currentX = 0, isSwiping = false;
+        const onTouchStart = (e) => { startX = e.touches[0].clientX; isSwiping = true; };
+        const onTouchMove = (e) => { if (!isSwiping) return; currentX = e.touches[0].clientX; toast.style.transform = `translateX(${currentX - startX}px)`; };
+        const onTouchEnd = () => {
+            if (!isSwiping) return;
+            const deltaX = currentX - startX;
+            if (Math.abs(deltaX) > 50) toast.remove();
+            else toast.style.transform = '';
+            isSwiping = false; startX = 0; currentX = 0;
+        };
+        toast.addEventListener('touchstart', onTouchStart);
+        toast.addEventListener('touchmove', onTouchMove);
+        toast.addEventListener('touchend', onTouchEnd);
+        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3500);
+    }
+    function setSimpleMode(checked) {
+        if (checked) { body.classList.add('simple-mode'); showGameToast('Супер-простой режим включён'); }
+        else { body.classList.remove('simple-mode'); showGameToast('Супер-простой режим выключен'); }
+        if (simpleToggleDesktop) simpleToggleDesktop.checked = checked;
+        if (simpleToggleMobile) simpleToggleMobile.checked = checked;
+    }
+    if (simpleToggleDesktop) simpleToggleDesktop.addEventListener('change', e => setSimpleMode(e.target.checked));
+    if (simpleToggleMobile) simpleToggleMobile.addEventListener('change', e => setSimpleMode(e.target.checked));
+
+    const submodeContainer = document.getElementById('submodeContainer');
+    const inputGroups = document.getElementById('inputGroups');
+    const resultsContainer = document.getElementById('resultsContainer');
+    const stepText = document.getElementById('stepText');
+    const stepTextSimple = document.getElementById('stepTextSimple');
+    const formulasText = document.getElementById('formulasText');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const randomBtn = document.getElementById('randomBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyAnswerBtn = document.getElementById('copyAnswerBtn');
+    const copySolutionBtn = document.getElementById('copySolutionBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const unitRadios = document.querySelectorAll('input[name="unitGlobal"]');
+
+    const currentFigure = 'sphericalSector';
+    let currentSubmode = 'R_h';
+    let currentUnit = 'cm';
+
+    function round6(x) { return Math.round(x * 1e6) / 1e6; }
+    function toCm(value, unit) { return unit === 'mm' ? value/10 : unit === 'm' ? value*100 : value; }
+    function fromCm(value, unit) { return unit === 'mm' ? value*10 : unit === 'm' ? value/100 : value; }
+    function fromCmArea(value, unit) {
+        if (unit === 'mm') return value * 100;
+        if (unit === 'm') return value / 10000;
+        return value;
+    }
+    function fromCmVolume(value, unit) {
+        if (unit === 'mm') return value * 1000;
+        if (unit === 'm') return value / 1000000;
+        return value;
+    }
+
+    const figureConfig = {
+        sphericalSector: {
+            name: 'Шаровой сектор',
+            submodes: [
+                { id: 'R_h', name: 'По радиусу сферы и высоте сегмента', fields: [
+                    { name: 'R', label: 'Радиус сферы R', simpleLabel: 'Радиус сферы', default: 5 },
+                    { name: 'h', label: 'Высота сегмента h', simpleLabel: 'Высота сегмента', default: 2 }
+                ] }
+            ],
+            resultLabels: ['Радиус сферы', 'Высота сегмента', 'Объём сектора', 'Площадь поверхности (сфера+конус)'],
+            resultTypes: ['linear', 'linear', 'volume', 'area'],
+            calculate: function(values, unit) {
+                const R = values.R;
+                const h = values.h;
+                if (h > 2*R) throw new Error('Высота сегмента не может превышать диаметр сферы');
+                const V = (2/3) * Math.PI * R * R * h;
+                const r = Math.sqrt(h * (2*R - h));
+                const l = Math.sqrt(r*r + (R-h)*(R-h));
+                const S_cone = Math.PI * r * l;
+                const S_cap = 2 * Math.PI * R * h;
+                const S_total = S_cone + S_cap;
+                const resultsArray = [R, h, V, S_total];
+                const unitName = unit === 'mm' ? 'мм' : unit === 'm' ? 'м' : 'см';
+                const solutionMath = `Радиус сферы R = ${R.toFixed(6)} ${unitName}, высота сегмента h = ${h.toFixed(6)} ${unitName}. Объём сектора V = (2/3)πR²h = ${V.toFixed(6)} ${unitName}³. Полная поверхность (сферический сегмент + боковая поверхность конуса) S = 2πRh + πr√(r²+(R−h)²) = ${S_total.toFixed(6)} ${unitName}².`;
+                const solutionSimple = `Шаровой сектор состоит из конуса и шарового сегмента. Объём вычисляется по формуле, не требующей радиуса основания. Полная поверхность — сумма площадей сегмента и боковой поверхности конуса.`;
+                const formulas = 'V = (2/3)πR²h, S = 2πRh + πr√(r²+(R−h)²), r = √(h(2R−h))';
+                return { resultsArray, solutionMath, solutionSimple, formulas };
+            },
+            defaultSubmode: 'R_h'
+        }
+    };
+
+    function renderResults(resultsArray, unit) {
+        const fig = figureConfig[currentFigure];
+        const types = fig.resultTypes || resultsArray.map(() => 'linear');
+        let html = '';
+        for (let i = 0; i < fig.resultLabels.length; i++) {
+            let val = resultsArray[i];
+            if (val === undefined || val === '—') val = '—';
+            else if (types[i] === 'area' && typeof val === 'number') val = round6(fromCmArea(val, unit)) + ' ' + unit + '²';
+            else if (types[i] === 'volume' && typeof val === 'number') val = round6(fromCmVolume(val, unit)) + ' ' + unit + '³';
+            else if (types[i] === 'linear' && typeof val === 'number') val = round6(fromCm(val, unit)) + ' ' + unit;
+            else if (typeof val === 'number') val = round6(val) + (types[i] === 'angle' ? '°' : '');
+            html += `<div class="result-card"><span class="result-card__label">${fig.resultLabels[i]}</span><span class="result-card__value">${val}</span></div>`;
+        }
+        resultsContainer.innerHTML = html;
+    }
+
+    function renderSolution(math, simple, formulas) {
+        stepText.textContent = math;
+        stepTextSimple.textContent = simple;
+        formulasText.textContent = formulas;
+    }
+
+    function validateField(value, min=0) { return !isNaN(value) && value > min; }
+    function clearErrors() {
+        document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+        document.querySelectorAll('.error-message').forEach(el => el.remove());
+    }
+
+    function gatherValues() {
+        const fields = document.querySelectorAll('#inputGroups input[type="number"]');
+        const values = {};
+        fields.forEach(f => {
+            const val = parseFloat(f.value);
+            const parts = f.id.split('_');
+            const simpleName = parts[parts.length - 1];
+            values[simpleName] = isNaN(val) ? undefined : val;
+        });
+        return values;
+    }
+
+    function calculate() {
+        clearErrors();
+        const fig = figureConfig[currentFigure];
+        if (!fig) return;
+        const valuesRaw = gatherValues();
+        const valuesCm = {};
+        let valid = true;
+        for (let key in valuesRaw) {
+            if (valuesRaw[key] === undefined) {
+                valid = false;
+            } else {
+                const valCm = toCm(valuesRaw[key], currentUnit);
+                if (!validateField(valCm)) {
+                    valid = false;
+                } else {
+                    valuesCm[key] = valCm;
+                }
+            }
+        }
+        if (!valid) {
+            return;
+        }
+        try {
+            const { resultsArray, solutionMath, solutionSimple, formulas } = fig.calculate(valuesCm, currentUnit);
+            renderResults(resultsArray, currentUnit);
+            renderSolution(solutionMath, solutionSimple, formulas);
+        } catch (e) {
+            renderSolution('Ошибка вычисления: ' + e.message, 'Проверьте введённые данные', '');
+        }
+    }
+
+    function buildSubmodeAndFields() {
+        const fig = figureConfig[currentFigure];
+        if (!fig) return;
+        let submodeHtml = `<label class="form-label">Способ задания</label><div class="radio-switch" style="margin-top:8px;">`;
+        fig.submodes.forEach(sm => {
+            submodeHtml += `<label class="radio-switch__item"><input type="radio" name="submode" value="${sm.id}" ${sm.id===currentSubmode?'checked':''}> ${sm.name}</label>`;
+        });
+        submodeHtml += `</div>`;
+        submodeContainer.innerHTML = submodeHtml;
+
+        document.querySelectorAll('input[name="submode"]').forEach(radio => {
+            radio.addEventListener('change', e => {
+                currentSubmode = e.target.value;
+                buildFields();
+                calculate();
+            });
+        });
+
+        buildFields();
+    }
+
+    function buildFields() {
+        const fig = figureConfig[currentFigure];
+        const submode = fig.submodes.find(s => s.id === currentSubmode);
+        if (!submode) return;
+        const isSimple = body.classList.contains('simple-mode');
+        let html = `<div class="input-group-dynamic">`;
+        submode.fields.forEach(f => {
+            const fieldId = `${currentFigure}_${currentSubmode}_${f.name}`;
+            const label = isSimple && f.simpleLabel ? f.simpleLabel : f.label;
+            html += `<div class="field-wrapper"><label class="form-label">${label}</label>
+                <input type="number" id="${fieldId}" class="form-input" value="${f.default}" min="0" step="any">
+            </div>`;
+        });
+        html += `</div>`;
+        inputGroups.innerHTML = html;
+
+        document.querySelectorAll('#inputGroups input[type="number"]').forEach(inp => {
+            inp.addEventListener('input', calculate);
+        });
+    }
+
+    unitRadios.forEach(r => {
+        r.addEventListener('change', function() {
+            const newUnit = this.value;
+            if (newUnit === currentUnit) return;
+            const fields = document.querySelectorAll('#inputGroups input[type="number"]');
+            fields.forEach(f => {
+                const val = parseFloat(f.value);
+                if (!isNaN(val)) {
+                    const valCm = toCm(val, currentUnit);
+                    f.value = round6(fromCm(valCm, newUnit));
+                }
+            });
+            currentUnit = newUnit;
+            calculate();
+        });
+    });
+
+    calculateBtn.addEventListener('click', calculate);
+    clearBtn.addEventListener('click', function() {
+        const fig = figureConfig[currentFigure];
+        const submode = fig.submodes.find(s => s.id === currentSubmode);
+        if (submode) {
+            submode.fields.forEach(f => {
+                const fieldId = `${currentFigure}_${currentSubmode}_${f.name}`;
+                const inp = document.getElementById(fieldId);
+                if (inp) inp.value = fromCm(f.default, currentUnit);
+            });
+        }
+        calculate();
+    });
+    randomBtn.addEventListener('click', function() {
+        const fig = figureConfig[currentFigure];
+        const submode = fig.submodes.find(s => s.id === currentSubmode);
+        if (submode) {
+            submode.fields.forEach(f => {
+                const fieldId = `${currentFigure}_${currentSubmode}_${f.name}`;
+                const inp = document.getElementById(fieldId);
+                if (inp) {
+                    let val = f.default * (0.5 + Math.random());
+                    inp.value = round6(val);
+                }
+            });
+        }
+        calculate();
+    });
+    copyAnswerBtn.addEventListener('click', function() {
+        const text = resultsContainer.innerText;
+        navigator.clipboard.writeText(text).then(() => alert('Ответ скопирован')).catch(() => alert('Ошибка'));
+    });
+    copySolutionBtn.addEventListener('click', function() {
+        const text = body.classList.contains('simple-mode') ? stepTextSimple.innerText : stepText.innerText;
+        navigator.clipboard.writeText(text).then(() => alert('Решение скопировано')).catch(() => alert('Ошибка'));
+    });
+    shareBtn.addEventListener('click', function() {
+        const text = `Шаровой сектор: ${resultsContainer.innerText} - решение: ${stepText.innerText} ${window.location.href}`;
+        if (navigator.share) navigator.share({ title: 'Калькулятор шарового сектора', text }).catch(() => {});
+        else navigator.clipboard.writeText(text).then(() => alert('Ссылка и данные скопированы'));
+    });
+
+    buildSubmodeAndFields();
+    calculate();
+    setTimeout(() => showGameToast('Вы можете включить супер-простой режим в меню!'), 1000);
+
+    const faqList = document.getElementById('faqList');
+    faqList.innerHTML = `
+        <details class="faq-item"><summary class="faq-question">Как найти объём шарового сектора?</summary><div class="faq-answer">V = (2/3)πR²h.</div></details>
+        <details class="faq-item"><summary class="faq-question">Из чего состоит шаровой сектор?</summary><div class="faq-answer">Из конуса и шарового сегмента на общем основании.</div></details>
+        <details class="faq-item"><summary class="faq-question">Чем отличается сектор от сегмента?</summary><div class="faq-answer">Сектор включает конус, сегмент — только часть шара.</div></details>
+    `;
+})();
+</script>
+<script type="text/javascript"> (function(m,e,t,r,i,k,a){ m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a) })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym'); ym(107027516, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Калькулятор шарового сектора",
+    "description": "Бесплатный калькулятор для расчёта объёма и полной поверхности шарового сектора.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "url": "https://millerson.shop/spherical-sector.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" }
+}
+</script>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+
+    if(!localStorage.getItem('cookieAccepted')){
+        banner.style.display = 'block';
+    }
+
+    button.addEventListener('click', function(){
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
+</body>
+</html>

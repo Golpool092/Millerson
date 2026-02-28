@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Калькулятор конуса онлайн: объём, площадь поверхности, образующая | Millerson</title>
+    <meta name="description" content="Бесплатный онлайн калькулятор для конуса: найдите объём, площадь боковой и полной поверхности, образующую, радиус и высоту. Пошаговое решение, супер-простой режим.">
+    <meta name="keywords" content="конус онлайн, объём конуса, площадь поверхности конуса, образующая конуса, радиус конуса, высота конуса, калькулятор конуса">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/cone.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:title" content="Калькулятор конуса – Millerson">
+    <meta property="og:description" content="Мгновенный расчёт объёма, площади поверхности, образующей, радиуса и высоты конуса. Подробное решение.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://millerson.shop/cone.html">
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Калькулятор конуса">
+    <meta name="twitter:description" content="Объём, площадь, образующая. Бесплатно.">
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="theme-switch" style="justify-content: space-between;">
+                        <span class="theme-switch__label">Супер-простой режим</span>
+                        <label class="switch">
+                            <input type="checkbox" id="simpleModeToggleDesktop">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="theme-switch" style="justify-content: space-between;">
+                        <span class="theme-switch__label">Супер-простой режим</span>
+                        <label class="switch">
+                            <input type="checkbox" id="simpleModeToggleMobile">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        <h1 class="main__title">Калькулятор конуса</h1>
+        <p class="main__description">Рассчитайте объём, площадь боковой и полной поверхности, образующую, радиус и высоту конуса.</p>
+
+        <div class="calculator glass">
+            <div style="margin-bottom:20px;">
+                <h2 style="font-size:1.8rem; margin:0;">Конус</h2>
+            </div>
+
+            <div class="unit-selector" id="unitSelector">
+                <span style="font-weight:500;">Единицы ввода:</span>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="mm"> мм</label>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="cm" checked> см</label>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="m"> м</label>
+            </div>
+
+            <div id="submodeContainer" style="margin-bottom:20px;"></div>
+            <div id="inputGroups" style="margin-bottom:20px;"></div>
+
+            <div class="action-buttons">
+                <button class="action-btn" id="calculateBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
+                <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайная задача</button>
+                <button class="action-btn" id="clearBtn"><i class="fas fa-undo"></i> Очистить</button>
+                <button class="action-btn" id="copyAnswerBtn"><i class="fas fa-copy"></i> Копировать ответ</button>
+                <button class="action-btn" id="copySolutionBtn"><i class="fas fa-file-alt"></i> Копировать решение</button>
+                <button class="action-btn" id="shareBtn"><i class="fas fa-share-alt"></i> Поделиться</button>
+            </div>
+
+            <div class="results" id="resultsContainer"></div>
+
+            <div id="stepByStep" style="margin-top:30px; background:var(--surface-solid); border-radius:24px; padding:20px; border:1px solid var(--border);">
+                <h3 style="margin-bottom:15px;">📝 Подробное решение</h3>
+                <div id="stepText" class="math-formula">Введите данные и нажмите "Рассчитать"</div>
+                <div id="stepTextSimple" class="simple-explanation">Введите данные и нажмите "Рассчитать"</div>
+            </div>
+
+            <div id="formulasUsed" style="margin-top:20px; background:var(--surface-solid); border-radius:24px; padding:20px; border:1px solid var(--border);" class="math-formula">
+                <h3 style="margin-bottom:15px;">📐 Использованные формулы</h3>
+                <div id="formulasText">—</div>
+            </div>
+        </div>
+
+        <div class="tools-links">
+            <a href="cube.html" class="tool-card"><i class="fas fa-cube"></i> Куб</a>
+            <a href="sphere.html" class="tool-card"><i class="fas fa-circle"></i> Сфера</a>
+            <a href="cylinder.html" class="tool-card"><i class="fas fa-cylinder"></i> Цилиндр</a>
+            <a href="frustum.html" class="tool-card"><i class="fas fa-cut"></i> Усечённый конус</a>
+            <a href="pyramid.html" class="tool-card"><i class="fas fa-pyramid"></i> Пирамида</a>
+            <a href="allgeometry-3d.html" class="tool-card"><i class="fas fa-th"></i> Все 3D фигуры</a>
+        </div>
+
+        <div class="seo-text">
+            <h2>Онлайн калькулятор конуса: объём, площадь, образующая</h2>
+            <p>Конус — тело, полученное объединением всех лучей, исходящих из вершины и проходящих через плоское основание. В прямом круговом конусе основание — круг, а вершина проецируется в его центр. Наш калькулятор позволяет найти:</p>
+            <ul>
+                <li><strong>Образующую</strong> l = √(R² + h²), где R — радиус, h — высота.</li>
+                <li><strong>Объём</strong> V = (1/3)πR²h.</li>
+                <li><strong>Площадь боковой поверхности</strong> S<sub>бок</sub> = πRl.</li>
+                <li><strong>Площадь полной поверхности</strong> S = πR(R+l).</li>
+            </ul>
+            <p>Вы можете задать конус по радиусу и высоте, либо по радиусу и образующей. Калькулятор автоматически проверит корректность данных (например, что образующая не меньше радиуса).</p>
+            <h3>Пример расчёта</h3>
+            <p>Радиус конуса R = 3 см, высота h = 4 см. Тогда образующая l = √(9+16) = 5 см, объём V = (1/3)π·9·4 = 37,699 см³, боковая поверхность S<sub>бок</sub> = π·3·5 = 47,124 см², полная поверхность S = π·3·(3+5) = 75,398 см².</p>
+            <h3>Применение</h3>
+            <p>Конусы используются в технике (детали, воронки), архитектуре (купола, шпили), в быту (стаканчики для мороженого).</p>
+        </div>
+
+        <section class="faq-section">
+            <h2 class="faq-title">Часто задаваемые вопросы</h2>
+            <div class="faq-list" id="faqList"></div>
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+    function setTheme(checked) {
+        if (checked) document.body.classList.add('dark-theme');
+        else document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+    if (savedTheme === 'dark') setTheme(true);
+    else setTheme(false);
+    if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+    function closeMobileMenu() { navMobile.classList.remove('active'); burgerBtn.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+    navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('click', function(event) {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
+    });
+
+    const simpleToggleDesktop = document.getElementById('simpleModeToggleDesktop');
+    const simpleToggleMobile = document.getElementById('simpleModeToggleMobile');
+    const body = document.body;
+    function showGameToast(text) {
+        const existingToast = document.querySelector('.game-toast');
+        if (existingToast) existingToast.remove();
+        const toast = document.createElement('div');
+        toast.className = 'game-toast';
+        toast.innerHTML = `
+            <img src="logo.png" alt="Millerson Company" style="height: 24px; width: auto; margin-right: 8px;">
+            <span style="flex: 1; margin-right: 8px;">${text}</span>
+            <span style="font-size: 1.2rem; cursor: pointer;" onclick="this.parentElement.remove()">✕</span>
+        `;
+        document.body.appendChild(toast);
+        let startX = 0, currentX = 0, isSwiping = false;
+        const onTouchStart = (e) => { startX = e.touches[0].clientX; isSwiping = true; };
+        const onTouchMove = (e) => { if (!isSwiping) return; currentX = e.touches[0].clientX; toast.style.transform = `translateX(${currentX - startX}px)`; };
+        const onTouchEnd = () => {
+            if (!isSwiping) return;
+            const deltaX = currentX - startX;
+            if (Math.abs(deltaX) > 50) toast.remove();
+            else toast.style.transform = '';
+            isSwiping = false; startX = 0; currentX = 0;
+        };
+        toast.addEventListener('touchstart', onTouchStart);
+        toast.addEventListener('touchmove', onTouchMove);
+        toast.addEventListener('touchend', onTouchEnd);
+        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3500);
+    }
+    function setSimpleMode(checked) {
+        if (checked) { body.classList.add('simple-mode'); showGameToast('Супер-простой режим включён'); }
+        else { body.classList.remove('simple-mode'); showGameToast('Супер-простой режим выключен'); }
+        if (simpleToggleDesktop) simpleToggleDesktop.checked = checked;
+        if (simpleToggleMobile) simpleToggleMobile.checked = checked;
+    }
+    if (simpleToggleDesktop) simpleToggleDesktop.addEventListener('change', e => setSimpleMode(e.target.checked));
+    if (simpleToggleMobile) simpleToggleMobile.addEventListener('change', e => setSimpleMode(e.target.checked));
+
+    const submodeContainer = document.getElementById('submodeContainer');
+    const inputGroups = document.getElementById('inputGroups');
+    const resultsContainer = document.getElementById('resultsContainer');
+    const stepText = document.getElementById('stepText');
+    const stepTextSimple = document.getElementById('stepTextSimple');
+    const formulasText = document.getElementById('formulasText');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const randomBtn = document.getElementById('randomBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyAnswerBtn = document.getElementById('copyAnswerBtn');
+    const copySolutionBtn = document.getElementById('copySolutionBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const unitRadios = document.querySelectorAll('input[name="unitGlobal"]');
+
+    const currentFigure = 'cone';
+    let currentSubmode = 'radius_height';
+    let currentUnit = 'cm';
+
+    function round6(x) { return Math.round(x * 1e6) / 1e6; }
+    function toCm(value, unit) { return unit === 'mm' ? value/10 : unit === 'm' ? value*100 : value; }
+    function fromCm(value, unit) { return unit === 'mm' ? value*10 : unit === 'm' ? value/100 : value; }
+    function fromCmArea(value, unit) {
+        if (unit === 'mm') return value * 100;
+        if (unit === 'm') return value / 10000;
+        return value;
+    }
+    function fromCmVolume(value, unit) {
+        if (unit === 'mm') return value * 1000;
+        if (unit === 'm') return value / 1000000;
+        return value;
+    }
+
+    const figureConfig = {
+        cone: {
+            name: 'Конус',
+            submodes: [
+                { id: 'radius_height', name: 'По радиусу и высоте', fields: [
+                    { name: 'R', label: 'Радиус', simpleLabel: 'Радиус основания', default: 3 },
+                    { name: 'h', label: 'Высота', simpleLabel: 'Высота', default: 4 }
+                ] },
+                { id: 'radius_slant', name: 'По радиусу и образующей', fields: [
+                    { name: 'R', label: 'Радиус', simpleLabel: 'Радиус основания', default: 3 },
+                    { name: 'l', label: 'Образующая', simpleLabel: 'Образующая', default: 5 }
+                ] }
+            ],
+            resultLabels: ['Радиус', 'Высота', 'Образующая', 'Объём', 'Площадь боковой поверхности', 'Площадь полной поверхности'],
+            resultTypes: ['linear', 'linear', 'linear', 'volume', 'area', 'area'],
+            calculate: function(values, unit) {
+                let R, h, l;
+                if (currentSubmode === 'radius_height') {
+                    R = values.R;
+                    h = values.h;
+                    l = Math.sqrt(R*R + h*h);
+                } else {
+                    R = values.R;
+                    l = values.l;
+                    if (l < R) throw new Error('Образующая не может быть меньше радиуса');
+                    h = Math.sqrt(l*l - R*R);
+                }
+                const V = (1/3) * Math.PI * R * R * h;
+                const S_lat = Math.PI * R * l;
+                const S_base = Math.PI * R * R;
+                const S_total = S_lat + S_base;
+                const resultsArray = [R, h, l, V, S_lat, S_total];
+                const unitName = unit === 'mm' ? 'мм' : unit === 'm' ? 'м' : 'см';
+                const solutionMath = `Радиус R = ${R.toFixed(6)} ${unitName}, высота h = ${h.toFixed(6)} ${unitName}, образующая l = √(R²+h²) = ${l.toFixed(6)} ${unitName}. Объём V = (1/3)πR²h = ${V.toFixed(6)} ${unitName}³. Площадь боковой поверхности Sб = πRl = ${S_lat.toFixed(6)} ${unitName}². Площадь полной поверхности S = πR(R+l) = ${S_total.toFixed(6)} ${unitName}².`;
+                const solutionSimple = `Объём конуса равен одной трети от произведения площади основания на высоту. Боковая поверхность — это сектор круга, её площадь равна πRl. Полная поверхность добавляет круг основания.`;
+                const formulas = 'V = (1/3)πR²h, l = √(R²+h²), Sб = πRl, S = πR(R+l)';
+                return { resultsArray, solutionMath, solutionSimple, formulas };
+            },
+            defaultSubmode: 'radius_height'
+        }
+    };
+
+    function renderResults(resultsArray, unit) {
+        const fig = figureConfig[currentFigure];
+        const types = fig.resultTypes || resultsArray.map(() => 'linear');
+        let html = '';
+        for (let i = 0; i < fig.resultLabels.length; i++) {
+            let val = resultsArray[i];
+            if (val === undefined || val === '—') val = '—';
+            else if (types[i] === 'area' && typeof val === 'number') val = round6(fromCmArea(val, unit)) + ' ' + unit + '²';
+            else if (types[i] === 'volume' && typeof val === 'number') val = round6(fromCmVolume(val, unit)) + ' ' + unit + '³';
+            else if (types[i] === 'linear' && typeof val === 'number') val = round6(fromCm(val, unit)) + ' ' + unit;
+            else if (typeof val === 'number') val = round6(val) + (types[i] === 'angle' ? '°' : '');
+            html += `<div class="result-card"><span class="result-card__label">${fig.resultLabels[i]}</span><span class="result-card__value">${val}</span></div>`;
+        }
+        resultsContainer.innerHTML = html;
+    }
+
+    function renderSolution(math, simple, formulas) {
+        stepText.textContent = math;
+        stepTextSimple.textContent = simple;
+        formulasText.textContent = formulas;
+    }
+
+    function validateField(value, min=0) { return !isNaN(value) && value > min; }
+    function clearErrors() {
+        document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+        document.querySelectorAll('.error-message').forEach(el => el.remove());
+    }
+
+    function gatherValues() {
+        const fields = document.querySelectorAll('#inputGroups input[type="number"]');
+        const values = {};
+        fields.forEach(f => {
+            const val = parseFloat(f.value);
+            const parts = f.id.split('_');
+            const simpleName = parts[parts.length - 1];
+            values[simpleName] = isNaN(val) ? undefined : val;
+        });
+        return values;
+    }
+
+    function calculate() {
+        clearErrors();
+        const fig = figureConfig[currentFigure];
+        if (!fig) return;
+        const valuesRaw = gatherValues();
+        const valuesCm = {};
+        let valid = true;
+        for (let key in valuesRaw) {
+            if (valuesRaw[key] === undefined) {
+                valid = false;
+            } else {
+                const valCm = toCm(valuesRaw[key], currentUnit);
+                if (!validateField(valCm)) {
+                    valid = false;
+                } else {
+                    valuesCm[key] = valCm;
+                }
+            }
+        }
+        if (!valid) {
+            return;
+        }
+        try {
+            const { resultsArray, solutionMath, solutionSimple, formulas } = fig.calculate(valuesCm, currentUnit);
+            renderResults(resultsArray, currentUnit);
+            renderSolution(solutionMath, solutionSimple, formulas);
+        } catch (e) {
+            renderSolution('Ошибка вычисления: ' + e.message, 'Проверьте введённые данные', '');
+        }
+    }
+
+    function buildSubmodeAndFields() {
+        const fig = figureConfig[currentFigure];
+        if (!fig) return;
+        let submodeHtml = `<label class="form-label">Способ задания</label><div class="radio-switch" style="margin-top:8px;">`;
+        fig.submodes.forEach(sm => {
+            submodeHtml += `<label class="radio-switch__item"><input type="radio" name="submode" value="${sm.id}" ${sm.id===currentSubmode?'checked':''}> ${sm.name}</label>`;
+        });
+        submodeHtml += `</div>`;
+        submodeContainer.innerHTML = submodeHtml;
+
+        document.querySelectorAll('input[name="submode"]').forEach(radio => {
+            radio.addEventListener('change', e => {
+                currentSubmode = e.target.value;
+                buildFields();
+                calculate();
+            });
+        });
+
+        buildFields();
+    }
+
+    function buildFields() {
+        const fig = figureConfig[currentFigure];
+        const submode = fig.submodes.find(s => s.id === currentSubmode);
+        if (!submode) return;
+        const isSimple = body.classList.contains('simple-mode');
+        let html = `<div class="input-group-dynamic">`;
+        submode.fields.forEach(f => {
+            const fieldId = `${currentFigure}_${currentSubmode}_${f.name}`;
+            const label = isSimple && f.simpleLabel ? f.simpleLabel : f.label;
+            html += `<div class="field-wrapper"><label class="form-label">${label}</label>
+                <input type="number" id="${fieldId}" class="form-input" value="${f.default}" min="0" step="any">
+            </div>`;
+        });
+        html += `</div>`;
+        inputGroups.innerHTML = html;
+
+        document.querySelectorAll('#inputGroups input[type="number"]').forEach(inp => {
+            inp.addEventListener('input', calculate);
+        });
+    }
+
+    unitRadios.forEach(r => {
+        r.addEventListener('change', function() {
+            const newUnit = this.value;
+            if (newUnit === currentUnit) return;
+            const fields = document.querySelectorAll('#inputGroups input[type="number"]');
+            fields.forEach(f => {
+                const val = parseFloat(f.value);
+                if (!isNaN(val)) {
+                    const valCm = toCm(val, currentUnit);
+                    f.value = round6(fromCm(valCm, newUnit));
+                }
+            });
+            currentUnit = newUnit;
+            calculate();
+        });
+    });
+
+    calculateBtn.addEventListener('click', calculate);
+    clearBtn.addEventListener('click', function() {
+        const fig = figureConfig[currentFigure];
+        const submode = fig.submodes.find(s => s.id === currentSubmode);
+        if (submode) {
+            submode.fields.forEach(f => {
+                const fieldId = `${currentFigure}_${currentSubmode}_${f.name}`;
+                const inp = document.getElementById(fieldId);
+                if (inp) inp.value = fromCm(f.default, currentUnit);
+            });
+        }
+        calculate();
+    });
+    randomBtn.addEventListener('click', function() {
+        const fig = figureConfig[currentFigure];
+        const submode = fig.submodes.find(s => s.id === currentSubmode);
+        if (submode) {
+            submode.fields.forEach(f => {
+                const fieldId = `${currentFigure}_${currentSubmode}_${f.name}`;
+                const inp = document.getElementById(fieldId);
+                if (inp) {
+                    let val = f.default * (0.5 + Math.random());
+                    inp.value = round6(val);
+                }
+            });
+        }
+        calculate();
+    });
+    copyAnswerBtn.addEventListener('click', function() {
+        const text = resultsContainer.innerText;
+        navigator.clipboard.writeText(text).then(() => alert('Ответ скопирован')).catch(() => alert('Ошибка'));
+    });
+    copySolutionBtn.addEventListener('click', function() {
+        const text = body.classList.contains('simple-mode') ? stepTextSimple.innerText : stepText.innerText;
+        navigator.clipboard.writeText(text).then(() => alert('Решение скопировано')).catch(() => alert('Ошибка'));
+    });
+    shareBtn.addEventListener('click', function() {
+        const text = `Конус: ${resultsContainer.innerText} - решение: ${stepText.innerText} ${window.location.href}`;
+        if (navigator.share) navigator.share({ title: 'Калькулятор конуса', text }).catch(() => {});
+        else navigator.clipboard.writeText(text).then(() => alert('Ссылка и данные скопированы'));
+    });
+
+    buildSubmodeAndFields();
+    calculate();
+    setTimeout(() => showGameToast('Вы можете включить супер-простой режим в меню!'), 1000);
+
+    const faqList = document.getElementById('faqList');
+    faqList.innerHTML = `
+        <details class="faq-item"><summary class="faq-question">Как найти образующую конуса?</summary><div class="faq-answer">l = √(R² + h²).</div></details>
+        <details class="faq-item"><summary class="faq-question">Чему равен объём конуса?</summary><div class="faq-answer">V = (1/3)πR²h.</div></details>
+        <details class="faq-item"><summary class="faq-question">Сколько оснований у конуса?</summary><div class="faq-answer">Одно круглое основание.</div></details>
+    `;
+})();
+</script>
+<script type="text/javascript"> (function(m,e,t,r,i,k,a){ m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a) })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym'); ym(107027516, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Калькулятор конуса",
+    "description": "Бесплатный калькулятор для расчёта объёма, площади поверхности, образующей, радиуса и высоты конуса.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "url": "https://millerson.shop/cone.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" }
+}
+</script>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+
+    if(!localStorage.getItem('cookieAccepted')){
+        banner.style.display = 'block';
+    }
+
+    button.addEventListener('click', function(){
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
+</body>
+</html>
