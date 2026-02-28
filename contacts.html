@@ -125,14 +125,15 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <p>© 2026 Millerson Company</p>
-                <p>Все расчеты носят информационный характер и не являются публичной офертой.</p>
-            </div>
+ <footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script>
         (function() {
@@ -195,5 +196,31 @@
             });
         })();
     </script>
+    <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+
+    if(!localStorage.getItem('cookieAccepted')){
+        banner.style.display = 'block';
+    }
+
+    button.addEventListener('click', function(){
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
 </body>
 </html>
