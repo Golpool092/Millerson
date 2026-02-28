@@ -2483,3 +2483,248 @@ select.form-input {
     background-size: 16px;
     padding-right: 40px;
 }
+.game-toast {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 10px 20px;
+    border-radius: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    opacity: 0;
+    animation: toastAppear 3.5s ease forwards;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: min(90%, 500px);
+    width: max-content;
+    min-width: 280px;
+    box-sizing: border-box;
+    pointer-events: auto;
+    cursor: default;
+    transition: transform 0.1s ease;
+    user-select: none;
+    letter-spacing: 0.2px;
+}
+
+.game-toast .toast-message {
+    flex: 1;
+    word-break: break-word;
+    white-space: normal;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.game-toast .toast-close {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: none;
+    padding: 0;
+    line-height: 1;
+}
+
+.game-toast .toast-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes toastAppear {
+    0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+.input-error {
+    border: 2px solid #e74c3c !important;
+    background-color: rgba(231, 76, 60, 0.05) !important;
+}
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    padding-left: 8px;
+}
+
+body.simple-mode .math-formula {
+    display: none;
+}
+body.simple-mode .simple-explanation {
+    display: block;
+}
+.simple-explanation {
+    display: none;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+.result-card {
+    background: var(--surface-solid);
+    border-radius: 24px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+.result-card__label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    display: block;
+}
+.result-card__value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    word-break: break-word;
+}
+
+.unit-selector {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--surface-solid);
+    padding: 12px 20px;
+    border-radius: 40px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+.unit-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.unit-option input[type="radio"] {
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+.action-btn {
+    background: var(--surface-solid);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 12px 18px;
+    border-radius: 40px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.action-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.input-group-dynamic {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+}
+.field-wrapper {
+    flex: 1 1 200px;
+}
+
+.tools-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 40px 0 20px;
+}
+.tool-card {
+    background: var(--surface-solid);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-weight: 500;
+    transition: var(--transition);
+    color: var(--text-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow);
+}
+.tool-card:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+.tool-card i {
+    font-size: 1.2rem;
+}
+
+.radio-switch {
+    display: flex;
+    background: var(--surface-solid);
+    border-radius: 30px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+.radio-switch__item {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: 0.2s;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+.radio-switch__item input[type="radio"] {
+    appearance: none;
+    margin: 0;
+    width: 0;
+    opacity: 0;
+}
+.radio-switch__item:has(input:checked) {
+    background: var(--accent);
+    color: white;
+}
+.footer__content a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer__content a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
