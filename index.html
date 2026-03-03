@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="yandex-verification" content="09a9906cfe75b11e" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Millerson Company – Главная</title>
-<meta name="description" content="Millerson Company — профессиональная вёрстка и собственные финансовые калькуляторы. Кредитный калькулятор, НДФЛ, проценты.">
+<title>Millerson Company – 54 бесплатных онлайн‑калькулятора и геометрических инструмента</title>
+<meta name="description" content="54 полезных веб‑инструмента: кредитный калькулятор, проценты, геометрические фигуры (квадрат, трапеция, цилиндр, конус, сфера), правильные многогранники. Всего более 60 страниц с пошаговым решением. Бесплатно, без регистрации.">
+<meta name="keywords" content="онлайн калькулятор, кредитный калькулятор, калькулятор процентов, площадь треугольника, объём цилиндра, геометрические фигуры, Millerson, бесплатные расчёты">
 <link rel="canonical" href="https://millerson.shop/">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Millerson Company">
-<meta property="og:description" content="Современные сайты на HTML/CSS и полезные онлайн‑инструменты.">
+<meta property="og:title" content="Millerson Company – 54 бесплатных инструмента">
+<meta property="og:description" content="54 сервиса на 60+ страницах: калькуляторы, геометрия, многогранники. Без регистрации, с подробным решением.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://millerson.shop/">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,7 +19,10 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="style.css">
-<!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym');      ym(107027516, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -26,19 +30,176 @@
     "name": "Millerson Company",
     "url": "https://millerson.shop",
     "logo": "https://millerson.shop/favicon.png",
-    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "description": "54 бесплатных онлайн‑калькулятора, геометрических инструмента и конвертера.",
     "email": "MillersonShop@gmail.com"
 }
 </script>
 <!-- Yandex Autoplacement 18829281 -->
 <script src="https://yandex.ru/ads/system/context.js" async></script>
 <script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
+<style>
+.support-float {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+.support-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.6);
+    animation: none;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0); }
+}
+.support-modal {
+    position: fixed;
+    bottom: 160px;
+    right: 30px;
+    width: 280px;
+    background: var(--surface-solid);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 20px;
+    display: none;
+    z-index: 1001;
+    backdrop-filter: blur(16px);
+    transition: opacity 0.3s, transform 0.3s;
+    transform-origin: bottom right;
+}
+.support-modal.active {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+.support-modal h4 {
+    margin-bottom: 15px;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+.support-modal a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: var(--bg-color);
+    border-radius: 18px;
+    text-decoration: none;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    transition: background 0.2s, transform 0.1s;
+    border: 1px solid var(--border);
+}
+.support-modal a:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateX(5px);
+}
+.support-modal i {
+    font-size: 1.5rem;
+    width: 24px;
+    text-align: center;
+}
+.support-modal .close-support {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+@media (max-width: 768px) {
+    .support-float {
+        bottom: 80px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+    }
+    .support-modal {
+        right: 20px;
+        bottom: 150px;
+        width: 260px;
+    }
+}
+.cta-all {
+    text-align: center;
+    margin: 40px 0 20px;
+}
+.cta-all .btn {
+    padding: 18px 50px;
+    font-size: 1.3rem;
+    box-shadow: 0 12px 30px -8px var(--accent);
+}
+.seo-block {
+    margin-top: 60px;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    border-radius: 32px;
+    padding: 40px;
+    border: 1px solid var(--border);
+}
+.seo-block h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+.seo-block p {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+.seo-block ul {
+    columns: 2;
+    list-style: none;
+    padding: 0;
+}
+.seo-block li {
+    margin-bottom: 8px;
+    padding-left: 24px;
+    position: relative;
+}
+.seo-block li::before {
+    content: "✓";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+</style>
 </head>
 <body>
 <div class="scroll-progress"></div>
-<button class="back-to-top" id="back-to-top">
-    <i class="fas fa-chevron-up"></i>
-</button>
+<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+<div class="support-float" id="supportFloat"><i class="fas fa-headset"></i></div>
+<div class="support-modal" id="supportModal">
+    <span class="close-support" id="closeSupport">&times;</span>
+    <h4>Напишите нам</h4>
+    <a href="https://t.me/Millerson_Company" target="_blank"><i class="fab fa-telegram"></i> Наш Telegram‑канал</a>
+    <a href="https://t.me/Millerson_Company" target="_blank"><i class="fas fa-comment-dots"></i> Оставить отзыв</a>
+    <a href="https://t.me/Millerson_Company" target="_blank"><i class="fas fa-lightbulb"></i> Предложить идею</a>
+    <a href="https://t.me/Millerson_Company" target="_blank"><i class="fas fa-bug"></i> Сообщить об ошибке</a>
+</div>
 
 <header class="header">
     <div class="header__container">
@@ -54,18 +215,8 @@
                 <li><a href="all.html" class="nav__link">Все проекты</a></li>
                 <li><a href="about.html" class="nav__link">О компании</a></li>
                 <li><a href="contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
-                </li>
+                <li><div class="theme-switch"><span class="theme-switch__label">Тёмная тема</span><label class="switch"><input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему"><span class="slider"></span></label></div></li>
+                <li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Наш Магазин</a></li>
             </ul>
         </nav>
         <nav class="nav nav--mobile" id="navMobile">
@@ -74,18 +225,8 @@
                 <li><a href="all.html" class="nav__link">Все проекты</a></li>
                 <li><a href="about.html" class="nav__link">О компании</a></li>
                 <li><a href="contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
-                </li>
+                <li><div class="theme-switch"><span class="theme-switch__label">Тёмная тема</span><label class="switch"><input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему"><span class="slider"></span></label></div></li>
+                <li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Наш Магазин</a></li>
             </ul>
         </nav>
     </div>
@@ -95,365 +236,104 @@
     <div class="container">
         <section class="hero">
             <div class="hero-content">
-                <div class="profile-avatar">
-                    <div class="avatar-circle">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                </div>
-                <h1>ПРОФЕССИОНАЛЬНАЯ ВЁРСТКА</h1>
-                <p class="hero-tagline">Современные сайты на чистом HTML и CSS</p>
+                <div class="profile-avatar"><div class="avatar-circle"><i class="fas fa-cubes"></i></div></div>
+                <h1>MILLERSON COMPANY</h1>
+                <p class="hero-tagline">54 бесплатных онлайн‑инструмента на 60+ страницах</p>
                 <div class="hero-description">
-                    <p>Создаю быстрые, адаптивные и эстетичные веб-сайты с JavaScript. Идеальное решение для презентации бизнеса, портфолио или интернет-магазина</p>
-                    <p style="margin-top: 15px;"><strong>Примечание:</strong> Предоставляю чистый код без комментариев (только по просьбе). Цена хостинга и домена не входит в услуги. 
-                      Так же создаю для люлей удобные Веб-Сервисы, которорые пригодятся в повседневной жизни</p>
+                    <p>Кредитные калькуляторы, расчёт процентов, геометрические фигуры (квадрат, трапеция, цилиндр, конус, сфера), правильные многогранники и десятки других полезных сервисов. Все расчёты сопровождаются пошаговым решением и супер‑простым режимом для новичков.</p>
+                    <p style="margin-top:15px;"><strong>54 сервиса</strong> — от простых процентов до сложных объёмов. Никакой регистрации, всё работает прямо в браузере.</p>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Выполненных проектов</div></div>
-                    <div class="stat-item"><div class="stat-number">8ч</div><div class="stat-label">Средний срок вёрстки</div></div>
-                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Адаптивность</div></div>
-                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">JavaScript (опционально)</div></div>
+                    <div class="stat-item"><div class="stat-number">54</div><div class="stat-label">сервиса</div></div>
+                    <div class="stat-item"><div class="stat-number">60+</div><div class="stat-label">страниц</div></div>
+                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">бесплатно</div></div>
                 </div>
             </div>
         </section>
-        <section id="services" class="services-section">
+
+        <div class="cta-all">
+            <a href="all.html" class="btn btn--primary"><i class="fas fa-th-large"></i> Все сервисы (54 инструмента)</a>
+        </div>
+
+        <section id="products" class="services-section">
             <div class="section-header">
-                <h2>МОИ УСЛУГИ</h2>
-                <p>Выберите подходящий вариант или предложите свой. Цены указаны за базовую реализацию, сроки могут меняться в зависимости от сложности (подробнее в описаниях или FAQ)</p>
+                <h2>ПОПУЛЯРНЫЕ СЕРВИСЫ</h2>
+                <p>Выберите нужный инструмент из десятков доступных. Все с подробным решением.</p>
             </div>
             <div class="services">
-                <div class="service-card" data-modal="card">
-                    <div class="service-badge">Популярно</div>
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-id-card"></i></div>
-                        <h3>Сайт-визитка</h3>
-                        <p>Идеальное решение для представления себя, своего бизнеса или услуг в интернете. Просто, эффективно, профессионально.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Полностью адаптивный дизайн</li>
-                            <li><i class="fas fa-check"></i>Контакты и интерактивная карта</li>
-                            <li><i class="fas fa-check"></i>Секция портфолио/отзывов (доп плата 200₽)</li>
-                            <li><i class="fas fa-check"></i>Форма обратной связи</li>
-                            <li><i class="fas fa-check"></i>Оптимизация под любые устройства</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>2500 ₽</span></div>
-                            <div class="price-main">от 1000 ₽</div>
-                            <div class="discount-badge">-60%</div>
-                            <div class="price-note">цена за страницу</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="card"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">2-3 дня</div><div class="label">срок выполнения</div></div>
-                    </div>
+                <div class="service-card">
+                    <div class="service-content"><div class="service-icon"><i class="fas fa-calculator"></i></div><h3>Кредитный калькулятор</h3><p>Ежемесячный платёж, переплата, график погашения с учётом комиссии.</p></div>
+                    <div class="service-footer"><a href="Credit.html" class="btn btn--primary" style="width:100%">Перейти</a></div>
                 </div>
-                <div class="service-card" data-modal="landing">
-                    <div class="service-badge">Выгодно</div>
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-rocket"></i></div>
-                        <h3>Лендинг</h3>
-                        <p>Одностраничный сайт для максимальной концентрации на цели: заявка, продажа, статья</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Ваш текст и контент</li>
-                            <li><i class="fas fa-check"></i>Индивидуальный дизайн</li>
-                            <li><i class="fas fa-check"></i>Базовая SEO-оптимизация</li>
-                            <li><i class="fas fa-check"></i>Призывы к действию</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>4000 ₽</span></div>
-                            <div class="price-main">2000 ₽</div>
-                            <div class="discount-badge">-50%</div>
-                            <div class="price-note">цена за сайт</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="landing"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">1-2 дня</div><div class="label">срок выполнения</div></div>
-                    </div>
+                <div class="service-card">
+                    <div class="service-content"><div class="service-icon"><i class="fas fa-percent"></i></div><h3>Калькулятор процентов</h3><p>Процент от числа, увеличение/уменьшение, разница в процентах.</p></div>
+                    <div class="service-footer"><a href="percent.html" class="btn btn--primary" style="width:100%">Перейти</a></div>
                 </div>
-                <div class="service-card" data-modal="blog">
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-blog"></i></div>
-                        <h3>Блог / Портфолио</h3>
-                        <p>Сайт для демонстрации ваших работ, статей или проектов. Удобная навигация и приятный визуал для посетителей.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Галерея работ</li>
-                            <li><i class="fas fa-check"></i>Категории и теги</li>
-                            <li><i class="fas fa-check"></i>Адаптивные изображения</li>
-                            <li><i class="fas fa-check"></i>Блок с соцсетями</li>
-                            <li><i class="fas fa-check"></i>Комментарии и оценки</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>3500 ₽</span></div>
-                            <div class="price-main">1750 ₽</div>
-                            <div class="discount-badge">-50%</div>
-                            <div class="price-note">цена за страницу</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="blog"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">2-3 дня</div><div class="label">срок выполнения</div></div>
-                    </div>
+                <div class="service-card">
+                    <div class="service-content"><div class="service-icon"><i class="fas fa-square"></i></div><h3>Геометрические фигуры</h3><p>Квадрат, трапеция, треугольник, цилиндр, конус, сфера и другие.</p></div>
+                    <div class="service-footer"><a href="allgeometry-basic.html" class="btn btn--primary" style="width:100%">Перейти</a></div>
                 </div>
-                <div class="service-card" data-modal="catalog">
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-store"></i></div>
-                        <h3>Каталог товаров</h3>
-                        <p>Презентация вашей продукции с фильтрацией и детальным описанием. Без корзины и онлайн-оплаты.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Фильтрация на CSS</li>
-                            <li><i class="fas fa-check"></i>Детальные карточки</li>
-                            <li><i class="fas fa-check"></i>Удобная навигация</li>
-                            <li><i class="fas fa-check"></i>Форма заказа</li>
-                            <li><i class="fas fa-check"></i>Система сортировки</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>4500 ₽ + 25 ₽/товар</span></div>
-                            <div class="price-main">2250 ₽ + 25 ₽/товар</div>
-                            <div class="discount-badge">-50%</div>
-                            <div class="price-note">базовая цена + товары</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="catalog"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">от 3 дней</div><div class="label">срок выполнения</div></div>
-                    </div>
+                <div class="service-card">
+                    <div class="service-content"><div class="service-icon"><i class="fas fa-cube"></i></div><h3>Правильные многогранники</h3><p>Тетраэдр, октаэдр, додекаэдр, икосаэдр – объём и площадь.</p></div>
+                    <div class="service-footer"><a href="polyhedra.html" class="btn btn--primary" style="width:100%">Перейти</a></div>
                 </div>
-                <div class="service-card" data-modal="faq">
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-question-circle"></i></div>
-                        <h3>Сайт-справка / FAQ</h3>
-                        <p>Информационный ресурс с аккордеонами, вкладками и поиском. Идеально для базы знаний или вопросов.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Интерактивные вкладки</li>
-                            <li><i class="fas fa-check"></i>Поиск по контенту</li>
-                            <li><i class="fas fa-check"></i>Чистая структура</li>
-                            <li><i class="fas fa-check"></i>Категории и подкатегории</li>
-                            <li><i class="fas fa-check"></i>Возможность печати</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>1800 ₽</span></div>
-                            <div class="price-main">900 ₽</div>
-                            <div class="discount-badge">-50%</div>
-                            <div class="price-note">цена за страницу</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="faq"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">2-3 дня</div><div class="label">срок выполнения</div></div>
-                    </div>
+                <div class="service-card">
+                    <div class="service-content"><div class="service-icon"><i class="fas fa-circle"></i></div><h3>Сфера и шар</h3><p>Объём, площадь поверхности, радиус, диаметр.</p></div>
+                    <div class="service-footer"><a href="sphere.html" class="btn btn--primary" style="width:100%">Перейти</a></div>
                 </div>
-                <div class="service-card" data-modal="article">
-                    <div class="service-badge">Новое</div>
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-newspaper"></i></div>
-                        <h3>Сайт для статьи</h3>
-                        <p>Оптимальное решение для публикации длинных текстов, исследований, обзоров. Чистый дизайн без отвлекающих элементов.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Удобное чтение</li>
-                            <li><i class="fas fa-check"></i>Оглавление с навигацией</li>
-                            <li><i class="fas fa-check"></i>Подсветка кода (CSS)</li>
-                            <li><i class="fas fa-check"></i>Адаптивные изображения</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>1500 ₽</span></div>
-                            <div class="price-main">750 ₽</div>
-                            <div class="discount-badge">-50%</div>
-                            <div class="price-note">цена за страницу</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="article"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">1-2 дня</div><div class="label">срок выполнения</div></div>
-                    </div>
-                </div>
-                <div class="service-card" data-modal="custom">
-                    <div class="service-badge">Индивидуально</div>
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-palette"></i></div>
-                        <h3>Индивидуальный проект</h3>
-                        <p>Не нашли подходящий вариант? Обсудим вашу задачу и создадим уникальное решение под ваши требования.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Индивидуальный дизайн</li>
-                            <li><i class="fas fa-check"></i>Любое количество страниц</li>
-                            <li><i class="fas fa-check"></i>Сложные анимации</li>
-                            <li><i class="fas fa-check"></i>Базовый JS</li>
-                            <li><i class="fas fa-check"></i>Техническая документация</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>от 8000 ₽</span></div>
-                            <div class="price-main">от 4000 ₽</div>
-                            <div class="discount-badge">-50%</div>
-                            <div class="price-note">цена обсуждается</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="custom"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">от 5 дней</div><div class="label">срок выполнения</div></div>
-                    </div>
-                </div>
-                <div class="service-card" data-modal="css">
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-css3-alt"></i></div>
-                        <h3>CSS на заказ</h3>
-                        <p>Уникальные анимации, сложные эффекты, кастомные стили под ваш проект. От отдельных элементов до полного дизайна.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Сложные CSS-анимации</li>
-                            <li><i class="fas fa-check"></i>Кастомные hover-эффекты</li>
-                            <li><i class="fas fa-check"></i>Адаптивная типографика</li>
-                            <li><i class="fas fa-check"></i>Современные Grid и Flexbox</li>
-                            <li><i class="fas fa-check"></i>Кроссбраузерная совместимость</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>2000-5000 ₽</span></div>
-                            <div class="price-main">800-2500 ₽</div>
-                            <div class="discount-badge">-50%</div>
-                            <div class="price-note">цена зависит от сложности</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="css"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">1-5 дней</div><div class="label">срок выполнения</div></div>
-                    </div>
-                </div>
-                <div class="service-card" data-modal="fix">
-                    <div class="service-content">
-                        <div class="service-icon"><i class="fas fa-tools"></i></div>
-                        <h3>Исправление кода</h3>
-                        <p>Оптимизация, рефакторинг, исправление ошибок в существующем HTML/CSS коде. С Базовым JavaScript.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i>Починка багов и ошибок</li>
-                            <li><i class="fas fa-check"></i>Оптимизация скорости</li>
-                            <li><i class="fas fa-check"></i>Улучшение адаптивности</li>
-                            <li><i class="fas fa-check"></i>Рефакторинг и чистка кода</li>
-                            <li><i class="fas fa-check"></i>Совместимость с браузерами</li>
-                        </ul>
-                    </div>
-                    <div class="service-footer">
-                        <div class="price-container">
-                            <div class="price-old"><span>1200-3500 ₽</span></div>
-                            <div class="price-main">600-1750 ₽</div>
-                            <div class="discount-badge">-50%</div>
-                            <div class="price-note">цена зависит от объёма</div>
-                        </div>
-                        <div class="service-buttons">
-                            <a href="#" class="detail-btn" data-modal="fix"><i class="fas fa-info-circle"></i> Подробнее</a>
-                            <a href="https://t.me/Millerson_Company" class="order-btn" target="_blank"><i class="fas fa-shopping-cart"></i> Заказать</a>
-                        </div>
-                        <div class="delivery-time"><div class="time">1-3 дня</div><div class="label">срок выполнения</div></div>
-                    </div>
+                <div class="service-card">
+                    <div class="service-content"><div class="service-icon"><i class="fas fa-cylinder"></i></div><h3>Цилиндр и конус</h3><p>Объём, площадь поверхности, образующая, высота.</p></div>
+                    <div class="service-footer"><a href="cylinder.html" class="btn btn--primary" style="width:100%">Перейти</a></div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="portfolio-section">
+        <section class="portfolio-section">
             <div class="section-header">
-                <h2>НАШИ ПРОЕКТЫ</h2>
-                <p>Полезные онлайн‑инструменты, созданные Millerson Company</p>
+                <h2>ПРИМЕРЫ ПРОЕКТОВ</h2>
+                <p>Несколько инструментов, которые уже доступны</p>
             </div>
-
-            <div style="margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center;">
-                <input type="text" id="projectSearch" placeholder="Поиск проектов..." class="form-input" style="max-width: 300px;">
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button class="btn btn--secondary filter-btn active" data-filter="all">Все</button>
-                    <button class="btn btn--secondary filter-btn" data-filter="calculator">Калькуляторы</button>
-                </div>
-            </div>
-
-            <div class="portfolio-grid" id="projectsGrid">
-                <div class="portfolio-item" data-category="calculator" data-name="Кредитный калькулятор">
-                    <div class="portfolio-preview" style="background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);">
-                        <i class="fas fa-calculator" style="font-size: 4rem; color: var(--accent);"></i>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Кредитный калькулятор</h3>
-                        <p>Рассчитайте ежемесячный платёж, переплату и график погашения с учётом комиссии.</p>
-                        <a href="Credit.html" class="btn btn--primary" style="margin-top: 15px;">Перейти</a>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="calculator" data-name="Калькулятор НДФЛ">
-                    <div class="portfolio-preview" style="background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);">
-                        <i class="fas fa-file-invoice" style="font-size: 4rem; color: var(--accent);"></i>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Калькулятор НДФЛ</h3>
-                        <p>Рассчитайте налог 13%, 15% или 30% от дохода, узнайте сумму на руки.</p>
-                        <a href="ndfl.html" class="btn btn--primary" style="margin-top: 15px;">Перейти</a>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="calculator" data-name="Калькулятор процентов">
-                    <div class="portfolio-preview" style="background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);">
-                        <i class="fas fa-percent" style="font-size: 4rem; color: var(--accent);"></i>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Калькулятор процентов</h3>
-                        <p>Процент от числа, соотношение, увеличение/уменьшение, разница в процентах.</p>
-                        <a href="percent.html" class="btn btn--primary" style="margin-top: 15px;">Перейти</a>
-                    </div>
-                </div>
-            </div>
-
-<div style="text-align: center; margin: 40px 0;">
-    <a href="all.html" class="btn btn--primary" style="padding: 14px 40px; font-size: 1.1rem;">
-        <i class="fas fa-th-large"></i> Открыть полный список
-    </a>
-</div>
-        </section>
-
-        <section id="process" class="process">
-            <div class="section-header">
-                <h2>ПРОЦЕСС РАБОТЫ</h2>
-                <p>Четкая и прозрачная схема сотрудничества от обсуждения до передачи готового проекта</p>
-            </div>
-            <div class="process-steps">
-                <div class="process-step"><div class="step-number">1</div><h3>Обсуждение проекта</h3><p>Вы рассказываете о своих пожеланиях, я задаю уточняющие вопросы. Определяем цели, сроки и бюджет.</p></div>
-                <div class="process-step"><div class="step-number">2</div><h3>Прототип и дизайн</h3><p>Создаю прототип в Figma, утверждаем структуру и визуальное оформление. Вносим правки до полного согласования.</p></div>
-                <div class="process-step"><div class="step-number">3</div><h3>Вёрстка и программирование</h3><p>Пишу чистый, семантичный HTML и современный CSS. Добавляю анимации, адаптивность и интерактивные элементы.</p></div>
-                <div class="process-step"><div class="step-number">4</div><h3>Тестирование и передача</h3><p>Тестирую на разных устройствах и браузерах. Передаю архив с файлами и документацией. Консультирую по размещению.</p></div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item"><div class="portfolio-preview"><i class="fas fa-calculator" style="font-size:4rem;color:var(--accent)"></i></div><div class="portfolio-info"><h3>Кредитный калькулятор</h3><p>Подробный расчёт с графиком</p><a href="Credit.html" class="btn btn--primary">Перейти</a></div></div>
+                <div class="portfolio-item"><div class="portfolio-preview"><i class="fas fa-draw-polygon" style="font-size:4rem;color:var(--accent)"></i></div><div class="portfolio-info"><h3>Геометрические фигуры</h3><p>Квадрат, трапеция, треугольник</p><a href="allgeometry-basic.html" class="btn btn--primary">Перейти</a></div></div>
+                <div class="portfolio-item"><div class="portfolio-preview"><i class="fas fa-cube" style="font-size:4rem;color:var(--accent)"></i></div><div class="portfolio-info"><h3>Объёмные тела</h3><p>Цилиндр, конус, сфера</p><a href="sphere.html" class="btn btn--primary">Перейти</a></div></div>
             </div>
         </section>
 
-        <section id="faq" class="faq-section">
+        <section class="faq-section">
             <div class="section-header">
-                <h2>ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
-                <p>Ответы на популярные вопросы, которые помогут понять процесс работы и принять решение</p>
+                <h2>ОТВЕТЫ НА ВОПРОСЫ</h2>
+                <p>Коротко о главном</p>
             </div>
             <div class="faq-container">
-                <div class="faq-item"><div class="faq-question"><span>Сколько времени занимает создание сайта?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Время реализации зависит от сложности задач и очереди заказов. При стандартных условиях сайт может быть готов в течение 5 часов, а не 3 дней, как указано в услугах</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Что входит в стоимость услуг?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>В стоимость входит: вёрстка по вашему макету или создание дизайна, адаптация под все устройства, базовая SEO-оптимизация, чистый код. Дополнительные функции оплачиваются отдельно.</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Нужен ли мне дизайн перед вёрсткой?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Если у вас уже есть готовый дизайн в Figma, Photoshop или даже набросок на бумаге - отлично. Если нет, я могу создать дизайн по вашим пожеланиям</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>что подразумевается под "Базовый JavaScript"</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Очень много функций входит в мои знания JavaScript, но я не смогу на нем создать мессенджер, полноценный магазин или окно регистрации, я ограничиваюсь повседневными командами, но расширяю свои знания в этой сфере</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Как происходит оплата?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>После создания сайта, я скидываю его скриншоты, вы оплачиваете работу по указанным реквизитам, и я вам скидываю папку с выполненным заказом</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Вы оказываете поддержку после сдачи проекта?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Да, в течение 30 дней после сдачи проекта бесплатно исправляю недочёты, если они возникли по моей вине. Поэтому советую не удалять чат со мной, иначе может последовать плата по услуге "исправления кода"</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Можно ли добавить JavaScript на сайт?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Да, подробнее было написано в "Что подразумевается под JS"</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Вы занимаетесь размещением сайта на хостинге?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Нет, это не входит в мои услуги. Я предоставляю архив с готовым кодом, который вы можете разместить на любом хостинге.</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Что если мне не понравится результат?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Я работаю по этапам и согласовываю каждый шаг. Если на каком-то этапе вас что-то не устроит, вношу правки</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Можно ли изменить сайт после сдачи проекта?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Нет, если мы уже все согласовали и вы получили свой сайт, полные правки в нём я вносить не буду</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Все сервисы действительно бесплатны?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Да, все калькуляторы и инструменты на сайте бесплатны. Мы не просим регистрацию и не скрываем результаты.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Как связаться с поддержкой?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Напишите нам в Telegram через плавающую иконку справа. Мы отвечаем быстро.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Почему на некоторых страницах есть реклама?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Реклама позволяет нам сохранять все сервисы бесплатными и развивать новые.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Можно ли заказать индивидуальный калькулятор?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Да, мы разрабатываем инструменты на заказ. Перейдите в «Наш Магазин» в меню или напишите в Telegram.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Где посмотреть все доступные сервисы?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>На странице <a href="all.html">«Все проекты»</a> есть полный список с поиском и фильтрацией.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Насколько точны расчёты?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Мы используем стандартные математические формулы и округление до 2‑6 знаков. Все результаты можно проверить вручную.</p></div></div>
             </div>
         </section>
+
+        <div class="seo-block">
+            <h2>Millerson Company – 54 бесплатных онлайн‑инструмента</h2>
+            <p>Мы создали более 50 полезных сервисов для решения повседневных задач. Всё, что вы найдёте на сайте, работает без регистрации и абсолютно бесплатно. Каждый инструмент сопровождается подробным пошаговым решением и супер‑простым режимом для новичков.</p>
+            <p><strong>Что входит в нашу коллекцию:</strong></p>
+            <ul>
+                <li>Кредитный калькулятор (аннуитетные и дифференцированные платежи)</li>
+                <li>Калькулятор процентов (процент от числа, разница, наценка)</li>
+                <li>Геометрические фигуры на плоскости: квадрат, прямоугольник, треугольник, трапеция, параллелограмм, ромб, окружность, сектор</li>
+                <li>Объёмные тела: куб, параллелепипед, цилиндр, конус, усечённый конус, шар, сфера, шаровой сегмент, шаровой сектор</li>
+                <li>Правильные многогранники: тетраэдр, октаэдр, додекаэдр, икосаэдр</li>
+                <li>Конвертеры величин (длина, площадь, объём, масса, температура)</li>
+                <li>Расчёт скорости, времени, расстояния</li>
+                <li>Математические калькуляторы (корни, степени, логарифмы, прогрессии)</li>
+                <li>И многое другое — всего 54 сервиса на 60+ страницах</li>
+            </ul>
+            <p>Все расчёты выполнены на основе точных математических формул. Вы можете выбрать единицы измерения (мм, см, м) и точность округления (2‑6 знаков). Результаты можно копировать и делиться ими.</p>
+            <p><strong>Почему выбирают Millerson Company?</strong> Мы делаем упор на наглядность и простоту. В каждом калькуляторе есть два режима: обычный (с формулами) и супер‑простой (с объяснениями словами). Наши сервисы идеально подходят для школьников, студентов, инженеров и всех, кому нужно быстро получить точный ответ.</p>
+            <p>Присоединяйтесь к нашему Telegram‑каналу, чтобы первыми узнавать о новых инструментах и обновлениях.</p>
+        </div>
     </div>
 </main>
 
@@ -461,345 +341,12 @@
     <div class="container">
         <div class="footer__content">
             <p>© 2026 Millerson Company</p>
-            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
-            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+            <p>Все расчёты носят информационный характер. Сервисы бесплатны для всех пользователей.</p>
+            <p><a href="https://t.me/Millerson_Company" target="_blank" style="margin:0 10px;"><i class="fab fa-telegram"></i></a> <a href="https://kwork.ru/user/Millerson_Shop" target="_blank">Наш Магазин</a> | <a href="/privacy.html">Политика конфиденциальности</a></p>
         </div>
     </div>
 </footer>
 
-<div class="modal-overlay" id="service-modal">
-    <div class="service-modal">
-        <div class="modal-close" id="modal-close">&times;</div>
-        <div class="modal-header"><h3 id="modal-title">Название услуги</h3><div class="modal-price" id="modal-price">Цена</div></div>
-        <div class="modal-content">
-            <div class="modal-section"><h4><i class="fas fa-info-circle"></i> Описание</h4><p id="modal-description"></p></div>
-            <div class="modal-section"><h4><i class="fas fa-clock"></i> Сроки выполнения</h4><p id="modal-time"></p></div>
-            <div class="modal-section"><h4><i class="fas fa-tag"></i> От чего зависит цена</h4><p id="modal-price-details"></p></div>
-        </div>
-    </div>
-</div>
-
-<div class="portfolio-modal" id="portfolio-modal">
-    <div class="portfolio-modal-content">
-        <button class="portfolio-close" id="portfolio-close">&times;</button>
-        <button class="portfolio-nav portfolio-prev" id="portfolio-prev">‹</button>
-        <button class="portfolio-nav portfolio-next" id="portfolio-next">›</button>
-        <div class="portfolio-modal-body">
-            <div class="portfolio-images" id="portfolio-images"></div>
-            <div class="portfolio-description" id="portfolio-description"><h4 id="portfolio-title">Название проекта</h4><p id="portfolio-text">Описание проекта будет здесь</p></div>
-        </div>
-    </div>
-</div>
-
-<div class="image-viewer-modal" id="image-viewer-modal">
-    <button class="image-viewer-close" id="image-viewer-close">&times;</button>
-    <button class="image-nav image-prev" id="image-prev">‹</button>
-    <button class="image-nav image-next" id="image-next">›</button>
-    <div class="image-viewer-content"><img id="full-size-image" src="" alt=""></div>
-    <div class="image-counter" id="image-counter">1 / 1</div>
-</div>
-
-<script>
-    (function() {
-        const themeToggleDesktop = document.getElementById('themeToggleDesktop');
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
-        const savedTheme = localStorage.getItem('theme');
-
-        function setTheme(checked) {
-            if (checked) {
-                document.body.classList.add('dark-theme');
-            } else {
-                document.body.classList.remove('dark-theme');
-            }
-            localStorage.setItem('theme', checked ? 'dark' : 'light');
-            if (themeToggleDesktop) themeToggleDesktop.checked = checked;
-            if (themeToggleMobile) themeToggleMobile.checked = checked;
-        }
-
-        if (savedTheme === 'dark') {
-            setTheme(true);
-        } else {
-            setTheme(false);
-        }
-
-        if (themeToggleDesktop) {
-            themeToggleDesktop.addEventListener('change', function(e) {
-                setTheme(e.target.checked);
-            });
-        }
-        if (themeToggleMobile) {
-            themeToggleMobile.addEventListener('change', function(e) {
-                setTheme(e.target.checked);
-            });
-        }
-
-        const burgerBtn = document.getElementById('burgerBtn');
-        const navMobile = document.getElementById('navMobile');
-
-        function closeMobileMenu() {
-            navMobile.classList.remove('active');
-            burgerBtn.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        burgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            navMobile.classList.toggle('active');
-            burgerBtn.classList.toggle('active');
-            document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
-        });
-
-        navMobile.querySelectorAll('.nav__link, .btn').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-
-        document.addEventListener('click', function(event) {
-            if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectItems = document.querySelectorAll('.portfolio-item[data-category]');
-        const searchInput = document.getElementById('projectSearch');
-
-        function filterProjects() {
-            const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
-            const searchTerm = searchInput.value.toLowerCase().trim();
-
-            projectItems.forEach(item => {
-                const category = item.dataset.category;
-                const name = item.dataset.name.toLowerCase();
-                let categoryMatch = activeFilter === 'all' || category === activeFilter;
-                let searchMatch = name.includes(searchTerm) || searchTerm === '';
-                if (categoryMatch && searchMatch) {
-                    item.style.display = '';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                filterButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                filterProjects();
-            });
-        });
-
-        searchInput.addEventListener('input', filterProjects);
-
-        const backToTop = document.getElementById('back-to-top');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        backToTop.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        const scrollProgress = document.querySelector('.scroll-progress');
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            scrollProgress.style.width = scrolled + '%';
-        });
-
-        const modalOverlay = document.getElementById('service-modal');
-        const modalClose = document.getElementById('modal-close');
-        const detailBtns = document.querySelectorAll('.detail-btn');
-        const modalTitle = document.getElementById('modal-title');
-        const modalPrice = document.getElementById('modal-price');
-        const modalDesc = document.getElementById('modal-description');
-        const modalTime = document.getElementById('modal-time');
-        const modalPriceDetails = document.getElementById('modal-price-details');
-
-        const serviceData = {
-            card: {
-                title: 'Сайт-визитка',
-                price: 'от 1000 ₽',
-                desc: 'Идеальное решение для представления себя, своего бизнеса или услуг в интернете. Просто, эффективно, профессионально.',
-                time: '2-3 дня',
-                priceDetail: 'Базовая цена включает одну страницу. Дополнительные страницы и функции обсуждаются отдельно.'
-            },
-            landing: {
-                title: 'Лендинг',
-                price: '2000 ₽',
-                desc: 'Одностраничный сайт для максимальной концентрации на цели: заявка, продажа, статья.',
-                time: '1-2 дня',
-                priceDetail: 'Фиксированная цена за сайт. Сложный дизайн может увеличить стоимость.'
-            },
-            blog: {
-                title: 'Блог / Портфолио',
-                price: '1750 ₽',
-                desc: 'Сайт для демонстрации ваших работ, статей или проектов.',
-                time: '2-3 дня',
-                priceDetail: 'Цена за одну страницу. Чем больше страниц, тем дешевле каждая следующая.'
-            },
-            catalog: {
-                title: 'Каталог товаров',
-                price: '2250 ₽ + 25 ₽/товар',
-                desc: 'Презентация вашей продукции с фильтрацией и детальным описанием.',
-                time: 'от 3 дней',
-                priceDetail: 'Базовая цена + 25 рублей за каждый товар (вёрстка карточки).'
-            },
-            faq: {
-                title: 'Сайт-справка / FAQ',
-                price: '900 ₽',
-                desc: 'Информационный ресурс с аккордеонами, вкладками и поиском.',
-                time: '2-3 дня',
-                priceDetail: 'Цена за одну страницу. При большом количестве разделов цена обсуждается.'
-            },
-            article: {
-                title: 'Сайт для статьи',
-                price: '750 ₽',
-                desc: 'Оптимальное решение для публикации длинных текстов, исследований, обзоров.',
-                time: '1-2 дня',
-                priceDetail: 'Цена за одну страницу. Дополнительные иллюстрации и схемы могут увеличить стоимость.'
-            },
-            custom: {
-                title: 'Индивидуальный проект',
-                price: 'от 4000 ₽',
-                desc: 'Не нашли подходящий вариант? Обсудим вашу задачу и создадим уникальное решение.',
-                time: 'от 5 дней',
-                priceDetail: 'Цена зависит от сложности, количества страниц и функционала.'
-            },
-            css: {
-                title: 'CSS на заказ',
-                price: '800-2500 ₽',
-                desc: 'Уникальные анимации, сложные эффекты, кастомные стили под ваш проект.',
-                time: '1-5 дней',
-                priceDetail: 'Цена зависит от сложности и объёма работы.'
-            },
-            fix: {
-                title: 'Исправление кода',
-                price: '600-1750 ₽',
-                desc: 'Оптимизация, рефакторинг, исправление ошибок в существующем HTML/CSS коде.',
-                time: '1-3 дня',
-                priceDetail: 'Цена зависит от объёма и сложности правок.'
-            }
-        };
-
-        detailBtns.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const modal = this.closest('.service-card')?.dataset.modal;
-                if (modal && serviceData[modal]) {
-                    modalTitle.textContent = serviceData[modal].title;
-                    modalPrice.textContent = serviceData[modal].price;
-                    modalDesc.textContent = serviceData[modal].desc;
-                    modalTime.textContent = serviceData[modal].time;
-                    modalPriceDetails.textContent = serviceData[modal].priceDetail;
-                    modalOverlay.classList.add('active');
-                }
-            });
-        });
-
-        modalClose.addEventListener('click', function() {
-            modalOverlay.classList.remove('active');
-        });
-
-        modalOverlay.addEventListener('click', function(e) {
-            if (e.target === modalOverlay) {
-                modalOverlay.classList.remove('active');
-            }
-        });
-
-        const portfolioModal = document.getElementById('portfolio-modal');
-        const portfolioClose = document.getElementById('portfolio-close');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        const portfolioTitle = document.getElementById('portfolio-title');
-        const portfolioText = document.getElementById('portfolio-text');
-        const portfolioImages = document.getElementById('portfolio-images');
-
-        portfolioItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') return;
-                const title = this.querySelector('.portfolio-info h3')?.textContent || 'Проект';
-                const desc = this.querySelector('.portfolio-info p')?.textContent || '';
-                portfolioTitle.textContent = title;
-                portfolioText.textContent = desc;
-                portfolioImages.innerHTML = '';
-                const count = parseInt(this.dataset.count) || 1;
-                for (let i = 1; i <= count; i++) {
-                    const imgDiv = document.createElement('div');
-                    imgDiv.className = 'portfolio-image';
-                    imgDiv.innerHTML = '<img src="https://via.placeholder.com/400x200?text=Image+' + i + '" alt="Изображение ' + i + '">';
-                    portfolioImages.appendChild(imgDiv);
-                }
-                portfolioModal.classList.add('active');
-            });
-        });
-
-        portfolioClose.addEventListener('click', function() {
-            portfolioModal.classList.remove('active');
-        });
-
-        portfolioModal.addEventListener('click', function(e) {
-            if (e.target === portfolioModal) {
-                portfolioModal.classList.remove('active');
-            }
-        });
-
-        const imageViewer = document.getElementById('image-viewer-modal');
-        const imageViewerClose = document.getElementById('image-viewer-close');
-        const fullImage = document.getElementById('full-size-image');
-        const imageCounter = document.getElementById('image-counter');
-        let currentImages = [];
-        let currentIndex = 0;
-
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.portfolio-image img')) {
-                const img = e.target.closest('.portfolio-image img');
-                const allImages = Array.from(document.querySelectorAll('.portfolio-image img'));
-                currentImages = allImages.map(img => img.src);
-                currentIndex = allImages.indexOf(img);
-                fullImage.src = currentImages[currentIndex];
-                imageCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
-                imageViewer.classList.add('active');
-            }
-        });
-
-        imageViewerClose.addEventListener('click', function() {
-            imageViewer.classList.remove('active');
-        });
-
-        imageViewer.addEventListener('click', function(e) {
-            if (e.target === imageViewer) {
-                imageViewer.classList.remove('active');
-            }
-        });
-
-        document.getElementById('image-prev').addEventListener('click', function() {
-            if (currentImages.length > 0) {
-                currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-                fullImage.src = currentImages[currentIndex];
-                imageCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
-            }
-        });
-
-        document.getElementById('image-next').addEventListener('click', function() {
-            if (currentImages.length > 0) {
-                currentIndex = (currentIndex + 1) % currentImages.length;
-                fullImage.src = currentImages[currentIndex];
-                imageCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
-            }
-        });
-
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
-        });
-    })();
-</script>
 <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
         <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
@@ -812,14 +359,108 @@
 </div>
 
 <script>
+(function() {
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+    function setTheme(checked) {
+        if (checked) document.body.classList.add('dark-theme');
+        else document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+    if (savedTheme === 'dark') setTheme(true);
+    else setTheme(false);
+    if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+    function closeMobileMenu() { navMobile.classList.remove('active'); burgerBtn.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+    navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('click', function(event) {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
+    });
+
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
+    });
+    backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    const scrollProgress = document.querySelector('.scroll-progress');
+    window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        scrollProgress.style.width = (winScroll / height) * 100 + '%';
+    });
+
+    const supportFloat = document.getElementById('supportFloat');
+    const supportModal = document.getElementById('supportModal');
+    const closeSupport = document.getElementById('closeSupport');
+    supportFloat.addEventListener('click', function(e) {
+        e.stopPropagation();
+        supportModal.classList.toggle('active');
+    });
+    closeSupport.addEventListener('click', function() {
+        supportModal.classList.remove('active');
+    });
+    document.addEventListener('click', function(e) {
+        if (!supportModal.contains(e.target) && !supportFloat.contains(e.target)) {
+            supportModal.classList.remove('active');
+        }
+    });
+
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => { item.classList.toggle('active'); });
+    });
+
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    if (!localStorage.getItem('cookieAccepted')) cookieBanner.style.display = 'block';
+    acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieAccepted', 'true');
+        cookieBanner.style.display = 'none';
+    });
+
+    if (!localStorage.getItem('themeToastShown') && !document.body.classList.contains('dark-theme')) {
+        const toast = document.createElement('div');
+        toast.className = 'game-toast';
+        toast.innerHTML = '<span style="flex:1; margin-right:8px;">Вы можете переключить на тёмную тему в меню</span><span style="font-size:1.2rem; cursor:pointer;" onclick="this.parentElement.remove()">✕</span>';
+        document.body.appendChild(toast);
+        let startX=0,currentX=0,isSwiping=false;
+        const onTouchStart = (e) => { startX = e.touches[0].clientX; isSwiping = true; };
+        const onTouchMove = (e) => { if (!isSwiping) return; currentX = e.touches[0].clientX; toast.style.transform = `translateX(${currentX - startX}px)`; };
+        const onTouchEnd = () => {
+            if (!isSwiping) return;
+            const deltaX = currentX - startX;
+            if (Math.abs(deltaX) > 50) toast.remove();
+            else toast.style.transform = '';
+            isSwiping = false; startX = 0; currentX = 0;
+        };
+        toast.addEventListener('touchstart', onTouchStart);
+        toast.addEventListener('touchmove', onTouchMove);
+        toast.addEventListener('touchend', onTouchEnd);
+        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3500);
+        localStorage.setItem('themeToastShown', 'true');
+    }
+})();
+</script>
+<script>
 (function(){
     const banner = document.getElementById('cookieBanner');
     const button = document.getElementById('acceptCookies');
-
-    if(!localStorage.getItem('cookieAccepted')){
-        banner.style.display = 'block';
-    }
-
+    if(!localStorage.getItem('cookieAccepted')) banner.style.display = 'block';
     button.addEventListener('click', function(){
         localStorage.setItem('cookieAccepted', 'true');
         banner.style.display = 'none';

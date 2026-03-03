@@ -2728,3 +2728,21 @@ body.simple-mode .simple-explanation {
     color: var(--accent-hover);
     text-decoration: underline;
 }
+.seo-text a,
+.faq-answer a,
+.main__description a,
+.content-card a,
+.footer__content a {
+    color: #FF8C00;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color 0.2s ease;
+}
+
+.seo-text a:hover,
+.faq-answer a:hover,
+.main__description a:hover,
+.content-card a:hover,
+.footer__content a:hover {
+    border-bottom-color: #FF8C00;
+}
