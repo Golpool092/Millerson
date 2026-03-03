@@ -2,25 +2,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="yandex-verification" content="09a9906cfe75b11e">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Калькулятор синуса онлайн — sin(x) в градусах и радианах | Millerson</title>
-    <meta name="description" content="Бесплатный онлайн калькулятор для вычисления синуса угла. Поддержка градусов и радиан, пошаговое решение, супер-простой режим. sin 30°, sin 45°, sin 60° и другие.">
-    <meta name="keywords" content="синус онлайн, калькулятор синуса, sin, синус угла, вычислить синус, sin градусы, sin радианы">
+    <link rel="preconnect" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="preconnect" href="https://yandex.ru">
+    <link rel="dns-prefetch" href="https://yandex.ru">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <title>Синус онлайн калькулятор (sin x) — градусы и радианы, формулы, примеры | Millerson</title>
+    <meta name="description" content="Вычислите sin(x) онлайн — в градусах и радианах. Калькулятор синуса с формулами, пошаговым решением, таблицей значений (sin 30°, 45°, 60°, 90°). Бесплатно, без регистрации.">
+    <meta name="keywords" content="синус онлайн, калькулятор синуса, sin, синус угла, вычислить синус, sin градусы, sin радианы, тригонометрическая функция, таблица синусов">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://millerson.shop/sin.html">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <meta property="og:title" content="Калькулятор синуса – Millerson">
-    <meta property="og:description" content="Мгновенное вычисление синуса угла. Подробное решение, супер-простой режим.">
+    <meta property="og:title" content="Синус онлайн калькулятор (sin x) — градусы и радианы, формулы, примеры">
+    <meta property="og:description" content="Вычислите sin(x) онлайн — в градусах и радианах. Калькулятор синуса с формулами, пошаговым решением, таблицей значений.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://millerson.shop/sin.html">
     <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta property="og:site_name" content="Millerson Company">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Калькулятор синуса">
-    <meta name="twitter:description" content="sin(x) онлайн. Бесплатно.">
+    <meta name="twitter:title" content="Калькулятор синуса онлайн">
+    <meta name="twitter:description" content="sin(x) в градусах и радианах. Бесплатно.">
     <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
 </head>
 <body>
@@ -95,8 +102,8 @@
 
 <main class="main">
     <div class="container">
-        <h1 class="main__title">Калькулятор синуса (sin)</h1>
-        <p class="main__description">Вычислите синус угла в градусах или радианах. Подробное решение, супер‑простой режим.</p>
+        <h1 class="main__title">Синус онлайн калькулятор (sin x)</h1>
+        <p class="main__description">Вычислите синус угла в градусах или радианах. Подробное решение, супер‑простой режим, таблица популярных значений.</p>
 
         <div class="calculator glass">
             <div style="margin-bottom:20px;">
@@ -112,17 +119,17 @@
             <div id="inputGroups" style="margin-bottom:20px;">
                 <div class="field-wrapper">
                     <label class="form-label" id="inputLabel">Угол (градусы)</label>
-                    <input type="number" id="xInput" class="form-input" value="30" step="any">
+                    <input type="number" id="xInput" class="form-input" value="30" step="any" aria-label="Значение угла">
                 </div>
             </div>
 
             <div class="action-buttons">
-                <button class="action-btn" id="calculateBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
-                <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайная задача</button>
-                <button class="action-btn" id="clearBtn"><i class="fas fa-undo"></i> Очистить</button>
-                <button class="action-btn" id="copyAnswerBtn"><i class="fas fa-copy"></i> Копировать ответ</button>
-                <button class="action-btn" id="copySolutionBtn"><i class="fas fa-file-alt"></i> Копировать решение</button>
-                <button class="action-btn" id="shareBtn"><i class="fas fa-share-alt"></i> Поделиться</button>
+                <button class="action-btn" id="calculateBtn" aria-label="Рассчитать"><i class="fas fa-calculator"></i> Рассчитать</button>
+                <button class="action-btn" id="randomBtn" aria-label="Случайная задача"><i class="fas fa-dice"></i> Случайная задача</button>
+                <button class="action-btn" id="clearBtn" aria-label="Очистить"><i class="fas fa-undo"></i> Очистить</button>
+                <button class="action-btn" id="copyAnswerBtn" aria-label="Копировать ответ"><i class="fas fa-copy"></i> Копировать ответ</button>
+                <button class="action-btn" id="copySolutionBtn" aria-label="Копировать решение"><i class="fas fa-file-alt"></i> Копировать решение</button>
+                <button class="action-btn" id="shareBtn" aria-label="Поделиться"><i class="fas fa-share-alt"></i> Поделиться</button>
             </div>
 
             <div class="results" id="resultsContainer">
@@ -156,21 +163,25 @@
             <a href="all-trigonometry.html" class="tool-card"><i class="fas fa-th"></i> Все функции</a>
         </div>
 
-        <div class="seo-text">
+        <section class="seo-text">
             <h2>Калькулятор синуса онлайн: sin(x) в градусах и радианах</h2>
             <p>Синус — одна из основных тригонометрических функций. В прямоугольном треугольнике синус острого угла равен отношению противолежащего катета к гипотенузе. Наш калькулятор позволяет вычислить синус любого угла (в градусах или радианах) с подробным пошаговым решением.</p>
             <p>Для углов 0°, 30°, 45°, 60°, 90° и соответствующих радианных значений синус имеет точные значения. Калькулятор поможет вам быстро получить результат и понять, как он вычисляется.</p>
-            <h3>Формула</h3>
+            <h3>Формула синуса</h3>
             <p>sin(α) = противолежащий катет / гипотенуза.</p>
-            <h3>Примеры</h3>
+            <h3>Таблица популярных значений</h3>
             <ul>
-                <li>sin 30° = 0.5</li>
+                <li>sin 0° = 0</li>
+                <li>sin 30° = 1/2 = 0.5</li>
                 <li>sin 45° = √2/2 ≈ 0.7071</li>
                 <li>sin 60° = √3/2 ≈ 0.8660</li>
                 <li>sin 90° = 1</li>
             </ul>
-            <p>Калькулятор поддерживает перевод между градусами и радианами. Просто введите угол и получите результат.</p>
-        </div>
+            <p>В радианной мере: sin π/6 = 0.5, sin π/4 ≈ 0.7071, sin π/3 ≈ 0.8660, sin π/2 = 1.</p>
+            <h3>Что такое синус и как его вычислить?</h3>
+            <p>Синус — это тригонометрическая функция, определяющая отношение противолежащего катета к гипотенузе в прямоугольном треугольнике. В координатной геометрии синус угла равен ординате точки на единичной окружности. Калькулятор использует математические ряды для точного вычисления значений.</p>
+            <p>Также на сайте доступны другие тригонометрические калькуляторы: <a href="cos.html">косинус</a>, <a href="tan.html">тангенс</a>, <a href="arcsin.html">арксинус</a>, а также полный <a href="all-trigonometry.html">справочник</a>.</p>
+        </section>
 
         <section class="faq-section">
             <h2 class="faq-title">Часто задаваемые вопросы</h2>
@@ -225,7 +236,6 @@
     function showGameToast(text) {
         const existingToast = document.querySelector('.game-toast');
         if (existingToast) existingToast.remove();
-
         const toast = document.createElement('div');
         toast.className = 'game-toast';
         toast.innerHTML = `
@@ -234,10 +244,8 @@
             <span class="toast-close" style="font-size: 1.2rem; cursor: pointer;">✕</span>
         `;
         document.body.appendChild(toast);
-
         const closeBtn = toast.querySelector('.toast-close');
         closeBtn.addEventListener('click', () => toast.remove());
-
         let startX = 0, currentX = 0, isSwiping = false;
         const onTouchStart = (e) => { startX = e.touches[0].clientX; isSwiping = true; };
         const onTouchMove = (e) => { if (!isSwiping) return; currentX = e.touches[0].clientX; toast.style.transform = `translateX(${currentX - startX}px)`; };
@@ -308,22 +316,18 @@
     function calculate() {
         document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
         document.querySelectorAll('.error-message').forEach(el => el.remove());
-
         const rawX = parseFloat(xInput.value);
         if (isNaN(rawX)) {
             showError('Введите число');
             return;
         }
-
         let angleDeg = currentUnit === 'deg' ? rawX : toDegrees(rawX);
         let angleRad = currentUnit === 'rad' ? rawX : toRadians(rawX);
-
         try {
             const result = Math.sin(angleRad);
             const solutionMath = `sin(${angleDeg.toFixed(6)}°) = ${round6(result)} (в радианах: ${angleRad.toFixed(6)} рад)`;
             const solutionSimple = `Синус угла ${angleDeg.toFixed(2)}° равен ${round6(result)}. Это отношение противолежащего катета к гипотенузе.`;
             const formulas = 'sin α = противолежащий катет / гипотенуза';
-
             resultValueSpan.textContent = round6(result);
             stepText.textContent = solutionMath;
             stepTextSimple.textContent = solutionSimple;
@@ -352,17 +356,14 @@
     });
 
     xInput.addEventListener('input', calculate);
-
     calculateBtn.addEventListener('click', function(e) {
         e.preventDefault();
         calculate();
     });
-
     clearBtn.addEventListener('click', function() {
         xInput.value = currentUnit === 'deg' ? 30 : toRadians(30);
         calculate();
     });
-
     randomBtn.addEventListener('click', function() {
         let val;
         if (currentUnit === 'deg') val = Math.random() * 360;
@@ -370,17 +371,14 @@
         xInput.value = round6(val);
         calculate();
     });
-
     copyAnswerBtn.addEventListener('click', function() {
         const text = `Результат: ${resultValueSpan.textContent}`;
         navigator.clipboard.writeText(text).then(() => showGameToast('Ответ скопирован')).catch(() => showGameToast('Ошибка копирования'));
     });
-
     copySolutionBtn.addEventListener('click', function() {
         const text = body.classList.contains('simple-mode') ? stepTextSimple.innerText : stepText.innerText;
         navigator.clipboard.writeText(text).then(() => showGameToast('Решение скопировано')).catch(() => showGameToast('Ошибка копирования'));
     });
-
     shareBtn.addEventListener('click', function() {
         const text = `Синус: sin(${xInput.value}) = ${resultValueSpan.textContent} — решение: ${stepText.innerText} ${window.location.href}`;
         if (navigator.share) navigator.share({ title: 'Калькулятор синуса', text }).catch(() => {});
@@ -389,7 +387,6 @@
 
     updateInputLabel();
     calculate();
-
     setTimeout(() => showGameToast('Вы можете включить супер-простой режим в меню!'), 1000);
 
     const faqList = document.getElementById('faqList');
@@ -398,6 +395,7 @@
         <details class="faq-item"><summary class="faq-question">Чему равен sin 30°?</summary><div class="faq-answer">sin 30° = 0.5.</div></details>
         <details class="faq-item"><summary class="faq-question">Чему равен sin 45°?</summary><div class="faq-answer">sin 45° = √2/2 ≈ 0.7071.</div></details>
         <details class="faq-item"><summary class="faq-question">Как переключиться на радианы?</summary><div class="faq-answer">Используйте переключатель единиц над полем ввода.</div></details>
+        <details class="faq-item"><summary class="faq-question">Можно ли вычислять синус в радианах?</summary><div class="faq-answer">Да, калькулятор поддерживает радианную меру угла.</div></details>
     `;
 })();
 </script>
@@ -405,7 +403,7 @@
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){ m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a) })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym'); ym(107027516, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 
 <script type="application/ld+json">
 {
@@ -460,6 +458,31 @@
     ]
 }
 </script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Чему равен sin 30°?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "sin 30° равен 0.5."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Можно ли вычислять синус в радианах?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Да, калькулятор поддерживает радианную меру угла."
+            }
+        }
+    ]
+}
+</script>
+
 <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
         <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
@@ -474,11 +497,7 @@
 (function(){
     const banner = document.getElementById('cookieBanner');
     const button = document.getElementById('acceptCookies');
-
-    if(!localStorage.getItem('cookieAccepted')){
-        banner.style.display = 'block';
-    }
-
+    if(!localStorage.getItem('cookieAccepted')) banner.style.display = 'block';
     button.addEventListener('click', function(){
         localStorage.setItem('cookieAccepted', 'true');
         banner.style.display = 'none';
