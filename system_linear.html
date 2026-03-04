@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="yandex-verification" content="09a9906cfe75b11e" />
+<meta name="yandex-verification" content="09a9906cfe75b11e">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Калькулятор систем линейных уравнений онлайн: метод Крамера, Гаусса | Millerson</title>
-<meta name="description" content="Бесплатный онлайн калькулятор для решения систем линейных уравнений 2×2 и 3×3. Метод Крамера, пошаговое решение, супер‑простой режим. Найдите неизвестные x, y, z.">
+<title>Калькулятор систем линейных уравнений 2×2 и 3×3 онлайн</title>
+<meta name="description" content="Бесплатный онлайн калькулятор для решения систем линейных уравнений 2×2 и 3×3. Подробное решение методом Крамера, без регистрации. Просто введите коэффициенты.">
 <meta name="keywords" content="система линейных уравнений онлайн, метод Крамера, решение систем 2x2, решение систем 3x3, калькулятор систем уравнений">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://millerson.shop/system_linear.html">
@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="Решение систем уравнений онлайн бесплатно.">
 <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 <script src="https://yandex.ru/ads/system/context.js" async></script>
 <script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
 <script type="application/ld+json">
@@ -71,9 +71,10 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-        { "@type": "Question", "name": "Как решается система 2×2?", "acceptedAnswer": { "@type": "Answer", "text": "Методом Крамера: находим определители и делим." } },
-        { "@type": "Question", "name": "Что если определитель равен нулю?", "acceptedAnswer": { "@type": "Answer", "text": "Система либо несовместна, либо имеет бесконечно много решений." } },
-        { "@type": "Question", "name": "Поддерживаются ли системы 3×3?", "acceptedAnswer": { "@type": "Answer", "text": "Да, выберите размерность 3×3." } }
+        { "@type": "Question", "name": "Как решается система 2×2 методом Крамера?", "acceptedAnswer": { "@type": "Answer", "text": "Вычисляем определитель матрицы коэффициентов и определители для каждой переменной, затем делим." } },
+        { "@type": "Question", "name": "Что делать, если определитель равен нулю?", "acceptedAnswer": { "@type": "Answer", "text": "Система либо не имеет решений, либо имеет бесконечно много решений. Калькулятор сообщит об этом." } },
+        { "@type": "Question", "name": "Можно ли решить систему 3×3?", "acceptedAnswer": { "@type": "Answer", "text": "Да, выберите размерность 3×3 и введите коэффициенты. Решение также будет по методу Крамера." } },
+        { "@type": "Question", "name": "Калькулятор показывает подробное решение?", "acceptedAnswer": { "@type": "Answer", "text": "Да, вы увидите пошаговое вычисление определителей и окончательные значения x, y, z." } }
     ]
 }
 </script>
@@ -204,6 +205,60 @@
         width: 260px;
     }
 }
+
+.equation-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    background: var(--surface-solid);
+    padding: 12px 18px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+}
+.equation-row .eq-label {
+    font-weight: 600;
+    color: var(--accent);
+    min-width: 70px;
+    font-size: 1rem;
+}
+.equation-row .form-input {
+    width: 90px;
+    flex-shrink: 0;
+}
+.var-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-right: 2px;
+    font-size: 1rem;
+}
+.equation-row .operator {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0 2px;
+}
+@media (max-width: 700px) {
+    .equation-row {
+        gap: 6px;
+        padding: 10px 12px;
+    }
+    .equation-row .form-input {
+        width: 70px;
+    }
+    .equation-row .eq-label {
+        min-width: 50px;
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 480px) {
+    .equation-row {
+        border-radius: 30px;
+    }
+    .equation-row .form-input {
+        width: 60px;
+    }
+}
 </style>
 </head>
 <body>
@@ -254,8 +309,8 @@
     <div class="container">
         <div style="margin-bottom:20px;font-size:0.95rem;color:var(--text-secondary);"><a href="index.html" style="color:var(--accent);">Главная</a> › <a href="algebra.html" style="color:var(--accent);">Алгебра</a> › <span>Системы линейных уравнений</span></div>
         <a href="algebra.html" class="tool-card" style="display:inline-flex;margin-bottom:20px;"><i class="fas fa-arrow-left"></i> Все алгебраические калькуляторы</a>
-        <h1 class="main__title">Калькулятор систем линейных уравнений</h1>
-        <p class="main__description">Решите систему линейных уравнений 2×2 или 3×3 методом Крамера. Подробное решение, супер‑простой режим.</p>
+        <h1 class="main__title">Калькулятор систем линейных уравнений 2×2 и 3×3</h1>
+        <p class="main__description">Бесплатный онлайн калькулятор для решения систем линейных уравнений. Подробное решение методом Крамера, без регистрации. Просто введите коэффициенты.</p>
         <div class="calculator glass">
             <div style="margin-bottom:20px;"><h2 style="font-size:1.8rem;margin:0;">Система линейных уравнений</h2></div>
             <div id="submodeContainer" style="margin-bottom:20px;"></div>
@@ -265,9 +320,46 @@
             <div id="stepByStep" style="margin-top:30px;background:var(--surface-solid);border-radius:24px;padding:20px;border:1px solid var(--border);"><h3 style="margin-bottom:15px;">📝 Подробное решение</h3><div id="stepText" class="math-formula">Введите данные и нажмите "Рассчитать"</div><div id="stepTextSimple" class="simple-explanation">Введите данные и нажмите "Рассчитать"</div></div>
             <div id="formulasUsed" style="margin-top:20px;background:var(--surface-solid);border-radius:24px;padding:20px;border:1px solid var(--border);" class="math-formula"><h3 style="margin-bottom:15px;">📐 Использованные формулы</h3><div id="formulasText">—</div></div>
         </div>
-        <div class="tools-links"><a href="quadratic.html" class="tool-card"><i class="fas fa-chart-line"></i> Квадратные уравнения</a><a href="system_linear.html" class="tool-card"><i class="fas fa-grip-lines"></i> Системы линейных уравнений</a><a href="algebra.html" class="tool-card"><i class="fas fa-th"></i> Все разделы алгебры</a></div>
-        <div class="seo-text"><h2>Калькулятор систем линейных уравнений онлайн</h2><p>Система линейных уравнений — это набор уравнений первой степени с несколькими неизвестными. Наш калькулятор решает системы 2×2 и 3×3, используя метод Крамера (определители). Вы получите значения неизвестных (x, y, z) и подробное описание каждого шага.</p><p><strong>Метод Крамера:</strong> решение находится как отношение определителей: x = Δx / Δ, y = Δy / Δ, z = Δz / Δ, где Δ — определитель матрицы коэффициентов, Δx, Δy, Δz — определители, полученные заменой соответствующего столбца на столбец свободных членов.</p><p>Если определитель системы равен нулю, система либо не имеет решений, либо имеет бесконечно много. Калькулятор сообщит о таком случае.</p><h3>Пример для 2×2</h3><p>Система:<br>2x + 3y = 8<br>4x – y = 2<br>Δ = 2·(–1) – 3·4 = –2 – 12 = –14, Δx = 8·(–1) – 3·2 = –8 – 6 = –14, Δy = 2·2 – 8·4 = 4 – 32 = –28. Тогда x = (–14)/(–14) = 1, y = (–28)/(–14) = 2.</p><h3>Пример для 3×3</h3><p>Система:<br>2x + y – z = 3<br>x – 2y + z = –2<br>3x – y + 2z = 1<br>Вычисляя определители, получаем решение.</p></div>
-        <section class="faq-section"><h2 class="faq-title">Часто задаваемые вопросы</h2><div class="faq-list" id="faqList"><details class="faq-item"><summary class="faq-question">Как решается система 2×2?</summary><div class="faq-answer">Методом Крамера: находим определители и делим.</div></details><details class="faq-item"><summary class="faq-question">Что если определитель равен нулю?</summary><div class="faq-answer">Система либо несовместна, либо имеет бесконечно много решений.</div></details><details class="faq-item"><summary class="faq-question">Поддерживаются ли системы 3×3?</summary><div class="faq-answer">Да, выберите размерность 3×3.</div></details></div></section>
+
+        <div class="tools-links">
+            <a href="quadratic.html" class="tool-card"><i class="fas fa-chart-line"></i> Калькулятор квадратных уравнений</a>
+            <a href="quadratic.html?type=discriminant" class="tool-card"><i class="fas fa-calculator"></i> Дискриминант онлайн</a>
+            <a href="algebra.html" class="tool-card"><i class="fas fa-th"></i> Все разделы алгебры</a>
+            <a href="system_linear.html" class="tool-card"><i class="fas fa-grip-lines"></i> Системы 2×2 / 3×3</a>
+        </div>
+
+        <div class="seo-text">
+            <h2>Метод Крамера для решения систем линейных уравнений</h2>
+            <p>Система линейных уравнений — это набор уравнений первой степени с несколькими неизвестными. Наш калькулятор решает системы 2×2 и 3×3, используя <strong>метод Крамера (определители)</strong>. Вы получите значения неизвестных (x, y, z) и подробное описание каждого шага.</p>
+            
+            <h3>Решение системы 2×2</h3>
+            <p>Рассмотрим систему:<br>
+            2x + 3y = 8<br>
+            4x – y = 2<br>
+            Определитель системы Δ = 2·(–1) – 3·4 = –2 – 12 = –14.<br>
+            Δx = 8·(–1) – 3·2 = –8 – 6 = –14,  Δy = 2·2 – 8·4 = 4 – 32 = –28.<br>
+            Тогда x = Δx/Δ = (–14)/(–14) = 1,  y = Δy/Δ = (–28)/(–14) = 2.</p>
+            
+            <h3>Решение системы 3×3</h3>
+            <p>Для системы трёх уравнений:<br>
+            2x + y – z = 3<br>
+            x – 2y + z = –2<br>
+            3x – y + 2z = 1<br>
+            Вычисляем определители третьего порядка и находим x, y, z. Калькулятор сделает это автоматически с пошаговым пояснением.</p>
+            
+            <p><strong>Если определитель системы равен нулю</strong>, система либо несовместна (нет решений), либо имеет бесконечно много решений. Калькулятор сообщит о таком случае.</p>
+            
+            <p>Хотите решить <a href="quadratic.html">квадратное уравнение</a> или вычислить <a href="quadratic.html?type=discriminant">дискриминант</a>? Воспользуйтесь нашими специальными калькуляторами.</p>
+            
+            <h3>Похожие калькуляторы</h3>
+            <ul>
+                <li><a href="quadratic.html">Решение квадратных уравнений онлайн</a></li>
+                <li><a href="quadratic.html?type=discriminant">Калькулятор дискриминанта</a></li>
+                <li><a href="algebra.html">Все калькуляторы по алгебре</a></li>
+            </ul>
+        </div>
+
+        <section class="faq-section"><h2 class="faq-title">Часто задаваемые вопросы</h2><div class="faq-list" id="faqList"><details class="faq-item"><summary class="faq-question">Как решается система 2×2 методом Крамера?</summary><div class="faq-answer">Вычисляем определитель матрицы коэффициентов и определители для каждой переменной, затем делим.</div></details><details class="faq-item"><summary class="faq-question">Что если определитель равен нулю?</summary><div class="faq-answer">Система либо не имеет решений, либо имеет бесконечно много решений. Калькулятор сообщит об этом.</div></details><details class="faq-item"><summary class="faq-question">Поддерживаются ли системы 3×3?</summary><div class="faq-answer">Да, выберите размерность 3×3 и введите коэффициенты. Решение также будет по методу Крамера.</div></details></div></section>
     </div>
 </main>
 <footer class="footer"><div class="container"><div class="footer__content"><p>© 2026 Millerson Company</p><p>Все расчёты носят информационный характер и не являются публичной офертой.</p><p><a href="/privacy.html">Политика конфиденциальности</a></p></div></div></footer>
@@ -329,9 +421,70 @@
     function buildFields(){
         let html='';
         if(currentSubmode==='2x2'){
-            html='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:center;"><div></div><div style="text-align:center">x</div><div style="text-align:center">y</div><div style="text-align:center">=</div><div></div><div>1:</div><input type="number" id="a11" class="form-input" value="2" step="any"><input type="number" id="a12" class="form-input" value="3" step="any"><div></div><input type="number" id="b1" class="form-input" value="8" step="any"><div>2:</div><input type="number" id="a21" class="form-input" value="4" step="any"><input type="number" id="a22" class="form-input" value="-1" step="any"><div></div><input type="number" id="b2" class="form-input" value="2" step="any"></div>';
+            html=`
+                <div class="equation-row">
+                    <span class="eq-label">Уравнение 1:</span>
+                    <input type="number" id="a11" class="form-input" step="any" value="2">
+                    <span class="var-label">·x</span>
+                    <span class="operator">+</span>
+                    <input type="number" id="a12" class="form-input" step="any" value="3">
+                    <span class="var-label">·y</span>
+                    <span class="operator">=</span>
+                    <input type="number" id="b1" class="form-input" step="any" value="8">
+                </div>
+                <div class="equation-row">
+                    <span class="eq-label">Уравнение 2:</span>
+                    <input type="number" id="a21" class="form-input" step="any" value="4">
+                    <span class="var-label">·x</span>
+                    <span class="operator">+</span>
+                    <input type="number" id="a22" class="form-input" step="any" value="-1">
+                    <span class="var-label">·y</span>
+                    <span class="operator">=</span>
+                    <input type="number" id="b2" class="form-input" step="any" value="2">
+                </div>
+            `;
         }else{
-            html='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:center;"><div></div><div style="text-align:center">x</div><div style="text-align:center">y</div><div style="text-align:center">z</div><div style="text-align:center">=</div><div></div><div>1:</div><input type="number" id="a11" class="form-input" value="2" step="any"><input type="number" id="a12" class="form-input" value="1" step="any"><input type="number" id="a13" class="form-input" value="-1" step="any"><div></div><input type="number" id="b1" class="form-input" value="3" step="any"><div>2:</div><input type="number" id="a21" class="form-input" value="1" step="any"><input type="number" id="a22" class="form-input" value="-2" step="any"><input type="number" id="a23" class="form-input" value="1" step="any"><div></div><input type="number" id="b2" class="form-input" value="-2" step="any"><div>3:</div><input type="number" id="a31" class="form-input" value="3" step="any"><input type="number" id="a32" class="form-input" value="-1" step="any"><input type="number" id="a33" class="form-input" value="2" step="any"><div></div><input type="number" id="b3" class="form-input" value="1" step="any"></div>';
+            html=`
+                <div class="equation-row">
+                    <span class="eq-label">Уравнение 1:</span>
+                    <input type="number" id="a11" class="form-input" step="any" value="2">
+                    <span class="var-label">·x</span>
+                    <span class="operator">+</span>
+                    <input type="number" id="a12" class="form-input" step="any" value="1">
+                    <span class="var-label">·y</span>
+                    <span class="operator">+</span>
+                    <input type="number" id="a13" class="form-input" step="any" value="-1">
+                    <span class="var-label">·z</span>
+                    <span class="operator">=</span>
+                    <input type="number" id="b1" class="form-input" step="any" value="3">
+                </div>
+                <div class="equation-row">
+                    <span class="eq-label">Уравнение 2:</span>
+                    <input type="number" id="a21" class="form-input" step="any" value="1">
+                    <span class="var-label">·x</span>
+                    <span class="operator">+</span>
+                    <input type="number" id="a22" class="form-input" step="any" value="-2">
+                    <span class="var-label">·y</span>
+                    <span class="operator">+</span>
+                    <input type="number" id="a23" class="form-input" step="any" value="1">
+                    <span class="var-label">·z</span>
+                    <span class="operator">=</span>
+                    <input type="number" id="b2" class="form-input" step="any" value="-2">
+                </div>
+                <div class="equation-row">
+                    <span class="eq-label">Уравнение 3:</span>
+                    <input type="number" id="a31" class="form-input" step="any" value="3">
+                    <span class="var-label">·x</span>
+                    <span class="operator">+</span>
+                    <input type="number" id="a32" class="form-input" step="any" value="-1">
+                    <span class="var-label">·y</span>
+                    <span class="operator">+</span>
+                    <input type="number" id="a33" class="form-input" step="any" value="2">
+                    <span class="var-label">·z</span>
+                    <span class="operator">=</span>
+                    <input type="number" id="b3" class="form-input" step="any" value="1">
+                </div>
+            `;
         }
         inputGroups.innerHTML=html;
         document.querySelectorAll('#inputGroups input[type="number"]').forEach(inp=>{inp.addEventListener('input',calculate);});
