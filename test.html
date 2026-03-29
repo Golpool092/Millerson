@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест динамического меню | Millerson</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Небольшие дополнительные стили для демонстрации */
+        .demo-card {
+            background: var(--surface-solid);
+            border-radius: 24px;
+            padding: 30px;
+            margin-top: 40px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .precision-display {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 20px 0;
+        }
+        .mode-status {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+        .simple-mode .math-formula {
+            display: none;
+        }
+        .simple-mode .simple-explanation {
+            display: block;
+        }
+        .simple-explanation {
+            display: none;
+            background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);
+            padding: 15px;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Пустой header – меню будет создано menu.js -->
+    <header class="header">
+        <div class="header__container"></div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="main__title">Динамическое меню</h1>
+            <p class="main__description">Меню полностью создано скриптом menu.js. Проверьте работу переключателей.</p>
+
+            <div class="demo-card">
+                <h2>Точность вычислений</h2>
+                <p>Число π с выбранной точностью:</p>
+                <div class="precision-display" id="piValue">3.14</div>
+                <p>Текущая точность: <span id="precValue">2</span></p>
+                <p class="mode-status">Измените точность в меню — значение должно обновиться.</p>
+            </div>
+
+            <div class="demo-card">
+                <h2>Супер‑простой режим</h2>
+                <div class="math-formula">
+                    <p class="mode-status">Формула: <strong>a² + b² = c²</strong></p>
+                </div>
+                <div class="simple-explanation">
+                    <p>Квадрат гипотенузы равен сумме квадратов катетов.</p>
+                </div>
+                <p class="mode-status">Включите «Супер‑простой режим» в меню, чтобы увидеть объяснение вместо формулы.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p>© 2026 Millerson Company — тестовая страница</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключаем menu.js (он сам создаст меню) -->
+    <script src="menu.js"></script>
+
+    <!-- Локальный скрипт для реакции на события точности и режима -->
+    <script>
+        (function() {
+            const piSpan = document.getElementById('piValue');
+            const precSpan = document.getElementById('precValue');
+
+            function updatePrecision() {
+                const prec = window.precision || 2;
+                piSpan.textContent = Math.PI.toFixed(prec);
+                precSpan.textContent = prec;
+            }
+
+            updatePrecision();
+            window.addEventListener('precisionChange', updatePrecision);
+
+            // Для супер‑простого режима ничего не нужно, класс на body
+            // управляет видимостью блоков через CSS.
+        })();
+    </script>
+</body>
+</html>
