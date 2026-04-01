@@ -97,25 +97,31 @@
     }
 
     const allPagesData = [
-        { category: "Главные страницы", files: ["index.html", "all.html", "about.html", "contacts.html", "privacy.html", "test.html"] },
-        { category: "Финансовые калькуляторы", files: ["allfinance.html", "credit.html", "ndfl.html", "percent.html"] },
-        { category: "Алгебра", files: ["algebra.html", "percent.html", "fraction.html", "allquadratic.html", "quadratic.html", "quadratic_nob.html", "quadratic_noc.html", "system_linear.html"] },
+        { category: "Главные страницы", files: ["index.html", "all.html", "about.html", "contacts.html", "privacy.html", "geometry.html", "mathematics.html"] },
+        { category: "Финансовые калькуляторы", files: ["allfinance.html", "credit.html", "ndfl.html", "percent.html", "compound-interest.html", "simple-interest.html", "percent-change.html"] },
+        { category: "Алгебра – калькуляторы", files: ["algebra.html", "fraction.html", "allquadratic.html", "quadratic.html", "quadratic_nob.html", "quadratic_noc.html", "system_linear.html", "system-2-equations.html", "linear-equation.html", "linear-inequality.html", "quadratic-inequality.html", "absolute-value.html", "proportion.html", "ratio.html", "mixed-numbers.html"] },
+        { category: "Алгебра – справочники", files: ["algebra-formulas.html", "algebra-glossary.html", "algebra-history.html", "discriminant-reference.html", "quadratic-formula.html", "inequalities-reference.html", "polynomial-identities.html", "functions-reference.html"] },
+        { category: "Прогрессии и ряды", files: ["arithmetic-progression.html", "geometric-progression.html", "arithmetic-mean.html", "progressions-reference.html", "sequences-reference.html"] },
+        { category: "Степени и логарифмы", files: ["exponent.html", "nth-root.html", "logarithm.html", "log-rules.html", "power-rules.html"] },
+        { category: "Комбинаторика", files: ["combinations.html", "permutations.html", "factorial.html", "binomial-theorem.html", "combinatorics-reference.html"] },
+        { category: "Матрицы", files: ["matrix-2x2.html", "matrix-3x3.html", "matrix-theory.html"] },
+        { category: "Комплексные числа", files: ["complex-numbers.html", "complex-numbers-theory.html"] },
+        { category: "Теория чисел", files: ["gcd-lcm.html", "prime-factorization.html", "number-bases.html", "number-systems.html", "number-theory.html", "divisibility-rules.html", "rounding.html", "scientific-notation.html", "famous-constants.html", "sets-theory.html"] },
         { category: "Геометрия – плоские фигуры", files: ["allgeometry-basic.html", "circle.html", "sector.html", "square.html", "rectangle.html", "rhombus.html", "parallelogram.html", "trapezoid.html", "isosceles-trapezoid.html", "triangle.html", "right-triangle.html", "equilateral-triangle.html", "regular-polygon.html"] },
         { category: "Геометрия – 3D фигуры", files: ["allgeometry-3d.html", "cube.html", "rectangular-prism.html", "sphere.html", "cylinder.html", "cone.html", "frustum.html", "pyramid.html", "prism.html", "tetrahedron.html", "octahedron.html", "dodecahedron.html", "icosahedron.html", "spherical-cap.html", "spherical-sector.html", "torus.html", "ellipsoid.html"] },
         { category: "Аналитическая геометрия", files: ["all-coordinate-calculator.html", "2d-coordinate-calculator.html", "3d-coordinate-calculator.html", "curves-coordinate-calculator.html", "transforms-coordinate-calculator.html"] },
         { category: "Тригонометрия", files: ["alltrigonometry.html", "sin.html", "cos.html", "tan.html", "ctg.html", "sec.html", "cosec.html", "arcsin.html", "arccos.html", "arctan.html"] },
-        { category: "Справочники (основные)", files: ["allgeometry-formulas.html", "geometry-guide.html", "circle-guide.html", "ellipse-guide.html", "cube-guide.html", "parallelepiped-guide.html", "prism-guide.html", "pyramid-guide.html", "cone-guide.html", "equilateral-triangle-guide.html", "right-triangle-guide.html", "regular-polygon-guide.html", "pythagorean-theorem.html"] },
-        { category: "Подстраницы параллелограмма", files: ["parallelogram-area.html", "parallelogram-perimeter.html", "parallelogram-diagonal.html", "parallelogram-height.html"] },
-        { category: "Подстраницы эллипса", files: ["ellipse-area.html", "ellipse-perimeter.html", "ellipse-eccentricity.html", "ellipse-foci.html"] },
+        { category: "Справочники геометрии", files: ["allgeometry-formulas.html", "geometry-guide.html", "circle-guide.html", "ellipse-guide.html", "cube-guide.html", "parallelepiped-guide.html", "prism-guide.html", "pyramid-guide.html", "cone-guide.html", "sphere-guide.html", "cylinder-guide.html", "tetrahedron-guide.html", "octahedron-guide.html", "dodecahedron-guide.html", "icosahedron-guide.html", "torus-guide.html", "sector-guide.html", "equilateral-triangle-guide.html", "right-triangle-guide.html", "regular-polygon-guide.html", "pythagorean-theorem.html"] },
+        { category: "Подстраницы параллелограмма", files: ["parallelogram-area.html", "parallelogram-perimeter.html", "parallelogram-diagonal.html", "parallelogram-height.html", "parallelogram-guide.html"] },
+        { category: "Подстраницы эллипса", files: ["ellipse-area.html", "ellipse-perimeter.html", "ellipse-eccentricity.html", "ellipse-foci.html", "ellipse-guide.html"] },
         { category: "Подстраницы окружности", files: ["circle-length.html", "circle-area.html", "circle-arc.html", "circle-chord.html", "circle-segment.html", "circle-tangent.html", "circle-inscribed-angle.html"] },
-        { category: "Подстраницы равностороннего треугольника", files: ["equilateral-area.html", "equilateral-height.html", "equilateral-circumradius.html", "equilateral-inradius.html"] },
-        { category: "Подстраницы прямоугольного треугольника", files: ["right-triangle-area.html", "right-triangle-circumradius.html", "right-triangle-height.html", "right-triangle-hypotenuse.html", "right-triangle-inradius.html", "right-triangle-projections.html"] },
-        { category: "Подстраницы прямоугольника", files: ["rectangle-area.html", "rectangle-perimeter.html", "rectangle-diagonal.html", "rectangle-guide.html"] },
+        { category: "Подстраницы равностороннего треугольника", files: ["equilateral-area.html", "equilateral-height.html", "equilateral-circumradius.html", "equilateral-inradius.html", "equilateral-triangle-guide.html"] },
+        { category: "Подстраницы прямоугольного треугольника", files: ["right-triangle-area.html", "right-triangle-circumradius.html", "right-triangle-height.html", "right-triangle-hypotenuse.html", "right-triangle-inradius.html", "right-triangle-projections.html", "right-triangle-guide.html"] },
+        { category: "Подстраницы прямоугольника", files: ["rectangle-area.html", "rectangle-perimeter.html", "rectangle-diagonal.html", "rectangle-angle.html", "rectangle-guide.html"] },
         { category: "Подстраницы квадрата", files: ["square-area.html", "square-perimeter.html", "square-diagonal.html", "square-guide.html"] },
         { category: "Подстраницы ромба", files: ["rhombus-area.html", "rhombus-perimeter.html", "rhombus-diagonal.html", "rhombus-height.html", "rhombus-angle.html", "rhombus-radius.html", "rhombus-guide.html"] },
         { category: "Подстраницы трапеции", files: ["trapezoid-area.html", "trapezoid-perimeter.html", "trapezoid-midline.html", "trapezoid-height.html", "trapezoid-diagonal.html", "trapezoid-guide.html"] },
-        { category: "Подстраницы треугольника", files: ["triangle-area.html", "triangle-perimeter.html", "triangle-median.html", "triangle-height.html", "triangle-bisector.html", "triangle-circumradius.html", "triangle-inradius.html", "triangle-guide.html"] },
-        { category: "Дополнительные справочники", files: ["sector-guide.html", "regular-polygon-guide.html"] }
+        { category: "Подстраницы треугольника", files: ["triangle-area.html", "triangle-perimeter.html", "triangle-median.html", "triangle-height.html", "triangle-bisector.html", "triangle-circumradius.html", "triangle-inradius.html", "triangle-guide.html"] }
     ];
 
     function renderModalPages(filterText = "") {
@@ -131,7 +137,7 @@
             if (filteredFiles.length === 0) continue;
             html += `<div class="modal-category"><div class="modal-category__title"><i class="fas fa-folder-open"></i> ${category.category} (${filteredFiles.length})</div><div class="modal-category__grid">`;
             for (const file of filteredFiles) {
-                let displayName = file.replace(/\.html$/, '').replace(/-/g, ' ');
+                let displayName = file.replace(/\.html$/, '').replace(/[-_]/g, ' ');
                 displayName = displayName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                 html += `<a href="${file}" class="modal-page-link" target="_blank"><i class="fas fa-file-alt"></i> ${displayName}</a>`;
             }

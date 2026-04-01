@@ -13,7 +13,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/geometry.html</loc>
+    <loc>https://millerson.shop/geometry/geometry.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -25,7 +25,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/all-coordinate-calculator.html</loc>
+    <loc>https://millerson.shop/geometry/all-coordinate-calculator.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -43,19 +43,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/allgeometry-3d.html</loc>
+    <loc>https://millerson.shop/geometry/allgeometry-3d.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/allgeometry-basic.html</loc>
+    <loc>https://millerson.shop/geometry/allgeometry-basic.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/allgeometry-formulas.html</loc>
+    <loc>https://millerson.shop/geometry/allgeometry-formulas.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -67,79 +67,79 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/alltrigonometry.html</loc>
+    <loc>https://millerson.shop/geometry/alltrigonometry.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/circle.html</loc>
+    <loc>https://millerson.shop/geometry/circle.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/rectangle.html</loc>
+    <loc>https://millerson.shop/geometry/rectangle.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/square.html</loc>
+    <loc>https://millerson.shop/geometry/square.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/triangle.html</loc>
+    <loc>https://millerson.shop/geometry/triangle.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/2d-coordinate-calculator.html</loc>
+    <loc>https://millerson.shop/geometry/2d-coordinate-calculator.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/3d-coordinate-calculator.html</loc>
+    <loc>https://millerson.shop/geometry/3d-coordinate-calculator.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/arccos.html</loc>
+    <loc>https://millerson.shop/geometry/arccos.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/arcsin.html</loc>
+    <loc>https://millerson.shop/geometry/arcsin.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/arctan.html</loc>
+    <loc>https://millerson.shop/geometry/arctan.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/cone.html</loc>
+    <loc>https://millerson.shop/geometry/cone.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/cos.html</loc>
+    <loc>https://millerson.shop/geometry/cos.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/cosec.html</loc>
+    <loc>https://millerson.shop/geometry/cosec.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -151,43 +151,43 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/ctg.html</loc>
+    <loc>https://millerson.shop/geometry/ctg.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/cube.html</loc>
+    <loc>https://millerson.shop/geometry/cube.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/curves-coordinate-calculator.html</loc>
+    <loc>https://millerson.shop/geometry/curves-coordinate-calculator.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/cylinder.html</loc>
+    <loc>https://millerson.shop/geometry/cylinder.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/dodecahedron.html</loc>
+    <loc>https://millerson.shop/geometry/dodecahedron.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/ellipsoid.html</loc>
+    <loc>https://millerson.shop/geometry/ellipsoid.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/equilateral-triangle.html</loc>
+    <loc>https://millerson.shop/geometry/equilateral-triangle.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -199,19 +199,19 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/frustum.html</loc>
+    <loc>https://millerson.shop/geometry/frustum.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/icosahedron.html</loc>
+    <loc>https://millerson.shop/geometry/icosahedron.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/isosceles-trapezoid.html</loc>
+    <loc>https://millerson.shop/geometry/isosceles-trapezoid.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -223,13 +223,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/octahedron.html</loc>
+    <loc>https://millerson.shop/geometry/octahedron.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/parallelogram.html</loc>
+    <loc>https://millerson.shop/geometry/parallelogram.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -241,13 +241,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/prism.html</loc>
+    <loc>https://millerson.shop/geometry/prism.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/pyramid.html</loc>
+    <loc>https://millerson.shop/geometry/pyramid.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -271,61 +271,61 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/rectangular-prism.html</loc>
+    <loc>https://millerson.shop/geometry/rectangular-prism.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/regular-polygon.html</loc>
+    <loc>https://millerson.shop/geometry/regular-polygon.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/rhombus.html</loc>
+    <loc>https://millerson.shop/geometry/rhombus.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/right-triangle.html</loc>
+    <loc>https://millerson.shop/geometry/right-triangle.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/sec.html</loc>
+    <loc>https://millerson.shop/geometry/sec.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/sector.html</loc>
+    <loc>https://millerson.shop/geometry/sector.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/sin.html</loc>
+    <loc>https://millerson.shop/geometry/sin.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/sphere.html</loc>
+    <loc>https://millerson.shop/geometry/sphere.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/spherical-cap.html</loc>
+    <loc>https://millerson.shop/geometry/spherical-cap.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/spherical-sector.html</loc>
+    <loc>https://millerson.shop/geometry/spherical-sector.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -337,31 +337,31 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/tan.html</loc>
+    <loc>https://millerson.shop/geometry/tan.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/tetrahedron.html</loc>
+    <loc>https://millerson.shop/geometry/tetrahedron.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/torus.html</loc>
+    <loc>https://millerson.shop/geometry/torus.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/transforms-coordinate-calculator.html</loc>
+    <loc>https://millerson.shop/geometry/transforms-coordinate-calculator.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://millerson.shop/trapezoid.html</loc>
+    <loc>https://millerson.shop/geometry/trapezoid.html</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
