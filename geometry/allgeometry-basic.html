@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Все калькуляторы по геометрии: площадь, периметр, объём | Millerson</title>
+    <meta name="description" content="Полный каталог бесплатных онлайн калькуляторов по геометрии: круг, сектор, квадрат, прямоугольник, ромб, параллелограмм, трапеция, треугольники, правильные многоугольники. Пошаговое решение, супер-простой режим.">
+    <meta name="keywords" content="геометрия онлайн, все калькуляторы геометрии, площадь фигур, периметр, треугольник, круг, квадрат, трапеция, ромб, параллелограмм, правильный многоугольник">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/allgeometry-basic.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:title" content="Все геометрические калькуляторы – Millerson">
+    <meta property="og:description" content="Бесплатные калькуляторы для всех фигур школьной геометрии: площадь, периметр, стороны, углы, диагонали, радиусы.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://millerson.shop/allgeometry-basic.html">
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Все геометрические калькуляторы">
+    <meta name="twitter:description" content="Бесплатные калькуляторы для всех фигур школьной геометрии.">
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+    <style>
+        .search-wrapper {
+            position: relative;
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto 40px;
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+        .search-wrapper input {
+            width: 100%;
+            padding: 14px 18px 14px 48px;
+            background: var(--surface-solid);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 1rem;
+            color: var(--text-primary);
+            outline: none;
+        }
+        .search-wrapper input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0 60px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.2);
+            border-color: var(--accent);
+        }
+        .project-preview {
+            height: 180px;
+            background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent);
+        }
+        .project-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-info h3 {
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .project-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .project-link {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            grid-column: 1 / -1;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .back-button:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        .back-button i {
+            font-size: 0.9rem;
+        }
+        .seo-text {
+            margin: 60px 0 40px;
+            background: var(--surface);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+        .seo-text h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        .seo-text h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: var(--accent);
+        }
+        .seo-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .seo-text ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+        .seo-text li {
+            margin-bottom: 8px;
+        }
+    </style>
+    <!-- Yandex Autoplacement 18829281 -->
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        <a href="mathematics.html" class="back-button"><i class="fas fa-arrow-left"></i> Назад в математику</a>
+        <h1 class="main__title">Все геометрические калькуляторы</h1>
+        <p class="main__description">Выберите фигуру для расчёта площади, периметра, сторон, углов, диагоналей, радиусов и других параметров.</p>
+
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="projectSearch" placeholder="Поиск фигур..." autocomplete="off">
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+
+        <div class="seo-text">
+            <h2>Все онлайн калькуляторы для геометрии: площадь, периметр, объём</h2>
+            <p>Геометрия — один из важнейших разделов школьной математики. Умение быстро и правильно вычислять площади, периметры, стороны и углы фигур необходимо не только для успешной сдачи экзаменов, но и в повседневной жизни: при ремонте, строительстве, дизайне, планировании участка. На этой странице собраны все бесплатные онлайн калькуляторы Millerson Company для плоских геометрических фигур. Каждый калькулятор позволяет ввести различные комбинации исходных данных и получает мгновенный результат с подробным пошаговым решением. Для начинающих предусмотрен «супер-простой» режим, в котором все формулы объясняются простыми словами без сложных символов.</p>
+            
+            <h3>Как пользоваться каталогом</h3>
+            <p>Выберите нужную фигуру из списка ниже или воспользуйтесь поиском по названию. На странице калькулятора вы сможете выбрать способ задания (например, по стороне, по диагонали, по двум сторонам и углу и т.д.), ввести значения в удобных единицах (мм, см, м) и мгновенно получить все вычисляемые параметры: площадь, периметр, диагонали, высоты, радиусы вписанных и описанных окружностей, углы (где применимо). Все вычисления сопровождаются проверкой на существование фигуры и понятным объяснением каждого шага.</p>
+
+            <h2>Перечень фигур и основные формулы</h2>
+            
+            <h3>1. Круг</h3>
+            <p><strong>Формулы:</strong> площадь S = πR², длина окружности C = 2πR, диаметр D = 2R. Зная любую из этих величин, можно найти остальные. Калькулятор круга позволяет ввести радиус, диаметр, длину окружности или площадь.</p>
+            
+            <h3>2. Сектор круга</h3>
+            <p><strong>Формулы:</strong> площадь сектора S = (πR²·α)/360, длина дуги L = (πR·α)/180. Если известны радиус и длина дуги, угол α = (L·180)/(πR), площадь S = (L·R)/2.</p>
+            
+            <h3>3. Квадрат</h3>
+            <p><strong>Формулы:</strong> периметр P = 4a, площадь S = a², диагональ d = a√2. Достаточно знать сторону, периметр, площадь или диагональ.</p>
+            
+            <h3>4. Прямоугольник</h3>
+            <p><strong>Формулы:</strong> P = 2(a+b), S = a·b, диагональ d = √(a²+b²). Можно задать две стороны, сторону и диагональ, сторону и периметр, сторону и площадь.</p>
+            
+            <h3>5. Ромб</h3>
+            <p><strong>Формулы:</strong> P = 4a, S = a·h = a²·sinα = (d₁·d₂)/2, d₁ = a√(2-2cosα), d₂ = a√(2+2cosα), h = a·sinα. Вычисления доступны по стороне и углу, по диагоналям, по стороне и высоте.</p>
+            
+            <h3>6. Параллелограмм</h3>
+            <p><strong>Формулы:</strong> P = 2(a+b), S = a·h = a·b·sinα, d₁₂ = √(a²+b² ± 2ab·cosα). Возможные способы: две стороны и угол, сторона и высота, две диагонали и угол между ними.</p>
+            
+            <h3>7. Трапеция</h3>
+            <p><strong>Формулы:</strong> S = (a+b)/2·h, средняя линия l = (a+b)/2. Можно задать основания и высоту, либо все четыре стороны (для произвольной трапеции).</p>
+            
+            <h3>8. Равнобедренная трапеция</h3>
+            <p><strong>Формулы:</strong> h = √(c² - ((a-b)/2)²), S = (a+b)/2·h, P = a+b+2c. Достаточно ввести основания и боковую сторону.</p>
+            
+            <h3>9. Треугольник (универсальный)</h3>
+            <p>Самый мощный калькулятор: работает с 9 способами задания: три стороны (Герон), две стороны и угол (теорема косинусов), сторона и два угла (теорема синусов), основание и высота, для прямоугольного — по катетам или гипотенузе и катету, площадь и сторона, а также попытка задания по радиусу и двум сторонам (выдаёт ошибку о недостаточности данных). Вычисляются все стороны, углы, периметр, площадь, высоты, радиусы вписанной и описанной окружностей.</p>
+            
+            <h3>10. Равносторонний треугольник</h3>
+            <p><strong>Формулы:</strong> P = 3a, S = (√3/4)a², h = (√3/2)a, r = a√3/6, R = a√3/3. Можно задать сторону, высоту или площадь.</p>
+            
+            <h3>11. Прямоугольный треугольник</h3>
+            <p><strong>Формулы:</strong> c = √(a²+b²), S = ½ab, h_c = ab/c, r = (a+b-c)/2, R = c/2. Способы: по двум катетам или по гипотенузе и катету.</p>
+            
+            <h3>12. Правильный многоугольник</h3>
+            <p><strong>Формулы:</strong> P = n·a, R = a/(2·sin(π/n)), r = a/(2·tan(π/n)), S = (n·a²)/(4·tan(π/n)). Можно ввести сторону и число сторон, либо радиус описанной окружности и число сторон.</p>
+
+            <h2>Преимущества наших калькуляторов</h2>
+            <ul>
+                <li><strong>Универсальность:</strong> каждый калькулятор поддерживает несколько способов задания исходных данных.</li>
+                <li><strong>Пошаговое решение:</strong> вы видите не только ответ, но и все промежуточные вычисления с формулами.</li>
+                <li><strong>Супер-простой режим:</strong> идеально для тех, кто только начинает изучать геометрию — все объяснения даются простым языком без математических символов.</li>
+                <li><strong>Мгновенный пересчёт:</strong> результаты обновляются сразу при изменении любого поля или выборе другой единицы измерения.</li>
+                <li><strong>Проверка на существование:</strong> калькулятор проверяет, может ли фигура с такими данными существовать (например, неравенство треугольника для треугольника).</li>
+                <li><strong>Генерация случайной задачи:</strong> одним нажатием можно получить случайный набор данных для тренировки.</li>
+                <li><strong>Копирование ответа и решения:</strong> удобно для вставки в тетрадь или текстовый документ.</li>
+                <li><strong>Поддержка разных единиц:</strong> мм, см, м — все введённые значения автоматически конвертируются при смене единиц.</li>
+            </ul>
+
+            <h2>Для кого эти калькуляторы?</h2>
+            <p>Наши инструменты будут полезны:</p>
+            <ul>
+                <li><strong>Школьникам 5–9 классов</strong> — для проверки домашних заданий, подготовки к контрольным и ОГЭ.</li>
+                <li><strong>Студентам</strong> — для быстрых расчётов в инженерных и строительных задачах.</li>
+                <li><strong>Учителям и репетиторам</strong> — для составления примеров и демонстрации решений на уроках.</li>
+                <li><strong>Родителям</strong> — чтобы помочь детям разобраться в геометрии.</li>
+                <li><strong>Всем, кто сталкивается с геометрическими расчётами в жизни</strong> — при ремонте, строительстве, дизайне.</li>
+            </ul>
+
+            <h2>Часто задаваемые вопросы</h2>
+            <h3>Можно ли пользоваться калькуляторами на телефоне?</h3>
+            <p>Да, все калькуляторы полностью адаптированы для мобильных устройств. Интерфейс удобен и на маленьком экране.</p>
+            <h3>Нужна ли регистрация?</h3>
+            <p>Нет, все калькуляторы абсолютно бесплатны и не требуют регистрации.</p>
+            <h3>Как скопировать решение?</h3>
+            <p>На странице каждого калькулятора есть кнопка «Копировать решение». Она копирует пошаговое объяснение в буфер обмена.</p>
+            <h3>Что такое «супер-простой режим»?</h3>
+            <p>Это режим, в котором все формулы заменяются словесными описаниями. Например, вместо «S = πR²» вы увидите: «Мы берём число 3,14 и умножаем его на радиус, умноженный сам на себя». Включить его можно переключателем в меню рядом с переключателем темы.</p>
+
+            <p>Выберите нужную фигуру в каталоге выше и начните расчёт прямо сейчас. Все калькуляторы работают быстро, точно и наглядно. Если у вас возникнут вопросы или предложения, напишите нам на MillersonShop@gmail.com.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+
+    function setTheme(checked) {
+        if (checked) {
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.remove('dark-theme');
+        }
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+
+    if (savedTheme === 'dark') {
+        setTheme(true);
+    } else {
+        setTheme(false);
+    }
+
+    if (themeToggleDesktop) {
+        themeToggleDesktop.addEventListener('change', function(e) {
+            setTheme(e.target.checked);
+        });
+    }
+    if (themeToggleMobile) {
+        themeToggleMobile.addEventListener('change', function(e) {
+            setTheme(e.target.checked);
+        });
+    }
+
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+
+    function closeMobileMenu() {
+        navMobile.classList.remove('active');
+        burgerBtn.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+
+    navMobile.querySelectorAll('.nav__link, .btn').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) {
+            closeMobileMenu();
+        }
+    });
+
+    const projects = [
+        { name: 'Круг', description: 'Площадь, длина окружности, радиус, диаметр. По радиусу, диаметру, длине или площади.', icon: 'fa-circle', link: 'circle.html' },
+        { name: 'Сектор круга', description: 'Площадь сектора, длина дуги, радиус, центральный угол. По радиусу и углу или радиусу и дуге.', icon: 'fa-chart-pie', link: 'sector.html' },
+        { name: 'Квадрат', description: 'Сторона, периметр, площадь, диагональ. По стороне, периметру, площади или диагонали.', icon: 'fa-square', link: 'square.html' },
+        { name: 'Прямоугольник', description: 'Стороны, периметр, площадь, диагональ. По двум сторонам, стороне и диагонали, стороне и периметру, стороне и площади.', icon: 'fa-rectangle-wide', link: 'rectangle.html' },
+        { name: 'Ромб', description: 'Сторона, периметр, площадь, диагонали, высота, углы. По стороне и углу, диагоналям или стороне и высоте.', icon: 'fa-diamond', link: 'rhombus.html' },
+        { name: 'Параллелограмм', description: 'Стороны, периметр, площадь, диагонали, высоты. По сторонам и углу, стороне и высоте, диагоналям и углу.', icon: 'fa-draw-polygon', link: 'parallelogram.html' },
+        { name: 'Трапеция', description: 'Площадь, периметр, средняя линия, высота. По основаниям и высоте или по четырём сторонам.', icon: 'fa-trapezoid', link: 'trapezoid.html' },
+        { name: 'Равнобедренная трапеция', description: 'Площадь, периметр, высота, средняя линия. По основаниям и боковой стороне.', icon: 'fa-trapezoid', link: 'isosceles-trapezoid.html' },
+        { name: 'Треугольник (универсальный)', description: 'Все стороны, углы, площадь, периметр, высоты, радиусы. 9 способов задания.', icon: 'fa-shape-triangle', link: 'triangle.html' },
+        { name: 'Равносторонний треугольник', description: 'Сторона, периметр, площадь, высота, радиусы вписанной и описанной окружности.', icon: 'fa-shape-triangle', link: 'equilateral-triangle.html' },
+        { name: 'Прямоугольный треугольник', description: 'Катеты, гипотенуза, площадь, периметр, высота, радиусы. По двум катетам или гипотенузе и катету.', icon: 'fa-shape-triangle', link: 'right-triangle.html' },
+        { name: 'Правильный многоугольник', description: 'Сторона, периметр, площадь, радиусы вписанной и описанной окружности. По стороне и числу сторон или радиусу описанной.', icon: 'fa-hexagon', link: 'regular-polygon.html' },
+        { name: 'Эллипс', description: 'Площадь, периметр, полуоси, фокусное расстояние, эксцентриситет. По большой и малой полуосям, площади и полуоси.', icon: 'fa-egg', link: 'ellipse.html' },
+        { name: 'Кольцо (Annulus)', description: 'Площадь кольца, длина внешней и внутренней окружностей, ширина. По двум радиусам, площади и одному радиусу.', icon: 'fa-ring', link: 'annulus.html' },
+        { name: 'Полукруг', description: 'Площадь, периметр (дуга + диаметр), длина дуги. По радиусу, диаметру, площади или периметру.', icon: 'fa-adjust', link: 'semicircle.html' },
+        { name: 'Прямоугольная трапеция', description: 'Площадь, периметр, наклонная сторона, диагонали, острый угол. По основаниям и высоте или основаниям и наклонной стороне.', icon: 'fa-trapezoid', link: 'right-trapezoid.html' },
+        { name: 'Дельтоид (воздушный змей)', description: 'Площадь, периметр, обе диагонали. По двум парам смежных сторон или по диагоналям.', icon: 'fa-diamond', link: 'kite.html' }
+    ];
+
+    const projectsGrid = document.getElementById('projectsGrid');
+    const searchInput = document.getElementById('projectSearch');
+
+    function renderProjects(search = '') {
+        const filtered = projects.filter(project => 
+            project.name.toLowerCase().includes(search.toLowerCase()) || 
+            project.description.toLowerCase().includes(search.toLowerCase())
+        );
+
+        if (filtered.length === 0) {
+            projectsGrid.innerHTML = '<div class="no-results">Фигуры не найдены</div>';
+            return;
+        }
+
+        let html = '';
+        filtered.forEach(proj => {
+            html += `
+                <div class="project-card">
+                    <div class="project-preview">
+                        <i class="fas ${proj.icon}"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>${proj.name}</h3>
+                        <p>${proj.description}</p>
+                        <a href="${proj.link}" class="btn btn--primary project-link">Перейти</a>
+                    </div>
+                </div>
+            `;
+        });
+        projectsGrid.innerHTML = html;
+    }
+
+    searchInput.addEventListener('input', function() {
+        renderProjects(this.value);
+    });
+
+    renderProjects();
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym');
+   ym(107027516, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Все геометрические калькуляторы",
+    "description": "Полный каталог бесплатных онлайн калькуляторов для расчёта геометрических фигур: круг, сектор, квадрат, прямоугольник, ромб, параллелограмм, трапеция, треугольники, правильные многоугольники.",
+    "url": "https://millerson.shop/allgeometry-basic.html",
+    "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "url": "https://millerson.shop/circle.html" },
+            { "@type": "ListItem", "position": 2, "url": "https://millerson.shop/sector.html" },
+            { "@type": "ListItem", "position": 3, "url": "https://millerson.shop/square.html" },
+            { "@type": "ListItem", "position": 4, "url": "https://millerson.shop/rectangle.html" },
+            { "@type": "ListItem", "position": 5, "url": "https://millerson.shop/rhombus.html" },
+            { "@type": "ListItem", "position": 6, "url": "https://millerson.shop/parallelogram.html" },
+            { "@type": "ListItem", "position": 7, "url": "https://millerson.shop/trapezoid.html" },
+            { "@type": "ListItem", "position": 8, "url": "https://millerson.shop/isosceles-trapezoid.html" },
+            { "@type": "ListItem", "position": 9, "url": "https://millerson.shop/triangle.html" },
+            { "@type": "ListItem", "position": 10, "url": "https://millerson.shop/equilateral-triangle.html" },
+            { "@type": "ListItem", "position": 11, "url": "https://millerson.shop/right-triangle.html" },
+            { "@type": "ListItem", "position": 12, "url": "https://millerson.shop/regular-polygon.html" }
+        ]
+    }
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://millerson.shop/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Математика", "item": "https://millerson.shop/mathematics.html" },
+        { "@type": "ListItem", "position": 3, "name": "Все геометрические фигуры", "item": "https://millerson.shop/allgeometry-basic.html" }
+    ]
+}
+</script>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+
+    if(!localStorage.getItem('cookieAccepted')){
+        banner.style.display = 'block';
+    }
+
+    button.addEventListener('click', function(){
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
+<script src="menu.js" defer></script>
+</body>
+</html>

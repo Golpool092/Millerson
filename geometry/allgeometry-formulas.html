@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Справочник по геометрии: все теоремы и формулы | Millerson</title>
+    <meta name="description" content="Полный справочник по геометрии, стереометрии, тригонометрии, алгебре и аналитической геометрии. Удобный поиск по названиям и формулам.">
+    <meta name="keywords" content="справочник по геометрии, все формулы геометрии, теоремы, планиметрия, стереометрия, тригонометрия, алгебра">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/allgeometry-formulas.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:title" content="Справочник по геометрии – Millerson">
+    <meta property="og:description" content="Все теоремы и формулы по геометрии с удобным поиском.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://millerson.shop/geometry-handbook.html">
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Справочник по геометрии">
+    <meta name="twitter:description" content="Все теоремы и формулы с поиском.">
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+    <style>
+        .search-wrapper {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto 30px;
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+        .search-wrapper input {
+            width: 100%;
+            padding: 14px 18px 14px 48px;
+            background: var(--surface-solid);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 1rem;
+            color: var(--text-primary);
+            outline: none;
+        }
+        .search-wrapper input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15);
+        }
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .category-btn {
+            padding: 8px 20px;
+            border: 1px solid var(--border);
+            background: var(--surface-solid);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .category-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        .handbook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 40px 0 60px;
+        }
+        .handbook-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .handbook-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.2);
+            border-color: var(--accent);
+        }
+        .card-header {
+            padding: 15px 20px;
+            background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);
+            border-bottom: 1px solid var(--border);
+        }
+        .card-header h3 {
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            margin: 0;
+        }
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .card-body ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .card-body li {
+            margin-bottom: 8px;
+        }
+        .card-body .formula {
+            font-family: monospace;
+            background: var(--surface-solid);
+            padding: 2px 6px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            display: inline-block;
+            margin: 2px 0;
+        }
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            grid-column: 1 / -1;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .back-button:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        .back-button i {
+            font-size: 0.9rem;
+        }
+        .seo-text {
+            margin: 60px 0 40px;
+            background: var(--surface);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+        .seo-text h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        .seo-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        <a href="mathematics.html" class="back-button"><i class="fas fa-arrow-left"></i> Назад в математику</a>
+        <h1 class="main__title">Справочник по геометрии и смежным разделам</h1>
+        <p class="main__description">Все теоремы, формулы и определения с удобным поиском. Включает планиметрию, стереометрию, тригонометрию, алгебру и аналитическую геометрию.</p>
+
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Поиск по названию или формуле..." autocomplete="off">
+        </div>
+
+        <div class="category-filter" id="categoryFilter">
+            <button class="category-btn active" data-cat="all">Все</button>
+            <button class="category-btn" data-cat="planimetry">Планиметрия</button>
+            <button class="category-btn" data-cat="stereometry">Стереометрия</button>
+            <button class="category-btn" data-cat="trigonometry">Тригонометрия</button>
+            <button class="category-btn" data-cat="algebra">Алгебра</button>
+            <button class="category-btn" data-cat="analytical">Аналитическая геометрия</button>
+        </div>
+
+        <div class="handbook-grid" id="handbookGrid"></div>
+
+        <div class="seo-text">
+            <h2>Полный справочник формул и теорем</h2>
+            <p>В этом разделе собраны все основные формулы и теоремы по геометрии, которые изучаются в школе и вузе. Удобный поиск позволяет быстро найти нужную информацию по ключевым словам или даже по части формулы. Справочник охватывает планиметрию (квадрат, прямоугольник, треугольник, окружность и т.д.), стереометрию (куб, параллелепипед, призма, пирамида, конус, цилиндр, шар), тригонометрию (основные тождества, формулы суммы и разности, двойного угла), алгебру (формулы сокращённого умножения, квадратное уравнение, прогрессии, логарифмы, производные, интегралы) и аналитическую геометрию (расстояния, уравнения прямых и окружностей).</p>
+            <p>Постоянно пополняется. Если вы не нашли нужную формулу, напишите нам — мы добавим.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Тема
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+    function setTheme(checked) {
+        if (checked) document.body.classList.add('dark-theme');
+        else document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+    setTheme(savedTheme === 'dark');
+    if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+
+    // Бургер
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+    function closeMobileMenu() { navMobile.classList.remove('active'); burgerBtn.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+    navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('click', function(event) {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
+    });
+
+    // Данные справочника (структура: название, категория, формулы в виде массива строк)
+    const handbookData = [
+        {
+            title: 'Квадрат',
+            category: 'planimetry',
+            formulas: [
+                'S = a²',
+                'P = 4a',
+                'd = a√2',
+                'r = a/2',
+                'R = a/√2',
+                'a = √S',
+                'a = P/4',
+                'S = d²/2'
+            ]
+        },
+        {
+            title: 'Прямоугольник',
+            category: 'planimetry',
+            formulas: [
+                'S = a·b',
+                'P = 2(a + b)',
+                'd = √(a² + b²)',
+                'a = S/b',
+                'b = S/a',
+                'a = P/2 − b',
+                'R = d/2'
+            ]
+        },
+        {
+            title: 'Параллелограмм',
+            category: 'planimetry',
+            formulas: [
+                'S = a·hₐ',
+                'S = a·b·sinα',
+                'P = 2(a + b)',
+                'hₐ = b·sinα',
+                'd₁² = a² + b² − 2ab·cosα',
+                'd₂² = a² + b² + 2ab·cosα'
+            ]
+        },
+        {
+            title: 'Ромб',
+            category: 'planimetry',
+            formulas: [
+                'S = a·h',
+                'S = a²·sinα',
+                'S = (d₁·d₂)/2',
+                'P = 4a',
+                'h = a·sinα',
+                'd₁ = 2a·cos(α/2)',
+                'd₂ = 2a·sin(α/2)',
+                'r = S/(2a)'
+            ]
+        },
+        {
+            title: 'Трапеция',
+            category: 'planimetry',
+            formulas: [
+                'S = (a + b)/2 · h',
+                'S = m·h',
+                'm = (a + b)/2',
+                'P = a + b + c + d',
+                'h = 2S/(a + b)',
+                'Для равнобедренной: S = (a+b)/2·√(c²−((b−a)/2)²)'
+            ]
+        },
+        {
+            title: 'Треугольник',
+            category: 'planimetry',
+            formulas: [
+                'S = ½ a·hₐ',
+                'S = ½ ab·sinγ',
+                'S = pr',
+                'S = abc/(4R)',
+                'S = √(p(p−a)(p−b)(p−c))',
+                'a² = b² + c² − 2bc·cosα',
+                'a/sinα = b/sinβ = c/sinγ = 2R',
+                'R = a/(2 sinα)',
+                'r = S/p',
+                'mₐ = ½√(2b² + 2c² − a²)',
+                'lₐ = 2bc·cos(α/2)/(b + c)'
+            ]
+        },
+        {
+            title: 'Равносторонний треугольник',
+            category: 'planimetry',
+            formulas: [
+                'P = 3a',
+                'S = a²√3/4',
+                'h = a√3/2',
+                'R = a/√3',
+                'r = a√3/6'
+            ]
+        },
+        {
+            title: 'Окружность и круг',
+            category: 'planimetry',
+            formulas: [
+                'd = 2R',
+                'L = 2πR',
+                'S = πR²',
+                '(x−a)² + (y−b)² = R²',
+                'l = 2R·sin(α/2)',
+                's = R·α (рад)',
+                'S_сектора = R²α/2'
+            ]
+        },
+        {
+            title: 'Сектор круга',
+            category: 'planimetry',
+            formulas: [
+                'S = αR²/2 (α в рад)',
+                'S = πR²θ/360 (θ в град)',
+                'L = αR',
+                'P = 2R + L'
+            ]
+        },
+        {
+            title: 'Эллипс',
+            category: 'planimetry',
+            formulas: [
+                'S = πab',
+                'c² = a² − b²',
+                'e = c/a',
+                'x²/a² + y²/b² = 1',
+                'L ≈ 2π√((a²+b²)/2)'
+            ]
+        },
+        {
+            title: 'Правильный многоугольник',
+            category: 'planimetry',
+            formulas: [
+                'P = n·a',
+                'α = 2π/n',
+                'S = ½ P·r',
+                'r = a/(2·tg(π/n))',
+                'R = a/(2·sin(π/n))',
+                'S = ½ nR² sin(2π/n)'
+            ]
+        },
+        {
+            title: 'Куб',
+            category: 'stereometry',
+            formulas: [
+                'V = a³',
+                'S = 6a²',
+                'dₗ = a√2',
+                'd = a√3',
+                'r = a/2',
+                'R = a√3/2'
+            ]
+        },
+        {
+            title: 'Прямоугольный параллелепипед',
+            category: 'stereometry',
+            formulas: [
+                'V = abc',
+                'S = 2(ab + bc + ac)',
+                'd = √(a² + b² + c²)'
+            ]
+        },
+        {
+            title: 'Призма',
+            category: 'stereometry',
+            formulas: [
+                'V = Sосн·h',
+                'Sполн = 2Sосн + Sбок',
+                'Sбок = Pосн·h'
+            ]
+        },
+        {
+            title: 'Пирамида',
+            category: 'stereometry',
+            formulas: [
+                'V = ⅓ Sосн·h',
+                'Sполн = Sосн + Sбок',
+                'Sбок = ½ Pосн·l (правильная)'
+            ]
+        },
+        {
+            title: 'Конус',
+            category: 'stereometry',
+            formulas: [
+                'V = ⅓ πR²h',
+                'Sбок = πRl',
+                'Sполн = πR(R + l)',
+                'l = √(R² + h²)'
+            ]
+        },
+        {
+            title: 'Цилиндр',
+            category: 'stereometry',
+            formulas: [
+                'V = πR²h',
+                'Sбок = 2πRh',
+                'Sполн = 2πR(R + h)'
+            ]
+        },
+        {
+            title: 'Шар',
+            category: 'stereometry',
+            formulas: [
+                'V = 4/3 πR³',
+                'S = 4πR²',
+                'd = 2R'
+            ]
+        },
+        {
+            title: 'Тригонометрия (основные тождества)',
+            category: 'trigonometry',
+            formulas: [
+                'sin²α + cos²α = 1',
+                '1 + tan²α = 1/cos²α',
+                '1 + ctg²α = 1/sin²α',
+                'tanα = sinα/cosα',
+                'ctgα = cosα/sinα'
+            ]
+        },
+        {
+            title: 'Тригонометрия (сумма и разность)',
+            category: 'trigonometry',
+            formulas: [
+                'sin(α ± β) = sinα cosβ ± cosα sinβ',
+                'cos(α ± β) = cosα cosβ ∓ sinα sinβ',
+                'tan(α ± β) = (tanα ± tanβ)/(1 ∓ tanα tanβ)'
+            ]
+        },
+        {
+            title: 'Тригонометрия (двойной угол)',
+            category: 'trigonometry',
+            formulas: [
+                'sin2α = 2 sinα cosα',
+                'cos2α = cos²α − sin²α',
+                'cos2α = 2cos²α − 1',
+                'cos2α = 1 − 2sin²α',
+                'tan2α = 2tanα/(1 − tan²α)'
+            ]
+        },
+        {
+            title: 'Формулы сокращённого умножения',
+            category: 'algebra',
+            formulas: [
+                '(a + b)² = a² + 2ab + b²',
+                '(a − b)² = a² − 2ab + b²',
+                'a² − b² = (a − b)(a + b)',
+                '(a + b)³ = a³ + 3a²b + 3ab² + b³',
+                '(a − b)³ = a³ − 3a²b + 3ab² − b³',
+                'a³ + b³ = (a + b)(a² − ab + b²)',
+                'a³ − b³ = (a − b)(a² + ab + b²)'
+            ]
+        },
+        {
+            title: 'Квадратное уравнение',
+            category: 'algebra',
+            formulas: [
+                'ax² + bx + c = 0',
+                'D = b² − 4ac',
+                'x = (−b ± √D) / (2a)',
+                'x₁ + x₂ = −b/a',
+                'x₁·x₂ = c/a'
+            ]
+        },
+        {
+            title: 'Арифметическая прогрессия',
+            category: 'algebra',
+            formulas: [
+                'aₙ = a₁ + (n − 1)d',
+                'Sₙ = n/2 (a₁ + aₙ)',
+                'Sₙ = n/2 (2a₁ + (n − 1)d)'
+            ]
+        },
+        {
+            title: 'Геометрическая прогрессия',
+            category: 'algebra',
+            formulas: [
+                'bₙ = b₁·qⁿ⁻¹',
+                'Sₙ = b₁ (qⁿ − 1)/(q − 1)',
+                'S∞ = b₁/(1 − q) при |q| < 1'
+            ]
+        },
+        {
+            title: 'Логарифмы',
+            category: 'algebra',
+            formulas: [
+                'logₐ(xy) = logₐx + logₐy',
+                'logₐ(x/y) = logₐx − logₐy',
+                'logₐ(xⁿ) = n logₐx',
+                'logₐa = 1',
+                'a^{logₐx} = x',
+                'logₐb = ln b / ln a'
+            ]
+        },
+        {
+            title: 'Производные',
+            category: 'algebra',
+            formulas: [
+                '(xⁿ)′ = n·xⁿ⁻¹',
+                '(sin x)′ = cos x',
+                '(cos x)′ = −sin x',
+                '(eˣ)′ = eˣ',
+                '(ln x)′ = 1/x',
+                '(uv)′ = u′v + uv′',
+                '(u/v)′ = (u′v − uv′)/v²'
+            ]
+        },
+        {
+            title: 'Интегралы',
+            category: 'algebra',
+            formulas: [
+                '∫ xⁿ dx = xⁿ⁺¹/(n+1) + C (n ≠ −1)',
+                '∫ 1/x dx = ln|x| + C',
+                '∫ eˣ dx = eˣ + C',
+                '∫ sin x dx = −cos x + C',
+                '∫ cos x dx = sin x + C',
+                '∫ 1/(1+x²) dx = arctan x + C'
+            ]
+        },
+        {
+            title: 'Аналитическая геометрия (плоскость)',
+            category: 'analytical',
+            formulas: [
+                'd = √((x₂−x₁)² + (y₂−y₁)²)',
+                'xₘ = (x₁ + x₂)/2',
+                'yₘ = (y₁ + y₂)/2',
+                'k = (y₂−y₁)/(x₂−x₁)',
+                'y = kx + b',
+                'Ax + By + C = 0',
+                'd = |Ax₀+By₀+C| / √(A²+B²)',
+                '(x−a)² + (y−b)² = R²'
+            ]
+        }
+    ];
+
+    // Категории и соответствующие кнопки
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const searchInput = document.getElementById('searchInput');
+    const handbookGrid = document.getElementById('handbookGrid');
+
+    let activeCategory = 'all';
+    let searchTerm = '';
+
+    // Функция фильтрации
+    function filterData() {
+        return handbookData.filter(item => {
+            // По категории
+            if (activeCategory !== 'all' && item.category !== activeCategory) return false;
+            // По поисковому запросу
+            if (searchTerm.trim() !== '') {
+                const text = (item.title + ' ' + item.formulas.join(' ')).toLowerCase();
+                return text.includes(searchTerm.toLowerCase());
+            }
+            return true;
+        });
+    }
+
+    // Отрисовка карточек
+    function render() {
+        const filtered = filterData();
+        if (filtered.length === 0) {
+            handbookGrid.innerHTML = '<div class="no-results">Ничего не найдено</div>';
+            return;
+        }
+        let html = '';
+        filtered.forEach(item => {
+            html += `
+                <div class="handbook-card">
+                    <div class="card-header">
+                        <h3>${item.title}</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            ${item.formulas.map(f => `<li><span class="formula">${f}</span></li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        });
+        handbookGrid.innerHTML = html;
+    }
+
+    // Обработчики категорий
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeCategory = btn.dataset.cat;
+            render();
+        });
+    });
+
+    // Обработчик поиска
+    searchInput.addEventListener('input', (e) => {
+        searchTerm = e.target.value;
+        render();
+    });
+
+    // Первоначальная отрисовка
+    render();
+
+    // Cookie banner
+    const banner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    if (!localStorage.getItem('cookieAccepted')) {
+        banner.style.display = 'block';
+    }
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym');
+   ym(107027516, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Справочник по геометрии",
+    "description": "Все теоремы и формулы по геометрии с удобным поиском.",
+    "url": "https://millerson.shop/geometry-handbook.html"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://millerson.shop/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Математика", "item": "https://millerson.shop/mathematics.html" },
+        { "@type": "ListItem", "position": 3, "name": "Справочник по геометрии", "item": "https://millerson.shop/geometry-handbook.html" }
+    ]
+}
+</script>
+</body>
+</html>

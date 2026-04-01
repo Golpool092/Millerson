@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Калькулятор координат на плоскости (2D) | Millerson</title>
+    <meta name="description" content="Бесплатный онлайн калькулятор для аналитической геометрии на плоскости: расстояние, середина, площадь треугольника, уравнение прямой, пересечение, углы, векторы и многое другое. Пошаговое решение, супер-простой режим, визуализация.">
+    <meta name="keywords" content="2D координаты, аналитическая геометрия, расстояние между точками, площадь треугольника, уравнение прямой, пересечение прямых, векторы, скалярное произведение">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/2d-coordinate-calculator.html">
+    <link rel="stylesheet" href="style.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:title" content="Калькулятор координат на плоскости – Millerson">
+    <meta property="og:description" content="Все основные операции аналитической геометрии в 2D с пошаговым решением и графиком.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://millerson.shop/2d-coordinate-calculator.html">
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Калькулятор координат 2D">
+    <meta name="twitter:description" content="Расстояние, середина, площадь, прямые, векторы. Бесплатно.">
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+    <style>
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            flex: 1;
+        }
+        .search-box button {
+            background: var(--surface-solid);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 0 20px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .search-box button:hover {
+            background: var(--accent);
+            color: white;
+        }
+        #coordCanvas {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+            background: var(--surface-solid);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+        .faq-section {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="theme-switch" style="justify-content: space-between;">
+                        <span class="theme-switch__label">Супер-простой режим</span>
+                        <label class="switch">
+                            <input type="checkbox" id="simpleModeToggleDesktop">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="theme-switch" style="justify-content: space-between;">
+                        <span class="theme-switch__label">Супер-простой режим</span>
+                        <label class="switch">
+                            <input type="checkbox" id="simpleModeToggleMobile">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        <h1 class="main__title">Калькулятор координат на плоскости (2D)</h1>
+        <p class="main__description">Операции с точками, прямыми, векторами на плоскости. Подробное решение, супер‑простой режим, визуализация.</p>
+
+        <div class="calculator glass">
+            <div class="search-box">
+                <input type="text" id="searchOp" placeholder="Поиск операций..." class="form-input">
+                <button id="clearSearchBtn" title="Очистить поиск"><i class="fas fa-times"></i></button>
+            </div>
+
+            <select id="operationSelect" class="form-input" style="margin-bottom:20px;"></select>
+
+            <div class="unit-selector" id="unitSelector">
+                <span style="font-weight:500;">Единицы:</span>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="mm"> мм</label>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="cm" checked> см</label>
+                <label class="unit-option"><input type="radio" name="unitGlobal" value="m"> м</label>
+            </div>
+
+            <div id="submodeContainer" style="margin-bottom:20px;"></div>
+            <div id="inputGroups" style="margin-bottom:20px;"></div>
+
+            <div class="action-buttons">
+                <button class="action-btn" id="calculateBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
+                <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайная задача</button>
+                <button class="action-btn" id="clearBtn"><i class="fas fa-undo"></i> Очистить</button>
+                <button class="action-btn" id="copyAnswerBtn"><i class="fas fa-copy"></i> Копировать ответ</button>
+                <button class="action-btn" id="copySolutionBtn"><i class="fas fa-file-alt"></i> Копировать решение</button>
+                <button class="action-btn" id="shareBtn"><i class="fas fa-share-alt"></i> Поделиться</button>
+                <button class="action-btn" id="exportGraphBtn"><i class="fas fa-download"></i> Экспорт графика</button>
+            </div>
+
+            <div class="results" id="resultsContainer"></div>
+
+            <canvas id="coordCanvas" width="600" height="600"></canvas>
+
+            <div id="stepByStep" style="margin-top:30px; background:var(--surface-solid); border-radius:24px; padding:20px; border:1px solid var(--border);">
+                <h3 style="margin-bottom:15px;">📝 Подробное решение</h3>
+                <div id="stepText" class="math-formula">Введите данные и нажмите "Рассчитать"</div>
+                <div id="stepTextSimple" class="simple-explanation">Введите данные и нажмите "Рассчитать"</div>
+            </div>
+
+            <div id="formulasUsed" style="margin-top:20px; background:var(--surface-solid); border-radius:24px; padding:20px; border:1px solid var(--border);" class="math-formula">
+                <h3 style="margin-bottom:15px;">📐 Использованные формулы</h3>
+                <div id="formulasText">—</div>
+            </div>
+        </div>
+
+        <div class="tools-links">
+            <a href="3d-coordinate-calculator.html" class="tool-card"><i class="fas fa-cube"></i> 3D</a>
+            <a href="curves-coordinate-calculator.html" class="tool-card"><i class="fas fa-chart-line"></i> Кривые</a>
+            <a href="transforms-coordinate-calculator.html" class="tool-card"><i class="fas fa-arrows-alt"></i> Преобразования</a>
+            <a href="all-coordinate-calculators.html" class="tool-card"><i class="fas fa-th"></i> Все калькуляторы</a>
+        </div>
+
+        <div class="seo-text">
+            <h2>Калькулятор координат на плоскости</h2>
+            <p>Инструмент для решения задач аналитической геометрии в двумерном пространстве. Вычисляйте расстояния, середины отрезков, площади треугольников и многоугольников, уравнения прямых, точки пересечения, углы между прямыми, длины векторов, скалярные произведения и углы между векторами. Все результаты сопровождаются пошаговым решением и графической визуализацией на координатной плоскости.</p>
+            <p>Поддерживаются различные способы задания: по координатам точек, по угловым коэффициентам, по уравнениям. Для многоугольников можно ввести список вершин через запятую.</p>
+        </div>
+
+        <section class="faq-section">
+            <h2 class="faq-title">Часто задаваемые вопросы</h2>
+            <div class="faq-list" id="faqList"></div>
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+
+<script>
+(function() {
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+    function setTheme(checked) {
+        if (checked) document.body.classList.add('dark-theme');
+        else document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+    setTheme(savedTheme === 'dark');
+    if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+    function closeMobileMenu() { navMobile.classList.remove('active'); burgerBtn.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+    navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('click', function(event) {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
+    });
+
+    const simpleToggleDesktop = document.getElementById('simpleModeToggleDesktop');
+    const simpleToggleMobile = document.getElementById('simpleModeToggleMobile');
+    const body = document.body;
+    function showGameToast(text) {
+        const existingToast = document.querySelector('.game-toast');
+        if (existingToast) existingToast.remove();
+        const toast = document.createElement('div');
+        toast.className = 'game-toast';
+        toast.innerHTML = `
+            <img src="logo.png" alt="Millerson Company" style="height: 24px; width: auto; margin-right: 8px;">
+            <span style="flex: 1; margin-right: 8px;">${text}</span>
+            <span style="font-size: 1.2rem; cursor: pointer;" onclick="this.parentElement.remove()">✕</span>
+        `;
+        document.body.appendChild(toast);
+        let startX = 0, currentX = 0, isSwiping = false;
+        const onTouchStart = (e) => { startX = e.touches[0].clientX; isSwiping = true; };
+        const onTouchMove = (e) => { if (!isSwiping) return; currentX = e.touches[0].clientX; toast.style.transform = `translateX(${currentX - startX}px)`; };
+        const onTouchEnd = () => {
+            if (!isSwiping) return;
+            if (Math.abs(currentX - startX) > 50) toast.remove();
+            else toast.style.transform = '';
+            isSwiping = false; startX = 0; currentX = 0;
+        };
+        toast.addEventListener('touchstart', onTouchStart);
+        toast.addEventListener('touchmove', onTouchMove);
+        toast.addEventListener('touchend', onTouchEnd);
+        setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3500);
+    }
+    function setSimpleMode(checked) {
+        if (checked) {
+            body.classList.add('simple-mode');
+            showGameToast('Супер-простой режим включён');
+        } else {
+            body.classList.remove('simple-mode');
+            showGameToast('Супер-простой режим выключен');
+        }
+        if (simpleToggleDesktop) simpleToggleDesktop.checked = checked;
+        if (simpleToggleMobile) simpleToggleMobile.checked = checked;
+        buildFields();
+    }
+    if (simpleToggleDesktop) simpleToggleDesktop.addEventListener('change', e => setSimpleMode(e.target.checked));
+    if (simpleToggleMobile) simpleToggleMobile.addEventListener('change', e => setSimpleMode(e.target.checked));
+
+    const operationSelect = document.getElementById('operationSelect');
+    const searchInput = document.getElementById('searchOp');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const submodeContainer = document.getElementById('submodeContainer');
+    const inputGroups = document.getElementById('inputGroups');
+    const resultsContainer = document.getElementById('resultsContainer');
+    const stepText = document.getElementById('stepText');
+    const stepTextSimple = document.getElementById('stepTextSimple');
+    const formulasText = document.getElementById('formulasText');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const randomBtn = document.getElementById('randomBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyAnswerBtn = document.getElementById('copyAnswerBtn');
+    const copySolutionBtn = document.getElementById('copySolutionBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const exportGraphBtn = document.getElementById('exportGraphBtn');
+    const unitRadios = document.querySelectorAll('input[name="unitGlobal"]');
+    const canvas = document.getElementById('coordCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let currentOperation = 'distance';
+    let currentSubmode = 'twoPoints';
+    let currentUnit = 'cm';
+
+    const allOperations = [
+        { id: 'distance', name: 'Расстояние между точками', defaultSubmode: 'twoPoints', keywords: 'расстояние дистанция длина отрезка' },
+        { id: 'midpoint', name: 'Середина отрезка', defaultSubmode: 'twoPoints', keywords: 'середина центр отрезок' },
+        { id: 'division', name: 'Деление отрезка в отношении', defaultSubmode: 'ratio', keywords: 'деление отрезка отношение частей' },
+        { id: 'collinearity', name: 'Коллинеарность трёх точек', defaultSubmode: 'threePoints', keywords: 'коллинеарность лежат на одной прямой' },
+        { id: 'triangleArea', name: 'Площадь треугольника', defaultSubmode: 'threePoints', keywords: 'площадь треугольник вершины' },
+        { id: 'triangleCentroid', name: 'Центр тяжести треугольника', defaultSubmode: 'threePoints', keywords: 'центроид центр масс треугольник' },
+        { id: 'slope', name: 'Наклон прямой', defaultSubmode: 'twoPoints', keywords: 'угловой коэффициент наклон прямой' },
+        { id: 'lineEquation', name: 'Уравнение прямой', defaultSubmode: 'twoPoints', keywords: 'уравнение прямой линейная функция' },
+        { id: 'pointLineDistance', name: 'Расстояние от точки до прямой', defaultSubmode: 'lineByTwoPoints', keywords: 'расстояние точка прямая' },
+        { id: 'projection', name: 'Проекция точки на прямую', defaultSubmode: 'lineByTwoPoints', keywords: 'проекция точка прямая' },
+        { id: 'angleBetweenLines', name: 'Угол между прямыми', defaultSubmode: 'bySlopes', keywords: 'угол между прямыми пересечение' },
+        { id: 'lineIntersection', name: 'Точка пересечения прямых', defaultSubmode: 'byTwoPoints', keywords: 'пересечение прямых точка' },
+        { id: 'parallelDistance', name: 'Расстояние между параллельными прямыми', defaultSubmode: 'byEquations', keywords: 'расстояние параллельные прямые' },
+        { id: 'vectorLength', name: 'Длина вектора', defaultSubmode: 'twoPoints', keywords: 'длина вектора модуль' },
+        { id: 'dotProduct', name: 'Скалярное произведение', defaultSubmode: 'twoVectors', keywords: 'скалярное произведение векторов' },
+        { id: 'angleBetweenVectors', name: 'Угол между векторами', defaultSubmode: 'twoVectors', keywords: 'угол между векторами' },
+        { id: 'parallelogramArea', name: 'Площадь параллелограмма', defaultSubmode: 'twoVectors', keywords: 'площадь параллелограмма векторы' },
+        { id: 'polygonArea', name: 'Площадь многоугольника', defaultSubmode: 'list', keywords: 'площадь многоугольника вершины' }
+    ];
+
+    const operationMap = {};
+
+    function formatNum(x) {
+        if (x === undefined || x === null) return '';
+        let s = x.toFixed(4);
+        s = s.replace(/\.?0+$/, '');
+        return s;
+    }
+
+    function toBaseUnit(value, unit) {
+        if (unit === 'mm') return value / 10;
+        if (unit === 'm') return value * 100;
+        return value;
+    }
+    function fromBaseUnit(value, unit) {
+        if (unit === 'mm') return value * 10;
+        if (unit === 'm') return value / 100;
+        return value;
+    }
+    function round6(x) { return Math.round(x * 1e6) / 1e6; }
+
+    operationMap.distance = {
+        submodes: [
+            { id: 'twoPoints', name: 'По двум точкам', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки', default: 1 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки', default: 2 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки', default: 4 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки', default: 6 }
+            ] }
+        ],
+        resultLabels: ['Расстояние'],
+        resultTypes: ['linear'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const d = Math.hypot(x2 - x1, y2 - y1);
+            const solutionMath = `d = √((x₂−x₁)² + (y₂−y₁)²) = √((${formatNum(x2)}−${formatNum(x1)})² + (${formatNum(y2)}−${formatNum(y1)})²) = √(${formatNum(x2-x1)}² + ${formatNum(y2-y1)}²) = √${formatNum((x2-x1)**2 + (y2-y1)**2)} = ${formatNum(d)}.`;
+            const solutionSimple = `Находим разность иксов: ${formatNum(x2)} − ${formatNum(x1)} = ${formatNum(x2-x1)}. Разность игреков: ${formatNum(y2)} − ${formatNum(y1)} = ${formatNum(y2-y1)}. Возводим в квадрат, складываем и извлекаем корень. Получаем ${formatNum(d)}.`;
+            const formulas = 'd = √((x₂−x₁)² + (y₂−y₁)²)';
+            return { resultsArray: [d], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2] } };
+        }
+    };
+
+    operationMap.midpoint = {
+        submodes: [
+            { id: 'twoPoints', name: 'По двум точкам', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки', default: 1 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки', default: 2 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки', default: 3 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки', default: 4 }
+            ] }
+        ],
+        resultLabels: ['xₘ', 'yₘ'],
+        resultTypes: ['linear', 'linear'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const xm = (x1 + x2) / 2;
+            const ym = (y1 + y2) / 2;
+            const solutionMath = `xₘ = (x₁ + x₂)/2 = (${formatNum(x1)} + ${formatNum(x2)})/2 = ${formatNum(xm)}; yₘ = (y₁ + y₂)/2 = (${formatNum(y1)} + ${formatNum(y2)})/2 = ${formatNum(ym)}.`;
+            const solutionSimple = `Складываем координаты точек и делим пополам.`;
+            const formulas = 'xₘ = (x₁ + x₂)/2, yₘ = (y₁ + y₂)/2';
+            return { resultsArray: [xm, ym], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2], M: [xm, ym] } };
+        }
+    };
+
+    operationMap.division = {
+        submodes: [
+            { id: 'ratio', name: 'В отношении λ (лямбда)', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки', default: 1 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки', default: 2 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки', default: 4 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки', default: 6 },
+                { name: 'lambda', label: 'λ', simpleLabel: 'отношение λ = AM/MB', default: 1 }
+            ] }
+        ],
+        resultLabels: ['x', 'y'],
+        resultTypes: ['linear', 'linear'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2, lambda = vals.lambda;
+            const x = (x1 + lambda * x2) / (1 + lambda);
+            const y = (y1 + lambda * y2) / (1 + lambda);
+            const solutionMath = `x = (x₁ + λ·x₂)/(1+λ) = (${formatNum(x1)} + ${formatNum(lambda)}·${formatNum(x2)})/(1+${formatNum(lambda)}) = ${formatNum(x)}; y = (y₁ + λ·y₂)/(1+λ) = (${formatNum(y1)} + ${formatNum(lambda)}·${formatNum(y2)})/(1+${formatNum(lambda)}) = ${formatNum(y)}.`;
+            const solutionSimple = `Точка делит отрезок в заданном отношении.`;
+            const formulas = 'x = (x₁ + λ·x₂)/(1+λ), y = (y₁ + λ·y₂)/(1+λ)';
+            return { resultsArray: [x, y], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2], P: [x, y] } };
+        }
+    };
+
+    operationMap.collinearity = {
+        submodes: [
+            { id: 'threePoints', name: 'Три точки', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки', default: 1 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки', default: 2 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки', default: 3 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки', default: 4 },
+                { name: 'x3', label: 'x₃', simpleLabel: 'координата X третьей точки', default: 5 },
+                { name: 'y3', label: 'y₃', simpleLabel: 'координата Y третьей точки', default: 6 }
+            ] }
+        ],
+        resultLabels: ['Коллинеарны?'],
+        resultTypes: ['string'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2, x3 = vals.x3, y3 = vals.y3;
+            const area = x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2);
+            const coll = Math.abs(area) < 1e-10;
+            const answer = coll ? 'Да' : 'Нет';
+            const solutionMath = `Определитель: ${formatNum(x1)}·(${formatNum(y2)}−${formatNum(y3)}) + ${formatNum(x2)}·(${formatNum(y3)}−${formatNum(y1)}) + ${formatNum(x3)}·(${formatNum(y1)}−${formatNum(y2)}) = ${formatNum(area)}. ${coll ? '≈0 → точки коллинеарны' : '≠0 → не коллинеарны'}.`;
+            const solutionSimple = `Вычисляем площадь треугольника. Если она почти ноль, точки лежат на одной прямой.`;
+            const formulas = '|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)| = 0 ⇔ коллинеарны';
+            return { resultsArray: [answer], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2], C: [x3, y3] } };
+        }
+    };
+
+    operationMap.triangleArea = {
+        submodes: [
+            { id: 'threePoints', name: 'По трём точкам', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки', default: 0 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки', default: 0 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки', default: 4 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки', default: 0 },
+                { name: 'x3', label: 'x₃', simpleLabel: 'координата X третьей точки', default: 0 },
+                { name: 'y3', label: 'y₃', simpleLabel: 'координата Y третьей точки', default: 3 }
+            ] }
+        ],
+        resultLabels: ['Площадь'],
+        resultTypes: ['area'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2, x3 = vals.x3, y3 = vals.y3;
+            const area = 0.5 * Math.abs(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2));
+            const solutionMath = `S = ½| x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂) | = ½| ${formatNum(x1)}·(${formatNum(y2)}−${formatNum(y3)}) + ${formatNum(x2)}·(${formatNum(y3)}−${formatNum(y1)}) + ${formatNum(x3)}·(${formatNum(y1)}−${formatNum(y2)}) | = ½| ${formatNum(x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2))} | = ${formatNum(area)}.`;
+            const solutionSimple = `Подставляем координаты в формулу площади треугольника.`;
+            const formulas = 'S = ½|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|';
+            return { resultsArray: [area], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2], C: [x3, y3] } };
+        }
+    };
+
+    operationMap.triangleCentroid = {
+        submodes: [
+            { id: 'threePoints', name: 'По трём точкам', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки', default: 0 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки', default: 0 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки', default: 4 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки', default: 0 },
+                { name: 'x3', label: 'x₃', simpleLabel: 'координата X третьей точки', default: 0 },
+                { name: 'y3', label: 'y₃', simpleLabel: 'координата Y третьей точки', default: 3 }
+            ] }
+        ],
+        resultLabels: ['x̄', 'ȳ'],
+        resultTypes: ['linear', 'linear'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2, x3 = vals.x3, y3 = vals.y3;
+            const x = (x1 + x2 + x3) / 3;
+            const y = (y1 + y2 + y3) / 3;
+            const solutionMath = `x̄ = (x₁ + x₂ + x₃)/3 = (${formatNum(x1)} + ${formatNum(x2)} + ${formatNum(x3)})/3 = ${formatNum(x)}; ȳ = (y₁ + y₂ + y₃)/3 = (${formatNum(y1)} + ${formatNum(y2)} + ${formatNum(y3)})/3 = ${formatNum(y)}.`;
+            const solutionSimple = `Центроид — среднее арифметическое координат вершин.`;
+            const formulas = 'x̄ = (x₁+x₂+x₃)/3, ȳ = (y₁+y₂+y₃)/3';
+            return { resultsArray: [x, y], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2], C: [x3, y3], G: [x, y] } };
+        }
+    };
+
+    operationMap.slope = {
+        submodes: [
+            { id: 'twoPoints', name: 'По двум точкам', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки', default: 1 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки', default: 2 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки', default: 3 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки', default: 5 }
+            ] }
+        ],
+        resultLabels: ['k (наклон)'],
+        resultTypes: ['linear'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const dx = x2 - x1;
+            if (Math.abs(dx) < 1e-12) throw new Error('Прямая вертикальна, наклон бесконечен');
+            const k = (y2 - y1) / dx;
+            const solutionMath = `k = (y₂−y₁)/(x₂−x₁) = (${formatNum(y2)}−${formatNum(y1)})/(${formatNum(x2)}−${formatNum(x1)}) = ${formatNum(y2-y1)}/${formatNum(dx)} = ${formatNum(k)}.`;
+            const solutionSimple = `Делим разность игреков на разность иксов.`;
+            const formulas = 'k = (y₂−y₁)/(x₂−x₁)';
+            return { resultsArray: [k], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2] } };
+        }
+    };
+
+    operationMap.lineEquation = {
+        submodes: [
+            { id: 'twoPoints', name: 'По двум точкам', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки', default: 1 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки', default: 2 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки', default: 3 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки', default: 4 }
+            ] }
+        ],
+        resultLabels: ['Уравнение'],
+        resultTypes: ['string'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const A = y1 - y2;
+            const B = x2 - x1;
+            const C = x1*y2 - x2*y1;
+            const eq = `${formatNum(A)}x ${B>=0?'+':'-'} ${Math.abs(B)}y ${C>=0?'+':'-'} ${Math.abs(C)} = 0`;
+            const solutionMath = `A = y₁−y₂ = ${formatNum(y1)}−${formatNum(y2)} = ${formatNum(A)}; B = x₂−x₁ = ${formatNum(x2)}−${formatNum(x1)} = ${formatNum(B)}; C = x₁y₂−x₂y₁ = ${formatNum(x1)}·${formatNum(y2)} − ${formatNum(x2)}·${formatNum(y1)} = ${formatNum(C)}. Уравнение: ${eq}.`;
+            const solutionSimple = `Находим коэффициенты общего уравнения прямой.`;
+            const formulas = 'Ax+By+C=0, A=y₁−y₂, B=x₂−x₁, C=x₁y₂−x₂y₁';
+            return { resultsArray: [eq], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2] } };
+        }
+    };
+
+    operationMap.pointLineDistance = {
+        submodes: [
+            { id: 'lineByTwoPoints', name: 'Прямая двумя точками', fields: [
+                { name: 'px', label: 'x₀', simpleLabel: 'координата X точки', default: 2 },
+                { name: 'py', label: 'y₀', simpleLabel: 'координата Y точки', default: 3 },
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки прямой', default: 0 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки прямой', default: 0 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки прямой', default: 4 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки прямой', default: 4 }
+            ] }
+        ],
+        resultLabels: ['Расстояние'],
+        resultTypes: ['linear'],
+        calculate: function(vals, unit) {
+            const px = vals.px, py = vals.py, x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const A = y1 - y2;
+            const B = x2 - x1;
+            const C = x1*y2 - x2*y1;
+            const d = Math.abs(A*px + B*py + C) / Math.hypot(A, B);
+            const solutionMath = `A = y₁−y₂ = ${formatNum(y1)}−${formatNum(y2)} = ${formatNum(A)}; B = x₂−x₁ = ${formatNum(x2)}−${formatNum(x1)} = ${formatNum(B)}; C = x₁y₂−x₂y₁ = ${formatNum(x1*y2 - x2*y1)}. d = |A·x₀+B·y₀+C|/√(A²+B²) = |${formatNum(A)}·${formatNum(px)}+${formatNum(B)}·${formatNum(py)}+${formatNum(C)}|/√(${formatNum(A)}²+${formatNum(B)}²) = ${formatNum(d)}.`;
+            const solutionSimple = `Подставляем координаты точки в формулу расстояния до прямой.`;
+            const formulas = 'd = |Ax₀+By₀+C| / √(A²+B²)';
+            return { resultsArray: [d], solutionMath, solutionSimple, formulas, points: { P: [px, py], A: [x1, y1], B: [x2, y2] } };
+        }
+    };
+
+    operationMap.projection = {
+        submodes: [
+            { id: 'lineByTwoPoints', name: 'Прямая двумя точками', fields: [
+                { name: 'px', label: 'x₀', simpleLabel: 'координата X точки', default: 2 },
+                { name: 'py', label: 'y₀', simpleLabel: 'координата Y точки', default: 3 },
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первой точки прямой', default: 0 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первой точки прямой', default: 0 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второй точки прямой', default: 4 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второй точки прямой', default: 4 }
+            ] }
+        ],
+        resultLabels: ['x\'', 'y\''],
+        resultTypes: ['linear', 'linear'],
+        calculate: function(vals, unit) {
+            const px = vals.px, py = vals.py, x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const dx = x2 - x1;
+            const dy = y2 - y1;
+            const t = ((px - x1)*dx + (py - y1)*dy) / (dx*dx + dy*dy);
+            const projx = x1 + t * dx;
+            const projy = y1 + t * dy;
+            const solutionMath = `Вектор направления (${formatNum(dx)}, ${formatNum(dy)}). Параметр t = ((x₀−x₁)·dx + (y₀−y₁)·dy) / (dx²+dy²) = ${formatNum(t)}. Проекция: (${formatNum(projx)}, ${formatNum(projy)}).`;
+            const solutionSimple = `Находим проекцию точки на прямую через параметр.`;
+            const formulas = 'Проекция = A + t·(B−A), t = ((P−A)·(B−A))/|B−A|²';
+            return { resultsArray: [projx, projy], solutionMath, solutionSimple, formulas, points: { P: [px, py], A: [x1, y1], B: [x2, y2], Proj: [projx, projy] } };
+        }
+    };
+
+    operationMap.angleBetweenLines = {
+        submodes: [
+            { id: 'bySlopes', name: 'По угловым коэффициентам', fields: [
+                { name: 'k1', label: 'k₁', simpleLabel: 'наклон первой прямой', default: 1 },
+                { name: 'k2', label: 'k₂', simpleLabel: 'наклон второй прямой', default: -1 }
+            ] }
+        ],
+        resultLabels: ['Угол (рад)', 'Угол (град)'],
+        resultTypes: ['linear', 'linear'],
+        calculate: function(vals, unit) {
+            const k1 = vals.k1, k2 = vals.k2;
+            const tanPhi = Math.abs((k2 - k1) / (1 + k1*k2));
+            const angleRad = Math.atan(tanPhi);
+            const angleDeg = angleRad * 180 / Math.PI;
+            const solutionMath = `tg φ = |(k₂−k₁)/(1+k₁k₂)| = |(${formatNum(k2)}−${formatNum(k1)})/(1+${formatNum(k1)}·${formatNum(k2)})| = ${formatNum(tanPhi)} → φ = ${formatNum(angleRad)} рад (${formatNum(angleDeg)}°).`;
+            const solutionSimple = `Используем формулу тангенса угла между прямыми.`;
+            const formulas = 'tg φ = |(k₂−k₁)/(1+k₁k₂)|';
+            return { resultsArray: [angleRad, angleDeg], solutionMath, solutionSimple, formulas };
+        }
+    };
+
+    operationMap.lineIntersection = {
+        submodes: [
+            { id: 'byTwoPoints', name: 'Две прямые по двум точкам', fields: [
+                { name: 'x1a', label: 'x₁ (пр1)', simpleLabel: 'X первой точки первой прямой', default: 0 },
+                { name: 'y1a', label: 'y₁ (пр1)', simpleLabel: 'Y первой точки первой прямой', default: 0 },
+                { name: 'x2a', label: 'x₂ (пр1)', simpleLabel: 'X второй точки первой прямой', default: 1 },
+                { name: 'y2a', label: 'y₂ (пр1)', simpleLabel: 'Y второй точки первой прямой', default: 1 },
+                { name: 'x1b', label: 'x₁ (пр2)', simpleLabel: 'X первой точки второй прямой', default: 0 },
+                { name: 'y1b', label: 'y₁ (пр2)', simpleLabel: 'Y первой точки второй прямой', default: 1 },
+                { name: 'x2b', label: 'x₂ (пр2)', simpleLabel: 'X второй точки второй прямой', default: 1 },
+                { name: 'y2b', label: 'y₂ (пр2)', simpleLabel: 'Y второй точки второй прямой', default: 0 }
+            ] }
+        ],
+        resultLabels: ['x', 'y'],
+        resultTypes: ['linear', 'linear'],
+        calculate: function(vals, unit) {
+            const x1a = vals.x1a, y1a = vals.y1a, x2a = vals.x2a, y2a = vals.y2a;
+            const x1b = vals.x1b, y1b = vals.y1b, x2b = vals.x2b, y2b = vals.y2b;
+            const A1 = y1a - y2a;
+            const B1 = x2a - x1a;
+            const C1 = x1a*y2a - x2a*y1a;
+            const A2 = y1b - y2b;
+            const B2 = x2b - x1b;
+            const C2 = x1b*y2b - x2b*y1b;
+            const det = A1*B2 - A2*B1;
+            if (Math.abs(det) < 1e-12) throw new Error('Прямые параллельны или совпадают');
+            const x = (B1*C2 - B2*C1) / det;
+            const y = (C1*A2 - C2*A1) / det;
+            const solutionMath = `det = A₁B₂−A₂B₁ = ${formatNum(det)}. x = (B₁C₂−B₂C₁)/det = ${formatNum(x)}; y = (C₁A₂−C₂A₁)/det = ${formatNum(y)}.`;
+            const solutionSimple = `Решаем систему двух линейных уравнений.`;
+            const formulas = 'x = (B₁C₂−B₂C₁)/(A₁B₂−A₂B₁), y = (C₁A₂−C₂A₁)/(A₁B₂−A₂B₁)';
+            return { resultsArray: [x, y], solutionMath, solutionSimple, formulas, points: { I: [x, y] } };
+        }
+    };
+
+    operationMap.parallelDistance = {
+        submodes: [
+            { id: 'byEquations', name: 'По уравнениям (Ax+By+C=0)', fields: [
+                { name: 'A1', label: 'A₁', simpleLabel: 'коэффициент A₁', default: 1 },
+                { name: 'B1', label: 'B₁', simpleLabel: 'коэффициент B₁', default: -1 },
+                { name: 'C1', label: 'C₁', simpleLabel: 'коэффициент C₁', default: 0 },
+                { name: 'A2', label: 'A₂', simpleLabel: 'коэффициент A₂', default: 1 },
+                { name: 'B2', label: 'B₂', simpleLabel: 'коэффициент B₂', default: -1 },
+                { name: 'C2', label: 'C₂', simpleLabel: 'коэффициент C₂', default: 2 }
+            ] }
+        ],
+        resultLabels: ['Расстояние'],
+        resultTypes: ['linear'],
+        calculate: function(vals, unit) {
+            const A1 = vals.A1, B1 = vals.B1, C1 = vals.C1, A2 = vals.A2, B2 = vals.B2, C2 = vals.C2;
+            const norm = Math.hypot(A1, B1);
+            if (norm < 1e-12) throw new Error('Некорректное уравнение прямой');
+            const d = Math.abs(C2 - C1) / norm;
+            const solutionMath = `d = |C₂−C₁| / √(A²+B²) = |${formatNum(C2)}−${formatNum(C1)}| / √(${formatNum(A1)}²+${formatNum(B1)}²) = ${formatNum(d)}.`;
+            const solutionSimple = `Расстояние между параллельными прямыми.`;
+            const formulas = 'd = |C₂−C₁| / √(A²+B²)';
+            return { resultsArray: [d], solutionMath, solutionSimple, formulas };
+        }
+    };
+
+    operationMap.vectorLength = {
+        submodes: [
+            { id: 'twoPoints', name: 'По началу и концу', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X начала', default: 0 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y начала', default: 0 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X конца', default: 3 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y конца', default: 4 }
+            ] }
+        ],
+        resultLabels: ['Длина'],
+        resultTypes: ['linear'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const d = Math.hypot(x2 - x1, y2 - y1);
+            const solutionMath = `|v| = √((x₂−x₁)² + (y₂−y₁)²) = √((${formatNum(x2)}−${formatNum(x1)})² + (${formatNum(y2)}−${formatNum(y1)})²) = ${formatNum(d)}.`;
+            const solutionSimple = `Длина вектора — корень из суммы квадратов разностей координат.`;
+            const formulas = '|v| = √((x₂−x₁)²+(y₂−y₁)²)';
+            return { resultsArray: [d], solutionMath, solutionSimple, formulas, points: { A: [x1, y1], B: [x2, y2] } };
+        }
+    };
+
+    operationMap.dotProduct = {
+        submodes: [
+            { id: 'twoVectors', name: 'Два вектора (координаты)', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первого вектора', default: 1 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первого вектора', default: 2 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второго вектора', default: 3 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второго вектора', default: 4 }
+            ] }
+        ],
+        resultLabels: ['Скалярное произведение'],
+        resultTypes: ['linear'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const dot = x1*x2 + y1*y2;
+            const solutionMath = `a·b = x₁x₂ + y₁y₂ = ${formatNum(x1)}·${formatNum(x2)} + ${formatNum(y1)}·${formatNum(y2)} = ${formatNum(dot)}.`;
+            const solutionSimple = `Скалярное произведение — сумма произведений соответствующих координат.`;
+            const formulas = 'a·b = x₁x₂ + y₁y₂';
+            return { resultsArray: [dot], solutionMath, solutionSimple, formulas };
+        }
+    };
+
+    operationMap.angleBetweenVectors = {
+        submodes: [
+            { id: 'twoVectors', name: 'Два вектора (координаты)', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первого вектора', default: 1 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первого вектора', default: 0 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второго вектора', default: 0 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второго вектора', default: 1 }
+            ] }
+        ],
+        resultLabels: ['Угол (рад)', 'Угол (град)'],
+        resultTypes: ['linear', 'linear'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const dot = x1*x2 + y1*y2;
+            const len1 = Math.hypot(x1, y1);
+            const len2 = Math.hypot(x2, y2);
+            if (len1 < 1e-12 || len2 < 1e-12) throw new Error('Нулевой вектор');
+            const cos = dot / (len1 * len2);
+            const angleRad = Math.acos(Math.min(1, Math.max(-1, cos)));
+            const angleDeg = angleRad * 180 / Math.PI;
+            const solutionMath = `cos φ = (a·b)/(|a||b|) = ${formatNum(dot)}/(${formatNum(len1)}·${formatNum(len2)}) = ${formatNum(cos)} → φ = ${formatNum(angleRad)} рад (${formatNum(angleDeg)}°).`;
+            const solutionSimple = `Угол через скалярное произведение и длины векторов.`;
+            const formulas = 'cos φ = (x₁x₂+y₁y₂)/(√(x₁²+y₁²)·√(x₂²+y₂²))';
+            return { resultsArray: [angleRad, angleDeg], solutionMath, solutionSimple, formulas };
+        }
+    };
+
+    operationMap.parallelogramArea = {
+        submodes: [
+            { id: 'twoVectors', name: 'Два вектора (координаты)', fields: [
+                { name: 'x1', label: 'x₁', simpleLabel: 'координата X первого вектора', default: 2 },
+                { name: 'y1', label: 'y₁', simpleLabel: 'координата Y первого вектора', default: 0 },
+                { name: 'x2', label: 'x₂', simpleLabel: 'координата X второго вектора', default: 1 },
+                { name: 'y2', label: 'y₂', simpleLabel: 'координата Y второго вектора', default: 2 }
+            ] }
+        ],
+        resultLabels: ['Площадь'],
+        resultTypes: ['area'],
+        calculate: function(vals, unit) {
+            const x1 = vals.x1, y1 = vals.y1, x2 = vals.x2, y2 = vals.y2;
+            const area = Math.abs(x1*y2 - x2*y1);
+            const solutionMath = `S = |x₁y₂ − x₂y₁| = |${formatNum(x1)}·${formatNum(y2)} − ${formatNum(x2)}·${formatNum(y1)}| = ${formatNum(area)}.`;
+            const solutionSimple = `Площадь параллелограмма равна модулю определителя.`;
+            const formulas = 'S = |x₁y₂ − x₂y₁|';
+            return { resultsArray: [area], solutionMath, solutionSimple, formulas };
+        }
+    };
+
+    operationMap.polygonArea = {
+        submodes: [
+            { id: 'list', name: 'Список вершин (x1,y1,x2,y2,...)', fields: [
+                { name: 'coords', label: 'Координаты (x1,y1,x2,y2,...)', simpleLabel: 'координаты вершин через запятую', default: '0,0,4,0,4,3,0,3' }
+            ] }
+        ],
+        resultLabels: ['Площадь'],
+        resultTypes: ['area'],
+        calculate: function(vals, unit) {
+            const coordsStr = vals.coords;
+            const nums = coordsStr.split(',').map(Number);
+            if (nums.length < 6 || nums.length % 2 !== 0) throw new Error('Нечётное количество координат или слишком мало');
+            const n = nums.length / 2;
+            let area = 0;
+            for (let i = 0; i < n; i++) {
+                const x1 = nums[2*i];
+                const y1 = nums[2*i+1];
+                const x2 = nums[(2*i+2) % (2*n)];
+                const y2 = nums[(2*i+3) % (2*n)];
+                area += x1*y2 - x2*y1;
+            }
+            area = Math.abs(area) / 2;
+            const solutionMath = `Формула шнуровки: S = ½| Σ(xᵢyᵢ₊₁ − xᵢ₊₁yᵢ) | = ${formatNum(area)}.`;
+            const solutionSimple = `Площадь многоугольника по формуле Гаусса.`;
+            const formulas = 'S = ½| Σ(xᵢyᵢ₊₁ − xᵢ₊₁yᵢ) |';
+            return { resultsArray: [area], solutionMath, solutionSimple, formulas };
+        }
+    };
+
+    function filterOperations() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filtered = allOperations.filter(op => 
+            op.name.toLowerCase().includes(searchTerm) ||
+            op.keywords.toLowerCase().includes(searchTerm)
+        );
+        if (filtered.length === 0) {
+            operationSelect.innerHTML = '<option value="">Ничего не найдено</option>';
+            currentOperation = null;
+            return;
+        }
+        operationSelect.innerHTML = filtered.map(op => `<option value="${op.id}">${op.name}</option>`).join('');
+        const firstOp = filtered[0];
+        currentOperation = firstOp.id;
+        currentSubmode = firstOp.defaultSubmode;
+        buildSubmodeAndFields();
+        if (currentOperation) calculate();
+    }
+
+    searchInput.addEventListener('input', filterOperations);
+    clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        filterOperations();
+    });
+
+    operationSelect.addEventListener('change', function() {
+        currentOperation = this.value;
+        if (!currentOperation) return;
+        const op = allOperations.find(o => o.id === currentOperation);
+        if (op) {
+            currentSubmode = op.defaultSubmode;
+        }
+        buildSubmodeAndFields();
+        calculate();
+    });
+
+    unitRadios.forEach(r => r.addEventListener('change', function() {
+        const newUnit = this.value;
+        if (newUnit === currentUnit) return;
+        document.querySelectorAll('#inputGroups input[type="number"]').forEach(inp => {
+            const val = parseFloat(inp.value);
+            if (!isNaN(val)) {
+                const id = inp.id;
+                const parts = id.split('_');
+                const name = parts[parts.length - 1];
+                if (name.startsWith('x') || name.startsWith('y') || name.startsWith('z') || name.includes('x') || name.includes('y') || name.includes('z')) {
+                    const base = toBaseUnit(val, currentUnit);
+                    inp.value = fromBaseUnit(base, newUnit).toFixed(4).replace(/\.?0+$/, '');
+                }
+            }
+        });
+        currentUnit = newUnit;
+        calculate();
+    }));
+
+    function buildSubmodeAndFields() {
+        const config = operationMap[currentOperation];
+        if (!config) return;
+        let submodeHtml = `<label class="form-label">Способ задания</label><div class="radio-switch" style="margin-top:8px;">`;
+        config.submodes.forEach(sm => {
+            submodeHtml += `<label class="radio-switch__item"><input type="radio" name="submode" value="${sm.id}" ${sm.id===currentSubmode?'checked':''}> ${sm.name}</label>`;
+        });
+        submodeHtml += `</div>`;
+        submodeContainer.innerHTML = submodeHtml;
+        document.querySelectorAll('input[name="submode"]').forEach(radio => {
+            radio.addEventListener('change', e => {
+                currentSubmode = e.target.value;
+                buildFields();
+                calculate();
+            });
+        });
+        buildFields();
+    }
+
+    function buildFields() {
+        const config = operationMap[currentOperation];
+        if (!config) return;
+        const submode = config.submodes.find(s => s.id === currentSubmode);
+        if (!submode) return;
+        const isSimple = body.classList.contains('simple-mode');
+        let html = '';
+        const fields = submode.fields;
+        const pointGroups = {};
+        fields.forEach(f => {
+            if (f.name.match(/^x[0-9]*$/) || f.name.match(/^y[0-9]*$/)) {
+                const num = f.name.replace(/[^0-9]/g, '') || '1';
+                if (!pointGroups[num]) pointGroups[num] = {};
+                if (f.name.startsWith('x')) pointGroups[num].x = f;
+                else if (f.name.startsWith('y')) pointGroups[num].y = f;
+            } else {
+                if (!pointGroups.other) pointGroups.other = [];
+                pointGroups.other.push(f);
+            }
+        });
+        for (let key in pointGroups) {
+            if (key === 'other') {
+                pointGroups.other.forEach(f => {
+                    const fieldId = `${currentOperation}_${currentSubmode}_${f.name}`;
+                    const label = isSimple && f.simpleLabel ? f.simpleLabel : f.label;
+                    let val = f.default;
+                    if (f.name.startsWith('x') || f.name.startsWith('y')) val = fromBaseUnit(val, currentUnit);
+                    html += `<div class="field-wrapper"><label class="form-label">${label}</label>
+                        <input type="number" id="${fieldId}" class="form-input" value="${val}" step="any"></div>`;
+                });
+            } else {
+                const pt = pointGroups[key];
+                if (pt.x && pt.y) {
+                    const groupLabel = `Точка ${key}`;
+                    html += `<fieldset style="border:1px solid var(--border); border-radius:20px; padding:15px; margin-bottom:15px;"><legend>${groupLabel}</legend>`;
+                    ['x','y'].forEach(coord => {
+                        const f = pt[coord];
+                        const fieldId = `${currentOperation}_${currentSubmode}_${f.name}`;
+                        const label = isSimple && f.simpleLabel ? f.simpleLabel : f.label;
+                        let val = f.default;
+                        if (f.name.startsWith('x') || f.name.startsWith('y')) val = fromBaseUnit(val, currentUnit);
+                        html += `<div class="field-wrapper"><label class="form-label">${label}</label>
+                            <input type="number" id="${fieldId}" class="form-input" value="${val}" step="any"></div>`;
+                    });
+                    html += `</fieldset>`;
+                }
+            }
+        }
+        inputGroups.innerHTML = html;
+        document.querySelectorAll('#inputGroups input[type="number"]').forEach(inp => {
+            inp.addEventListener('input', calculate);
+        });
+    }
+
+    function gatherValues() {
+        const vals = {};
+        document.querySelectorAll('#inputGroups input[type="number"]').forEach(inp => {
+            const val = parseFloat(inp.value);
+            const parts = inp.id.split('_');
+            const name = parts[parts.length - 1];
+            vals[name] = isNaN(val) ? undefined : val;
+        });
+        const textarea = document.querySelector('#inputGroups textarea');
+        if (textarea) {
+            vals.coords = textarea.value;
+        }
+        return vals;
+    }
+
+    function clearErrors() {
+        document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+        document.querySelectorAll('.error-message').forEach(el => el.remove());
+    }
+
+    function calculate() {
+        clearErrors();
+        const config = operationMap[currentOperation];
+        if (!config) return;
+        const valsRaw = gatherValues();
+        const valsBase = {};
+        let valid = true;
+        for (let key in valsRaw) {
+            if (valsRaw[key] === undefined) { valid = false; break; }
+            if (key.startsWith('x') || key.startsWith('y') || key === 'x0' || key === 'y0' || key.match(/^x[0-9]*$/) || key.match(/^y[0-9]*$/)) {
+                valsBase[key] = toBaseUnit(valsRaw[key], currentUnit);
+            } else {
+                valsBase[key] = valsRaw[key];
+            }
+        }
+        if (!valid) {
+            stepText.textContent = 'Заполните все поля';
+            stepTextSimple.textContent = 'Заполните все поля';
+            return;
+        }
+        try {
+            const res = config.calculate(valsBase, currentUnit);
+            renderResults(res.resultsArray, currentUnit);
+            stepText.textContent = res.solutionMath;
+            stepTextSimple.textContent = res.solutionSimple;
+            formulasText.textContent = res.formulas;
+            drawCanvas(res);
+        } catch (e) {
+            stepText.textContent = 'Ошибка: ' + e.message;
+            stepTextSimple.textContent = 'Ошибка: ' + e.message;
+        }
+    }
+
+    function renderResults(arr, unit) {
+        const config = operationMap[currentOperation];
+        const types = config.resultTypes;
+        let html = '';
+        for (let i=0; i<config.resultLabels.length; i++) {
+            let val = arr[i];
+            if (val === undefined) val = '—';
+            else if (types[i] === 'linear' && typeof val === 'number') val = formatNum(fromBaseUnit(val, unit)) + ' ' + (unit==='mm'?'мм':unit==='m'?'м':'см');
+            else if (types[i] === 'area' && typeof val === 'number') val = formatNum(fromBaseUnit(val, unit)) + ' ' + (unit==='mm'?'мм²':unit==='m'?'м²':'см²');
+            else if (types[i] === 'string') val = val;
+            else if (typeof val === 'number') val = formatNum(val);
+            html += `<div class="result-card"><span class="result-card__label">${config.resultLabels[i]}</span><span class="result-card__value">${val}</span></div>`;
+        }
+        resultsContainer.innerHTML = html;
+    }
+
+    function drawCanvas(data) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        const w = canvas.width, h = canvas.height;
+        const cx = w/2, cy = h/2;
+        const scale = 40;
+        ctx.strokeStyle = '#aaa';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        for (let i = -10; i <= 10; i++) {
+            ctx.moveTo(cx + i*scale, 0);
+            ctx.lineTo(cx + i*scale, h);
+            ctx.moveTo(0, cy - i*scale);
+            ctx.lineTo(w, cy - i*scale);
+        }
+        ctx.strokeStyle = '#ccc';
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = '#3366cc';
+        ctx.lineWidth = 2;
+        ctx.moveTo(cx, 0); ctx.lineTo(cx, h);
+        ctx.moveTo(0, cy); ctx.lineTo(w, cy);
+        ctx.stroke();
+        for (let i = -10; i <= 10; i++) {
+            if (i !== 0) {
+                ctx.fillStyle = '#333';
+                ctx.font = '10px Arial';
+                ctx.fillText(i, cx + i*scale - 5, cy - 5);
+                ctx.fillText(i, cx + 5, cy - i*scale - 5);
+            }
+        }
+        ctx.fillStyle = '#3366cc';
+        ctx.font = '12px Arial';
+        ctx.fillText('X', w-20, cy-10);
+        ctx.fillText('Y', cx+10, 20);
+        if (data.points) {
+            for (let label in data.points) {
+                const [x, y] = data.points[label];
+                const px = cx + x * scale;
+                const py = cy - y * scale;
+                ctx.beginPath();
+                ctx.arc(px, py, 6, 0, 2*Math.PI);
+                ctx.fillStyle = '#ff4444';
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.fillStyle = '#000';
+                ctx.font = 'bold 12px Arial';
+                ctx.fillText(label, px+8, py-8);
+            }
+        }
+        if (data.circle) {
+            const { xc, yc, R } = data.circle;
+            const px = cx + xc * scale;
+            const py = cy - yc * scale;
+            const r = R * scale;
+            ctx.beginPath();
+            ctx.arc(px, py, r, 0, 2*Math.PI);
+            ctx.strokeStyle = '#44aa44';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+        ctx.restore();
+    }
+
+    calculateBtn.addEventListener('click', calculate);
+    clearBtn.addEventListener('click', function() {
+        const config = operationMap[currentOperation];
+        if (!config) return;
+        const submode = config.submodes.find(s => s.id === currentSubmode);
+        if (submode) {
+            submode.fields.forEach(f => {
+                const fieldId = `${currentOperation}_${currentSubmode}_${f.name}`;
+                const inp = document.getElementById(fieldId);
+                if (inp) {
+                    let base = f.default;
+                    if (f.name.startsWith('x') || f.name.startsWith('y')) base = fromBaseUnit(base, currentUnit);
+                    inp.value = base;
+                }
+            });
+        }
+        calculate();
+    });
+    randomBtn.addEventListener('click', function() {
+        const config = operationMap[currentOperation];
+        if (!config) return;
+        const submode = config.submodes.find(s => s.id === currentSubmode);
+        if (submode) {
+            submode.fields.forEach(f => {
+                const fieldId = `${currentOperation}_${currentSubmode}_${f.name}`;
+                const inp = document.getElementById(fieldId);
+                if (inp) {
+                    let base = f.default * (0.5 + Math.random() * 1.5);
+                    if (f.name.startsWith('x') || f.name.startsWith('y')) base = fromBaseUnit(base, currentUnit);
+                    inp.value = base.toFixed(4).replace(/\.?0+$/, '');
+                }
+            });
+        }
+        calculate();
+    });
+    copyAnswerBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText(resultsContainer.innerText).then(() => showGameToast('Ответ скопирован'));
+    });
+    copySolutionBtn.addEventListener('click', function() {
+        const text = body.classList.contains('simple-mode') ? stepTextSimple.innerText : stepText.innerText;
+        navigator.clipboard.writeText(text).then(() => showGameToast('Решение скопировано'));
+    });
+    shareBtn.addEventListener('click', function() {
+        const text = `2D координаты: ${resultsContainer.innerText} - решение: ${stepText.innerText} ${location.href}`;
+        if (navigator.share) navigator.share({ title: 'Калькулятор 2D', text }).catch(() => {});
+        else navigator.clipboard.writeText(text).then(() => showGameToast('Ссылка скопирована'));
+    });
+    exportGraphBtn.addEventListener('click', function() {
+        const link = document.createElement('a');
+        link.download = 'graph.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    });
+
+    filterOperations();
+    setTimeout(() => showGameToast('Включите супер-простой режим для подсказок!'), 1000);
+
+    const faqList = document.getElementById('faqList');
+    faqList.innerHTML = `
+        <details class="faq-item"><summary class="faq-question">Как найти расстояние между точками?</summary><div class="faq-answer">d = √((x₂−x₁)²+(y₂−y₁)²).</div></details>
+        <details class="faq-item"><summary class="faq-question">Как вычислить площадь треугольника по координатам?</summary><div class="faq-answer">S = ½|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|.</div></details>
+        <details class="faq-item"><summary class="faq-question">Как найти точку пересечения прямых?</summary><div class="faq-answer">Решите систему уравнений прямых.</div></details>
+        <details class="faq-item"><summary class="faq-question">Что такое скалярное произведение?</summary><div class="faq-answer">Сумма произведений соответствующих координат: a·b = x₁x₂ + y₁y₂.</div></details>
+    `;
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym');
+   ym(107027516, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Калькулятор координат 2D",
+    "description": "Аналитическая геометрия на плоскости: расстояние, середина, площадь, прямые, векторы, углы.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "url": "https://millerson.shop/2d-coordinate-calculator.html",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RUB"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://millerson.shop/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Математика", "item": "https://millerson.shop/mathematics.html" },
+        { "@type": "ListItem", "position": 3, "name": "2D координаты", "item": "https://millerson.shop/2d-coordinate-calculator.html" }
+    ]
+}
+</script>
+
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+    if(!localStorage.getItem('cookieAccepted')){
+        banner.style.display = 'block';
+    }
+    button.addEventListener('click', function(){
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
+</body>
+</html>

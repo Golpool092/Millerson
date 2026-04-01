@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Все тригонометрические калькуляторы онлайн | Millerson</title>
+    <meta name="description" content="Все бесплатные онлайн калькуляторы по тригонометрии: sin, cos, tan, ctg, sec, cosec, arcsin, arccos, arctan. Пошаговое решение, супер‑простой режим.">
+    <meta name="keywords" content="тригонометрия онлайн, все тригонометрические калькуляторы, синус, косинус, тангенс, котангенс, секанс, косеканс, арксинус, арккосинус, арктангенс">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/alltrigonometry.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:title" content="Все тригонометрические калькуляторы – Millerson">
+    <meta property="og:description" content="Бесплатные калькуляторы для всех тригонометрических функций.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://millerson.shop/all-trigonometry.html">
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Все тригонометрические калькуляторы">
+    <meta name="twitter:description" content="sin, cos, tan, ctg, sec, cosec, arcsin, arccos, arctan. Бесплатно.">
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+    <style>
+        .search-wrapper {
+            position: relative;
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto 40px;
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+        .search-wrapper input {
+            width: 100%;
+            padding: 14px 18px 14px 48px;
+            background: var(--surface-solid);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 1rem;
+            color: var(--text-primary);
+            outline: none;
+        }
+        .search-wrapper input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0 60px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.2);
+            border-color: var(--accent);
+        }
+        .project-preview {
+            height: 180px;
+            background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent);
+        }
+        .project-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-info h3 {
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            margin-bottom: 8px;
+        }
+        .project-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .project-link {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            grid-column: 1 / -1;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .back-button:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        .seo-text {
+            margin: 60px 0 40px;
+            background: var(--surface);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+        .seo-text h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        .seo-text h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: var(--accent);
+        }
+        .seo-text p, .seo-text ul {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+    </style>
+    <!-- Yandex Autoplacement 18829281 -->
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="about.html" class="nav__link">О компании</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        <a href="mathematics.html" class="back-button"><i class="fas fa-arrow-left"></i> Назад в математику</a>
+        <h1 class="main__title">Все тригонометрические калькуляторы</h1>
+        <p class="main__description">Выберите функцию для вычисления в градусах или радианах. Подробное решение, супер‑простой режим.</p>
+
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="projectSearch" placeholder="Поиск функций..." autocomplete="off">
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+
+        <div class="seo-text">
+            <h2>Все онлайн калькуляторы по тригонометрии</h2>
+            <p>Тригонометрия — раздел математики, изучающий зависимости между углами и сторонами треугольников. На этой странице собраны все бесплатные калькуляторы Millerson Company для прямых и обратных тригонометрических функций. Каждый калькулятор даёт пошаговое решение и поддерживает супер‑простой режим для начинающих.</p>
+            
+            <h3>Перечень функций</h3>
+            <ul>
+                <li><strong>Синус (sin)</strong> — отношение противолежащего катета к гипотенузе.</li>
+                <li><strong>Косинус (cos)</strong> — отношение прилежащего катета к гипотенузе.</li>
+                <li><strong>Тангенс (tan)</strong> — sin/cos, отношение противолежащего катета к прилежащему.</li>
+                <li><strong>Котангенс (ctg)</strong> — cos/sin, отношение прилежащего катета к противолежащему.</li>
+                <li><strong>Секанс (sec)</strong> — 1/cos.</li>
+                <li><strong>Косеканс (cosec)</strong> — 1/sin.</li>
+                <li><strong>Арксинус (arcsin)</strong> — угол, синус которого равен x (x ∈ [‑1,1]).</li>
+                <li><strong>Арккосинус (arccos)</strong> — угол, косинус которого равен x (x ∈ [‑1,1]).</li>
+                <li><strong>Арктангенс (arctan)</strong> — угол, тангенс которого равен x (любое число).</li>
+            </ul>
+
+            <h3>Преимущества наших калькуляторов</h3>
+            <ul>
+                <li>Мгновенный пересчёт при изменении данных.</li>
+                <li>Переключение между градусами и радианами.</li>
+                <li>Проверка области определения (ошибка при недопустимых значениях).</li>
+                <li>Генерация случайных значений для тренировки.</li>
+                <li>Копирование ответа и решения.</li>
+            </ul>
+
+            <p>Выберите нужную функцию в каталоге выше и начните расчёт.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+    function setTheme(checked) {
+        if (checked) document.body.classList.add('dark-theme');
+        else document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+    setTheme(savedTheme === 'dark');
+    if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+    document.addEventListener('click', function(event) {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) {
+            navMobile.classList.remove('active');
+            burgerBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    const projects = [
+        { name: 'Синус (sin)', description: 'Вычисление синуса угла в градусах и радианах.', icon: 'fa-calculator', link: 'sin.html' },
+        { name: 'Косинус (cos)', description: 'Вычисление косинуса угла в градусах и радианах.', icon: 'fa-calculator', link: 'cos.html' },
+        { name: 'Тангенс (tan)', description: 'Вычисление тангенса угла с учётом области определения.', icon: 'fa-calculator', link: 'tan.html' },
+        { name: 'Котангенс (ctg)', description: 'Вычисление котангенса угла.', icon: 'fa-calculator', link: 'ctg.html' },
+        { name: 'Секанс (sec)', description: 'Секанс угла: 1 / cos.', icon: 'fa-calculator', link: 'sec.html' },
+        { name: 'Косеканс (cosec)', description: 'Косеканс угла: 1 / sin.', icon: 'fa-calculator', link: 'cosec.html' },
+        { name: 'Арксинус (arcsin)', description: 'Угол, синус которого равен x (x от -1 до 1).', icon: 'fa-calculator', link: 'arcsin.html' },
+        { name: 'Арккосинус (arccos)', description: 'Угол, косинус которого равен x (x от -1 до 1).', icon: 'fa-calculator', link: 'arccos.html' },
+        { name: 'Арктангенс (arctan)', description: 'Угол, тангенс которого равен x (любое число).', icon: 'fa-calculator', link: 'arctan.html' }
+    ];
+
+    const grid = document.getElementById('projectsGrid');
+    const search = document.getElementById('projectSearch');
+
+    function render(filter) {
+        const f = filter.toLowerCase();
+        const filtered = projects.filter(p => p.name.toLowerCase().includes(f) || p.description.toLowerCase().includes(f));
+        if (filtered.length === 0) {
+            grid.innerHTML = '<div class="no-results">Функции не найдены</div>';
+            return;
+        }
+        let html = '';
+        filtered.forEach(p => {
+            html += `
+                <div class="project-card">
+                    <div class="project-preview"><i class="fas ${p.icon}"></i></div>
+                    <div class="project-info">
+                        <h3>${p.name}</h3>
+                        <p>${p.description}</p>
+                        <a href="${p.link}" class="btn btn--primary project-link">Перейти</a>
+                    </div>
+                </div>
+            `;
+        });
+        grid.innerHTML = html;
+    }
+
+    search.addEventListener('input', () => render(search.value));
+    render('');
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym');
+   ym(107027516, 'init', { ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Все тригонометрические калькуляторы",
+    "description": "Полный каталог бесплатных онлайн калькуляторов для тригонометрических функций.",
+    "url": "https://millerson.shop/all-trigonometry.html",
+    "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+            { "@type": "ListItem", "position":1, "url":"https://millerson.shop/sin.html" },
+            { "@type": "ListItem", "position":2, "url":"https://millerson.shop/cos.html" },
+            { "@type": "ListItem", "position":3, "url":"https://millerson.shop/tan.html" },
+            { "@type": "ListItem", "position":4, "url":"https://millerson.shop/ctg.html" },
+            { "@type": "ListItem", "position":5, "url":"https://millerson.shop/sec.html" },
+            { "@type": "ListItem", "position":6, "url":"https://millerson.shop/cosec.html" },
+            { "@type": "ListItem", "position":7, "url":"https://millerson.shop/arcsin.html" },
+            { "@type": "ListItem", "position":8, "url":"https://millerson.shop/arccos.html" },
+            { "@type": "ListItem", "position":9, "url":"https://millerson.shop/arctan.html" }
+        ]
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type":"ListItem", "position":1, "name":"Главная", "item":"https://millerson.shop/index.html" },
+        { "@type":"ListItem", "position":2, "name":"Математика", "item":"https://millerson.shop/mathematics.html" },
+        { "@type":"ListItem", "position":3, "name":"Все тригонометрические функции", "item":"https://millerson.shop/all-trigonometry.html" }
+    ]
+}
+</script>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+    if(!localStorage.getItem('cookieAccepted')){
+        banner.style.display = 'block';
+    }
+    button.addEventListener('click', function(){
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
+</body>
+</html>
