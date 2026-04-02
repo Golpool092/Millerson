@@ -179,7 +179,7 @@
         if (themeToggleMobile) themeToggleMobile.checked = checked;
     }
 
-    if (savedTheme === 'dark') {
+    if (savedTheme !== 'light') {
         setTheme(true);
     } else {
         setTheme(false);
