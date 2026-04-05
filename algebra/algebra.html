@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгебра онлайн: калькуляторы процентов, дробей, уравнений | Millerson Company</title>
+    <meta name="description" content="Бесплатные онлайн калькуляторы по алгебре: проценты от числа, действия с дробями, пропорции, квадратные уравнения, дискриминант. Удобные инструменты для учёбы и работы." />
+    <meta name="keywords" content="алгебра онлайн, калькулятор процентов, действия с дробями, пропорции, решение уравнений, процент от числа, сокращение дробей, квадратные уравнения, дискриминант, линейные уравнения" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://millerson.shop/algebra/algebra.html" />
+    <meta property="og:title" content="Алгебра: калькуляторы процентов, дробей и уравнений онлайн" />
+    <meta property="og:description" content="Вычисляйте проценты, выполняйте действия с дробями, решайте пропорции и квадратные уравнения быстро и точно. Бесплатные инструменты для всех." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://millerson.shop/mathematics/algebra.html" />
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Millerson Company – Алгебра: проценты, дроби, уравнения" />
+    <meta name="twitter:description" content="Удобные калькуляторы для алгебраических вычислений, включая квадратные уравнения и дискриминант." />
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg" />
+    <link rel="preload" href="../style.css" as="style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px;margin:40px 0 60px}
+        .project-card{background:var(--card-bg);border-radius:var(--border-radius);overflow:hidden;transition:var(--transition);box-shadow:var(--shadow);border:2px solid transparent;position:relative;height:100%;display:flex;flex-direction:column}
+        .project-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.2);border-color:var(--accent)}
+        .project-preview{height:200px;background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1);display:flex;align-items:center;justify-content:center;font-size:4rem;color:var(--accent)}
+        .project-info{padding:25px;flex-grow:1;display:flex;flex-direction:column}
+        .project-info h3{font-size:1.6rem;color:var(--accent-light);margin-bottom:10px;line-height:1.3}
+        .project-info p{color:var(--text-secondary);font-size:1rem;line-height:1.5;margin-bottom:20px;flex-grow:1}
+        .project-link{align-self:flex-start;margin-top:auto}
+        .back-link{display:inline-block;margin-bottom:20px;background:var(--accent);color:#fff;padding:10px 22px;border-radius:40px;font-weight:500;transition:var(--transition);text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+        .back-link i{margin-right:8px}
+        .back-link:hover{background:var(--accent-light);transform:translateX(-5px);box-shadow:0 6px 15px rgba(0,0,0,0.15)}
+        .float-math{position:fixed;bottom:30px;right:30px;background:var(--accent);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 10px 25px rgba(0,0,0,0.2);cursor:pointer;transition:var(--transition);z-index:99;border:none;outline:none;text-decoration:none}
+        .float-math:hover{transform:scale(1.1);background:var(--accent-light);box-shadow:0 15px 30px rgba(0,0,0,0.3)}
+        .float-math i{font-size:1.8rem}
+        .seo-text{background:var(--card-bg);padding:30px;border-radius:var(--border-radius);margin:40px 0;box-shadow:var(--shadow)}
+        .seo-text h2{color:var(--accent-light);margin:30px 0 15px}
+        .seo-text h2:first-of-type{margin-top:0}
+        .seo-text h3{color:var(--text-primary);margin:20px 0 10px}
+        .seo-text p{color:var(--text-secondary);line-height:1.7;margin-bottom:15px}
+        .seo-text ul{list-style:disc;padding-left:20px;color:var(--text-secondary);margin:10px 0 20px}
+        .seo-text li{margin:5px 0}
+        .related-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:30px 0}
+        .related-links a{padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:30px;color:var(--text-primary);text-decoration:none;transition:var(--transition)}
+        .related-links a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .similar-materials{margin-top:50px;background:var(--surface);border-radius:32px;padding:30px;border:1px solid var(--border)}
+        .similar-materials h3{font-size:1.8rem;color:var(--accent);margin-bottom:20px}
+        .similar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+        .similar-grid a{display:block;padding:12px;background:var(--card-bg);border-radius:20px;text-align:center;color:var(--text-primary);text-decoration:none;border:1px solid var(--border);transition:var(--transition)}
+        .similar-grid a:hover{background:var(--accent);color:#fff;transform:translateY(-3px)}
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Алгебра: онлайн калькуляторы процентов, дробей и уравнений",
+        "description": "Бесплатные инструменты для вычисления процентов, работы с дробями, пропорциями и решения квадратных уравнений.",
+        "url": "https://millerson.shop/mathematics/algebra.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Millerson Company",
+            "url": "https://millerson.shop"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://millerson.shop/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Все проекты",
+                "item": "https://millerson.shop/all.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Математика",
+                "item": "https://millerson.shop/mathematics/mathematics.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Алгебра",
+                "item": "https://millerson.shop/mathematics/algebra.html"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Millerson Company",
+        "url": "https://millerson.shop",
+        "logo": "https://millerson.shop/favicon.png",
+        "email": "MillersonShop@gmail.com",
+        "description": "Разработка онлайн‑сервисов и веб‑решений."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли решать уравнения с помощью ваших калькуляторов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Пока наши инструменты ориентированы на базовые операции: проценты, дроби, пропорции. Для решения квадратных уравнений мы рекомендуем использовать специализированные калькуляторы: полное квадратное уравнение, ax² + c = 0, ax² + bx = 0. Они доступны по ссылкам ниже."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как вычислить процент от числа?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Воспользуйтесь калькулятором процентов: введите число, выберите операцию «% от числа» и укажите процент. Мгновенно увидите результат."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли история вычислений?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, история не сохраняется, но вы всегда можете повторить расчёт или скопировать результат."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое дискриминант и как его найти?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Дискриминант D = b² – 4ac определяет число корней квадратного уравнения. В наших калькуляторах квадратных уравнений дискриминант вычисляется автоматически с подробным решением."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как решить неполное квадратное уравнение ax² + c = 0?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Такое уравнение решается приведением к виду x² = –c/a. Если правая часть положительна, получаем два корня: x = ±√(–c/a). При отрицательной правой части корни комплексные. Используйте наш калькулятор для ax² + c = 0."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Калькулятор процентов",
+        "description": "Бесплатный онлайн калькулятор для расчёта процентов: процент от числа, соотношение, увеличение/уменьшение, разница в процентах.",
+        "applicationCategory": "Calculator",
+        "operatingSystem": "Web",
+        "url": "https://millerson.shop/mathematics/percent.html",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "RUB"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Калькулятор дробей",
+        "description": "Бесплатный онлайн калькулятор для действий с дробями: сложение, вычитание, умножение, деление, сокращение, перевод в десятичные.",
+        "applicationCategory": "Calculator",
+        "operatingSystem": "Web",
+        "url": "https://millerson.shop/mathematics/fraction.html",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "RUB"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Калькулятор квадратных уравнений",
+        "description": "Бесплатный онлайн калькулятор для решения квадратных уравнений: полные, неполные ax² + c = 0, ax² + bx = 0. С дискриминантом и комплексными корнями.",
+        "applicationCategory": "Calculator",
+        "operatingSystem": "Web",
+        "url": "https://millerson.shop/algebra/allquadratic.html",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "RUB"
+        }
+      }
+    ]
+    </script>
+    <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+    <script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        <a href="../mathematics.html" class="back-link"><i class="fas fa-arrow-left"></i> Назад к математике</a>
+
+        <h1 class="main__title">Алгебра: онлайн калькуляторы процентов, дробей и уравнений</h1>
+        <p class="main__description">Удобные инструменты для работы с процентами, дробями, пропорциями, а также для решения квадратных уравнений и нахождения дискриминанта.</p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-percent"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор процентов</h3>
+                    <p>Процент от числа, соотношение, увеличение/уменьшение, разница в процентах.</p>
+                    <a href="percent.html" class="btn btn--primary project-link">Перейти к процентам</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-divide"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор дробей</h3>
+                    <p>Сложение, вычитание, умножение, деление дробей, перевод, проценты от дроби.</p>
+                    <a href="fraction.html" class="btn btn--primary project-link">Перейти к дробям</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-square-root-alt"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Квадратные уравнения</h3>
+                    <p>Полные и неполные (ax² + c = 0, ax² + bx = 0) с пошаговым решением, дискриминантом и комплексными корнями.</p>
+                    <a href="../allquadratic.html" class="btn btn--primary project-link">Перейти к уравнениям</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-not-equal"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор модуля числа</h3>
+                    <p>Вычисление модуля (абсолютного значения) числа онлайн. Уравнения с модулем.</p>
+                    <a href="absolute-value.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Все формулы алгебры</h3>
+                    <p>Полный справочник алгебраических формул: степени, логарифмы, прогрессии, разложения, биномиальные коэффициенты.</p>
+                    <a href="algebra-formulas.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-spell-check"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Глоссарий по алгебре</h3>
+                    <p>Основные термины и определения алгебры: от уравнения до группы. Справочник для школьников и студентов.</p>
+                    <a href="algebra-glossary.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-history"></i>
+                </div>
+                <div class="project-info">
+                    <h3>История алгебры</h3>
+                    <p>Краткая история алгебры: от вавилонской математики до современной абстрактной алгебры. Ключевые открытия.</p>
+                    <a href="algebra-history.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-wave-square"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор среднего арифметического</h3>
+                    <p>Онлайн вычисление среднего арифметического, медианы, моды, размаха набора данных. Ввод через запятую.</p>
+                    <a href="arithmetic-mean.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-list-ol"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор арифметической прогрессии</h3>
+                    <p>Онлайн калькулятор арифметической прогрессии: вычислите n-й член, сумму n членов, разность. Пошаговое решение.</p>
+                    <a href="arithmetic-progression.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-superscript"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Бином Ньютона — калькулятор</h3>
+                    <p>Раскрытие бинома Ньютона (a+b)ⁿ онлайн. Коэффициенты, члены разложения, треугольник Паскаля.</p>
+                    <a href="binomial-theorem.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-object-group"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор сочетаний C(n,k)</h3>
+                    <p>Вычисление числа сочетаний C(n,k) — количества способов выбрать k элементов из n. Биномиальные коэффициенты.</p>
+                    <a href="combinations.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник по комбинаторике</h3>
+                    <p>Все формулы комбинаторики: сочетания, перестановки, размещения, принцип включений-исключений.</p>
+                    <a href="combinatorics-reference.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Комплексные числа: теория</h3>
+                    <p>Справочник по комплексным числам: определение, арифметика, тригонометрическая и показательная форма.</p>
+                    <a href="complex-numbers-theory.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор комплексных чисел</h3>
+                    <p>Сложение, вычитание, умножение, деление комплексных чисел онлайн. Модуль, аргумент. Пошаговое решение.</p>
+                    <a href="complex-numbers.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор сложных процентов</h3>
+                    <p>Расчёт сложных процентов онлайн с капитализацией. Ежемесячная, ежеквартальная, ежегодная капитализация.</p>
+                    <a href="compound-interest.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Дискриминант квадратного уравнения</h3>
+                    <p>Формула дискриминанта, применение, знак, корни квадратного уравнения. Справочник.</p>
+                    <a href="discriminant-reference.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-th"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Признаки делимости</h3>
+                    <p>Признаки делимости на 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 25. Примеры и объяснения.</p>
+                    <a href="divisibility-rules.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-superscript"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор степеней</h3>
+                    <p>Онлайн вычисление степени числа aⁿ. Любые вещественные основания и показатели, отрицательные степени.</p>
+                    <a href="exponent.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-exclamation"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор факториала</h3>
+                    <p>Вычисление факториала числа n! онлайн. Точные значения, пошаговое перемножение, двойной факториал.</p>
+                    <a href="factorial.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Известные математические константы</h3>
+                    <p>Основные математические константы: π, e, φ, √2, ln 2 и другие. Значения, история, применение.</p>
+                    <a href="famous-constants.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-bezier-curve"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник алгебраических функций</h3>
+                    <p>Основные алгебраические функции: линейная, квадратичная, степенная, логарифмическая, показательная.</p>
+                    <a href="functions-reference.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор НОД и НОК</h3>
+                    <p>Нахождение наибольшего общего делителя (НОД) и наименьшего общего кратного (НОК) онлайн. Алгоритм Евклида.</p>
+                    <a href="gcd-lcm.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-expand-alt"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор геометрической прогрессии</h3>
+                    <p>Онлайн калькулятор геометрической прогрессии: n-й член, сумма n членов, знаменатель. Пошаговое решение.</p>
+                    <a href="geometric-progression.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-not-equal"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник по неравенствам</h3>
+                    <p>Свойства и способы решения неравенств: линейные, квадратные, с модулем, системы неравенств. Числовая ось.</p>
+                    <a href="inequalities-reference.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-grip-lines"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор линейного уравнения</h3>
+                    <p>Решение линейного уравнения вида ax + b = 0 онлайн с подробным пошаговым объяснением. Бесплатно.</p>
+                    <a href="linear-equation.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-less-than-equal"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор линейного неравенства</h3>
+                    <p>Решение линейного неравенства вида ax + b &gt; c онлайн с пошаговым решением и отображением ответа на числовой оси.</p>
+                    <a href="linear-inequality.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-subscript"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Правила и свойства логарифмов</h3>
+                    <p>Справочник по логарифмам: свойства, формулы, таблица значений ln и lg. Формула перехода между основаниями.</p>
+                    <a href="log-rules.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-subscript"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор логарифмов</h3>
+                    <p>Онлайн вычисление логарифма любого числа по любому основанию. log₂, log₁₀ (lg), ln и произвольные основания.</p>
+                    <a href="logarithm.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-table"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор матриц 2×2</h3>
+                    <p>Онлайн операции с матрицами 2×2: сложение, умножение, определитель, обратная матрица, транспонирование.</p>
+                    <a href="matrix-2x2.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-th"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор матриц 3×3</h3>
+                    <p>Операции с матрицами 3×3: определитель, обратная матрица, транспонирование, сложение, умножение.</p>
+                    <a href="matrix-3x3.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-border-all"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник по матрицам</h3>
+                    <p>Основы матричной алгебры: виды матриц, операции, определители, обратная матрица, ранг.</p>
+                    <a href="matrix-theory.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-equals"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор смешанных чисел</h3>
+                    <p>Сложение, вычитание, умножение и деление смешанных чисел онлайн. Перевод смешанного числа в дробь.</p>
+                    <a href="mixed-numbers.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-square-root-alt"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор корня n-й степени</h3>
+                    <p>Вычисление квадратного, кубического и корня n-й степени из числа онлайн. Дробные корни, пошаговое решение.</p>
+                    <a href="nth-root.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-hashtag"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Перевод чисел между системами счисления</h3>
+                    <p>Онлайн конвертер систем счисления: двоичная, восьмеричная, десятичная, шестнадцатеричная. Любое основание.</p>
+                    <a href="number-bases.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-sort-numeric-up"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник по системам счисления</h3>
+                    <p>Двоичная, восьмеричная, десятичная, шестнадцатеричная система счисления. Перевод, арифметика, применение.</p>
+                    <a href="number-systems.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник по теории чисел</h3>
+                    <p>Основы теории чисел: простые числа, делимость, НОД, НОК, теорема Евклида. Признаки делимости.</p>
+                    <a href="number-theory.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-percent"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор процентного изменения</h3>
+                    <p>Вычисление процентного изменения (роста или уменьшения) между двумя значениями. Скидки, наценки, инфляция.</p>
+                    <a href="percent-change.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-random"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор перестановок и размещений</h3>
+                    <p>Вычисление числа перестановок P(n) и размещений A(n,k) онлайн. Перестановки с повторениями.</p>
+                    <a href="permutations.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-subscript"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Тождества с многочленами</h3>
+                    <p>Справочник тождеств: формулы сокращённого умножения, разложения многочленов, формулы для кубов и высших степеней.</p>
+                    <a href="polynomial-identities.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Правила действий со степенями</h3>
+                    <p>Полный справочник правил степеней: произведение, частное, степень степени, отрицательные показатели.</p>
+                    <a href="power-rules.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Разложение числа на простые множители</h3>
+                    <p>Разложение натурального числа на простые множители онлайн. Основная теорема арифметики, канонический вид.</p>
+                    <a href="prime-factorization.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-sort-amount-up"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник: арифметическая и геометрическая прогрессии</h3>
+                    <p>Все формулы для арифметической и геометрической прогрессий. Сумма бесконечной геометрической прогрессии.</p>
+                    <a href="progressions-reference.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор пропорций</h3>
+                    <p>Решение пропорций онлайн: найдите неизвестный член пропорции a:b = c:d. Пошаговое решение бесплатно.</p>
+                    <a href="proportion.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-square-root-alt"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор квадратного уравнения</h3>
+                    <p>Решение квадратного уравнения ax²+bx+c=0 через дискриминант онлайн с подробным разбором.</p>
+                    <a href="quadratic-formula.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-not-equal"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор квадратного неравенства</h3>
+                    <p>Решение квадратного неравенства ax²+bx+c &gt; 0 онлайн с пошаговым решением и числовой осью.</p>
+                    <a href="quadratic-inequality.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-divide"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Отношения и пропорции</h3>
+                    <p>Теория отношений и пропорций: определения, свойства, формулы, задачи.</p>
+                    <a href="ratio.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-compact-disc"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор округления чисел</h3>
+                    <p>Округление числа до любого знака после запятой, до целых, до десятков, сотен. Математическое и банковское округление.</p>
+                    <a href="rounding.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор научной записи числа</h3>
+                    <p>Перевод числа в стандартную форму (научную запись) a × 10ⁿ онлайн. Работа с очень большими и малыми числами.</p>
+                    <a href="scientific-notation.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник: числовые последовательности</h3>
+                    <p>Виды числовых последовательностей, пределы, сходимость, формулы общего члена. Примеры и задачи.</p>
+                    <a href="sequences-reference.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-circle-notch"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Справочник по теории множеств</h3>
+                    <p>Операции над множествами: объединение, пересечение, разность, дополнение. Диаграммы Венна, формулы.</p>
+                    <a href="sets-theory.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Калькулятор простых процентов</h3>
+                    <p>Расчёт простых процентов онлайн. Сумма процентов, итоговая сумма, срок или ставка по формуле I = P × r × t.</p>
+                    <a href="simple-interest.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-preview">
+                    <i class="fas fa-equals"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Система двух уравнений</h3>
+                    <p>Решение системы двух линейных уравнений с двумя неизвестными онлайн. Методы подстановки и сложения.</p>
+                    <a href="system-2-equations.html" class="btn btn--primary project-link">Открыть</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="seo-text">
+            <h2>Зачем нужны онлайн калькуляторы по алгебре?</h2>
+            <p>Алгебра — основа многих точных наук и повседневных расчётов. <strong>Онлайн калькуляторы по алгебре</strong> от Millerson Company помогают быстро и без ошибок выполнять типовые операции: находить процент от числа, складывать и умножать дроби, решать пропорции, а также <strong>решать квадратные уравнения</strong> и вычислять <strong>дискриминант</strong>. Наши инструменты будут полезны школьникам, студентам, бухгалтерам и всем, кто сталкивается с числовыми вычислениями.</p>
+
+            <h2>Калькулятор процентов: все случаи жизни</h2>
+            <p><strong>Калькулятор процентов</strong> позволяет решать наиболее частые задачи:</p>
+            <ul>
+                <li>Найти процент от числа (например, 15% от 2000).</li>
+                <li>Определить, сколько процентов одно число составляет от другого.</li>
+                <li>Прибавить или вычесть процент (расчёт наценки, скидки).</li>
+                <li>Узнать разницу в процентах между двумя числами.</li>
+            </ul>
+            <p>Подробнее в <a href="percent.html">калькуляторе процентов</a>.</p>
+
+            <h2>Калькулятор дробей: действия с обыкновенными и десятичными дробями</h2>
+            <p><strong>Калькулятор дробей</strong> выполняет:</p>
+            <ul>
+                <li>Сложение, вычитание, умножение и деление дробей.</li>
+                <li>Сокращение дробей и перевод в десятичный вид.</li>
+                <li>Нахождение дроби от числа (например, 3/4 от 120).</li>
+                <li>Сравнение дробей и приведение к общему знаменателю.</li>
+            </ul>
+            <p>Используйте <a href="fraction.html">калькулятор дробей онлайн</a> для быстрых вычислений.</p>
+
+            <h2>Пропорции и отношения</h2>
+            <p>Хотя отдельный калькулятор пропорций пока в разработке, вы можете использовать наш <strong>калькулятор процентов</strong> для решения многих пропорциональных задач. Например, если известно, что 25% от числа равно 150, вы легко найдёте целое. Или с помощью дробей можно рассчитать соотношение ингредиентов.</p>
+
+            <h2>Квадратные уравнения и дискриминант</h2>
+            <p>Для решения квадратных уравнений мы подготовили три специализированных калькулятора:</p>
+            <ul>
+                <li><a href="../quadratic.html">Полное квадратное уравнение</a> (ax² + bx + c = 0) – подробное решение с дискриминантом и корнями.</li>
+                <li><a href="../quadratic_nob.html">Неполное уравнение ax² + c = 0</a> (без b) – корни, в том числе комплексные.</li>
+                <li><a href="../quadratic_noc.html">Неполное уравнение ax² + bx = 0</a> (без c) – разложение на множители, корни 0 и –b/a.</li>
+            </ul>
+            <p>Все они собраны на одной странице <a href="../allquadratic.html">«Квадратные уравнения»</a>. Вы также можете воспользоваться <a href="../discriminant.html">калькулятором дискриминанта</a> для отдельного вычисления D.</p>
+
+            <h2>Линейные уравнения</h2>
+            <p>Хотя отдельного калькулятора линейных уравнений пока нет, простейшие уравнения вида ax + b = 0 легко решаются вручную или сводятся к пропорциям. В будущем мы добавим и этот инструмент.</p>
+
+            <h2>Преимущества наших алгебраических калькуляторов</h2>
+            <ul>
+                <li><strong>Бесплатно и без регистрации</strong> — доступны 24/7.</li>
+                <li><strong>Мгновенный результат</strong> — не нужно нажимать лишние кнопки.</li>
+                <li><strong>Понятный интерфейс</strong> — разберётся даже новичок.</li>
+                <li><strong>Работают на всех устройствах</strong> — компьютер, планшет, смартфон.</li>
+                <li><strong>Поддержка комплексных чисел</strong> при отрицательном дискриминанте.</li>
+            </ul>
+
+            <h2>Часто задаваемые вопросы</h2>
+            <h3>Можно ли решать уравнения с помощью ваших калькуляторов?</h3>
+            <p>Пока наши инструменты ориентированы на базовые операции: проценты, дроби, пропорции. Для решения квадратных уравнений мы рекомендуем использовать специализированные калькуляторы, указанные выше. Они справляются с любыми квадратными уравнениями, включая случаи с отрицательным дискриминантом.</p>
+            <h3>Как вычислить процент от числа?</h3>
+            <p>Воспользуйтесь калькулятором процентов: введите число, выберите операцию «% от числа» и укажите процент. Мгновенно увидите результат.</p>
+            <h3>Что такое дискриминант?</h3>
+            <p>Дискриминант D = b² – 4ac определяет количество и тип корней квадратного уравнения. Наши калькуляторы автоматически вычисляют дискриминант и показывают пошаговое решение.</p>
+        </section>
+
+        <div class="related-links">
+            <a href="percent.html"><i class="fas fa-percent"></i> Проценты</a>
+            <a href="fraction.html"><i class="fas fa-divide"></i> Дроби</a>
+            <a href="../quadratic.html"><i class="fas fa-chart-line"></i> Квадратные уравнения</a>
+            <a href="../quadratic_nob.html"><i class="fas fa-minus-circle"></i> ax² + c = 0</a>
+            <a href="../quadratic_noc.html"><i class="fas fa-times-circle"></i> ax² + bx = 0</a>
+            <a href="../discriminant.html"><i class="fas fa-calculator"></i> Дискриминант</a>
+            <a href="geometry.html"><i class="fas fa-shapes"></i> Геометрия</a>
+            <a href="../credit.html"><i class="fas fa-credit-card"></i> Кредиты</a>
+            <a href="../ndfl.html"><i class="fas fa-file-invoice"></i> НДФЛ</a>
+            <a href="allgeometry-basic.html"><i class="fas fa-draw-polygon"></i> Площади фигур</a>
+        </div>
+
+        <div class="similar-materials">
+            <h3>Похожие материалы</h3>
+            <div class="similar-grid">
+                <a href="percent.html">Как найти процент от числа</a>
+                <a href="fraction.html">Что такое правильная дробь</a>
+                <a href="../quadratic.html">Формула корней квадратного уравнения</a>
+                <a href="../quadratic_nob.html">Решение уравнений ax² + c = 0</a>
+                <a href="../quadratic_noc.html">Уравнения вида ax² + bx = 0</a>
+                <a href="../discriminant.html">Дискриминант онлайн</a>
+                <a href="geometry.html">Площадь треугольника</a>
+                <a href="../credit.html">Расчёт кредита</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+<button class="float-math" id="scrollToProjectsBtn" aria-label="К калькуляторам алгебры"><i class="fas fa-arrow-down"></i></button>
+
+<script>
+(function() {
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+
+    function setTheme(checked) {
+        document.body.classList.toggle('dark-theme', checked);
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+    setTheme(savedTheme === 'dark');
+
+    if (themeToggleDesktop) {
+        themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    }
+    if (themeToggleMobile) {
+        themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+    }
+
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+
+    function closeMobileMenu() {
+        navMobile.classList.remove('active');
+        burgerBtn.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    burgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+
+    navMobile.querySelectorAll('.nav__link, .btn').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) {
+            closeMobileMenu();
+        }
+    });
+
+    const scrollBtn = document.getElementById('scrollToProjectsBtn');
+    scrollBtn.addEventListener('click', () => {
+        document.querySelector('.projects-grid').scrollIntoView({ behavior: 'smooth' });
+    });
+})();
+</script>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+
+    if(!localStorage.getItem('cookieAccepted')){
+        banner.style.display = 'block';
+    }
+
+    button.addEventListener('click', function(){
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
+</body>
+</html>

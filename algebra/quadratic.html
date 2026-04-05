@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="yandex-verification" content="09a9906cfe75b11e">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>Калькулятор квадратных уравнений онлайн — с решением и дискриминантом</title>
+<meta name="description" content="Бесплатный калькулятор квадратных уравнений с пошаговым решением. Нахождение дискриминанта и корней. Подробные примеры, комплексные числа, супер‑простой режим для 8 класса.">
+<link rel="canonical" href="https://millerson.shop/algebra/quadratic.html">
+<meta property="og:title" content="Калькулятор квадратных уравнений онлайн — Millerson">
+<meta property="og:description" content="Мгновенное решение ax²+bx+c=0. Дискриминант, корни, подробное объяснение. Удобно для школьников и студентов.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://millerson.shop/algebra/quadratic.html">
+<meta property="og:image" content="https://millerson.shop/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Калькулятор квадратных уравнений онлайн">
+<meta name="twitter:description" content="Калькулятор квадратных уравнений с решением — бесплатно, с дискриминантом и корнями.">
+<meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
+<style>
+.precision-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+.precision-selector select {
+    background: var(--surface-solid);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 12px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .precision-selector {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+.support-float {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+.support-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.6);
+    animation: none;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0); }
+}
+.support-modal {
+    position: fixed;
+    bottom: 160px;
+    right: 30px;
+    width: 280px;
+    background: var(--surface-solid);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 20px;
+    display: none;
+    z-index: 1001;
+    backdrop-filter: blur(16px);
+    transition: opacity 0.3s, transform 0.3s;
+    transform-origin: bottom right;
+}
+.support-modal.active {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+.support-modal h4 {
+    margin-bottom: 15px;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+.support-modal a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: var(--bg-color);
+    border-radius: 18px;
+    text-decoration: none;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    transition: background 0.2s, transform 0.1s;
+    border: 1px solid var(--border);
+}
+.support-modal a:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateX(5px);
+}
+.support-modal i {
+    font-size: 1.5rem;
+    width: 24px;
+    text-align: center;
+}
+.support-modal .close-support {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+@media (max-width: 768px) {
+    .support-float {
+        bottom: 80px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+    }
+    .support-modal {
+        right: 20px;
+        bottom: 150px;
+        width: 260px;
+    }
+}
+.table-formulas {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--surface-solid);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+.table-formulas th,
+.table-formulas td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+.table-formulas th {
+    background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);
+    color: var(--accent);
+    font-weight: 600;
+}
+.table-formulas td {
+    color: var(--text-primary);
+}
+.anchor-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+    padding: 20px;
+    background: var(--surface-solid);
+    border-radius: 40px;
+    border: 1px solid var(--border);
+    justify-content: center;
+}
+.anchor-menu a {
+    padding: 8px 20px;
+    background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);
+    border-radius: 30px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+.anchor-menu a:hover {
+    background: var(--accent);
+    color: white;
+}
+.expert-section {
+    margin-top: 50px;
+    background: var(--surface-solid);
+    border-radius: 32px;
+    padding: 30px;
+    border: 1px solid var(--border);
+}
+.expert-section h2 {
+    color: var(--accent);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+.expert-section h3 {
+    font-size: 1.4rem;
+    margin: 25px 0 15px;
+    color: var(--text-primary);
+}
+.example-block {
+    background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.05);
+    border-left: 4px solid var(--accent);
+    padding: 20px;
+    border-radius: 16px;
+    margin: 20px 0;
+}
+.example-block p {
+    margin: 10px 0;
+}
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+.badge-list {
+    list-style: none;
+    padding: 0;
+}
+.badge-list li {
+    margin: 15px 0;
+    padding-left: 30px;
+    position: relative;
+}
+.badge-list li::before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+}
+.related-calc {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.related-calc a {
+    display: block;
+    padding: 15px;
+    background: var(--card-bg);
+    border-radius: 30px;
+    text-align: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: 0.2s;
+}
+.related-calc a:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+@media (max-width: 768px) {
+    .two-columns { grid-template-columns: 1fr; }
+}
+.quiz-block {
+    background: var(--accent-light);
+    color: white;
+    padding: 20px;
+    border-radius: 24px;
+    margin: 30px 0;
+}
+.quiz-question {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.quiz-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.quiz-option {
+    background: rgba(255,255,255,0.2);
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.quiz-option:hover {
+    background: rgba(255,255,255,0.4);
+}
+.quiz-feedback {
+    margin-top: 15px;
+    font-style: italic;
+}
+.popular-equations {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+.popular-equation {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.popular-equation:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+.skip-to-calc {
+    display: inline-block;
+    margin: 15px 0 10px;
+    padding: 10px 20px;
+    background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15);
+    border-radius: 40px;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.2s;
+    border: 1px solid var(--accent);
+}
+.skip-to-calc:hover {
+    background: var(--accent);
+    color: white;
+}
+</style>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://millerson.shop/" },
+        { "@type": "ListItem", "position": 2, "name": "Алгебра", "item": "https://millerson.shop/algebra/algebra.html" },
+        { "@type": "ListItem", "position": 3, "name": "Квадратные уравнения", "item": "https://millerson.shop/algebra/quadratic.html" }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Калькулятор квадратных уравнений",
+    "description": "Бесплатный онлайн калькулятор для решения квадратных уравнений с подробным решением и дискриминантом.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "url": "https://millerson.shop/algebra/quadratic.html",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RUB"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Калькулятор квадратных уравнений онлайн",
+    "author": { "@type": "Organization", "name": "Millerson Company" },
+    "datePublished": "2026-03-01",
+    "dateModified": "2026-03-03"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Как решить квадратное уравнение",
+    "step": [
+        {
+            "@type": "HowToStep",
+            "text": "Определите коэффициенты a, b, c в уравнении вида ax² + bx + c = 0."
+        },
+        {
+            "@type": "HowToStep",
+            "text": "Вычислите дискриминант по формуле D = b² – 4ac."
+        },
+        {
+            "@type": "HowToStep",
+            "text": "По значению дискриминанта найдите корни: если D > 0, то x₁,₂ = (–b ± √D)/(2a); если D = 0, то x = –b/(2a); если D < 0, то корни комплексные: x₁,₂ = (–b ± i√|D|)/(2a)."
+        }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Что такое дискриминант квадратного уравнения?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Дискриминант (D) — это выражение D = b² – 4ac, по знаку которого определяют количество корней уравнения ax²+bx+c=0. Если D > 0 — два различных действительных корня; D = 0 — один корень (два совпадающих); D < 0 — два комплексных сопряжённых корня."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Как решить квадратное уравнение с нулевым дискриминантом?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "При D = 0 уравнение имеет единственный корень (или два совпадающих) и вычисляется по формуле x = –b/(2a). Например, для уравнения x² – 4x + 4 = 0 (a=1, b=–4, c=4) D = 16–16=0, корень x = 4/(2·1)=2."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Можно ли решить квадратное уравнение с помощью теоремы Виета?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Да, для приведённых квадратных уравнений (a=1) работает теорема Виета: сумма корней равна –b, произведение равно c. Однако этот метод удобен только для целых корней. Для остальных случаев проще использовать дискриминант. Наш калькулятор автоматически применяет оба подхода."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Что делать, если коэффициент a = 0?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Если a = 0, уравнение перестаёт быть квадратным и становится линейным: bx + c = 0. В этом случае корень один: x = –c/b (при b≠0). Наш калькулятор проверяет это условие и выдаёт соответствующее сообщение, чтобы вы не ошиблись."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Как решать неполные квадратные уравнения?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Неполные квадратные уравнения бывают трёх видов: 1) ax² + bx = 0 (c=0) — выносим x за скобки, корни x=0 и x=–b/a. 2) ax² + c = 0 (b=0) — переносим c, получаем x² = –c/a, откуда действительные корни есть только при –c/a ≥ 0. 3) ax² = 0 — единственный корень x=0. Наш калькулятор обрабатывает все эти случаи автоматически."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Что такое комплексные корни квадратного уравнения?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Когда дискриминант отрицательный, действительных корней нет, но существуют комплексные числа вида z = p ± qi, где i — мнимая единица (i² = –1). Корни вычисляются по формулам: x₁,₂ = (–b ± i√|D|)/(2a). Например, уравнение x² + x + 1 = 0 имеет корни –0.5 ± 0.866i. Наш калькулятор отображает их в алгебраической форме."
+            }
+        }
+    ]
+}
+</script>
+</head>
+<body>
+<div class="scroll-progress"></div>
+<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<div class="support-float" id="supportFloat"><i class="fas fa-headset"></i></div>
+<div class="support-modal" id="supportModal">
+    <span class="close-support" id="closeSupport">&times;</span>
+    <h4>Напишите нам</h4>
+    <a href="https://t.me/Millerson_Company" target="_blank"><i class="fab fa-telegram"></i> Наш Telegram‑канал</a>
+    <a href="https://t.me/Millerson_Company" target="_blank"><i class="fas fa-comment-dots"></i> Оставить отзыв</a>
+    <a href="https://t.me/Millerson_Company" target="_blank"><i class="fas fa-lightbulb"></i> Предложить идею</a>
+    <a href="https://t.me/Millerson_Company" target="_blank"><i class="fas fa-bug"></i> Сообщить об ошибке</a>
+</div>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li><div class="theme-switch"><span class="theme-switch__label">Тёмная тема</span><label class="switch"><input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему"><span class="slider"></span></label></div></li>
+                <li><div class="theme-switch"><span class="theme-switch__label">Супер-простой режим</span><label class="switch"><input type="checkbox" id="simpleModeToggleDesktop"><span class="slider"></span></label></div></li>
+                <li class="precision-selector"><span>Точность:</span><select id="precisionSelectDesktop"><option value="2" selected>2 знака</option><option value="4">4 знака</option><option value="6">6 знаков</option></select></li>
+                <li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a></li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li><div class="theme-switch"><span class="theme-switch__label">Тёмная тема</span><label class="switch"><input type="checkbox" id="themeToggleMobile"><span class="slider"></span></label></div></li>
+                <li><div class="theme-switch"><span class="theme-switch__label">Супер-простой режим</span><label class="switch"><input type="checkbox" id="simpleModeToggleMobile"><span class="slider"></span></label></div></li>
+                <li class="precision-selector"><span>Точность:</span><select id="precisionSelectMobile"><option value="2">2</option><option value="4">4</option><option value="6">6</option></select></li>
+                <li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="main">
+    <div class="container">
+        <div style="margin-bottom:20px;font-size:0.95rem;color:var(--text-secondary);">
+            <a href="../index.html" style="color:var(--accent);">Главная</a> › 
+            <a href="algebra.html" style="color:var(--accent);">Алгебра</a> › 
+            <span>Квадратные уравнения</span>
+        </div>
+        <a href="#calculate" class="skip-to-calc"><i class="fas fa-arrow-down"></i> Перейти к калькулятору</a>
+        <a href="algebra.html" class="tool-card" style="display:inline-flex;margin-bottom:20px; margin-left:15px;"><i class="fas fa-arrow-left"></i> Все алгебраические калькуляторы</a>
+        <h1 class="main__title">Калькулятор квадратных уравнений онлайн — с решением и дискриминантом</h1>
+        <p class="main__description">Хотите быстро и правильно <strong>решить квадратное уравнение онлайн</strong>? Наш калькулятор поможет вам. Введите коэффициенты a, b, c и получите мгновенное решение с подробным объяснением. Подходит для 8 класса и подготовки к экзаменам.</p>
+        <div class="calculator glass" id="calculate">
+            <div style="margin-bottom:20px;"><h2 style="font-size:1.8rem;margin:0;">ax² + bx + c = 0</h2></div>
+            <div id="inputGroups" style="margin-bottom:20px;">
+                <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+                    <div class="field-wrapper" style="flex:1 1 150px;"><label class="form-label">a (коэффициент)</label><input type="number" id="a" class="form-input" value="1" step="any"></div>
+                    <div class="field-wrapper" style="flex:1 1 150px;"><label class="form-label">b (коэффициент)</label><input type="number" id="b" class="form-input" value="-3" step="any"></div>
+                    <div class="field-wrapper" style="flex:1 1 150px;"><label class="form-label">c (свободный член)</label><input type="number" id="c" class="form-input" value="2" step="any"></div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn" id="calculateBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
+                <button class="action-btn" id="clearBtn"><i class="fas fa-undo"></i> Рассчитать заново</button>
+                <button class="action-btn" id="copyAnswerBtn"><i class="fas fa-copy"></i> Копировать ответ</button>
+                <button class="action-btn" id="copySolutionBtn"><i class="fas fa-file-alt"></i> Копировать решение</button>
+                <button class="action-btn" id="shareBtn"><i class="fas fa-share-alt"></i> Поделиться</button>
+            </div>
+            <div class="results" id="resultsContainer"></div>
+            <div id="stepByStep" style="margin-top:30px;background:var(--surface-solid);border-radius:24px;padding:20px;border:1px solid var(--border);">
+                <h3 style="margin-bottom:15px;">📝 Подробное решение</h3>
+                <div id="stepText" class="math-formula">Введите данные и нажмите "Рассчитать"</div>
+                <div id="stepTextSimple" class="simple-explanation">Введите данные и нажмите "Рассчитать"</div>
+            </div>
+            <div id="formulasUsed" style="margin-top:20px;background:var(--surface-solid);border-radius:24px;padding:20px;border:1px solid var(--border);" class="math-formula">
+                <h3 style="margin-bottom:15px;">📐 Использованные формулы</h3>
+                <div id="formulasText">—</div>
+            </div>
+        </div>
+        <div class="expert-section">
+            <h2>Попробуйте решить самостоятельно</h2>
+            <p>Введите свои коэффициенты в поля выше или используйте готовые примеры, чтобы отработать <strong>формулу корней квадратного уравнения</strong>:</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                <button class="action-btn example-btn" data-a="1" data-b="-5" data-c="6">x² – 5x + 6 = 0</button>
+                <button class="action-btn example-btn" data-a="2" data-b="-3" data-c="-2">2x² – 3x – 2 = 0</button>
+                <button class="action-btn example-btn" data-a="1" data-b="0" data-c="-9">x² – 9 = 0</button>
+                <button class="action-btn example-btn" data-a="1" data-b="1" data-c="1">x² + x + 1 = 0</button>
+                <button class="action-btn" id="randomEquation"><i class="fas fa-dice"></i> Случайное уравнение</button>
+            </div>
+        </div>
+        <div class="anchor-menu">
+            <a href="#what-is">Что такое квадратное уравнение</a>
+            <a href="#formula">Формула</a>
+            <a href="#discriminant">Дискриминант</a>
+            <a href="#roots">Корни</a>
+            <a href="#examples">Примеры</a>
+            <a href="#incomplete">Неполные уравнения</a>
+            <a href="#parameter">С параметром</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <div class="expert-section" id="what-is">
+            <h2>Что такое квадратное уравнение</h2>
+            <p>Квадратным называется уравнение вида <strong>ax² + bx + c = 0</strong>, где <strong>x</strong> — переменная, а <strong>a, b, c</strong> — некоторые числа (коэффициенты), причём <strong>a ≠ 0</strong>. Коэффициент a называют старшим (или квадратичным), b — линейным, c — свободным членом. Если a = 0, уравнение становится линейным и решается иначе.</p>
+            <p>Квадратные уравнения широко применяются в геометрии (нахождение сторон, пересечений), физике (движение с ускорением), экономике (точки безубыточности) и, конечно, в школьном курсе алгебры 8 класса. <strong>Как найти дискриминант</strong> и применить его — основа решения.</p>
+        </div>
+        <div class="expert-section" id="formula">
+            <h2>Формула квадратного уравнения</h2>
+            <p>Основной способ решения — через дискриминант. <strong>Формула корней квадратного уравнения</strong> зависит от знака дискриминанта:</p>
+            <table class="table-formulas">
+                <tr><th>Дискриминант</th><td><strong>D = b² – 4ac</strong></td></tr>
+                <tr><th>D > 0</th><td>x₁,₂ = (–b ± √D) / (2a)</td></tr>
+                <tr><th>D = 0</th><td>x = –b / (2a)</td></tr>
+                <tr><th>D < 0</th><td>x₁,₂ = (–b ± i√|D|) / (2a) (комплексные корни)</td></tr>
+            </table>
+        </div>
+        <div class="expert-section" id="discriminant">
+            <h2>Как найти дискриминант</h2>
+            <p>Дискриминант — это ключевая величина, определяющая характер корней. Чтобы вычислить D, подставьте значения a, b, c в формулу <strong>D = b² – 4ac</strong>. Знак дискриминанта сразу говорит о количестве решений:</p>
+            <ul class="badge-list">
+                <li><strong>D > 0</strong> — два различных действительных корня (парабола пересекает ось Ox в двух точках).</li>
+                <li><strong>D = 0</strong> — один корень (вершина параболы касается оси).</li>
+                <li><strong>D < 0</strong> — действительных корней нет, но есть два комплексных (парабола не пересекает ось).</li>
+            </ul>
+            <p>Если вам нужно только <a href="discriminant.html">найти дискриминант онлайн</a> без вычисления корней, воспользуйтесь отдельным калькулятором.</p>
+        </div>
+        <div class="expert-section" id="roots">
+            <h2>Как найти корни квадратного уравнения</h2>
+            <p>После вычисления дискриминанта подставляем его в <strong>формулу корней квадратного уравнения</strong>. Если D > 0, получаем два значения; если D = 0 — одно; если D < 0 — корни комплексные, они всегда являются сопряжёнными: <strong>x₁,₂ = α ± βi</strong>. Наш калькулятор отображает их в привычном виде.</p>
+        </div>
+        <div class="expert-section" id="examples">
+            <h2>Примеры решения квадратных уравнений</h2>
+            <div class="example-block">
+                <h3>Пример 1: x² – 5x + 6 = 0</h3>
+                <p><strong>Коэффициенты:</strong> a = 1, b = –5, c = 6.<br>
+                <strong>Дискриминант:</strong> D = (–5)² – 4·1·6 = 25 – 24 = 1 > 0.<br>
+                <strong>Корни:</strong> x₁ = (5 + √1)/(2·1) = 3, x₂ = (5 – √1)/(2·1) = 2.<br>
+                <strong>Ответ:</strong> x₁ = 3, x₂ = 2.</p>
+            </div>
+            <div class="example-block">
+                <h3>Пример 2: 2x² – 3x – 2 = 0</h3>
+                <p><strong>Коэффициенты:</strong> a = 2, b = –3, c = –2.<br>
+                <strong>Дискриминант:</strong> D = (–3)² – 4·2·(–2) = 9 + 16 = 25 > 0.<br>
+                <strong>Корни:</strong> x₁ = (3 + 5)/(4) = 2, x₂ = (3 – 5)/(4) = –0.5.<br>
+                <strong>Ответ:</strong> x₁ = 2, x₂ = –0.5.</p>
+            </div>
+            <div class="example-block">
+                <h3>Пример 3: x² – 9 = 0 (неполное, b=0)</h3>
+                <p><strong>Коэффициенты:</strong> a = 1, b = 0, c = –9.<br>
+                <strong>Дискриминант:</strong> D = 0² – 4·1·(–9) = 36 > 0.<br>
+                <strong>Корни:</strong> x₁ = (0 + 6)/(2) = 3, x₂ = (0 – 6)/(2) = –3.<br>
+                <strong>Ответ:</strong> x = 3, x = –3.</p>
+            </div>
+        </div>
+        <div class="expert-section" id="incomplete">
+            <h2>Неполные квадратные уравнения</h2>
+            <p>Если один из коэффициентов b или c равен нулю, уравнение называется неполным. Рассмотрим три случая:</p>
+            <ul>
+                <li><strong>c = 0 (ax² + bx = 0):</strong> выносим x за скобки: x(ax + b) = 0 → x₁ = 0, x₂ = –b/a.</li>
+                <li><strong>b = 0 (ax² + c = 0):</strong> переносим c: ax² = –c → x² = –c/a. Если –c/a ≥ 0, то x = ±√(–c/a); иначе корни комплексные.</li>
+                <li><strong>b = 0 и c = 0 (ax² = 0):</strong> единственный корень x = 0.</li>
+            </ul>
+            <p>Для <a href="linear.html">решения линейных уравнений</a> у нас тоже есть отдельный инструмент.</p>
+        </div>
+        <div class="expert-section" id="parameter">
+            <h2>Квадратное уравнение с параметром</h2>
+            <p>Если коэффициенты содержат буквенные параметры (например, x² + kx + 1 = 0), то решение зависит от значения параметра. Обычно требуется исследовать дискриминант и определить, при каких значениях параметра уравнение имеет один, два или ни одного корня. Наш калькулятор пока не поддерживает символьные вычисления, но вы можете подставить конкретные числа и проанализировать результат.</p>
+        </div>
+        <div class="expert-section">
+            <h2>Связанные формулы и методы</h2>
+            <table class="table-formulas">
+                <tr><th>Теорема Виета</th><td>Для приведённого уравнения x² + px + q = 0: x₁ + x₂ = –p, x₁·x₂ = q. Подробнее на странице <a href="vieta.html">Формула Виета</a>.</td></tr>
+                <tr><th>Выделение полного квадрата</th><td>ax² + bx + c = a(x + b/(2a))² + (c – b²/(4a))</td></tr>
+                <tr><th>График параболы</th><td>Вершина: x₀ = –b/(2a), y₀ = –D/(4a); ветви вверх при a>0, вниз при a<0.</td></tr>
+                <tr><th>Свойства коэффициентов</th><td>Сумма корней = –b/a, произведение = c/a (для любого квадратного).</td></tr>
+            </table>
+        </div>
+        <div class="expert-section">
+            <h2>Почему наш калькулятор лучше</h2>
+            <div class="two-columns">
+                <ul class="badge-list">
+                    <li><strong>Бесплатно и без регистрации</strong> — никаких скрытых платежей.</li>
+                    <li><strong>Подробное пошаговое решение</strong> — поймёт даже восьмиклассник.</li>
+                    <li><strong>Супер‑простой режим</strong> — объяснения человеческим языком.</li>
+                    <li><strong>Комплексные числа</strong> — поддерживаем даже отрицательный дискриминант.</li>
+                </ul>
+                <ul class="badge-list">
+                    <li><strong>Настраиваемая точность</strong> — от 2 до 6 знаков после запятой.</li>
+                    <li><strong>Копирование ответа и решения</strong> — удобно для домашнего задания.</li>
+                    <li><strong>Адаптивный дизайн</strong> — работает на телефоне, планшете, ПК.</li>
+                    <li><strong>Никакой рекламы внутри калькулятора</strong> — только чистый расчёт.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="expert-section">
+            <h2>Частые ошибки учеников при решении квадратных уравнений</h2>
+            <ul>
+                <li><strong>Неправильное определение коэффициентов:</strong> например, в уравнении –x² + 2x – 1 = 0 забывают, что a = –1, а не 1.</li>
+                <li><strong>Потеря корня при неполных уравнениях:</strong> в ax² + bx = 0 часто забывают про x = 0.</li>
+                <li><strong>Ошибки в знаках при подстановке в формулу дискриминанта:</strong> особенно когда b отрицательное.</li>
+                <li><strong>Забывают про комплексные корни</strong> и пишут «корней нет», хотя на самом деле они есть в множестве комплексных чисел.</li>
+                <li><strong>Неправильное упрощение корня из дискриминанта:</strong> например, √12 = 2√3, а не 3,46 (если не требуется десятичное приближение).</li>
+            </ul>
+            <p>Наш калькулятор помогает избежать этих ошибок, показывая каждый шаг.</p>
+        </div>
+        <div class="quiz-block">
+            <div class="quiz-question">❓ Сколько корней имеет уравнение, если дискриминант равен 9?</div>
+            <div class="quiz-options">
+                <span class="quiz-option" data-correct="true">Два различных корня</span>
+                <span class="quiz-option">Один корень</span>
+                <span class="quiz-option">Нет действительных корней</span>
+            </div>
+            <div class="quiz-feedback" id="quizFeedback"></div>
+        </div>
+        <div class="expert-section" id="faq">
+            <h2>Часто задаваемые вопросы (FAQ)</h2>
+            <div class="faq-container">
+                <div class="faq-item"><div class="faq-question"><span>Что означает дискриминант?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Дискриминант D = b² – 4ac определяет число корней. Если он больше нуля — два решения, равен нулю — одно, меньше нуля — комплексные корни.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Как быть, если D = 0?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>При нулевом дискриминанте формула даёт один корень x = –b/(2a). Например, x² – 6x + 9 = 0 имеет корень 3.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Когда применяют теорему Виета?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Теорему Виета удобно использовать для приведённых уравнений (a=1) с целыми корнями. Для остальных случаев проще дискриминант.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Что делать при a = 0?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Уравнение становится линейным. Его решение x = –c/b (если b≠0). Наш калькулятор предупредит об этом.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Как решать неполные уравнения?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Если c=0, выносим x: x(ax+b)=0 → корни 0 и –b/a. Если b=0, переносим c: x² = –c/a. При –c/a≥0 корни ±√(–c/a).</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Что такое комплексные числа?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Это числа вида a + bi, где i — мнимая единица (i² = –1). Они появляются при отрицательном дискриминанте.</p></div></div>
+            </div>
+        </div>
+        <div class="expert-section">
+            <h2>Решали также</h2>
+            <div class="popular-equations">
+                <span class="popular-equation" data-a="3" data-b="5" data-c="-2">3x² + 5x – 2 = 0</span>
+                <span class="popular-equation" data-a="1" data-b="4" data-c="4">x² + 4x + 4 = 0</span>
+                <span class="popular-equation" data-a="2" data-b="-7" data-c="3">2x² – 7x + 3 = 0</span>
+                <span class="popular-equation" data-a="1" data-b="-2" data-c="-8">x² – 2x – 8 = 0</span>
+            </div>
+        </div>
+        <div class="expert-section">
+            <h2>Похожие калькуляторы</h2>
+            <div class="related-calc">
+                <a href="discriminant.html"><i class="fas fa-chart-line"></i> Калькулятор дискриминанта</a>
+                <a href="linear.html"><i class="fas fa-grip-lines"></i> Линейное уравнение онлайн</a>
+                <a href="system.html"><i class="fas fa-th"></i> Система уравнений</a>
+                <a href="inequality.html"><i class="fas fa-not-equal"></i> Квадратное неравенство</a>
+                <a href="vieta.html"><i class="fas fa-square-root-alt"></i> Формула Виета</a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">Принять</button>
+    </div>
+</div>
+<script>
+(function() {
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const savedTheme = localStorage.getItem('theme');
+    function setTheme(checked) {
+        if (checked) document.body.classList.add('dark-theme');
+        else document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', checked ? 'dark' : 'light');
+        if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+        if (themeToggleMobile) themeToggleMobile.checked = checked;
+    }
+    if (savedTheme === 'dark') setTheme(true); else setTheme(false);
+    if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+    function closeMobileMenu() { navMobile.classList.remove('active'); burgerBtn.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+    navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('click', function(event) {
+        if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
+    });
+    const simpleToggleDesktop = document.getElementById('simpleModeToggleDesktop');
+    const simpleToggleMobile = document.getElementById('simpleModeToggleMobile');
+    const body = document.body;
+    function setSimpleMode(checked) {
+        if (checked) body.classList.add('simple-mode');
+        else body.classList.remove('simple-mode');
+        if (simpleToggleDesktop) simpleToggleDesktop.checked = checked;
+        if (simpleToggleMobile) simpleToggleMobile.checked = checked;
+    }
+    if (simpleToggleDesktop) simpleToggleDesktop.addEventListener('change', e => setSimpleMode(e.target.checked));
+    if (simpleToggleMobile) simpleToggleMobile.addEventListener('change', e => setSimpleMode(e.target.checked));
+    const precisionDesktop = document.getElementById('precisionSelectDesktop');
+    const precisionMobile = document.getElementById('precisionSelectMobile');
+    let precision = 2;
+    function setPrecision(val) { precision = parseInt(val,10); if(precisionDesktop) precisionDesktop.value = val; if(precisionMobile) precisionMobile.value = val; calculate(); }
+    if (precisionDesktop) precisionDesktop.addEventListener('change', e => setPrecision(e.target.value));
+    if (precisionMobile) precisionMobile.addEventListener('change', e => setPrecision(e.target.value));
+    const supportFloat = document.getElementById('supportFloat');
+    const supportModal = document.getElementById('supportModal');
+    const closeSupport = document.getElementById('closeSupport');
+    if (supportFloat) {
+        supportFloat.addEventListener('click', function(e) { e.stopPropagation(); supportModal.classList.toggle('active'); });
+        closeSupport.addEventListener('click', function() { supportModal.classList.remove('active'); });
+        document.addEventListener('click', function(e) { if (!supportModal.contains(e.target) && !supportFloat.contains(e.target)) supportModal.classList.remove('active'); });
+    }
+    const aInput = document.getElementById('a');
+    const bInput = document.getElementById('b');
+    const cInput = document.getElementById('c');
+    const resultsContainer = document.getElementById('resultsContainer');
+    const stepText = document.getElementById('stepText');
+    const stepTextSimple = document.getElementById('stepTextSimple');
+    const formulasText = document.getElementById('formulasText');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyAnswerBtn = document.getElementById('copyAnswerBtn');
+    const copySolutionBtn = document.getElementById('copySolutionBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    function formatNumber(x) {
+        if (x === undefined || x === null || isNaN(x)) return '—';
+        return parseFloat(x.toFixed(precision)).toString();
+    }
+    function calculate() {
+        let a = parseFloat(aInput.value);
+        let b = parseFloat(bInput.value);
+        let c = parseFloat(cInput.value);
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            stepText.textContent = 'Заполните все поля числами';
+            stepTextSimple.textContent = 'Введите числа во все поля';
+            return;
+        }
+        if (a === 0) {
+            stepText.textContent = 'Коэффициент a не может быть равен нулю (уравнение не квадратное)';
+            stepTextSimple.textContent = 'Уравнение не является квадратным, a должно быть не равно 0';
+            return;
+        }
+        const D = b*b - 4*a*c;
+        let x1, x2, solMath, solSimple;
+        if (D > 0) {
+            const sqrtD = Math.sqrt(D);
+            x1 = (-b + sqrtD) / (2*a);
+            x2 = (-b - sqrtD) / (2*a);
+            solMath = `Дискриминант D = b² - 4ac = (${formatNumber(b)})² - 4·${formatNumber(a)}·${formatNumber(c)} = ${formatNumber(D)} > 0.\nКорни: x₁ = (–b + √D)/(2a) = (${formatNumber(-b)} + √${formatNumber(D)})/(2·${formatNumber(a)}) = ${formatNumber(x1)}; x₂ = (–b – √D)/(2a) = (${formatNumber(-b)} – √${formatNumber(D)})/(2·${formatNumber(a)}) = ${formatNumber(x2)}.`;
+            solSimple = `Дискриминант положительный, значит два различных корня. Вычисляем корни по формулам. Получаем x₁ = ${formatNumber(x1)}, x₂ = ${formatNumber(x2)}.`;
+        } else if (D === 0) {
+            x1 = -b/(2*a);
+            x2 = x1;
+            solMath = `Дискриминант D = b² - 4ac = (${formatNumber(b)})² - 4·${formatNumber(a)}·${formatNumber(c)} = 0.\nОдин корень (два совпадающих): x = –b/(2a) = ${formatNumber(-b)}/(2·${formatNumber(a)}) = ${formatNumber(x1)}.`;
+            solSimple = `Дискриминант равен нулю, поэтому уравнение имеет один корень (два одинаковых): x = ${formatNumber(x1)}.`;
+        } else {
+            const sqrtAbsD = Math.sqrt(-D);
+            const realPart = -b/(2*a);
+            const imagPart = sqrtAbsD/(2*a);
+            x1 = `${formatNumber(realPart)} + ${formatNumber(imagPart)}i`;
+            x2 = `${formatNumber(realPart)} – ${formatNumber(imagPart)}i`;
+            solMath = `Дискриминант D = b² - 4ac = (${formatNumber(b)})² - 4·${formatNumber(a)}·${formatNumber(c)} = ${formatNumber(D)} < 0.\nКомплексные корни: x₁ = (–b + i√|D|)/(2a) = ${x1}; x₂ = (–b – i√|D|)/(2a) = ${x2}.`;
+            solSimple = `Дискриминант отрицательный, поэтому действительных корней нет, а комплексные: ${x1} и ${x2}.`;
+        }
+        let html = '';
+        html += `<div class="result-card"><span class="result-card__label">Дискриминант D</span><span class="result-card__value">${formatNumber(D)}</span></div>`;
+        html += `<div class="result-card"><span class="result-card__label">Корень x₁</span><span class="result-card__value">${x1}</span></div>`;
+        html += `<div class="result-card"><span class="result-card__label">Корень x₂</span><span class="result-card__value">${x2}</span></div>`;
+        resultsContainer.innerHTML = html;
+        stepText.textContent = solMath;
+        stepTextSimple.textContent = solSimple;
+        formulasText.textContent = 'D = b² – 4ac; x = (–b ± √D) / (2a)';
+    }
+    [aInput, bInput, cInput].forEach(inp => inp.addEventListener('input', calculate));
+    calculateBtn.addEventListener('click', calculate);
+    clearBtn.addEventListener('click', () => { aInput.value = 1; bInput.value = -3; cInput.value = 2; calculate(); });
+    copyAnswerBtn.addEventListener('click', () => {
+        const text = Array.from(document.querySelectorAll('.result-card')).map(c => c.innerText).join('\n');
+        navigator.clipboard.writeText(text).then(() => alert('Ответ скопирован')).catch(() => alert('Ошибка копирования'));
+    });
+    copySolutionBtn.addEventListener('click', () => {
+        const text = body.classList.contains('simple-mode') ? stepTextSimple.innerText : stepText.innerText;
+        navigator.clipboard.writeText(text).then(() => alert('Решение скопировано')).catch(() => alert('Ошибка копирования'));
+    });
+    shareBtn.addEventListener('click', () => {
+        const text = `Квадратное уравнение: ${Array.from(document.querySelectorAll('.result-card')).map(c => c.innerText).join('; ')}. Решение: ${body.classList.contains('simple-mode') ? stepTextSimple.innerText : stepText.innerText} ${window.location.href}`;
+        if (navigator.share) navigator.share({ title: 'Калькулятор квадратных уравнений', text }).catch(() => {});
+        else navigator.clipboard.writeText(text).then(() => alert('Ссылка и данные скопированы'));
+    });
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    if (!localStorage.getItem('cookieAccepted')) cookieBanner.style.display = 'block';
+    acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieAccepted', 'true');
+        cookieBanner.style.display = 'none';
+    });
+    document.querySelectorAll('.example-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            aInput.value = this.dataset.a;
+            bInput.value = this.dataset.b;
+            cInput.value = this.dataset.c;
+            calculate();
+        });
+    });
+    document.getElementById('randomEquation').addEventListener('click', function() {
+        let a, b, c;
+        do { a = Math.floor(Math.random() * 9) - 4; } while (a === 0);
+        b = Math.floor(Math.random() * 11) - 5;
+        c = Math.floor(Math.random() * 11) - 5;
+        aInput.value = a;
+        bInput.value = b;
+        cInput.value = c;
+        calculate();
+    });
+    document.querySelectorAll('.popular-equation').forEach(el => {
+        el.addEventListener('click', function() {
+            aInput.value = this.dataset.a;
+            bInput.value = this.dataset.b;
+            cInput.value = this.dataset.c;
+            calculate();
+        });
+    });
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
+    });
+    backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    });
+    const quizOptions = document.querySelectorAll('.quiz-option');
+    const quizFeedback = document.getElementById('quizFeedback');
+    quizOptions.forEach(opt => {
+        opt.addEventListener('click', function() {
+            if (this.dataset.correct) {
+                quizFeedback.textContent = '✅ Верно! При D>0 всегда два различных действительных корня.';
+            } else {
+                quizFeedback.textContent = '❌ Неверно. Попробуйте ещё раз.';
+            }
+        });
+    });
+    calculate();
+})();
+</script>
+</body>
+</html>

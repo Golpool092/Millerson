@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Калькулятор процентов онлайн — рассчитать процент от суммы | Millerson Company</title>
+    <meta name="description" content="Онлайн калькулятор процентов. Узнайте сколько составляет процент от числа, сколько процентов одно число от другого, увеличить или уменьшить число на процент, разницу в процентах.">
+    <meta name="keywords" content="калькулятор процентов, процент от числа, сколько процентов составляет число, увеличить на процент, уменьшить на процент, расчет процентов онлайн">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/algebra/percent.html">
+    <meta property="og:title" content="Калькулятор процентов онлайн – Millerson Company">
+    <meta property="og:description" content="Рассчитайте проценты в пяти режимах: процент от числа, процентное соотношение, увеличение/уменьшение на процент, разница в процентах.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="https://millerson.shop/algebra/percent.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+ <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym');      ym(107027516, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 
+    <style>
+    .percent-mode-selector {
+    margin-bottom: 24px;
+}
+
+.mode-select {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--surface-solid);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 16px;
+}
+
+.input-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.input-row .form-group {
+    flex: 1 1 200px;
+    min-width: 180px;
+}
+
+.result-explanation {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    margin-bottom: 16px;
+    text-align: center;
+    background: var(--surface-solid);
+    padding: 16px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+}
+
+.calc-btn {
+    min-width: 160px;
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+    .input-row .form-group {
+        width: 100%;
+        flex: none;
+    }
+}
+    </style>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="main__title">Калькулятор процентов</h1>
+            <p class="main__description">Рассчитайте проценты в любом выражении: доля от числа, прибавление/вычитание процента, разница между числами.</p>
+
+            <div class="calculator glass">
+                <div class="percent-mode-selector">
+                    <select id="modeSelect" class="mode-select">
+                        <option value="percentOfNumber">Найти X процентов от числа</option>
+                        <option value="numberToPercent">Сколько процентов составляет одно число от другого</option>
+                        <option value="increaseByPercent">Увеличить число на процент</option>
+                        <option value="decreaseByPercent">Уменьшить число на процент</option>
+                        <option value="differencePercent">Разница в процентах между числами</option>
+                    </select>
+                </div>
+
+                <form class="calculator__form" id="calcForm">
+                    <div class="input-row" id="inputRow1">
+                        <div class="form-group" id="field1Container">
+                            <label for="num1" class="form-label" id="label1">Число</label>
+                            <input type="number" id="num1" class="form-input" value="1000" min="0" step="any">
+                        </div>
+                        <div class="form-group" id="field2Container">
+                            <label for="num2" class="form-label" id="label2">Процент</label>
+                            <input type="number" id="num2" class="form-input" value="15" min="0" step="any">
+                        </div>
+                    </div>
+                    <div class="input-row" style="justify-content: center;">
+                        <button type="button" class="btn btn--primary calc-btn" id="calculateBtn">Рассчитать</button>
+                    </div>
+                </form>
+
+                <div class="results">
+                    <div class="result-card">
+                        <span class="result-card__label">Результат</span>
+                        <span class="result-card__value" id="resultValue">0</span>
+                    </div>
+                </div>
+                <div class="result-explanation" id="resultExplanation">
+                    15% от 1000 = 150
+                </div>
+
+                <div class="share-actions">
+                    <button class="share-btn" id="copyResultsBtn" title="Копировать результат">📋</button>
+                    <button class="share-btn" id="shareResultsBtn" title="Поделиться">🔗</button>
+                </div>
+            </div>
+
+            <div class="seo-text">
+                <h2>Как работает калькулятор процентов</h2>
+                <p>Процент — это одна сотая доля числа, обозначаемая знаком «%». Использование процентов универсально: скидки в магазинах, налоги, банковские ставки, изменение показателей. Онлайн-калькулятор процентов поможет быстро выполнить пять основных видов расчётов:</p>
+                
+                <h3>1. Найти X процентов от числа</h3>
+                <p>Формула: <strong>Число × X / 100</strong>. Например, 15% от 2000 = 2000 × 15 / 100 = 300. Так можно посчитать налог, комиссию, чаевые.</p>
+
+                <h3>2. Сколько процентов одно число составляет от другого</h3>
+                <p>Формула: <strong>(Число А / Число В) × 100%</strong>. Например, 200 от 500 = (200/500)×100% = 40%. Пригодится для анализа долей, выполнения плана.</p>
+
+                <h3>3. Увеличить число на процент</h3>
+                <p>Формула: <strong>Число × (1 + X/100)</strong>. Пример: 1000 + 20% = 1000 × 1,2 = 1200. Используется для начисления пеней, роста цен.</p>
+
+                <h3>4. Уменьшить число на процент</h3>
+                <p>Формула: <strong>Число × (1 − X/100)</strong>. Пример: 1000 − 20% = 1000 × 0,8 = 800. Актуально для скидок, уценки.</p>
+
+                <h3>5. Разница в процентах между двумя числами</h3>
+                <p>Формула: <strong>((Число2 − Число1) / Число1) × 100%</strong>. Положительное значение — прирост, отрицательное — снижение. Помогает оценить динамику продаж, изменение веса, курса валют.</p>
+
+                <p>Все расчёты производятся мгновенно и абсолютно бесплатно. Вы можете использовать результаты для личных финансов, бизнес-планирования, учёбы. Помните, что проценты часто встречаются в кредитных договорах (годовая процентная ставка), при расчёте НДФЛ (13% от дохода), в инвестициях (доходность в процентах). Предварительный подсчёт позволяет избежать ошибок и лучше планировать бюджет.</p>
+
+                <p>Калькулятор процентов от Millerson Company учитывает все нюансы: отрицательные числа преобразуются в положительные, при делении на ноль выдаётся корректное сообщение, результат округляется до двух знаков. Простой и понятный интерфейс позволяет менять режимы одним кликом. Поделитесь расчётами с друзьями или сохраните в заметки — кнопки «Копировать» и «Поделиться» под рукой.</p>
+
+                <p>Мы рекомендуем использовать наш калькулятор для бытовых нужд, а также для проверки банковских вычислений. Например, перед оформлением кредита вы можете самостоятельно оценить переплату в процентах. Или при получении зарплаты посчитать, сколько составляет подоходный налог. В бизнесе проценты помогают анализировать маржинальность, наценку, скидки для клиентов.</p>
+
+                <p>Понимание процентов — важная часть финансовой грамотности. Наши инструменты делают сложные расчёты простыми и наглядными. Пользуйтесь с удовольствием!</p>
+            </div>
+
+            <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+                <h2 class="faq-title">Часто задаваемые вопросы</h2>
+                <div class="faq-list">
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Как посчитать процент от суммы?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Чтобы найти процент от числа, умножьте число на нужный процент и разделите на 100. Например, 20% от 1500 = 1500 × 20 ÷ 100 = 300.</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Как узнать, сколько процентов одно число составляет от другого?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Разделите первое число на второе и умножьте на 100. Например, 50 от 250 = (50/250)×100% = 20%.</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Как прибавить процент к числу?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Умножьте число на (1 + процент/100). Например, чтобы прибавить 20% к 500: 500 × 1,2 = 600.</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Как вычесть процент из числа?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Умножьте число на (1 – процент/100). Например, скидка 10% от 800: 800 × 0,9 = 720.</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Формула расчета процентов в общем виде</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Основные формулы: Процент от числа = (число × процент)/100. Процентное соотношение = (часть/целое)×100%. Увеличение = число × (1+%/100). Уменьшение = число × (1–%/100). Разница в % = ((новое-старое)/старое)×100%.</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Где применяются проценты?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Проценты используются в банковской сфере (кредиты, депозиты), торговле (скидки, наценки), налогообложении (НДФЛ, НДС), статистике, аналитике, повседневной жизни (скидки, акции).</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Чем отличается процент от процентного пункта?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Процентный пункт используется для разницы между двумя процентами. Например, ставка выросла с 10% до 12% — изменение на 2 процентных пункта, а в процентах это рост на 20%.</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Как быстро посчитать процент без калькулятора?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Например, 10% — это просто разделить на 10. 20% = 10%×2, 5% = 10%/2. 1% = разделить на 100. Так можно комбинировать.</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Как вычислить разницу в процентах между двумя числами?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Используйте формулу ((Число2 − Число1) / Число1) × 100%. Результат покажет, на сколько процентов второе число больше первого (если положительно) или меньше.</div>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                        <summary class="faq-question" itemprop="name">Что делать, если нужно посчитать процент от числа, но число отрицательное?</summary>
+                        <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                            <div itemprop="text">Калькулятор автоматически берёт модуль числа для корректного расчёта. В реальных задачах обычно используют положительные значения.</div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Как посчитать процент от суммы?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Чтобы найти процент от числа, умножьте число на нужный процент и разделите на 100. Например, 20% от 1500 = 1500 × 20 ÷ 100 = 300."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Как узнать, сколько процентов одно число составляет от другого?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Разделите первое число на второе и умножьте на 100. Например, 50 от 250 = (50/250)×100% = 20%."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Как прибавить процент к числу?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Умножьте число на (1 + процент/100). Например, чтобы прибавить 20% к 500: 500 × 1,2 = 600."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Как вычесть процент из числа?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Умножьте число на (1 – процент/100). Например, скидка 10% от 800: 800 × 0,9 = 720."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Формула расчета процентов в общем виде",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Основные формулы: Процент от числа = (число × процент)/100. Процентное соотношение = (часть/целое)×100%. Увеличение = число × (1+%/100). Уменьшение = число × (1–%/100). Разница в % = ((новое-старое)/старое)×100%."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Где применяются проценты?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Проценты используются в банковской сфере (кредиты, депозиты), торговле (скидки, наценки), налогообложении (НДФЛ, НДС), статистике, аналитике, повседневной жизни (скидки, акции)."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Чем отличается процент от процентного пункта?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Процентный пункт используется для разницы между двумя процентами. Например, ставка выросла с 10% до 12% — изменение на 2 процентных пункта, а в процентах это рост на 20%."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Как быстро посчитать процент без калькулятора?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Например, 10% — это просто разделить на 10. 20% = 10%×2, 5% = 10%/2. 1% = разделить на 100. Так можно комбинировать."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Как вычислить разницу в процентах между двумя числами?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Используйте формулу ((Число2 − Число1) / Число1) × 100%. Результат покажет, на сколько процентов второе число больше первого (если положительно) или меньше."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Что делать, если нужно посчитать процент от числа, но число отрицательное?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Калькулятор автоматически берёт модуль числа для корректного расчёта. В реальных задачах обычно используют положительные значения."
+                        }
+                    }
+                ]
+            }
+            </script>
+        </div>
+    </main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        (function() {
+            const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+            const themeToggleMobile = document.getElementById('themeToggleMobile');
+            const savedTheme = localStorage.getItem('theme');
+
+            function setTheme(checked) {
+                if (checked) {
+                    document.body.classList.add('dark-theme');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                }
+                localStorage.setItem('theme', checked ? 'dark' : 'light');
+                if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+                if (themeToggleMobile) themeToggleMobile.checked = checked;
+            }
+            if (savedTheme === 'dark') {
+                setTheme(true);
+            } else {
+                setTheme(false);
+            }
+            if (themeToggleDesktop) {
+                themeToggleDesktop.addEventListener('change', function(e) {
+                    setTheme(e.target.checked);
+                });
+            }
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('change', function(e) {
+                    setTheme(e.target.checked);
+                });
+            }
+
+            const burgerBtn = document.getElementById('burgerBtn');
+            const navMobile = document.getElementById('navMobile');
+            function closeMobileMenu() {
+                navMobile.classList.remove('active');
+                burgerBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            burgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMobile.classList.toggle('active');
+                burgerBtn.classList.toggle('active');
+                document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+            });
+            navMobile.querySelectorAll('.nav__link, .btn').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            document.addEventListener('click', function(event) {
+                if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) {
+                    closeMobileMenu();
+                }
+            });
+
+            const modeSelect = document.getElementById('modeSelect');
+            const num1 = document.getElementById('num1');
+            const num2 = document.getElementById('num2');
+            const label1 = document.getElementById('label1');
+            const label2 = document.getElementById('label2');
+            const field2Container = document.getElementById('field2Container');
+            const resultValueSpan = document.getElementById('resultValue');
+            const resultExplanationDiv = document.getElementById('resultExplanation');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const copyBtn = document.getElementById('copyResultsBtn');
+            const shareBtn = document.getElementById('shareResultsBtn');
+
+            let currentResult = 0;
+            let currentExplanation = '';
+
+            function formatNumber(num) {
+                return num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$& ');
+            }
+
+            function animateValue(element, start, end, duration, suffix = '') {
+                const startTime = performance.now();
+                const update = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const value = start + (end - start) * progress;
+                    element.textContent = formatNumber(value) + suffix;
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        element.textContent = formatNumber(end) + suffix;
+                    }
+                };
+                requestAnimationFrame(update);
+            }
+
+            function updateLabelsAndFields() {
+                const mode = modeSelect.value;
+                let val1 = parseFloat(num1.value) || 0;
+                let val2 = parseFloat(num2.value) || 0;
+                if (val1 < 0) val1 = 0;
+                if (val2 < 0) val2 = 0;
+                num1.value = val1;
+                num2.value = val2;
+
+                if (mode === 'percentOfNumber') {
+                    label1.textContent = 'Число';
+                    label2.textContent = 'Процент';
+                    field2Container.style.display = 'block';
+                } else if (mode === 'numberToPercent') {
+                    label1.textContent = 'Число (часть)';
+                    label2.textContent = 'Число (целое)';
+                    field2Container.style.display = 'block';
+                } else if (mode === 'increaseByPercent') {
+                    label1.textContent = 'Число';
+                    label2.textContent = 'Процент';
+                    field2Container.style.display = 'block';
+                } else if (mode === 'decreaseByPercent') {
+                    label1.textContent = 'Число';
+                    label2.textContent = 'Процент';
+                    field2Container.style.display = 'block';
+                } else if (mode === 'differencePercent') {
+                    label1.textContent = 'Число 1 (первое)';
+                    label2.textContent = 'Число 2 (второе)';
+                    field2Container.style.display = 'block';
+                }
+            }
+
+            function calculate() {
+                const mode = modeSelect.value;
+                let val1 = parseFloat(num1.value) || 0;
+                let val2 = parseFloat(num2.value) || 0;
+                if (val1 < 0) val1 = 0;
+                if (val2 < 0) val2 = 0;
+                num1.value = val1;
+                num2.value = val2;
+
+                let result = 0;
+                let explanation = '';
+
+                if (mode === 'percentOfNumber') {
+                    result = val1 * val2 / 100;
+                    explanation = `${val2}% от ${formatNumber(val1)} = ${formatNumber(result)}`;
+                } else if (mode === 'numberToPercent') {
+                    if (val2 === 0) {
+                        result = 0;
+                        explanation = 'Целое число не может быть нулём';
+                    } else {
+                        result = (val1 / val2) * 100;
+                        explanation = `${formatNumber(val1)} от ${formatNumber(val2)} составляет ${formatNumber(result)}%`;
+                    }
+                } else if (mode === 'increaseByPercent') {
+                    result = val1 * (1 + val2 / 100);
+                    explanation = `${formatNumber(val1)} + ${val2}% = ${formatNumber(result)}`;
+                } else if (mode === 'decreaseByPercent') {
+                    result = val1 * (1 - val2 / 100);
+                    explanation = `${formatNumber(val1)} - ${val2}% = ${formatNumber(result)}`;
+                } else if (mode === 'differencePercent') {
+                    if (val1 === 0) {
+                        result = 0;
+                        explanation = 'Первое число не может быть нулём';
+                    } else {
+                        result = ((val2 - val1) / val1) * 100;
+                        const sign = result >= 0 ? 'больше' : 'меньше';
+                        explanation = `${formatNumber(val2)} ${sign} ${formatNumber(val1)} на ${formatNumber(Math.abs(result))}%`;
+                    }
+                }
+
+                const current = parseFloat(resultValueSpan.textContent.replace(/[^\d.-]/g, '')) || 0;
+                animateValue(resultValueSpan, current, result, 300, '');
+                resultExplanationDiv.textContent = explanation;
+                currentResult = result;
+                currentExplanation = explanation;
+            }
+
+            modeSelect.addEventListener('change', function() {
+                updateLabelsAndFields();
+                calculate();
+            });
+            num1.addEventListener('input', function() {
+                if (this.value < 0) this.value = 0;
+                calculate();
+            });
+            num2.addEventListener('input', function() {
+                if (this.value < 0) this.value = 0;
+                calculate();
+            });
+            calculateBtn.addEventListener('click', calculate);
+
+            copyBtn.addEventListener('click', function() {
+                const text = `Калькулятор процентов Millerson\n${resultExplanationDiv.textContent}\nРезультат: ${resultValueSpan.textContent}`;
+                navigator.clipboard.writeText(text).then(() => alert('Результат скопирован!')).catch(() => alert('Не удалось скопировать'));
+            });
+
+            shareBtn.addEventListener('click', function() {
+                const text = `Калькулятор процентов Millerson\n${resultExplanationDiv.textContent}\nРезультат: ${resultValueSpan.textContent}`;
+                if (navigator.share) {
+                    navigator.share({ title: 'Калькулятор процентов', text: text, url: window.location.href }).catch(() => {});
+                } else {
+                    navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => alert('Ссылка и результат скопированы!'));
+                }
+            });
+
+            updateLabelsAndFields();
+            calculate();
+        })();
+    </script>
+    <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
+        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
+            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
+        </div>
+        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
+            Принять
+        </button>
+    </div>
+</div>
+
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+
+    if(!localStorage.getItem('cookieAccepted')){
+        banner.style.display = 'block';
+    }
+
+    button.addEventListener('click', function(){
+        localStorage.setItem('cookieAccepted', 'true');
+        banner.style.display = 'none';
+    });
+})();
+</script>
+</body>
+</html>

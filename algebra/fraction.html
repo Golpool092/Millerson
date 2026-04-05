@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Калькулятор дробей, перевод и проценты от дроби | Millerson Company</title>
+    <meta name="description" content="Бесплатный калькулятор дробей (сложение, вычитание, умножение, деление), перевод десятичных дробей в обыкновенные и обратно, а также добавление и вычитание процентов от дроби.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/algebra/fraction.html">
+    <meta property="og:title" content="Калькулятор дробей и процентов от дроби – Millerson Company">
+    <meta property="og:description" content="Все операции с дробями, перевод дробей и проценты от дроби в одном месте.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="https://millerson.shop/algebra/fraction.html">
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Калькулятор дробей и процентов от дроби – Millerson Company">
+    <meta name="twitter:description" content="Дроби, перевод, проценты от дроби онлайн.">
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym');
+    ym(107027516, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Millerson Company",
+    "url": "https://millerson.shop",
+    "logo": "https://millerson.shop/favicon.png",
+    "description": "Разработка онлайн‑сервисов и веб‑решений.",
+    "email": "MillersonShop@gmail.com"
+}
+</script>
+</head>
+<body>
+<header class="header">
+    <div class="header__container">
+        <span class="header__logo">Millerson Company</span>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="main__title">Калькулятор дробей, перевод и проценты от дроби</h1>
+            <p class="main__description">Арифметические операции с дробями, перевод десятичных дробей в обыкновенные и обратно, а также добавление и вычитание процентов от дроби.</p>
+
+            <div class="calculator glass" style="margin-bottom: 40px;">
+                <h2 style="margin-bottom: 20px; color: var(--accent);">Действия с дробями</h2>
+                <form class="calculator__form" id="fracForm">
+                    <div style="grid-column: 1 / -1; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                        <div style="flex: 1 1 200px; min-width: 180px;">
+                            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                <span style="font-weight:600;">Дробь 1</span>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <div class="form-group" style="flex:1;">
+                                    <label class="form-label">Числитель</label>
+                                    <input type="number" id="num1" class="form-input" value="1" step="1">
+                                </div>
+                                <div class="form-group" style="flex:1;">
+                                    <label class="form-label">Знаменатель</label>
+                                    <input type="number" id="den1" class="form-input" value="2" step="1" min="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="flex: 1 1 200px; min-width: 180px;">
+                            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                <span style="font-weight:600;">Дробь 2</span>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <div class="form-group" style="flex:1;">
+                                    <label class="form-label">Числитель</label>
+                                    <input type="number" id="num2" class="form-input" value="1" step="1">
+                                </div>
+                                <div class="form-group" style="flex:1;">
+                                    <label class="form-label">Знаменатель</label>
+                                    <input type="number" id="den2" class="form-input" value="3" step="1" min="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="flex: 0 1 auto; min-width: 120px;">
+                            <div class="form-group">
+                                <label class="form-label">Операция</label>
+                                <select id="operation" class="form-input">
+                                    <option value="add">➕ Сложение</option>
+                                    <option value="subtract">➖ Вычитание</option>
+                                    <option value="multiply">✖️ Умножение</option>
+                                    <option value="divide">➗ Деление</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn--primary" id="calcFractionsBtn">Рассчитать</button>
+                </div>
+                <div class="results" id="fracResults">
+                    <div class="result-card">
+                        <span class="result-card__label">Несокращённая дробь</span>
+                        <span class="result-card__value" id="unsimplified">1/2</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label">Сокращённая дробь</span>
+                        <span class="result-card__value" id="simplified">1/2</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label">Десятичное число</span>
+                        <span class="result-card__value" id="decimal">0.5</span>
+                    </div>
+                </div>
+                <div class="share-actions">
+                    <button class="share-btn" id="copyFracBtn" title="Копировать результаты">📋</button>
+                    <button class="share-btn" id="shareFracBtn" title="Поделиться">🔗</button>
+                </div>
+            </div>
+
+            <div class="calculator glass" style="margin-bottom: 40px;">
+                <h2 style="margin-bottom: 20px; color: var(--accent);">Перевод десятичной дроби в обыкновенную</h2>
+                <form class="calculator__form" id="decToFracForm">
+                    <div class="form-group" style="max-width: 300px; margin: 0 auto;">
+                        <label for="decimalInput" class="form-label">Десятичное число</label>
+                        <input type="number" id="decimalInput" class="form-input" value="0.75" step="any">
+                    </div>
+                </form>
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn--primary" id="convertToFracBtn">Перевести</button>
+                </div>
+                <div class="results" style="grid-template-columns: 1fr;">
+                    <div class="result-card">
+                        <span class="result-card__label">Обыкновенная дробь</span>
+                        <span class="result-card__value" id="fracResult">3/4</span>
+                    </div>
+                </div>
+                <div class="share-actions">
+                    <button class="share-btn" id="copyDecToFracBtn" title="Копировать результат">📋</button>
+                </div>
+            </div>
+
+            <div class="calculator glass" style="margin-bottom: 40px;">
+                <h2 style="margin-bottom: 20px; color: var(--accent);">Перевод обыкновенной дроби в десятичную</h2>
+                <form class="calculator__form" id="fracToDecForm">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                        <div class="form-group" style="flex:1; min-width: 150px;">
+                            <label for="fracNum" class="form-label">Числитель</label>
+                            <input type="number" id="fracNum" class="form-input" value="1" step="1">
+                        </div>
+                        <div class="form-group" style="flex:1; min-width: 150px;">
+                            <label for="fracDen" class="form-label">Знаменатель</label>
+                            <input type="number" id="fracDen" class="form-input" value="8" step="1" min="1">
+                        </div>
+                    </div>
+                </form>
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn--primary" id="convertToDecBtn">Перевести</button>
+                </div>
+                <div class="results" style="grid-template-columns: 1fr;">
+                    <div class="result-card">
+                        <span class="result-card__label">Десятичное число</span>
+                        <span class="result-card__value" id="decResult">0.125</span>
+                    </div>
+                </div>
+                <div class="share-actions">
+                    <button class="share-btn" id="copyFracToDecBtn" title="Копировать результат">📋</button>
+                </div>
+            </div>
+
+            <div class="calculator glass" style="margin-bottom: 40px;">
+                <h2 style="margin-bottom: 20px; color: var(--accent);">Проценты от дроби</h2>
+                <form class="calculator__form" id="percentFracForm">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: flex-end;">
+                        <div style="flex: 1 1 200px;">
+                            <div style="display: flex; gap: 8px;">
+                                <div class="form-group" style="flex:1;">
+                                    <label class="form-label">Числитель</label>
+                                    <input type="number" id="pNum" class="form-input" value="3" step="1">
+                                </div>
+                                <div class="form-group" style="flex:1;">
+                                    <label class="form-label">Знаменатель</label>
+                                    <input type="number" id="pDen" class="form-input" value="4" step="1" min="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="flex: 0 1 150px;">
+                            <label class="form-label">Процент</label>
+                            <input type="number" id="pPercent" class="form-input" value="20" step="any" min="0">
+                        </div>
+                        <div class="form-group" style="flex: 0 1 200px;">
+                            <label class="form-label">Действие</label>
+                            <div class="radio-switch" style="justify-content: center;">
+                                <label class="radio-switch__item">
+                                    <input type="radio" name="pAction" value="add" checked> Прибавить
+                                </label>
+                                <label class="radio-switch__item">
+                                    <input type="radio" name="pAction" value="subtract"> Вычесть
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn--primary" id="calcPercentFracBtn">Рассчитать</button>
+                </div>
+                <div class="results" id="percentFracResults">
+                    <div class="result-card">
+                        <span class="result-card__label">Несокращённая дробь</span>
+                        <span class="result-card__value" id="pUnsimp">9/10</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label">Сокращённая дробь</span>
+                        <span class="result-card__value" id="pSimp">9/10</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-card__label">Десятичное число</span>
+                        <span class="result-card__value" id="pDec">0.9</span>
+                    </div>
+                </div>
+                <div class="share-actions">
+                    <button class="share-btn" id="copyPFracBtn" title="Копировать результаты">📋</button>
+                    <button class="share-btn" id="sharePFracBtn" title="Поделиться">🔗</button>
+                </div>
+            </div>
+
+            <div class="seo-text">
+                <h2>Все операции с дробями и процентами от дроби в одном месте</h2>
+                <p>Наш универсальный калькулятор позволяет выполнять любые действия с обыкновенными дробями (сложение, вычитание, умножение, деление), переводить десятичные дроби в обыкновенные и обратно, а также добавлять или вычитать процент от заданной дроби. Все результаты отображаются мгновенно с возможностью копирования.</p>
+                <p><strong>Действия с дробями:</strong> введите числители и знаменатели двух дробей, выберите операцию — получите несокращённую дробь, сокращённую и десятичный эквивалент. Калькулятор автоматически сокращает результат, используя алгоритм Евклида.</p>
+                <p><strong>Перевод десятичной дроби в обыкновенную:</strong> введите десятичное число (например, 0.75) — калькулятор подберёт соответствующую обыкновенную дробь и сократит её.</p>
+                <p><strong>Перевод обыкновенной дроби в десятичную:</strong> просто укажите числитель и знаменатель — получите десятичное представление с точностью до 6 знаков.</p>
+                <p><strong>Проценты от дроби:</strong> задайте дробь и процент, выберите «прибавить» или «вычесть» — калькулятор выдаст новую дробь (несокращённую и сокращённую), а также её десятичное значение. Это удобно для расчёта скидок, наценок, изменения величин, выраженных дробями.</p>
+                <p>Все калькуляторы выполнены в едином стиле Millerson Company, поддерживают тёмную тему и адаптированы для мобильных устройств. Используйте их бесплатно и без ограничений.</p>
+            </div>
+
+            <section class="faq-section">
+                <h2 class="faq-title">Часто задаваемые вопросы</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">Как перевести десятичную дробь в обыкновенную?</summary>
+                        <div class="faq-answer">Запишите десятичную дробь как числитель, а в знаменателе поставьте 1 с количеством нулей, равным числу знаков после запятой. Затем сократите дробь. Например, 0.75 = 75/100 = 3/4.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Как перевести обыкновенную дробь в десятичную?</summary>
+                        <div class="faq-answer">Разделите числитель на знаменатель. Например, 3/4 = 3 ÷ 4 = 0.75. Калькулятор делает это автоматически.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Как прибавить процент к дроби?</summary>
+                        <div class="faq-answer">Умножьте дробь на (1 + процент/100). Например, к дроби 3/4 прибавить 20%: (3/4) × 1.2 = 3.6/4 = 36/40 = 9/10 после сокращения.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Как вычесть процент из дроби?</summary>
+                        <div class="faq-answer">Умножьте дробь на (1 – процент/100). Например, из дроби 3/4 вычесть 20%: (3/4) × 0.8 = 2.4/4 = 24/40 = 3/5 после сокращения.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Что такое несократимая дробь?</summary>
+                        <div class="faq-answer">Это дробь, у которой числитель и знаменатель не имеют общих делителей, кроме 1. Например, 3/4 — несократимая, а 6/8 — сократимая.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Можно ли делить на ноль в дробях?</summary>
+                        <div class="faq-answer">Нет, знаменатель не может быть равен нулю. При попытке ввести ноль калькулятор покажет ошибку.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Как сократить дробь?</summary>
+                        <div class="faq-answer">Разделите числитель и знаменатель на их наибольший общий делитель (НОД). Например, для 6/8 НОД(6,8)=2, получаем 3/4.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Что делать, если знаменатель отрицательный?</summary>
+                        <div class="faq-answer">Калькулятор автоматически переносит знак в числитель, знаменатель становится положительным.</div>
+                    </details>
+                </div>
+            </section>
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type":"Question","name":"Как перевести десятичную дробь в обыкновенную?","acceptedAnswer":{"@type":"Answer","text":"Запишите десятичную дробь как числитель, а в знаменателе поставьте 1 с количеством нулей, равным числу знаков после запятой. Затем сократите дробь. Например, 0.75 = 75/100 = 3/4."}},
+                    {"@type":"Question","name":"Как перевести обыкновенную дробь в десятичную?","acceptedAnswer":{"@type":"Answer","text":"Разделите числитель на знаменатель. Например, 3/4 = 3 ÷ 4 = 0.75. Калькулятор делает это автоматически."}},
+                    {"@type":"Question","name":"Как прибавить процент к дроби?","acceptedAnswer":{"@type":"Answer","text":"Умножьте дробь на (1 + процент/100). Например, к дроби 3/4 прибавить 20%: (3/4) × 1.2 = 3.6/4 = 36/40 = 9/10 после сокращения."}},
+                    {"@type":"Question","name":"Как вычесть процент из дроби?","acceptedAnswer":{"@type":"Answer","text":"Умножьте дробь на (1 – процент/100). Например, из дроби 3/4 вычесть 20%: (3/4) × 0.8 = 2.4/4 = 24/40 = 3/5 после сокращения."}},
+                    {"@type":"Question","name":"Что такое несократимая дробь?","acceptedAnswer":{"@type":"Answer","text":"Это дробь, у которой числитель и знаменатель не имеют общих делителей, кроме 1. Например, 3/4 — несократимая, а 6/8 — сократимая."}},
+                    {"@type":"Question","name":"Можно ли делить на ноль в дробях?","acceptedAnswer":{"@type":"Answer","text":"Нет, знаменатель не может быть равен нулю. При попытке ввести ноль калькулятор покажет ошибку."}},
+                    {"@type":"Question","name":"Как сократить дробь?","acceptedAnswer":{"@type":"Answer","text":"Разделите числитель и знаменатель на их наибольший общий делитель (НОД). Например, для 6/8 НОД(6,8)=2, получаем 3/4."}},
+                    {"@type":"Question","name":"Что делать, если знаменатель отрицательный?","acceptedAnswer":{"@type":"Answer","text":"Калькулятор автоматически переносит знак в числитель, знаменатель становится положительным."}}
+                ]
+            }
+            </script>
+        </div>
+    </main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <p>© 2026 Millerson Company</p>
+            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
+            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        (function() {
+            const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+            const themeToggleMobile = document.getElementById('themeToggleMobile');
+            const savedTheme = localStorage.getItem('theme');
+
+            function setTheme(checked) {
+                if (checked) {
+                    document.body.classList.add('dark-theme');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                }
+                localStorage.setItem('theme', checked ? 'dark' : 'light');
+                if (themeToggleDesktop) themeToggleDesktop.checked = checked;
+                if (themeToggleMobile) themeToggleMobile.checked = checked;
+            }
+
+            if (savedTheme === 'dark') {
+                setTheme(true);
+            } else {
+                setTheme(false);
+            }
+
+            if (themeToggleDesktop) {
+                themeToggleDesktop.addEventListener('change', function(e) {
+                    setTheme(e.target.checked);
+                });
+            }
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('change', function(e) {
+                    setTheme(e.target.checked);
+                });
+            }
+
+            const burgerBtn = document.getElementById('burgerBtn');
+            const navMobile = document.getElementById('navMobile');
+            function closeMobileMenu() {
+                navMobile.classList.remove('active');
+                burgerBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            burgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMobile.classList.toggle('active');
+                burgerBtn.classList.toggle('active');
+                document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+            });
+            navMobile.querySelectorAll('.nav__link, .btn').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            document.addEventListener('click', function(event) {
+                if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) {
+                    closeMobileMenu();
+                }
+            });
+
+            function gcd(a, b) {
+                a = Math.abs(a);
+                b = Math.abs(b);
+                while (b) { let t = b; b = a % b; a = t; }
+                return a;
+            }
+
+            function formatFraction(num, den) {
+                if (den === 0) return '∞';
+                if (num === 0) return '0';
+                let sign = (num < 0) ^ (den < 0) ? -1 : 1;
+                let n = Math.abs(num), d = Math.abs(den);
+                return (sign === -1 ? '-' : '') + n + '/' + d;
+            }
+
+            function simplifyFraction(num, den) {
+                if (den === 0) return [num, den];
+                let g = gcd(num, den);
+                return [num / g, den / g];
+            }
+
+            const num1 = document.getElementById('num1');
+            const den1 = document.getElementById('den1');
+            const num2 = document.getElementById('num2');
+            const den2 = document.getElementById('den2');
+            const operation = document.getElementById('operation');
+            const unsimplifiedSpan = document.getElementById('unsimplified');
+            const simplifiedSpan = document.getElementById('simplified');
+            const decimalSpan = document.getElementById('decimal');
+            const copyFracBtn = document.getElementById('copyFracBtn');
+            const shareFracBtn = document.getElementById('shareFracBtn');
+            const calcFractionsBtn = document.getElementById('calcFractionsBtn');
+
+            function calculateFractions() {
+                let a = parseInt(num1.value) || 0;
+                let b = parseInt(den1.value) || 1;
+                let c = parseInt(num2.value) || 0;
+                let d = parseInt(den2.value) || 1;
+                if (b === 0 || d === 0) {
+                    unsimplifiedSpan.textContent = 'Ошибка (знам=0)';
+                    simplifiedSpan.textContent = '—';
+                    decimalSpan.textContent = '—';
+                    return;
+                }
+                let resNum, resDen;
+                switch (operation.value) {
+                    case 'add': resNum = a*d + c*b; resDen = b*d; break;
+                    case 'subtract': resNum = a*d - c*b; resDen = b*d; break;
+                    case 'multiply': resNum = a*c; resDen = b*d; break;
+                    case 'divide':
+                        if (c === 0) { unsimplifiedSpan.textContent = 'Ошибка (дел на 0)'; simplifiedSpan.textContent = '—'; decimalSpan.textContent = '—'; return; }
+                        resNum = a*d; resDen = b*c; break;
+                    default: return;
+                }
+                if (resDen === 0) {
+                    unsimplifiedSpan.textContent = '∞'; simplifiedSpan.textContent = '∞'; decimalSpan.textContent = '∞'; return;
+                }
+                let unsimplifiedStr = formatFraction(resNum, resDen);
+                let simp = simplifyFraction(resNum, resDen);
+                let simplifiedStr = formatFraction(simp[0], simp[1]);
+                let dec = resNum / resDen;
+                unsimplifiedSpan.textContent = unsimplifiedStr;
+                simplifiedSpan.textContent = simplifiedStr;
+                decimalSpan.textContent = dec.toFixed(6);
+            }
+
+            [num1, den1, num2, den2, operation].forEach(el => el.addEventListener('input', calculateFractions));
+            calcFractionsBtn.addEventListener('click', function(e) { e.preventDefault(); calculateFractions(); });
+
+            copyFracBtn.addEventListener('click', function() {
+                let text = `Калькулятор дробей\nНесокращённая: ${unsimplifiedSpan.textContent}\nСокращённая: ${simplifiedSpan.textContent}\nДесятичное: ${decimalSpan.textContent}`;
+                navigator.clipboard.writeText(text).then(() => alert('Результаты скопированы!')).catch(() => alert('Ошибка копирования'));
+            });
+            shareFracBtn.addEventListener('click', function() {
+                let text = `Калькулятор дробей Millerson\nНесокращённая: ${unsimplifiedSpan.textContent}\nСокращённая: ${simplifiedSpan.textContent}\nДесятичное: ${decimalSpan.textContent}`;
+                if (navigator.share) navigator.share({ title: 'Калькулятор дробей', text: text, url: window.location.href }).catch(() => {});
+                else navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => alert('Ссылка и результаты скопированы!'));
+            });
+
+            const decimalInput = document.getElementById('decimalInput');
+            const fracResultSpan = document.getElementById('fracResult');
+            const convertToFracBtn = document.getElementById('convertToFracBtn');
+            const copyDecToFracBtn = document.getElementById('copyDecToFracBtn');
+
+            function decimalToFraction(decimal) {
+                if (decimal === 0) return '0';
+                let tolerance = 1e-6;
+                let sign = decimal < 0 ? -1 : 1;
+                let num = Math.abs(decimal);
+                let h1=1, h2=0, k1=0, k2=1;
+                let b = num;
+                do {
+                    let a = Math.floor(b);
+                    let aux = h1; h1 = a*h1 + h2; h2 = aux;
+                    aux = k1; k1 = a*k1 + k2; k2 = aux;
+                    b = 1/(b-a);
+                } while (Math.abs(num - h1/k1) > num * tolerance);
+                return formatFraction(sign * h1, k1);
+            }
+
+            convertToFracBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                let val = parseFloat(decimalInput.value);
+                if (isNaN(val)) { fracResultSpan.textContent = '0'; return; }
+                fracResultSpan.textContent = decimalToFraction(val);
+            });
+            decimalInput.addEventListener('input', function() {
+                let val = parseFloat(this.value);
+                if (!isNaN(val)) fracResultSpan.textContent = decimalToFraction(val);
+            });
+            copyDecToFracBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(`Обыкновенная дробь: ${fracResultSpan.textContent}`).then(() => alert('Результат скопирован!'));
+            });
+
+            const fracNum = document.getElementById('fracNum');
+            const fracDen = document.getElementById('fracDen');
+            const decResultSpan = document.getElementById('decResult');
+            const convertToDecBtn = document.getElementById('convertToDecBtn');
+            const copyFracToDecBtn = document.getElementById('copyFracToDecBtn');
+
+            function fractionToDecimal() {
+                let n = parseFloat(fracNum.value) || 0;
+                let d = parseFloat(fracDen.value) || 1;
+                if (d === 0) { decResultSpan.textContent = '∞'; return; }
+                decResultSpan.textContent = (n / d).toFixed(6);
+            }
+            [fracNum, fracDen].forEach(el => el.addEventListener('input', fractionToDecimal));
+            convertToDecBtn.addEventListener('click', function(e) { e.preventDefault(); fractionToDecimal(); });
+            copyFracToDecBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(`Десятичное число: ${decResultSpan.textContent}`).then(() => alert('Результат скопирован!'));
+            });
+
+            const pNum = document.getElementById('pNum');
+            const pDen = document.getElementById('pDen');
+            const pPercent = document.getElementById('pPercent');
+            const pActionRadios = document.querySelectorAll('input[name="pAction"]');
+            const pUnsimp = document.getElementById('pUnsimp');
+            const pSimp = document.getElementById('pSimp');
+            const pDec = document.getElementById('pDec');
+            const calcPercentFracBtn = document.getElementById('calcPercentFracBtn');
+            const copyPFracBtn = document.getElementById('copyPFracBtn');
+            const sharePFracBtn = document.getElementById('sharePFracBtn');
+
+            function calculatePercentFrac() {
+                let num = parseFloat(pNum.value) || 0;
+                let den = parseFloat(pDen.value) || 1;
+                let percent = parseFloat(pPercent.value) || 0;
+                let action = Array.from(pActionRadios).find(r => r.checked)?.value || 'add';
+                if (den === 0) {
+                    pUnsimp.textContent = 'Ошибка (знам=0)';
+                    pSimp.textContent = '—';
+                    pDec.textContent = '—';
+                    return;
+                }
+                let factor = (action === 'add') ? (100 + percent) : (100 - percent);
+                let resNum = num * factor;
+                let resDen = den * 100;
+                let unsimplifiedStr = formatFraction(resNum, resDen);
+                let simp = simplifyFraction(resNum, resDen);
+                let simplifiedStr = formatFraction(simp[0], simp[1]);
+                let dec = resNum / resDen;
+                pUnsimp.textContent = unsimplifiedStr;
+                pSimp.textContent = simplifiedStr;
+                pDec.textContent = dec.toFixed(6);
+            }
+
+            [pNum, pDen, pPercent].forEach(el => el.addEventListener('input', calculatePercentFrac));
+            pActionRadios.forEach(r => r.addEventListener('change', calculatePercentFrac));
+            calcPercentFracBtn.addEventListener('click', function(e) { e.preventDefault(); calculatePercentFrac(); });
+
+            copyPFracBtn.addEventListener('click', function() {
+                let text = `Проценты от дроби\nНесокращённая: ${pUnsimp.textContent}\nСокращённая: ${pSimp.textContent}\nДесятичное: ${pDec.textContent}`;
+                navigator.clipboard.writeText(text).then(() => alert('Результаты скопированы!')).catch(() => alert('Ошибка копирования'));
+            });
+            sharePFracBtn.addEventListener('click', function() {
+                let text = `Проценты от дроби Millerson\nНесокращённая: ${pUnsimp.textContent}\nСокращённая: ${pSimp.textContent}\nДесятичное: ${pDec.textContent}`;
+                if (navigator.share) navigator.share({ title: 'Проценты от дроби', text: text, url: window.location.href }).catch(() => {});
+                else navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => alert('Ссылка и результаты скопированы!'));
+            });
+
+            calculateFractions();
+            fractionToDecimal();
+            calculatePercentFrac();
+        })();
+    </script>
+</body>
+</html>

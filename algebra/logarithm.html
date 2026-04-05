@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="09a9906cfe75b11e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Калькулятор логарифмов онлайн | Millerson</title>
+    <meta name="description" content="Онлайн вычисление логарифма любого числа по любому основанию. log₂, log₁₀ (lg), ln и произвольные основания. Пошаговое решение.">
+    <meta name="keywords" content="логарифм онлайн, log калькулятор, ln, lg, натуральный логарифм, десятичный логарифм">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://millerson.shop/mathematics/logarithm.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:title" content="Калькулятор логарифмов онлайн – Millerson">
+    <meta property="og:description" content="Онлайн вычисление логарифма любого числа по любому основанию. log₂, log₁₀ (lg), ln и произвольные основания. Пошаговое решение.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://millerson.shop/mathematics/logarithm.html">
+    <meta property="og:image" content="https://millerson.shop/og-image.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Калькулятор логарифмов онлайн – Millerson">
+    <meta name="twitter:description" content="Онлайн вычисление логарифма любого числа по любому основанию. log₂, log₁₀ (lg), ln и произвольные основания. Пошаговое решение.">
+    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg">
+    <style>
+        .faq-section{margin-top:40px}
+        .tools-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:30px 0}
+        .tools-links a{padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:30px;color:var(--text-primary);text-decoration:none;transition:var(--transition)}
+        .tools-links a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .seo-text{background:var(--card-bg);padding:30px;border-radius:var(--border-radius);margin:40px 0;box-shadow:var(--shadow)}
+        .seo-text h2{color:var(--accent-light);margin:30px 0 15px}
+        .seo-text h2:first-of-type{margin-top:0}
+        .seo-text h3{color:var(--text-primary);margin:20px 0 10px}
+        .seo-text p{color:var(--text-secondary);line-height:1.7;margin-bottom:15px}
+        .seo-text ul{list-style:disc;padding-left:20px;color:var(--text-secondary);margin:10px 0 20px}
+        .seo-text li{margin:5px 0}
+        .result-box{background:var(--surface-solid);border-radius:20px;padding:20px;margin-top:20px;border:1px solid var(--border);min-height:60px}
+        .step-box{margin-top:20px;background:var(--surface-solid);border-radius:24px;padding:20px;border:1px solid var(--border)}
+        .step-box h3{margin-bottom:15px}
+        .formula-box{margin-top:20px;background:var(--surface-solid);border-radius:24px;padding:20px;border:1px solid var(--border)}
+        .formula-box h3{margin-bottom:15px}
+        .field-row{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+        .field-row label{min-width:140px;color:var(--text-secondary);font-size:0.95rem}
+        .field-row input{flex:1;min-width:120px}
+        .answer-highlight{font-size:1.4rem;font-weight:700;color:var(--accent);display:block;margin:10px 0}
+        .reference-table{width:100%;border-collapse:collapse;margin:20px 0}
+        .reference-table th{background:var(--accent);color:#fff;padding:10px 14px;text-align:left}
+        .reference-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+        .reference-table tr:hover td{background:var(--surface-solid)}
+        .formula-card{background:var(--surface-solid);border-radius:16px;padding:20px;margin:15px 0;border-left:4px solid var(--accent)}
+        .formula-card h4{color:var(--accent);margin-bottom:8px}
+        .formula-card .formula{font-family:monospace;font-size:1.1rem;color:var(--text-primary);background:var(--card-bg);padding:8px 14px;border-radius:8px;display:inline-block;margin:6px 0}
+        .copy-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--text-secondary);font-size:0.85rem;transition:var(--transition)}
+        .copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор логарифмов онлайн","description":"Онлайн вычисление логарифма любого числа по любому основанию. log₂, log₁₀ (lg), ln и произвольные основания. Пошаговое решение.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/logarithm.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
+</script>
+</head>
+<body>
+<div id="cookieBanner" class="cookie-banner" style="display:none">
+    <p>Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="https://millerson.shop/privacy.html">Политикой конфиденциальности</a>.</p>
+    <button id="acceptCookies" class="btn btn--primary">Принять</button>
+</div>
+<header class="header">
+    <div class="header__container">
+        <a href="../index.html" class="header__logo">Millerson Company</a>
+        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <nav class="nav nav--desktop" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="theme-switch" style="justify-content:space-between">
+                        <span class="theme-switch__label">Супер-простой режим</span>
+                        <label class="switch">
+                            <input type="checkbox" id="simpleModeToggleDesktop">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav nav--mobile" id="navMobile">
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
+                <li><a href="../about.html" class="nav__link">О компании</a></li>
+                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <span class="theme-switch__label">Тёмная тема</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="theme-switch" style="justify-content:space-between">
+                        <span class="theme-switch__label">Супер-простой режим</span>
+                        <label class="switch">
+                            <input type="checkbox" id="simpleModeToggleMobile">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="main">
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Навигация">
+            <a href="../index.html">Главная</a> &rsaquo;
+            <a href="algebra.html">Алгебра</a> &rsaquo;
+            <span>Калькулятор логарифмов</span>
+        </nav>
+
+        <h1 class="main__title">Калькулятор логарифмов</h1>
+        <p class="main__description">Вычислите логарифм числа по любому основанию: log_b(x) = ln(x)/ln(b).</p>
+
+        <div class="calculator glass">
+
+            <div class="field-row"><label>Число x:</label><input type="number" id="logX" value="100" class="form-input" step="any" min="0.0001"></div>
+            <div class="field-row"><label>Основание b:</label><input type="number" id="logB" value="10" class="form-input" step="any" min="0.0001"></div>
+            <p style="color:var(--text-secondary);margin-bottom:10px">Или выберите быстро:</p>
+            <div class="action-buttons" style="margin-bottom:16px">
+                <button class="action-btn" onclick="document.getElementById('logB').value=Math.E.toFixed(5)">ln (e)</button>
+                <button class="action-btn" onclick="document.getElementById('logB').value=10">lg (10)</button>
+                <button class="action-btn" onclick="document.getElementById('logB').value=2">log₂</button>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
+                <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайное</button>
+                <button class="action-btn" onclick="navigator.clipboard.writeText(document.getElementById('resultBox').innerText).then(()=>showToast('Скопировано!'))"><i class="fas fa-copy"></i> Копировать</button>
+            </div>
+  
+            <div class="result-box" id="resultBox"><span style="color:var(--text-secondary)">Введите данные и нажмите «Рассчитать»</span></div>
+            <div class="step-box" id="stepBox">
+                <h3>📝 Подробное решение</h3>
+                <div id="stepText" class="math-formula">Введите данные и нажмите «Рассчитать»</div>
+                <div id="stepSimple" class="simple-explanation">Введите данные и нажмите «Рассчитать»</div>
+            </div>
+            <div class="formula-box" id="formulaBox">
+                <h3>📐 Использованные формулы</h3>
+                <div id="formulaText">—</div>
+            </div>
+        </div>
+
+        <div class="tools-links">
+            <a href="algebra.html" class="tool-card"><i class="fas fa-calculator"></i> Все калькуляторы</a>
+            <a href="linear-equation.html" class="tool-card"><i class="fas fa-equals"></i> Линейное уравнение</a>
+            <a href="algebra-formulas.html" class="tool-card"><i class="fas fa-book"></i> Справочник формул</a>
+            <a href="proportion.html" class="tool-card"><i class="fas fa-balance-scale"></i> Пропорции</a>
+            <a href="arithmetic-progression.html" class="tool-card"><i class="fas fa-sort-numeric-up"></i> Арифметическая прогрессия</a>
+        </div>
+
+        <div class="seo-text">
+
+            <h2>Что такое логарифм?</h2>
+            <p>Логарифм числа x по основанию b — это показатель степени, в которую надо возвести b, чтобы получить x. log_b(x) = y означает b^y = x.</p>
+            <h2>Основные виды</h2>
+            <ul>
+                <li><strong>Натуральный логарифм</strong>: ln(x) = log_e(x), основание e ≈ 2.71828</li>
+                <li><strong>Десятичный логарифм</strong>: lg(x) = log₁₀(x)</li>
+                <li><strong>Двоичный логарифм</strong>: log₂(x)</li>
+            </ul>
+            <h2>Свойства логарифмов</h2>
+            <ul>
+                <li>log_b(x·y) = log_b(x) + log_b(y)</li>
+                <li>log_b(x/y) = log_b(x) − log_b(y)</li>
+                <li>log_b(x^n) = n · log_b(x)</li>
+                <li>Формула перехода: log_b(x) = ln(x) / ln(b)</li>
+            </ul>
+  
+        </div>
+
+<section class="faq-section">
+    <h2 class="faq-title">Часто задаваемые вопросы</h2>
+    <div class="faq-list">
+        <details class="faq-item"><summary class="faq-question">Чему равен log₁₀(1000)?</summary><div class="faq-answer">log₁₀(1000) = 3, так как 10³ = 1000.</div></details>
+        <details class="faq-item"><summary class="faq-question">Чему равен ln(e)?</summary><div class="faq-answer">ln(e) = 1, так как e¹ = e.</div></details>
+        <details class="faq-item"><summary class="faq-question">Как перевести логарифм с одного основания в другое?</summary><div class="faq-answer">log_b(x) = log_a(x) / log_a(b). Например, log₂(8) = ln(8)/ln(2) = 3.</div></details>
+        <details class="faq-item"><summary class="faq-question">Что такое антилогарифм?</summary><div class="faq-answer">Антилогарифм — это операция, обратная логарифмированию: если log_b(x)=y, то x = b^y.</div></details>
+    </div>
+</section>
+    </div>
+</main>
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__col">
+                <span class="footer__logo">Millerson Company</span>
+                <p class="footer__desc">Разработка онлайн‑сервисов и веб‑решений.</p>
+                <a href="mailto:MillersonShop@gmail.com" class="footer__email">MillersonShop@gmail.com</a>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__title">Навигация</h4>
+                <ul class="footer__list">
+                    <li><a href="../index.html" class="footer__link">Главная</a></li>
+                    <li><a href="../all.html" class="footer__link">Все проекты</a></li>
+                    <li><a href="../about.html" class="footer__link">О компании</a></li>
+                    <li><a href="../contacts.html" class="footer__link">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__title">Алгебра</h4>
+                <ul class="footer__list">
+                    <li><a href="algebra.html" class="footer__link">Все калькуляторы</a></li>
+                    <li><a href="linear-equation.html" class="footer__link">Линейное уравнение</a></li>
+                    <li><a href="algebra-formulas.html" class="footer__link">Справочник формул</a></li>
+                    <li><a href="proportion.html" class="footer__link">Пропорции</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2025 Millerson Company. Все права защищены.</p>
+            <a href="../privacy.html" class="footer__link">Политика конфиденциальности</a>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107027516', 'ym');
+   ym(107027516, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Millerson Company","url":"https://millerson.shop","logo":"https://millerson.shop/favicon.png","description":"Разработка онлайн‑сервисов и веб‑решений.","email":"MillersonShop@gmail.com"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор логарифмов онлайн","description":"Онлайн вычисление логарифма любого числа по любому основанию. log₂, log₁₀ (lg), ln и произвольные основания. Пошаговое решение.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/logarithm.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://millerson.shop/"},{"@type":"ListItem","position":2,"name":"Математика","item":"https://millerson.shop/mathematics/mathematics.html"},{"@type":"ListItem","position":3,"name":"Алгебра","item":"https://millerson.shop/mathematics/algebra.html"},{"@type":"ListItem","position":4,"name":"Калькулятор логарифмов","item":"https://millerson.shop/mathematics/logarithm.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Чему равен log₁₀(1000)?","acceptedAnswer":{"@type":"Answer","text":"log₁₀(1000) = 3, так как 10³ = 1000."}},{"@type":"Question","name":"Чему равен ln(e)?","acceptedAnswer":{"@type":"Answer","text":"ln(e) = 1, так как e¹ = e."}},{"@type":"Question","name":"Как перевести логарифм с одного основания в другое?","acceptedAnswer":{"@type":"Answer","text":"log_b(x) = log_a(x) / log_a(b). Например, log₂(8) = ln(8)/ln(2) = 3."}},{"@type":"Question","name":"Что такое антилогарифм?","acceptedAnswer":{"@type":"Answer","text":"Антилогарифм — это операция, обратная логарифмированию: если log_b(x)=y, то x = b^y."}}]}
+</script>
+
+<script>
+(function(){
+    const banner = document.getElementById('cookieBanner');
+    const button = document.getElementById('acceptCookies');
+    if(!localStorage.getItem('cookieAccepted')) banner.style.display = 'block';
+    if(button) button.addEventListener('click', function(){ localStorage.setItem('cookieAccepted','true'); banner.style.display='none'; });
+
+    const savedTheme = localStorage.getItem('theme');
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    function setTheme(dark) {
+        if(dark) document.body.classList.add('dark-theme');
+        else document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+        if(themeToggleDesktop) themeToggleDesktop.checked = dark;
+        if(themeToggleMobile) themeToggleMobile.checked = dark;
+    }
+    setTheme(savedTheme === 'dark');
+    if(themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
+    if(themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
+
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMobile = document.getElementById('navMobile');
+    function closeMobileMenu() { navMobile.classList.remove('active'); burgerBtn.classList.remove('active'); document.body.style.overflow=''; }
+    if(burgerBtn) burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMobile.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    });
+    if(navMobile) navMobile.querySelectorAll('.nav__link,.btn').forEach(l => l.addEventListener('click', closeMobileMenu));
+    document.addEventListener('click', function(event) {
+        if(navMobile && burgerBtn && !navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
+    });
+
+    const simpleToggleDesktop = document.getElementById('simpleModeToggleDesktop');
+    const simpleToggleMobile = document.getElementById('simpleModeToggleMobile');
+    const savedSimple = localStorage.getItem('simpleMode');
+    function setSimpleMode(on) {
+        if(on) document.body.classList.add('simple-mode');
+        else document.body.classList.remove('simple-mode');
+        localStorage.setItem('simpleMode', on ? '1' : '0');
+        if(simpleToggleDesktop) simpleToggleDesktop.checked = on;
+        if(simpleToggleMobile) simpleToggleMobile.checked = on;
+    }
+    setSimpleMode(savedSimple === '1');
+    if(simpleToggleDesktop) simpleToggleDesktop.addEventListener('change', e => setSimpleMode(e.target.checked));
+    if(simpleToggleMobile) simpleToggleMobile.addEventListener('change', e => setSimpleMode(e.target.checked));
+
+    function showToast(text) {
+        const existing = document.querySelector('.game-toast');
+        if(existing) existing.remove();
+        const toast = document.createElement('div');
+        toast.className = 'game-toast';
+        toast.innerHTML = '<img src="../logo.png" alt="Millerson" style="height:24px;width:auto;margin-right:8px"><span style="flex:1;margin-right:8px">'+text+'</span><span style="font-size:1.2rem;cursor:pointer" onclick="this.parentElement.remove()">✕</span>';
+        document.body.appendChild(toast);
+        setTimeout(()=>{ if(toast.parentNode) toast.remove(); }, 3500);
+    }
+    window.showToast = showToast;
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const target = this.dataset.target;
+            const el = document.getElementById(target);
+            if(el) navigator.clipboard.writeText(el.innerText).then(()=>showToast('Скопировано!'));
+        });
+    });
+})();
+</script>
+</body>
+</html>
+<script>
+(function(){
+
+    function fmt(n) { return (Math.round(n*1000000)/1000000).toString(); }
+    const resultBox = document.getElementById('resultBox');
+    const stepText = document.getElementById('stepText');
+    const stepSimple = document.getElementById('stepSimple');
+    const formulaText = document.getElementById('formulaText');
+
+    function calculate() {
+        const x = parseFloat(document.getElementById('logX').value);
+        const b = parseFloat(document.getElementById('logB').value);
+        if(isNaN(x)||isNaN(b)||x<=0||b<=0||b===1){ resultBox.innerHTML='<span style="color:red">x > 0 и b > 0, b ≠ 1</span>'; return; }
+        const result = Math.log(x)/Math.log(b);
+        formulaText.innerHTML='log_b(x) = ln(x) / ln(b) = '+Math.log(x).toFixed(6)+' / '+Math.log(b).toFixed(6);
+        resultBox.innerHTML='<span class="answer-highlight">log_'+fmt(b)+'('+x+') = '+fmt(result)+'</span>';
+        stepText.innerHTML='<ol><li>Используем формулу перехода: log_b(x) = ln(x)/ln(b)</li><li>ln('+x+') = '+Math.log(x).toFixed(6)+'</li><li>ln('+fmt(b)+') = '+Math.log(b).toFixed(6)+'</li><li>Результат: '+Math.log(x).toFixed(6)+' / '+Math.log(b).toFixed(6)+' = '+fmt(result)+'</li></ol>';
+        stepSimple.innerHTML='log_'+fmt(b)+'('+x+') = '+fmt(result)+'. Это значит, что '+fmt(b)+' в степени '+fmt(result)+' ≈ '+x+'.';
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', calculate);
+    document.getElementById('randomBtn').addEventListener('click', function(){
+        document.getElementById('logX').value = Math.ceil(Math.random()*1000);
+        document.getElementById('logB').value = [2,3,5,10][Math.floor(Math.random()*4)];
+        calculate();
+    });
+    calculate();
+  
+})();
+</script>
