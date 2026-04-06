@@ -1014,11 +1014,11 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
             <h2 style="font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:900;letter-spacing:-0.025em;color:var(--text-primary);">Часто используют</h2>
         </div>
         <div class="al-popular__grid">
-            <a href="credit.html" class="al-popular-link">
+            <a href="finance/credit.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-percent"></i></div>
                 Кредитный калькулятор
             </a>
-            <a href="percent.html" class="al-popular-link">
+            <a href="algebra/percent.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-calculator"></i></div>
                 Калькулятор процентов
             </a>
@@ -1038,7 +1038,7 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                 <div class="al-popular-link__icon"><i class="fas fa-database"></i></div>
                 Цилиндр
             </a>
-            <a href="quadratic.html" class="al-popular-link">
+            <a href="algebra/quadratic.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-superscript"></i></div>
                 Квадратное уравнение
             </a>
@@ -1046,19 +1046,19 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                 <div class="al-popular-link__icon"><i class="fas fa-wave-square"></i></div>
                 Синус онлайн
             </a>
-            <a href="logarithm.html" class="al-popular-link">
+            <a href="algebra/logarithm.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-infinity"></i></div>
                 Логарифм
             </a>
-            <a href="gcd-lcm.html" class="al-popular-link">
+            <a href="algebra/gcd-lcm.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-code-branch"></i></div>
                 НОД и НОК
             </a>
-            <a href="matrix-2x2.html" class="al-popular-link">
+            <a href="algebra/matrix-2x2.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-table"></i></div>
                 Матрица 2×2
             </a>
-            <a href="fraction.html" class="al-popular-link">
+            <a href="algebra/fraction.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-divide"></i></div>
                 Дроби
             </a>
@@ -1066,15 +1066,15 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                 <div class="al-popular-link__icon"><i class="fas fa-mountain"></i></div>
                 Конус
             </a>
-            <a href="arithmetic-progression.html" class="al-popular-link">
+            <a href="algebra/arithmetic-progression.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-sort-numeric-up"></i></div>
                 Арифм. прогрессия
             </a>
-            <a href="combinations.html" class="al-popular-link">
+            <a href="algebra/combinations.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-code-branch"></i></div>
                 Сочетания
             </a>
-            <a href="compound-interest.html" class="al-popular-link">
+            <a href="algebra/compound-interest.html" class="al-popular-link">
                 <div class="al-popular-link__icon"><i class="fas fa-chart-line"></i></div>
                 Сложные проценты
             </a>
@@ -1255,33 +1255,33 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
     var alTabs = document.getElementById('alTabs');
 
     var allServices = [
-        { name: 'Кредитный калькулятор', url: 'credit.html', cat: 'fin', desc: 'График погашения аннуитетный/дифференцированный' },
-        { name: 'НДФЛ калькулятор', url: 'ndfl.html', cat: 'fin', desc: 'Расчёт налога на доходы физических лиц' },
-        { name: 'Калькулятор процентов', url: 'percent.html', cat: 'fin', desc: 'Процент от числа и число по проценту' },
-        { name: 'Сложные проценты', url: 'compound-interest.html', cat: 'fin', desc: 'Вклад с капитализацией процентов' },
-        { name: 'Простые проценты', url: 'simple-interest.html', cat: 'fin', desc: 'Вклад с простыми процентами' },
-        { name: 'Изменение процентов', url: 'percent-change.html', cat: 'fin', desc: 'Процентное изменение между двумя числами' },
-        { name: 'Все финансовые калькуляторы', url: 'allfinance.html', cat: 'fin', desc: '7 финансовых инструментов' },
-        { name: 'Квадратное уравнение', url: 'quadratic.html', cat: 'alg', desc: 'Решение через дискриминант' },
-        { name: 'Дроби онлайн', url: 'fraction.html', cat: 'alg', desc: 'Сложение, вычитание, умножение, деление дробей' },
-        { name: 'Линейное уравнение', url: 'linear-equation.html', cat: 'alg', desc: 'Решение линейных уравнений ax + b = 0' },
-        { name: 'Система двух уравнений', url: 'system-2-equations.html', cat: 'alg', desc: 'Система линейных уравнений 2×2' },
-        { name: 'Абсолютная величина', url: 'absolute-value.html', cat: 'alg', desc: 'Модуль числа и уравнения с модулем' },
-        { name: 'Пропорции', url: 'proportion.html', cat: 'alg', desc: 'Нахождение члена пропорции' },
-        { name: 'Матрица 2x2', url: 'matrix-2x2.html', cat: 'alg', desc: 'Определитель, обратная матрица 2×2' },
-        { name: 'Матрица 3x3', url: 'matrix-3x3.html', cat: 'alg', desc: 'Определитель, обратная матрица 3×3' },
-        { name: 'Логарифм', url: 'logarithm.html', cat: 'alg', desc: 'Вычисление логарифма любого основания' },
-        { name: 'Степень числа', url: 'exponent.html', cat: 'alg', desc: 'Возведение в произвольную степень' },
-        { name: 'Корень n-й степени', url: 'nth-root.html', cat: 'alg', desc: 'Извлечение корня произвольной степени' },
-        { name: 'Факториал', url: 'factorial.html', cat: 'alg', desc: 'Вычисление n!' },
-        { name: 'Сочетания', url: 'combinations.html', cat: 'alg', desc: 'C(n,k) — формула сочетаний' },
-        { name: 'Перестановки', url: 'permutations.html', cat: 'alg', desc: 'P(n) и A(n,k) — перестановки' },
-        { name: 'НОД и НОК', url: 'gcd-lcm.html', cat: 'alg', desc: 'Наибольший общий делитель и наименьшее кратное' },
-        { name: 'Арифметическая прогрессия', url: 'arithmetic-progression.html', cat: 'alg', desc: 'n-й член и сумма арифм. прогрессии' },
-        { name: 'Геометрическая прогрессия', url: 'geometric-progression.html', cat: 'alg', desc: 'n-й член и сумма геометр. прогрессии' },
-        { name: 'Комплексные числа', url: 'complex-numbers.html', cat: 'alg', desc: 'Операции с комплексными числами' },
-        { name: 'Числовые базы', url: 'number-bases.html', cat: 'alg', desc: 'Перевод чисел между системами счисления' },
-        { name: 'Округление', url: 'rounding.html', cat: 'alg', desc: 'Округление до заданного знака' },
+        { name: 'Кредитный калькулятор', url: 'finance/credit.html', cat: 'fin', desc: 'График погашения аннуитетный/дифференцированный' },
+        { name: 'НДФЛ калькулятор', url: 'finance/ndfl.html', cat: 'fin', desc: 'Расчёт налога на доходы физических лиц' },
+        { name: 'Калькулятор процентов', url: 'algebra/percent.html', cat: 'alg', desc: 'Процент от числа и число по проценту' },
+        { name: 'Сложные проценты', url: 'algebra/compound-interest.html', cat: 'alg', desc: 'Вклад с капитализацией процентов' },
+        { name: 'Простые проценты', url: 'algebra/simple-interest.html', cat: 'alg', desc: 'Вклад с простыми процентами' },
+        { name: 'Изменение процентов', url: 'algebra/percent-change.html', cat: 'alg', desc: 'Процентное изменение между двумя числами' },
+        { name: 'Все финансовые калькуляторы', url: 'allfinance.html', cat: 'fin', desc: '2 финансовых инструмента' },
+        { name: 'Квадратное уравнение', url: 'algebra/quadratic.html', cat: 'alg', desc: 'Решение через дискриминант' },
+        { name: 'Дроби онлайн', url: 'algebra/fraction.html', cat: 'alg', desc: 'Сложение, вычитание, умножение, деление дробей' },
+        { name: 'Линейное уравнение', url: 'algebra/linear-equation.html', cat: 'alg', desc: 'Решение линейных уравнений ax + b = 0' },
+        { name: 'Система двух уравнений', url: 'algebra/system-2-equations.html', cat: 'alg', desc: 'Система линейных уравнений 2×2' },
+        { name: 'Абсолютная величина', url: 'algebra/absolute-value.html', cat: 'alg', desc: 'Модуль числа и уравнения с модулем' },
+        { name: 'Пропорции', url: 'algebra/proportion.html', cat: 'alg', desc: 'Нахождение члена пропорции' },
+        { name: 'Матрица 2x2', url: 'algebra/matrix-2x2.html', cat: 'alg', desc: 'Определитель, обратная матрица 2×2' },
+        { name: 'Матрица 3x3', url: 'algebra/matrix-3x3.html', cat: 'alg', desc: 'Определитель, обратная матрица 3×3' },
+        { name: 'Логарифм', url: 'algebra/logarithm.html', cat: 'alg', desc: 'Вычисление логарифма любого основания' },
+        { name: 'Степень числа', url: 'algebra/exponent.html', cat: 'alg', desc: 'Возведение в произвольную степень' },
+        { name: 'Корень n-й степени', url: 'algebra/nth-root.html', cat: 'alg', desc: 'Извлечение корня произвольной степени' },
+        { name: 'Факториал', url: 'algebra/factorial.html', cat: 'alg', desc: 'Вычисление n!' },
+        { name: 'Сочетания', url: 'algebra/combinations.html', cat: 'alg', desc: 'C(n,k) — формула сочетаний' },
+        { name: 'Перестановки', url: 'algebra/permutations.html', cat: 'alg', desc: 'P(n) и A(n,k) — перестановки' },
+        { name: 'НОД и НОК', url: 'algebra/gcd-lcm.html', cat: 'alg', desc: 'Наибольший общий делитель и наименьшее кратное' },
+        { name: 'Арифметическая прогрессия', url: 'algebra/arithmetic-progression.html', cat: 'alg', desc: 'n-й член и сумма арифм. прогрессии' },
+        { name: 'Геометрическая прогрессия', url: 'algebra/geometric-progression.html', cat: 'alg', desc: 'n-й член и сумма геометр. прогрессии' },
+        { name: 'Комплексные числа', url: 'algebra/complex-numbers.html', cat: 'alg', desc: 'Операции с комплексными числами' },
+        { name: 'Числовые базы', url: 'algebra/number-bases.html', cat: 'alg', desc: 'Перевод чисел между системами счисления' },
+        { name: 'Округление', url: 'algebra/rounding.html', cat: 'alg', desc: 'Округление до заданного знака' },
         { name: 'Синус онлайн (sin)', url: 'geometry/sin.html', cat: 'trig', desc: 'Синус угла в градусах и радианах' },
         { name: 'Косинус онлайн (cos)', url: 'geometry/cos.html', cat: 'trig', desc: 'Косинус угла в градусах и радианах' },
         { name: 'Тангенс онлайн (tan)', url: 'geometry/tan.html', cat: 'trig', desc: 'Тангенс угла в градусах и радианах' },
@@ -1318,7 +1318,7 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         { name: 'Справочник по геометрии', url: 'geometry/geometry-guide.html', cat: 'ref', desc: 'Формулы и теоремы по всем разделам геометрии' },
         { name: 'Справочник по кругу', url: 'geometry/circle-guide.html', cat: 'ref', desc: 'Формулы площади, длины, дуги, хорды' },
         { name: 'Таблица синусов и косинусов', url: 'geometry/alltrigonometry.html', cat: 'ref', desc: 'Значения тригонометрических функций' },
-        { name: 'Справочник по алгебре', url: 'algebra-formulas.html', cat: 'ref', desc: 'Формулы алгебры и тождества' },
+        { name: 'Справочник по алгебре', url: 'algebra/algebra-formulas.html', cat: 'ref', desc: 'Формулы алгебры и тождества' },
         { name: 'Все справочники формул', url: 'geometry/allgeometry-formulas.html', cat: 'ref', desc: '46 справочников по математике' },
         { name: 'Координатный калькулятор 2D', url: 'geometry/2d-coordinate-calculator.html', cat: 'geo2', desc: 'Расстояние, угол, середина отрезка в 2D' },
         { name: 'Координатный калькулятор 3D', url: 'geometry/3d-coordinate-calculator.html', cat: 'geo2', desc: 'Расстояние, угол, середина отрезка в 3D' },

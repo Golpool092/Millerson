@@ -11,12 +11,12 @@
     --surface-solid: #ffffff;
     --text-primary: #1e293b;
     --text-secondary: #475569;
-    --accent: #2563eb;
-    --accent-hover: #1e4ab0;
-    --accent-light: #3b82f6;
-    --accent-r: 37;
-    --accent-g: 99;
-    --accent-b: 235;
+    --accent: #FF6B35;
+    --accent-hover: #e05a2c;
+    --accent-light: #FF9E3D;
+    --accent-r: 255;
+    --accent-g: 107;
+    --accent-b: 53;
     --border: rgba(0, 0, 0, 0.08);
     --shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.1), 0 8px 15px -6px rgba(0, 0, 0, 0.02);
     --glass-border: rgba(255, 255, 255, 0.5);
@@ -57,12 +57,12 @@
     --surface-solid: #ffffff;
     --text-primary: #1e293b;
     --text-secondary: #475569;
-    --accent: #2563eb;
-    --accent-hover: #1e4ab0;
-    --accent-light: #3b82f6;
-    --accent-r: 37;
-    --accent-g: 99;
-    --accent-b: 235;
+    --accent: #FF6B35;
+    --accent-hover: #e05a2c;
+    --accent-light: #FF9E3D;
+    --accent-r: 255;
+    --accent-g: 107;
+    --accent-b: 53;
     --border: rgba(0, 0, 0, 0.08);
     --shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.1), 0 8px 15px -6px rgba(0, 0, 0, 0.02);
     --glass-border: rgba(255, 255, 255, 0.5);
@@ -91,6 +91,21 @@ body {
 body.no-scroll {
     overflow: hidden;
 }
+
+  .main a:not([class]) {
+      color: var(--accent);
+  }
+  .main a:not([class]):visited {
+      color: var(--accent);
+  }
+  .main a:not([class]):hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+  }
+  
+
+  
+  
 
 .scroll-progress {
     position: fixed;
