@@ -1,323 +1,181 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="yandex-verification" content="09a9906cfe75b11e" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Калькулятор NPV онлайн — расчёт чистой приведённой стоимости | Millerson</title>
-    <meta name="description" content="Калькулятор NPV онлайн: рассчитайте чистую приведённую стоимость проекта. Введите денежные потоки и ставку дисконтирования. Бесплатно.">
-    <meta name="keywords" content="калькулятор NPV, чистая приведенная стоимость, NPV онлайн, расчет NPV, ставка дисконтирования, оценка инвестиций">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://millerson.shop/finance/npv.html">
-    <meta property="og:title" content="Калькулятор NPV — чистая приведённая стоимость — Millerson">
-    <meta property="og:description" content="Рассчитайте NPV инвестиционного проекта онлайн. Введите денежные потоки по годам.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:url" content="https://millerson.shop/finance/npv.html">
-    <meta property="og:site_name" content="Millerson Company">
-    <meta property="og:image" content="https://millerson.shop/og-finance.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Калькулятор NPV — чистая приведённая стоимость — Millerson">
-    <meta name="twitter:description" content="Рассчитайте NPV инвестиционного проекта онлайн. Введите денежные потоки по годам.">
-    <meta name="twitter:image" content="https://millerson.shop/twitter-finance.jpg">
-    <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="preconnect" href="https://mc.yandex.ru">
-    <link rel="dns-prefetch" href="https://mc.yandex.ru">
-    <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-    <noscript><div><img src="https://mc.yandex.ru/watch/106524351" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-    <script src="https://yandex.ru/ads/system/context.js" async></script>
-    <script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Millerson Company",
-        "url": "https://millerson.shop",
-        "logo": "https://millerson.shop/favicon.png",
-        "description": "Разработка онлайн‑сервисов и веб‑решений.",
-        "email": "MillersonShop@gmail.com"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Калькулятор NPV Millerson",
-        "description": "Онлайн-инструмент для расчёта чистой приведённой стоимости (NPV) инвестиционного проекта.",
-        "url": "https://millerson.shop/finance/npv.html",
-        "applicationCategory": "Finance",
-        "operatingSystem": "All",
-        "offers": {"@type": "Offer","price": "0","priceCurrency": "RUB"},
-        "featureList": ["Расчёт NPV по периодам", "Учёт ставки дисконтирования", "Вывод рекомендации"]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem","position": 1,"name": "Главная","item": "https://millerson.shop/index.html"},
-            {"@type": "ListItem","position": 2,"name": "Все проекты","item": "https://millerson.shop/all.html"},
-            {"@type": "ListItem","position": 3,"name": "Финансовые калькуляторы","item": "https://millerson.shop/finance/allfinance.html"},
-            {"@type": "ListItem","position": 4,"name": "Калькулятор NPV Millerson","item": "https://millerson.shop/finance/npv.html"}
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {"@type": "Question","name": "Что означает NPV > 0?","acceptedAnswer": {"@type": "Answer","text": "NPV > 0 означает, что инвестиция окупается и приносит доход сверх ставки дисконтирования. Чем выше NPV, тем выгоднее проект."}},
-            {"@type": "Question","name": "Какую ставку дисконтирования использовать?","acceptedAnswer": {"@type": "Answer","text": "Обычно используют ставку WACC (средневзвешенная стоимость капитала) или альтернативную доходность — например, доходность аналогичных вложений."}},
-            {"@type": "Question","name": "В чём разница между NPV и IRR?","acceptedAnswer": {"@type": "Answer","text": "NPV показывает абсолютный результат в рублях. IRR (внутренняя норма доходности) — ставка, при которой NPV = 0. Оба показателя дополняют друг друга."}},
-            {"@type": "Question","name": "Можно ли добавить больше периодов?","acceptedAnswer": {"@type": "Answer","text": "В данном калькуляторе 5 периодов. Для более длинных проектов используйте дополнительные таблицы или специализированный финансовый анализ."}}
-        ]
-    }
-    </script>
+<meta charset="UTF-8">
+<meta name="yandex-verification" content="09a9906cfe75b11e" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор NPV онлайн — чистая приведённая стоимость инвестиций | Millerson</title>
+<meta name="description" content="Калькулятор NPV: рассчитайте чистую приведённую стоимость инвестиционного проекта по периодам. Ставка дисконтирования, денежные потоки. Бесплатно онлайн." />
+<meta name="keywords" content="калькулятор NPV, чистая приведённая стоимость, NPV онлайн, дисконтирование денежных потоков, инвестиционный анализ, IRR NPV" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Millerson Company" />
+<link rel="canonical" href="https://millerson.shop/finance/npv.html" />
+<meta property="og:title" content="Калькулятор NPV онлайн — чистая приведённая стоимость инвестиций | Millerson" />
+<meta property="og:description" content="Калькулятор NPV: рассчитайте чистую приведённую стоимость инвестиционного проекта по периодам. Ставка дисконтирования, денежные потоки. Бесплатно онлайн." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://millerson.shop/finance/npv.html" />
+<meta property="og:image" content="https://millerson.shop/og-finance.jpg" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:site_name" content="Millerson Company" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Калькулятор NPV онлайн — чистая приведённая стоимость инвестиций | Millerson" />
+<meta name="twitter:description" content="Калькулятор NPV: рассчитайте чистую приведённую стоимость инвестиционного проекта по периодам. Ставка дисконтирования, денежные потоки. Бесплатно онлайн." />
+<meta name="twitter:image" content="https://millerson.shop/og-finance.jpg" />
+<link rel="preload" href="style.css" as="style" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="stylesheet" href="style.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Millerson Company","url":"https://millerson.shop","logo":"https://millerson.shop/favicon.png","email":"MillersonShop@gmail.com"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор NPV Millerson","description":"Калькулятор NPV: рассчитайте чистую приведённую стоимость инвестиционного проекта по периодам. Ставка дисконтирования, денежные потоки. Бесплатно онлайн.","url":"https://millerson.shop/finance/npv.html","applicationCategory":"Finance","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое NPV?","acceptedAnswer":{"@type":"Answer","text":"NPV (Net Present Value) — чистая приведённая стоимость. Это сумма дисконтированных денежных потоков минус начальные инвестиции. NPV > 0 означает, что проект выгоден."}},{"@type":"Question","name":"Чем NPV отличается от IRR?","acceptedAnswer":{"@type":"Answer","text":"NPV — абсолютный показатель в рублях, IRR — ставка, при которой NPV = 0. Если IRR > требуемой доходности, проект выгоден. NPV учитывает масштаб, IRR — нет."}},{"@type":"Question","name":"Как выбрать ставку дисконтирования?","acceptedAnswer":{"@type":"Answer","text":"Обычно используют WACC (средневзвешенную стоимость капитала) или требуемую доходность. Для личных инвестиций — альтернативную доходность (например, доходность ОФЗ + премия за риск)."}}]}
+</script>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,accurateTrackBounce:true,trackLinks:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
 </head>
 <body>
-<header class="header">
-    <div class="header__container">
-        <span class="header__logo">Millerson Company</span>
-        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-        </button>
-        <nav class="nav nav--desktop" aria-label="Основная навигация">
-            <ul class="nav__list">
-                <li><a href="../index.html" class="nav__link">Главная</a></li>
-                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
-                <li><a href="../about.html" class="nav__link">О компании</a></li>
-                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
-                </li>
-            </ul>
-        </nav>
-        <nav class="nav nav--mobile" id="navMobile">
-            <ul class="nav__list">
-                <li><a href="../index.html" class="nav__link">Главная</a></li>
-                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
-                <li><a href="../about.html" class="nav__link">О компании</a></li>
-                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-    <main class="main">
-        <div class="container">
-            <h1 class="main__title">Калькулятор NPV — чистая приведённая стоимость</h1>
-            <p class="main__description">Рассчитайте NPV (Net Present Value) инвестиционного проекта — дисконтированный суммарный денежный поток.</p>
-
-            <div class="calculator glass">
-                <form class="calculator__form" id="calcForm">
-                    <div class="form-group">
-                        <label for="initInv" class="form-label">Начальные инвестиции (₽)</label>
-                        <input type="number" id="initInv" class="form-input" value="500000" min="0" step="10000">
-                    </div>
-                    <div class="form-group">
-                        <label for="discRate" class="form-label">Ставка дисконтирования (% годовых)</label>
-                        <input type="number" id="discRate" class="form-input" value="15" min="0" max="100" step="0.5">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Денежные потоки по годам (₽)</label>
-                        <input type="number" class="form-input cf-input" placeholder="Год 1" value="150000" style="margin-bottom:8px">
-                        <input type="number" class="form-input cf-input" placeholder="Год 2" value="200000" style="margin-bottom:8px">
-                        <input type="number" class="form-input cf-input" placeholder="Год 3" value="200000" style="margin-bottom:8px">
-                        <input type="number" class="form-input cf-input" placeholder="Год 4" value="180000" style="margin-bottom:8px">
-                        <input type="number" class="form-input cf-input" placeholder="Год 5" value="150000">
-                    </div>
-                </form>
-
-                <div class="results">
-                    <div class="result-card"><span class="result-card__label">NPV</span><span class="result-card__value" id="resNPV">0 ₽</span></div>
-                    <div class="result-card"><span class="result-card__label">Сумма денежных потоков</span><span class="result-card__value" id="resCF">0 ₽</span></div>
-                    <div class="result-card"><span class="result-card__label">Вывод</span><span class="result-card__value" id="resVerdict">—</span></div>
-                </div>
-
-                <div class="share-actions">
-                    <button class="share-btn" id="copyResultsBtn" title="Копировать результаты">📋</button>
-                    <button class="share-btn" id="shareResultsBtn" title="Поделиться">🔗</button>
-                </div>
-            </div>
-
-            <div class="seo-text">
-                <h2>Что такое NPV</h2>
-                <p>NPV (Net Present Value) — чистая приведённая стоимость: разница между суммой дисконтированных денежных потоков проекта и начальными инвестициями. NPV > 0 означает, что проект окупится и принесёт прибыль сверх требуемой доходности.</p>
-                <h2>Формула NPV</h2>
-                <p><strong>NPV = −I₀ + Σ(CFₜ / (1+r)^t)</strong>, где I₀ — начальные инвестиции, CFₜ — денежный поток в период t, r — ставка дисконтирования.</p>
-            </div>
-
-            <section class="faq-section">
-                <h2 class="faq-title">Часто задаваемые вопросы</h2>
-                <div class="faq-list">
-                    <details class="faq-item">
-                        <summary class="faq-question">Что означает NPV > 0?</summary>
-                        <div class="faq-answer">NPV > 0 означает, что инвестиция окупается и приносит доход сверх ставки дисконтирования. Чем выше NPV, тем выгоднее проект.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">Какую ставку дисконтирования использовать?</summary>
-                        <div class="faq-answer">Обычно используют ставку WACC (средневзвешенная стоимость капитала) или альтернативную доходность — например, доходность аналогичных вложений.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">В чём разница между NPV и IRR?</summary>
-                        <div class="faq-answer">NPV показывает абсолютный результат в рублях. IRR (внутренняя норма доходности) — ставка, при которой NPV = 0. Оба показателя дополняют друг друга.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">Можно ли добавить больше периодов?</summary>
-                        <div class="faq-answer">В данном калькуляторе 5 периодов. Для более длинных проектов используйте дополнительные таблицы или специализированный финансовый анализ.</div>
-                    </details>
-                </div>
-            </section>
-        </div>
-    </main>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer__content">
-            <p>© 2026 Millerson Company</p>
-            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
-            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-    (function() {
-        const themeToggleDesktop = document.getElementById('themeToggleDesktop');
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
-        const savedTheme = localStorage.getItem('theme');
-        function setTheme(checked) {
-            document.body.classList.toggle('dark-theme', checked);
-            localStorage.setItem('theme', checked ? 'dark' : 'light');
-            if (themeToggleDesktop) themeToggleDesktop.checked = checked;
-            if (themeToggleMobile) themeToggleMobile.checked = checked;
-        }
-        setTheme(savedTheme === 'dark');
-        if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
-        if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
-        const burgerBtn = document.getElementById('burgerBtn');
-        const navMobile = document.getElementById('navMobile');
-        function closeMobileMenu() {
-            navMobile.classList.remove('active');
-            burgerBtn.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        burgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            navMobile.classList.toggle('active');
-            burgerBtn.classList.toggle('active');
-            document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
-        });
-        navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
-        document.addEventListener('click', function(event) {
-            if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
-        });
-    })();
-    </script>
-
-    <script>
-    (function() {
-        function formatNum(n, dec) {
-            dec = dec !== undefined ? dec : 2;
-            if (typeof n !== 'number' || isNaN(n) || !isFinite(n)) return '0';
-            return n.toFixed(dec).replace(/\d(?=(\d{3})+(\.\d*)?$)/g, '$& ');
-        }
-        function fmt(n) { return formatNum(n, 2); }
-        function fmtInt(n) { return formatNum(n, 0); }
-
-        const copyBtn = document.getElementById('copyResultsBtn');
-        const shareBtn = document.getElementById('shareResultsBtn');
-
-        function getResultsText() {
-            const cards = document.querySelectorAll('.result-card');
-            return 'Калькулятор NPV Millerson\n' + Array.from(cards).map(c => c.querySelector('.result-card__label').textContent.trim() + ': ' + c.querySelector('.result-card__value').textContent.trim()).join('\n');
-        }
-
-        if (copyBtn) {
-            copyBtn.addEventListener('click', function() {
-                const text = getResultsText();
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text).then(() => alert('Результаты скопированы!')).catch(() => alert('Не удалось скопировать'));
-                } else { alert('Скопируйте вручную:\n' + text); }
-            });
-        }
-        if (shareBtn) {
-            shareBtn.addEventListener('click', function() {
-                const text = getResultsText();
-                if (navigator.share) {
-                    navigator.share({ title: 'Калькулятор NPV Millerson', text: text, url: window.location.href }).catch(() => {});
-                } else if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => alert('Ссылка и результаты скопированы!'));
-                } else { alert('Поделиться: ' + text + ' ' + window.location.href); }
-            });
-        }
-
-        
-        function calculate() {
-            const inv = Math.max(0, parseFloat(document.getElementById('initInv').value) || 0);
-            const r = Math.max(0, parseFloat(document.getElementById('discRate').value) || 0) / 100;
-            const cfInputs = document.querySelectorAll('.cf-input');
-            let npv = -inv;
-            let totalCF = 0;
-            cfInputs.forEach((inp, i) => {
-                const cf = parseFloat(inp.value) || 0;
-                totalCF += cf;
-                npv += cf / Math.pow(1 + r, i + 1);
-            });
-            document.getElementById('resNPV').textContent = fmt(npv) + ' ₽';
-            document.getElementById('resCF').textContent = fmt(totalCF) + ' ₽';
-            document.getElementById('resVerdict').textContent = npv >= 0 ? 'Проект выгоден ✓' : 'Проект невыгоден ✗';
-        }
-        document.querySelectorAll('#calcForm input').forEach(i => i.addEventListener('input', calculate));
-        calculate();
-    })();
-    </script>
-
-    <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
-        <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
-            <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
-                Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
-            </div>
-            <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
-                Принять
-            </button>
-        </div>
-    </div>
-    <script>
-    (function(){
-        const banner = document.getElementById('cookieBanner');
-        const button = document.getElementById('acceptCookies');
-        if(!localStorage.getItem('cookieAccepted')){ banner.style.display = 'block'; }
-        button.addEventListener('click', function(){ localStorage.setItem('cookieAccepted', 'true'); banner.style.display = 'none'; });
-    })();
-    </script>
-</body>
-</html>
+<div class="scroll-progress"></div>
+<header class="header"><div class="header__container">
+<span class="header__logo">Millerson <span>Finance</span></span>
+<button class="burger" aria-label="Открыть меню" id="burgerBtn"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+<nav class="nav nav--desktop" aria-label="Основная навигация"><ul class="nav__list">
+<li><a href="../index.html" class="nav__link">Главная</a></li>
+<li><a href="../all.html" class="nav__link">Все проекты</a></li>
+<li><a href="../about.html" class="nav__link">О компании</a></li>
+<li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+<li><div class="theme-switch"><span class="theme-switch__label">Тёмная</span><label class="switch"><input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему"><span class="slider"></span></label></div></li>
+<li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--orange">Kwork</a></li>
+</ul></nav>
+<nav class="nav nav--mobile" id="navMobile"><ul class="nav__list">
+<li><a href="../index.html" class="nav__link">Главная</a></li>
+<li><a href="../all.html" class="nav__link">Все проекты</a></li>
+<li><a href="../about.html" class="nav__link">О компании</a></li>
+<li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+<li><div class="theme-switch"><span class="theme-switch__label">Тёмная тема</span><label class="switch"><input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему"><span class="slider"></span></label></div></li>
+<li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--orange">Millerson SHOP на Kwork</a></li>
+</ul></nav>
+</div></header>
+<main class="main"><div class="container">
+<nav aria-label="Хлебные крошки"><ol class="breadcrumb">
+<li><a href="../index.html">Главная</a></li><li class="sep">/</li>
+<li><a href="../all.html">Все проекты</a></li><li class="sep">/</li>
+<li><a href="allfinance.html">Финансовые калькуляторы</a></li><li class="sep">/</li>
+<li aria-current="page">NPV</li>
+</ol></nav>
+<a href="allfinance.html" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад к калькуляторам</a>
+<h1 class="main__title">Калькулятор <span class="highlight">NPV</span></h1>
+<p class="main__description">Чистая приведённая стоимость инвестиционного проекта</p>
+<div class="calc-card"><div class="calc-card__header">
+<div class="calc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+<div><div class="calc-card__title">NPV Калькулятор</div><div class="calc-card__subtitle">Дисконтирование денежных потоков</div></div>
+</div><div class="calc-card__body">
+<div class="form-grid">
+<div class="form-group"><label for="npvInv">Начальные инвестиции (₽)</label><input type="number" id="npvInv" value="1000000" min="0" step="10000"></div>
+<div class="form-group"><label for="npvRate">Ставка дисконтирования (% год)</label><input type="number" id="npvRate" value="15" min="0" step="0.1"></div>
+<div class="form-group" style="grid-column:1/-1;">
+<label>Денежные потоки по периодам (₽), по одному в строке</label>
+<textarea id="npvFlows" rows="6" style="font-family:monospace;font-size:0.9rem;resize:vertical;">300000
+350000
+400000
+450000
+500000</textarea>
+<span class="input-hint">Каждый период (год/квартал/месяц) — отдельная строка. Отрицательные значения — расходы.</span>
+</div>
+</div>
+<button class="btn btn--primary" onclick="calcNpv()" style="width:100%;margin-bottom:16px;">Рассчитать NPV</button>
+<div id="npvRes" class="result-grid" style="display:none;"></div>
+<div id="npvTable" class="table-wrap" style="display:none;"></div>
+</div></div>
+<section class="seo-text">
+<h2>Как рассчитать NPV?</h2>
+<p>NPV = −IC + CF₁/(1+r)¹ + CF₂/(1+r)² + ... + CFₙ/(1+r)ⁿ</p>
+<p>Где IC — начальные инвестиции, CF — денежный поток в периоде, r — ставка дисконтирования, n — количество периодов.</p>
+<h2>Интерпретация NPV</h2>
+<ul>
+<li><strong>NPV &gt; 0</strong> — проект генерирует стоимость сверх требуемой доходности</li>
+<li><strong>NPV = 0</strong> — проект окупает инвестиции с заданной ставкой доходности</li>
+<li><strong>NPV &lt; 0</strong> — проект не окупает альтернативную стоимость капитала</li>
+</ul>
+<h2>Ограничения NPV</h2>
+<p>NPV зависит от прогнозов денежных потоков, которые сложно точно предсказать. Чем дальше горизонт, тем выше неопределённость. Используйте сценарный анализ: базовый, оптимистичный и пессимистичный.</p>
+</section>
+<section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+<h2>Частые вопросы</h2>
+<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<div class="faq-question" itemprop="name">Что такое NPV?</div>
+<div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">NPV (Net Present Value) — чистая приведённая стоимость. Это сумма дисконтированных денежных потоков минус начальные инвестиции. NPV > 0 означает, что проект выгоден.</span></div>
+</div>
+<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<div class="faq-question" itemprop="name">Чем NPV отличается от IRR?</div>
+<div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">NPV — абсолютный показатель в рублях, IRR — ставка, при которой NPV = 0. Если IRR > требуемой доходности, проект выгоден. NPV учитывает масштаб, IRR — нет.</span></div>
+</div>
+<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<div class="faq-question" itemprop="name">Как выбрать ставку дисконтирования?</div>
+<div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Обычно используют WACC (средневзвешенную стоимость капитала) или требуемую доходность. Для личных инвестиций — альтернативную доходность (например, доходность ОФЗ + премия за риск).</span></div>
+</div>
+</section>
+<div class="section-links"><p><strong>Другие калькуляторы</strong></p><div class="links-row">
+<a href="roi.html" class="btn btn--secondary">ROI</a><a href="cagr.html" class="btn btn--secondary">CAGR</a><a href="breakeven.html" class="btn btn--secondary">Точка безубыточности</a>
+<a href="allfinance.html" class="btn btn--primary">Все калькуляторы</a>
+</div></div>
+</div></main>
+<footer class="footer"><div class="container"><div class="footer__content">
+<p>&#169; 2026 Millerson Company. Все расчёты носят информационный характер.</p>
+<p><a href="/privacy.html">Политика конфиденциальности</a> &middot; <a href="allfinance.html">Все калькуляторы</a></p>
+</div></div></footer>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#0d1f10;color:#f0fdf4;padding:18px;z-index:9999;display:none;box-shadow:0 -4px 24px rgba(0,0,0,0.4);" role="dialog" aria-label="Уведомление о cookies">
+<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+<div style="flex:1 1 280px;font-size:13px;line-height:1.5;">Мы используем cookies и Яндекс.Метрику. Продолжая использование, вы соглашаетесь с <a href="/privacy.html" style="color:#22c55e;">Политикой конфиденциальности</a>.</div>
+<button id="acceptCookies" style="background:#22c55e;border:none;color:#000;padding:9px 20px;font-weight:700;border-radius:8px;cursor:pointer;font-size:13px;">Принять</button>
+</div></div>
+<script src="particles.js"></script>
+<script>
+(function(){
+function fmt(v){return Math.round(v).toLocaleString('ru-RU');}function fmtD(v,d){return (+v).toLocaleString('ru-RU',{minimumFractionDigits:d||2,maximumFractionDigits:d||2});}
+window.calcNpv=function(){
+  var inv=+document.getElementById('npvInv').value||0;
+  var rate=+document.getElementById('npvRate').value/100||0;
+  var lines=document.getElementById('npvFlows').value.trim().split('\n');
+  var flows=lines.map(function(l){return parseFloat(l.replace(/[^\d.\-]/g,''))||0;}).filter(function(v){return!isNaN(v);});
+  var npv=-inv;
+  var rows=[];
+  var cumNpv=-inv;
+  flows.forEach(function(cf,i){
+    var disc=cf/Math.pow(1+rate,i+1);
+    npv+=disc;
+    cumNpv+=disc;
+    rows.push({i:i+1,cf:cf,disc:disc,cumNpv:cumNpv});
+  });
+  var irr=calcIrr(inv,flows);
+  document.getElementById('npvRes').style.display='grid';
+  document.getElementById('npvRes').innerHTML=
+    '<div class="result-item'+(npv>=0?'':' orange')+'"><div class="result-item__label">NPV</div><div class="result-item__value">'+fmt(npv)+' ₽</div><div class="result-item__note">'+(npv>=0?'Проект выгоден':'Проект невыгоден')+'</div></div>'+
+    '<div class="result-item"><div class="result-item__label">IRR</div><div class="result-item__value">'+(isNaN(irr)?'N/A':fmtD(irr*100,2)+'%')+'</div><div class="result-item__note">Внутренняя норма доходности</div></div>'+
+    '<div class="result-item"><div class="result-item__label">Инвестиции</div><div class="result-item__value">'+fmt(inv)+' ₽</div></div>'+
+    '<div class="result-item"><div class="result-item__label">Периодов</div><div class="result-item__value">'+flows.length+'</div></div>';
+  var th='<table><thead><tr><th>Период</th><th>Денежный поток</th><th>Дисконт. поток</th><th>Кумул. NPV</th></tr></thead><tbody>';
+  th+='<tr><td>0</td><td>−'+fmt(inv)+' ₽</td><td>−'+fmt(inv)+' ₽</td><td>−'+fmt(inv)+' ₽</td></tr>';
+  rows.forEach(function(r){th+='<tr><td>'+r.i+'</td><td>'+fmt(r.cf)+' ₽</td><td>'+fmt(r.disc)+' ₽</td><td>'+fmt(r.cumNpv)+' ₽</td></tr>';});
+  th+='</tbody></table>';
+  document.getElementById('npvTable').style.display='block';
+  document.getElementById('npvTable').innerHTML=th;
+};
+function calcIrr(inv, flows) {
+  var lo=-0.999,hi=10,mid,npv2;
+  for(var i=0;i<200;i++){
+    mid=(lo+hi)/2;
+    npv2=-inv;
+    flows.forEach(function(cf,j){npv2+=cf/Math.pow(1+mid,j+1);});
+    if(Math.abs(npv2)<0.01)return mid;
+    if(npv2>0)lo=mid; else hi=mid;
+  }
+  return mid;
+}
+})();
+</script>
+</body></html>

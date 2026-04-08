@@ -1,324 +1,104 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="yandex-verification" content="09a9906cfe75b11e" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Калькулятор Burn Rate и Runway стартапа онлайн | Millerson</title>
-    <meta name="description" content="Калькулятор Burn Rate и Runway для стартапа: рассчитайте, как долго хватит денег при текущих расходах. Бесплатно, онлайн.">
-    <meta name="keywords" content="burn rate калькулятор, runway стартапа, сколько хватит денег стартапу, burn rate стартап, кэш ранвэй">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://millerson.shop/finance/burn-rate.html">
-    <meta property="og:title" content="Калькулятор Burn Rate — стартап runway — Millerson">
-    <meta property="og:description" content="Рассчитайте Burn Rate и Runway стартапа: сколько месяцев хватит текущего финансирования.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:url" content="https://millerson.shop/finance/burn-rate.html">
-    <meta property="og:site_name" content="Millerson Company">
-    <meta property="og:image" content="https://millerson.shop/og-finance.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Калькулятор Burn Rate — стартап runway — Millerson">
-    <meta name="twitter:description" content="Рассчитайте Burn Rate и Runway стартапа: сколько месяцев хватит текущего финансирования.">
-    <meta name="twitter:image" content="https://millerson.shop/twitter-finance.jpg">
-    <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="preconnect" href="https://mc.yandex.ru">
-    <link rel="dns-prefetch" href="https://mc.yandex.ru">
-    <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-    <noscript><div><img src="https://mc.yandex.ru/watch/106524351" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-    <script src="https://yandex.ru/ads/system/context.js" async></script>
-    <script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Millerson Company",
-        "url": "https://millerson.shop",
-        "logo": "https://millerson.shop/favicon.png",
-        "description": "Разработка онлайн‑сервисов и веб‑решений.",
-        "email": "MillersonShop@gmail.com"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Калькулятор Burn Rate Millerson",
-        "description": "Онлайн-инструмент для расчёта Burn Rate и Runway стартапа.",
-        "url": "https://millerson.shop/finance/burn-rate.html",
-        "applicationCategory": "Finance",
-        "operatingSystem": "All",
-        "offers": {"@type": "Offer","price": "0","priceCurrency": "RUB"},
-        "featureList": ["Gross Burn Rate", "Net Burn Rate", "Runway в месяцах"]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem","position": 1,"name": "Главная","item": "https://millerson.shop/index.html"},
-            {"@type": "ListItem","position": 2,"name": "Все проекты","item": "https://millerson.shop/all.html"},
-            {"@type": "ListItem","position": 3,"name": "Финансовые калькуляторы","item": "https://millerson.shop/finance/allfinance.html"},
-            {"@type": "ListItem","position": 4,"name": "Калькулятор Burn Rate Millerson","item": "https://millerson.shop/finance/burn-rate.html"}
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {"@type": "Question","name": "В чём разница между Gross и Net Burn Rate?","acceptedAnswer": {"@type": "Answer","text": "Gross Burn — все операционные расходы за месяц. Net Burn — расходы минус выручка. Net Burn показывает реальную скорость уменьшения баланса."}},
-            {"@type": "Question","name": "Когда начинать следующий раунд?","acceptedAnswer": {"@type": "Answer","text": "Обычно начинают поиск следующего раунда, когда остаётся 9–12 месяцев Runway — процесс привлечения инвестиций занимает несколько месяцев."}},
-            {"@type": "Question","name": "Как снизить Burn Rate?","acceptedAnswer": {"@type": "Answer","text": "Оптимизация команды, перевод на удалёнку, снижение затрат на офис и маркетинг. Но важно не резать то, что напрямую влияет на рост."}},
-            {"@type": "Question","name": "Runway 6 месяцев — это критично?","acceptedAnswer": {"@type": "Answer","text": "Да. 6 месяцев — это минимальный порог безопасности. Нужно срочно либо привлекать финансирование, либо сокращать расходы, либо активно наращивать выручку."}}
-        ]
-    }
-    </script>
+<meta charset="UTF-8"><meta name="yandex-verification" content="09a9906cfe75b11e" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор Burn Rate онлайн — скорость сжигания денег стартапа | Millerson</title>
+<meta name="description" content="Калькулятор Burn Rate: рассчитайте ежемесячные расходы стартапа, остаток средств (runway) и дату обнуления. Gross и net burn rate для инвесторов." /><meta name="keywords" content="burn rate, калькулятор расходов, runway стартапа, скорость сжигания, net burn rate, gross burn rate, деньги стартапа" /><meta name="robots" content="index, follow" /><meta name="author" content="Millerson Company" />
+<link rel="canonical" href="https://millerson.shop/finance/burn-rate.html" />
+<meta property="og:title" content="Калькулятор Burn Rate онлайн — скорость сжигания денег стартапа | Millerson" /><meta property="og:description" content="Калькулятор Burn Rate: рассчитайте ежемесячные расходы стартапа, остаток средств (runway) и дату обнуления. Gross и net burn rate для инвесторов." /><meta property="og:type" content="website" /><meta property="og:url" content="https://millerson.shop/finance/burn-rate.html" />
+<meta property="og:image" content="https://millerson.shop/og-finance.jpg" /><meta property="og:locale" content="ru_RU" /><meta property="og:site_name" content="Millerson Company" />
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Калькулятор Burn Rate онлайн — скорость сжигания денег стартапа | Millerson" /><meta name="twitter:description" content="Калькулятор Burn Rate: рассчитайте ежемесячные расходы стартапа, остаток средств (runway) и дату обнуления. Gross и net burn rate для инвесторов." />
+<link rel="preload" href="style.css" as="style" /><link rel="icon" type="image/png" href="../favicon.png" /><link rel="stylesheet" href="style.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Millerson Company","url":"https://millerson.shop","logo":"https://millerson.shop/favicon.png","email":"MillersonShop@gmail.com"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор Burn Rate Millerson","description":"Калькулятор Burn Rate: рассчитайте ежемесячные расходы стартапа, остаток средств (runway) и дату обнуления. Gross и net burn rate для инвесторов.","url":"https://millerson.shop/finance/burn-rate.html","applicationCategory":"Finance","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое Burn Rate?","acceptedAnswer":{"@type":"Answer","text":"Burn Rate — скорость, с которой компания тратит деньги. Gross Burn Rate — все расходы. Net Burn Rate — расходы минус доходы. Показывает, сколько денег тратится в месяц."}},{"@type":"Question","name":"Что такое Runway?","acceptedAnswer":{"@type":"Answer","text":"Runway — сколько месяцев компания проживёт на имеющихся деньгах при текущем Burn Rate. Runway = Деньги на счёте / Net Burn Rate."}},{"@type":"Question","name":"Какой Runway считается безопасным?","acceptedAnswer":{"@type":"Answer","text":"Инвесторы и менторы рекомендуют иметь не менее 12–18 месяцев Runway. Это даёт время на fundraising и корректировку стратегии."}}]}
+</script>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{webvisor:true,clickmap:true,referrer:document.referrer,accurateTrackBounce:true,trackLinks:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
 </head>
 <body>
-<header class="header">
-    <div class="header__container">
-        <span class="header__logo">Millerson Company</span>
-        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-        </button>
-        <nav class="nav nav--desktop" aria-label="Основная навигация">
-            <ul class="nav__list">
-                <li><a href="../index.html" class="nav__link">Главная</a></li>
-                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
-                <li><a href="../about.html" class="nav__link">О компании</a></li>
-                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
-                </li>
-            </ul>
-        </nav>
-        <nav class="nav nav--mobile" id="navMobile">
-            <ul class="nav__list">
-                <li><a href="../index.html" class="nav__link">Главная</a></li>
-                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
-                <li><a href="../about.html" class="nav__link">О компании</a></li>
-                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-    <main class="main">
-        <div class="container">
-            <h1 class="main__title">Калькулятор Burn Rate и Runway стартапа</h1>
-            <p class="main__description">Рассчитайте, как быстро ваш стартап сжигает деньги и сколько месяцев хватит текущего баланса.</p>
-
-            <div class="calculator glass">
-                <form class="calculator__form" id="calcForm">
-                    <div class="form-group">
-                        <label for="cashBalance" class="form-label">Остаток денежных средств (₽)</label>
-                        <input type="number" id="cashBalance" class="form-input" value="10000000" min="0" step="100000">
-                    </div>
-                    <div class="form-group">
-                        <label for="monthlyRevenue" class="form-label">Ежемесячная выручка (₽)</label>
-                        <input type="number" id="monthlyRevenue" class="form-input" value="500000" min="0" step="50000">
-                    </div>
-                    <div class="form-group">
-                        <label for="monthlyExpenses" class="form-label">Ежемесячные расходы (₽)</label>
-                        <input type="number" id="monthlyExpenses" class="form-input" value="1500000" min="0" step="50000">
-                    </div>
-                </form>
-
-                <div class="results">
-                    <div class="result-card"><span class="result-card__label">Gross Burn Rate</span><span class="result-card__value" id="resGross">0 ₽/мес</span></div>
-                    <div class="result-card"><span class="result-card__label">Net Burn Rate</span><span class="result-card__value" id="resNet">0 ₽/мес</span></div>
-                    <div class="result-card"><span class="result-card__label">Runway</span><span class="result-card__value" id="resRunway">0 мес</span></div>
-                    <div class="result-card"><span class="result-card__label">Дата окончания средств</span><span class="result-card__value" id="resDate">—</span></div>
-                </div>
-
-                <div class="share-actions">
-                    <button class="share-btn" id="copyResultsBtn" title="Копировать результаты">📋</button>
-                    <button class="share-btn" id="shareResultsBtn" title="Поделиться">🔗</button>
-                </div>
-            </div>
-
-            <div class="seo-text">
-                <h2>Что такое Burn Rate и Runway</h2>
-                <p>Burn Rate — скорость расходования денежных средств стартапом. Gross Burn — общие расходы в месяц. Net Burn — разница между расходами и выручкой (фактический темп сжигания денег). Runway — количество месяцев, на которые хватит текущего баланса.</p>
-                <h2>Рекомендуемый Runway</h2>
-                <p>Стартапам рекомендуется поддерживать Runway не менее 12–18 месяцев. Это даёт время для следующего раунда финансирования или достижения точки безубыточности.</p>
-            </div>
-
-            <section class="faq-section">
-                <h2 class="faq-title">Часто задаваемые вопросы</h2>
-                <div class="faq-list">
-                    <details class="faq-item">
-                        <summary class="faq-question">В чём разница между Gross и Net Burn Rate?</summary>
-                        <div class="faq-answer">Gross Burn — все операционные расходы за месяц. Net Burn — расходы минус выручка. Net Burn показывает реальную скорость уменьшения баланса.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">Когда начинать следующий раунд?</summary>
-                        <div class="faq-answer">Обычно начинают поиск следующего раунда, когда остаётся 9–12 месяцев Runway — процесс привлечения инвестиций занимает несколько месяцев.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">Как снизить Burn Rate?</summary>
-                        <div class="faq-answer">Оптимизация команды, перевод на удалёнку, снижение затрат на офис и маркетинг. Но важно не резать то, что напрямую влияет на рост.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">Runway 6 месяцев — это критично?</summary>
-                        <div class="faq-answer">Да. 6 месяцев — это минимальный порог безопасности. Нужно срочно либо привлекать финансирование, либо сокращать расходы, либо активно наращивать выручку.</div>
-                    </details>
-                </div>
-            </section>
-        </div>
-    </main>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer__content">
-            <p>© 2026 Millerson Company</p>
-            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
-            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-    (function() {
-        const themeToggleDesktop = document.getElementById('themeToggleDesktop');
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
-        const savedTheme = localStorage.getItem('theme');
-        function setTheme(checked) {
-            document.body.classList.toggle('dark-theme', checked);
-            localStorage.setItem('theme', checked ? 'dark' : 'light');
-            if (themeToggleDesktop) themeToggleDesktop.checked = checked;
-            if (themeToggleMobile) themeToggleMobile.checked = checked;
-        }
-        setTheme(savedTheme === 'dark');
-        if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
-        if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
-        const burgerBtn = document.getElementById('burgerBtn');
-        const navMobile = document.getElementById('navMobile');
-        function closeMobileMenu() {
-            navMobile.classList.remove('active');
-            burgerBtn.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        burgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            navMobile.classList.toggle('active');
-            burgerBtn.classList.toggle('active');
-            document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
-        });
-        navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
-        document.addEventListener('click', function(event) {
-            if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
-        });
-    })();
-    </script>
-
-    <script>
-    (function() {
-        function formatNum(n, dec) {
-            dec = dec !== undefined ? dec : 2;
-            if (typeof n !== 'number' || isNaN(n) || !isFinite(n)) return '0';
-            return n.toFixed(dec).replace(/\d(?=(\d{3})+(\.\d*)?$)/g, '$& ');
-        }
-        function fmt(n) { return formatNum(n, 2); }
-        function fmtInt(n) { return formatNum(n, 0); }
-
-        const copyBtn = document.getElementById('copyResultsBtn');
-        const shareBtn = document.getElementById('shareResultsBtn');
-
-        function getResultsText() {
-            const cards = document.querySelectorAll('.result-card');
-            return 'Калькулятор Burn Rate Millerson\n' + Array.from(cards).map(c => c.querySelector('.result-card__label').textContent.trim() + ': ' + c.querySelector('.result-card__value').textContent.trim()).join('\n');
-        }
-
-        if (copyBtn) {
-            copyBtn.addEventListener('click', function() {
-                const text = getResultsText();
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text).then(() => alert('Результаты скопированы!')).catch(() => alert('Не удалось скопировать'));
-                } else { alert('Скопируйте вручную:\n' + text); }
-            });
-        }
-        if (shareBtn) {
-            shareBtn.addEventListener('click', function() {
-                const text = getResultsText();
-                if (navigator.share) {
-                    navigator.share({ title: 'Калькулятор Burn Rate Millerson', text: text, url: window.location.href }).catch(() => {});
-                } else if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => alert('Ссылка и результаты скопированы!'));
-                } else { alert('Поделиться: ' + text + ' ' + window.location.href); }
-            });
-        }
-
-        
-        function calculate() {
-            const cash = Math.max(0, parseFloat(document.getElementById('cashBalance').value) || 0);
-            const rev = Math.max(0, parseFloat(document.getElementById('monthlyRevenue').value) || 0);
-            const exp = Math.max(0, parseFloat(document.getElementById('monthlyExpenses').value) || 0);
-            const grossBurn = exp;
-            const netBurn = exp - rev;
-            document.getElementById('resGross').textContent = fmt(grossBurn) + ' ₽/мес';
-            document.getElementById('resNet').textContent = fmt(netBurn) + ' ₽/мес';
-            if (netBurn <= 0) {
-                document.getElementById('resRunway').textContent = 'Прибыльный ✓';
-                document.getElementById('resDate').textContent = 'Не ограничено';
-                return;
-            }
-            const runway = Math.floor(cash / netBurn);
-            const d = new Date();
-            d.setMonth(d.getMonth() + runway);
-            document.getElementById('resRunway').textContent = runway + ' мес';
-            document.getElementById('resDate').textContent = d.toLocaleDateString('ru-RU', {month: 'long', year: 'numeric'});
-        }
-        document.querySelectorAll('#calcForm input').forEach(i => i.addEventListener('input', calculate));
-        calculate();
-    })();
-    </script>
-
-    <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
-        <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
-            <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
-                Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
-            </div>
-            <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
-                Принять
-            </button>
-        </div>
-    </div>
-    <script>
-    (function(){
-        const banner = document.getElementById('cookieBanner');
-        const button = document.getElementById('acceptCookies');
-        if(!localStorage.getItem('cookieAccepted')){ banner.style.display = 'block'; }
-        button.addEventListener('click', function(){ localStorage.setItem('cookieAccepted', 'true'); banner.style.display = 'none'; });
-    })();
-    </script>
-</body>
-</html>
+<div class="scroll-progress"></div>
+<header class="header"><div class="header__container">
+<span class="header__logo">Millerson <span>Finance</span></span>
+<button class="burger" aria-label="Меню" id="burgerBtn"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+<nav class="nav nav--desktop"><ul class="nav__list">
+<li><a href="../index.html" class="nav__link">Главная</a></li><li><a href="../all.html" class="nav__link">Все проекты</a></li><li><a href="../about.html" class="nav__link">О компании</a></li><li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+<li><div class="theme-switch"><span class="theme-switch__label">Тёмная</span><label class="switch"><input type="checkbox" id="themeToggleDesktop"><span class="slider"></span></label></div></li>
+<li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--orange">Kwork</a></li>
+</ul></nav>
+<nav class="nav nav--mobile" id="navMobile"><ul class="nav__list">
+<li><a href="../index.html" class="nav__link">Главная</a></li><li><a href="../all.html" class="nav__link">Все проекты</a></li><li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+<li><div class="theme-switch"><label class="switch"><input type="checkbox" id="themeToggleMobile"><span class="slider"></span></label></div></li>
+<li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--orange">Kwork</a></li>
+</ul></nav>
+</div></header>
+<main class="main"><div class="container">
+<nav aria-label="Хлебные крошки"><ol class="breadcrumb"><li><a href="../index.html">Главная</a></li><li class="sep">/</li><li><a href="allfinance.html">Калькуляторы</a></li><li class="sep">/</li><li aria-current="page">Burn Rate</li></ol></nav><a href="allfinance.html" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</a>
+<h1 class="main__title">Калькулятор <span class="highlight">Burn Rate</span></h1>
+<p class="main__description">Скорость сжигания денег и остаток (runway) компании</p>
+<div class="calc-card"><div class="calc-card__header">
+<div class="calc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2c0 6-6 8-6 14a6 6 0 0 0 12 0c0-6-6-8-6-14z"/></svg></div>
+<div><div class="calc-card__title">Burn Rate / Runway</div><div class="calc-card__subtitle">Для стартапов и бизнеса</div></div>
+</div><div class="calc-card__body">
+<div class="form-grid">
+<div class="form-group"><label for="brCash">Деньги на счёте (₽)</label><input type="number" id="brCash" value="5000000" min="0" step="100000"></div>
+<div class="form-group"><label for="brExpenses">Расходы в месяц (₽)</label><input type="number" id="brExpenses" value="800000" min="0" step="10000"></div>
+<div class="form-group"><label for="brRevenue">Доходы в месяц (₽)</label><input type="number" id="brRevenue" value="200000" min="0" step="10000"></div>
+<div class="form-group"><label for="brGrowth">Рост доходов (% мес)</label><input type="number" id="brGrowth" value="10" min="0" step="0.5"></div>
+</div>
+<div id="brRes" class="result-grid" style="display:none;"></div>
+</div></div>
+<section class="seo-text">
+<h2>Как рассчитать Burn Rate?</h2>
+<p><strong>Gross Burn Rate</strong> = все ежемесячные расходы компании.<br>
+<strong>Net Burn Rate</strong> = Расходы − Доходы.<br>
+<strong>Runway</strong> = Деньги на счёте / Net Burn Rate.</p>
+<h2>Как увеличить Runway?</h2>
+<ul>
+<li>Снижайте Burn Rate: оптимизируйте затраты, переходите на удалённую работу</li>
+<li>Увеличивайте выручку: больше продаж, выше средний чек</li>
+<li>Привлекайте инвестиции раньше, чем закончатся деньги</li>
+<li>Ищите гранты и субсидии</li>
+</ul>
+</section>
+<div class="section-links"><p><strong>Другие</strong></p><div class="links-row"><a href="budget.html" class="btn btn--secondary">Бюджет</a><a href="breakeven.html" class="btn btn--secondary">Безубыточность</a><a href="allfinance.html" class="btn btn--primary">Все</a></div></div>
+</div></main>
+<footer class="footer"><div class="container"><div class="footer__content">
+<p>&#169; 2026 Millerson Company.</p>
+<p><a href="allfinance.html">Все калькуляторы</a></p>
+</div></div></footer>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#0d1f10;color:#f0fdf4;padding:18px;z-index:9999;display:none;">
+<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+<div style="flex:1 1 280px;font-size:13px;">Мы используем cookies. <a href="/privacy.html" style="color:#22c55e;">Подробнее</a>.</div>
+<button id="acceptCookies" style="background:#22c55e;border:none;color:#000;padding:9px 20px;font-weight:700;border-radius:8px;cursor:pointer;">Принять</button>
+</div></div>
+<script src="particles.js"></script>
+<script>(function(){
+function fmt(v){return Math.round(v).toLocaleString('ru-RU');}function fmtD(v,d){return (+v).toLocaleString('ru-RU',{minimumFractionDigits:d||2,maximumFractionDigits:d||2});}
+function calc(){
+  var cash=+document.getElementById('brCash').value||0;
+  var exp=+document.getElementById('brExpenses').value||0;
+  var rev=+document.getElementById('brRevenue').value||0;
+  var growth=+document.getElementById('brGrowth').value/100||0;
+  var netBurn=exp-rev;
+  var runwaySimple=netBurn>0?cash/netBurn:Infinity;
+  // With growth in revenue
+  var bal=cash;var m=0;
+  var curRev=rev;
+  while(bal>0&&m<120){bal=bal-(exp-curRev);curRev*=(1+growth);m++;}
+  document.getElementById('brRes').style.display='grid';
+  document.getElementById('brRes').innerHTML=
+    '<div class="result-item"><div class="result-item__label">Net Burn Rate</div><div class="result-item__value">'+fmt(Math.max(0,netBurn))+' ₽/мес</div></div>'+
+    '<div class="result-item"><div class="result-item__label">Gross Burn Rate</div><div class="result-item__value">'+fmt(exp)+' ₽/мес</div></div>'+
+    '<div class="result-item orange"><div class="result-item__label">Runway (простой)</div><div class="result-item__value">'+(runwaySimple===Infinity?'Прибыльная':fmtD(runwaySimple,1)+' мес.')+' </div></div>'+
+    '<div class="result-item"><div class="result-item__label">Runway (с ростом)</div><div class="result-item__value">'+(m>=120?'12+ лет':m+' мес.')+'</div></div>'+
+    '<div class="result-item"><div class="result-item__label">Depletion date</div><div class="result-item__value">'+(m>=120?'Нескоро':new Date(Date.now()+m*30*24*3600*1000).toLocaleDateString('ru-RU',{month:'short',year:'numeric'}))+'</div></div>';
+}
+document.querySelectorAll('#brCash,#brExpenses,#brRevenue,#brGrowth').forEach(function(el){el.addEventListener('input',calc);});calc();
+})();
+</script>
+</body></html>

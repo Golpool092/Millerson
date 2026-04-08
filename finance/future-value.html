@@ -1,324 +1,98 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="yandex-verification" content="09a9906cfe75b11e" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Калькулятор будущей стоимости онлайн — FV расчёт | Millerson</title>
-    <meta name="description" content="Калькулятор будущей стоимости (FV) онлайн: рассчитайте, сколько будет стоить сумма в будущем с учётом процентов. Бесплатно.">
-    <meta name="keywords" content="калькулятор будущей стоимости, FV калькулятор, будущая стоимость денег, расчет FV онлайн">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://millerson.shop/finance/future-value.html">
-    <meta property="og:title" content="Калькулятор будущей стоимости — FV — Millerson">
-    <meta property="og:description" content="Рассчитайте будущую стоимость любой суммы с учётом процентной ставки и срока.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:url" content="https://millerson.shop/finance/future-value.html">
-    <meta property="og:site_name" content="Millerson Company">
-    <meta property="og:image" content="https://millerson.shop/og-finance.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Калькулятор будущей стоимости — FV — Millerson">
-    <meta name="twitter:description" content="Рассчитайте будущую стоимость любой суммы с учётом процентной ставки и срока.">
-    <meta name="twitter:image" content="https://millerson.shop/twitter-finance.jpg">
-    <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="preconnect" href="https://mc.yandex.ru">
-    <link rel="dns-prefetch" href="https://mc.yandex.ru">
-    <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-    <noscript><div><img src="https://mc.yandex.ru/watch/106524351" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-    <script src="https://yandex.ru/ads/system/context.js" async></script>
-    <script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Millerson Company",
-        "url": "https://millerson.shop",
-        "logo": "https://millerson.shop/favicon.png",
-        "description": "Разработка онлайн‑сервисов и веб‑решений.",
-        "email": "MillersonShop@gmail.com"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Калькулятор будущей стоимости Millerson",
-        "description": "Онлайн-инструмент для расчёта будущей стоимости (FV) суммы с учётом ставки и срока.",
-        "url": "https://millerson.shop/finance/future-value.html",
-        "applicationCategory": "Finance",
-        "operatingSystem": "All",
-        "offers": {"@type": "Offer","price": "0","priceCurrency": "RUB"},
-        "featureList": ["Расчёт FV с капитализацией", "Учёт регулярных платежей", "Прогноз роста"]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem","position": 1,"name": "Главная","item": "https://millerson.shop/index.html"},
-            {"@type": "ListItem","position": 2,"name": "Все проекты","item": "https://millerson.shop/all.html"},
-            {"@type": "ListItem","position": 3,"name": "Финансовые калькуляторы","item": "https://millerson.shop/finance/allfinance.html"},
-            {"@type": "ListItem","position": 4,"name": "Калькулятор будущей стоимости Millerson","item": "https://millerson.shop/finance/future-value.html"}
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {"@type": "Question","name": "В чём разница между FV и PV?","acceptedAnswer": {"@type": "Answer","text": "FV (Future Value) — будущая стоимость: сколько будут стоить деньги в будущем. PV (Present Value) — текущая стоимость: сколько стоят деньги сегодня."}},
-            {"@type": "Question","name": "Как срок влияет на FV?","acceptedAnswer": {"@type": "Answer","text": "Чем дольше срок, тем больше работает сложный процент. Удвоение срока часто даёт гораздо более чем двукратный рост суммы."}},
-            {"@type": "Question","name": "Применимо ли к облигациям?","acceptedAnswer": {"@type": "Answer","text": "Да, формула FV используется для расчёта накопленного дохода по облигациям с реинвестированием купонов."}},
-            {"@type": "Question","name": "Что значит капитализация ежемесячно?","acceptedAnswer": {"@type": "Answer","text": "Проценты начисляются и прибавляются к сумме каждый месяц. В следующем месяце проценты начисляются уже на увеличенную сумму."}}
-        ]
-    }
-    </script>
+<meta charset="UTF-8"><meta name="yandex-verification" content="09a9906cfe75b11e" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор будущей стоимости онлайн — FV инвестиций | Millerson</title>
+<meta name="description" content="Калькулятор будущей стоимости (FV): рассчитайте, сколько станет стоить ваш вклад или инвестиция через несколько лет. Формула FV онлайн бесплатно." /><meta name="keywords" content="калькулятор будущей стоимости, FV калькулятор, будущая стоимость инвестиций, FV онлайн, формула FV, аннуитет будущая стоимость" /><meta name="robots" content="index, follow" /><meta name="author" content="Millerson Company" />
+<link rel="canonical" href="https://millerson.shop/finance/future-value.html" />
+<meta property="og:title" content="Калькулятор будущей стоимости онлайн — FV инвестиций | Millerson" /><meta property="og:description" content="Калькулятор будущей стоимости (FV): рассчитайте, сколько станет стоить ваш вклад или инвестиция через несколько лет. Формула FV онлайн бесплатно." /><meta property="og:type" content="website" /><meta property="og:url" content="https://millerson.shop/finance/future-value.html" />
+<meta property="og:image" content="https://millerson.shop/og-finance.jpg" /><meta property="og:locale" content="ru_RU" /><meta property="og:site_name" content="Millerson Company" />
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Калькулятор будущей стоимости онлайн — FV инвестиций | Millerson" /><meta name="twitter:description" content="Калькулятор будущей стоимости (FV): рассчитайте, сколько станет стоить ваш вклад или инвестиция через несколько лет. Формула FV онлайн бесплатно." /><meta name="twitter:image" content="https://millerson.shop/og-finance.jpg" />
+<link rel="preload" href="style.css" as="style" /><link rel="icon" type="image/png" href="../favicon.png" /><link rel="stylesheet" href="style.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Millerson Company","url":"https://millerson.shop","logo":"https://millerson.shop/favicon.png","email":"MillersonShop@gmail.com"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор будущей стоимости Millerson","description":"Калькулятор будущей стоимости (FV): рассчитайте, сколько станет стоить ваш вклад или инвестиция через несколько лет. Формула FV онлайн бесплатно.","url":"https://millerson.shop/finance/future-value.html","applicationCategory":"Finance","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое будущая стоимость (FV)?","acceptedAnswer":{"@type":"Answer","text":"FV (Future Value) — сумма, которой станет равна инвестиция через определённый период с учётом доходности. FV учитывает сложный рост."}},{"@type":"Question","name":"Как рассчитать FV аннуитета?","acceptedAnswer":{"@type":"Answer","text":"FV аннуитета = PMT × ((1+r)^n − 1) / r, где PMT — регулярный платёж, r — ставка за период, n — число периодов."}},{"@type":"Question","name":"Чем FV отличается от PV?","acceptedAnswer":{"@type":"Answer","text":"PV (Present Value) — сегодняшняя стоимость будущей суммы. FV — будущая стоимость сегодняшней суммы. PV и FV — обратные понятия."}}]}
+</script>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{webvisor:true,clickmap:true,referrer:document.referrer,accurateTrackBounce:true,trackLinks:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
 </head>
 <body>
-<header class="header">
-    <div class="header__container">
-        <span class="header__logo">Millerson Company</span>
-        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-        </button>
-        <nav class="nav nav--desktop" aria-label="Основная навигация">
-            <ul class="nav__list">
-                <li><a href="../index.html" class="nav__link">Главная</a></li>
-                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
-                <li><a href="../about.html" class="nav__link">О компании</a></li>
-                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
-                </li>
-            </ul>
-        </nav>
-        <nav class="nav nav--mobile" id="navMobile">
-            <ul class="nav__list">
-                <li><a href="../index.html" class="nav__link">Главная</a></li>
-                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
-                <li><a href="../about.html" class="nav__link">О компании</a></li>
-                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--primary">Millerson SHOP на Kwork</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-    <main class="main">
-        <div class="container">
-            <h1 class="main__title">Калькулятор будущей стоимости (Future Value)</h1>
-            <p class="main__description">Рассчитайте, какую сумму вы получите в будущем, вложив деньги сейчас под определённый процент.</p>
-
-            <div class="calculator glass">
-                <form class="calculator__form" id="calcForm">
-                    <div class="form-group">
-                        <label for="pv" class="form-label">Текущая сумма (₽)</label>
-                        <input type="number" id="pv" class="form-input" value="100000" min="0" step="1000">
-                    </div>
-                    <div class="form-group">
-                        <label for="pmt" class="form-label">Периодический взнос (₽/мес)</label>
-                        <input type="number" id="pmt" class="form-input" value="5000" min="0" step="500">
-                    </div>
-                    <div class="form-group">
-                        <label for="rate" class="form-label">Ставка (% годовых)</label>
-                        <input type="number" id="rate" class="form-input" value="12" min="0" max="100" step="0.1">
-                    </div>
-                    <div class="form-group">
-                        <label for="years" class="form-label">Срок (лет)</label>
-                        <input type="number" id="years" class="form-input" value="10" min="1" max="50" step="1">
-                    </div>
-                </form>
-
-                <div class="results">
-                    <div class="result-card"><span class="result-card__label">Будущая стоимость</span><span class="result-card__value" id="resFV">0 ₽</span></div>
-                    <div class="result-card"><span class="result-card__label">Внесено средств</span><span class="result-card__value" id="resDeposited">0 ₽</span></div>
-                    <div class="result-card"><span class="result-card__label">Доход от процентов</span><span class="result-card__value" id="resInterest">0 ₽</span></div>
-                </div>
-
-                <div class="share-actions">
-                    <button class="share-btn" id="copyResultsBtn" title="Копировать результаты">📋</button>
-                    <button class="share-btn" id="shareResultsBtn" title="Поделиться">🔗</button>
-                </div>
-            </div>
-
-            <div class="seo-text">
-                <h2>Что такое будущая стоимость</h2>
-                <p>Будущая стоимость (Future Value, FV) — это сумма, которую вы получите в будущем, если сегодня вложите деньги под определённую процентную ставку с капитализацией.</p>
-                <h2>Формула FV</h2>
-                <p><strong>FV = PV × (1+r)^n + PMT × ((1+r)^n − 1) / r</strong>, где PV — текущая сумма, r — ставка за период, n — число периодов, PMT — регулярный взнос.</p>
-            </div>
-
-            <section class="faq-section">
-                <h2 class="faq-title">Часто задаваемые вопросы</h2>
-                <div class="faq-list">
-                    <details class="faq-item">
-                        <summary class="faq-question">В чём разница между FV и PV?</summary>
-                        <div class="faq-answer">FV (Future Value) — будущая стоимость: сколько будут стоить деньги в будущем. PV (Present Value) — текущая стоимость: сколько стоят деньги сегодня.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">Как срок влияет на FV?</summary>
-                        <div class="faq-answer">Чем дольше срок, тем больше работает сложный процент. Удвоение срока часто даёт гораздо более чем двукратный рост суммы.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">Применимо ли к облигациям?</summary>
-                        <div class="faq-answer">Да, формула FV используется для расчёта накопленного дохода по облигациям с реинвестированием купонов.</div>
-                    </details>
-                    <details class="faq-item">
-                        <summary class="faq-question">Что значит капитализация ежемесячно?</summary>
-                        <div class="faq-answer">Проценты начисляются и прибавляются к сумме каждый месяц. В следующем месяце проценты начисляются уже на увеличенную сумму.</div>
-                    </details>
-                </div>
-            </section>
-        </div>
-    </main>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer__content">
-            <p>© 2026 Millerson Company</p>
-            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
-            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-    (function() {
-        const themeToggleDesktop = document.getElementById('themeToggleDesktop');
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
-        const savedTheme = localStorage.getItem('theme');
-        function setTheme(checked) {
-            document.body.classList.toggle('dark-theme', checked);
-            localStorage.setItem('theme', checked ? 'dark' : 'light');
-            if (themeToggleDesktop) themeToggleDesktop.checked = checked;
-            if (themeToggleMobile) themeToggleMobile.checked = checked;
-        }
-        setTheme(savedTheme === 'dark');
-        if (themeToggleDesktop) themeToggleDesktop.addEventListener('change', e => setTheme(e.target.checked));
-        if (themeToggleMobile) themeToggleMobile.addEventListener('change', e => setTheme(e.target.checked));
-        const burgerBtn = document.getElementById('burgerBtn');
-        const navMobile = document.getElementById('navMobile');
-        function closeMobileMenu() {
-            navMobile.classList.remove('active');
-            burgerBtn.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        burgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            navMobile.classList.toggle('active');
-            burgerBtn.classList.toggle('active');
-            document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
-        });
-        navMobile.querySelectorAll('.nav__link, .btn').forEach(link => link.addEventListener('click', closeMobileMenu));
-        document.addEventListener('click', function(event) {
-            if (!navMobile.contains(event.target) && !burgerBtn.contains(event.target)) closeMobileMenu();
-        });
-    })();
-    </script>
-
-    <script>
-    (function() {
-        function formatNum(n, dec) {
-            dec = dec !== undefined ? dec : 2;
-            if (typeof n !== 'number' || isNaN(n) || !isFinite(n)) return '0';
-            return n.toFixed(dec).replace(/\d(?=(\d{3})+(\.\d*)?$)/g, '$& ');
-        }
-        function fmt(n) { return formatNum(n, 2); }
-        function fmtInt(n) { return formatNum(n, 0); }
-
-        const copyBtn = document.getElementById('copyResultsBtn');
-        const shareBtn = document.getElementById('shareResultsBtn');
-
-        function getResultsText() {
-            const cards = document.querySelectorAll('.result-card');
-            return 'Калькулятор будущей стоимости Millerson\n' + Array.from(cards).map(c => c.querySelector('.result-card__label').textContent.trim() + ': ' + c.querySelector('.result-card__value').textContent.trim()).join('\n');
-        }
-
-        if (copyBtn) {
-            copyBtn.addEventListener('click', function() {
-                const text = getResultsText();
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text).then(() => alert('Результаты скопированы!')).catch(() => alert('Не удалось скопировать'));
-                } else { alert('Скопируйте вручную:\n' + text); }
-            });
-        }
-        if (shareBtn) {
-            shareBtn.addEventListener('click', function() {
-                const text = getResultsText();
-                if (navigator.share) {
-                    navigator.share({ title: 'Калькулятор будущей стоимости Millerson', text: text, url: window.location.href }).catch(() => {});
-                } else if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => alert('Ссылка и результаты скопированы!'));
-                } else { alert('Поделиться: ' + text + ' ' + window.location.href); }
-            });
-        }
-
-        
-        function calculate() {
-            const pv = Math.max(0, parseFloat(document.getElementById('pv').value) || 0);
-            const pmt = Math.max(0, parseFloat(document.getElementById('pmt').value) || 0);
-            const rate = Math.max(0, parseFloat(document.getElementById('rate').value) || 0);
-            const years = Math.max(1, parseInt(document.getElementById('years').value) || 1);
-            const n = years * 12;
-            const r = rate / 100 / 12;
-            let fv;
-            if (r === 0) { fv = pv + pmt * n; }
-            else { fv = pv * Math.pow(1+r, n) + pmt * (Math.pow(1+r, n) - 1) / r; }
-            const deposited = pv + pmt * n;
-            const interest = fv - deposited;
-            document.getElementById('resFV').textContent = fmt(fv) + ' ₽';
-            document.getElementById('resDeposited').textContent = fmt(deposited) + ' ₽';
-            document.getElementById('resInterest').textContent = fmt(interest) + ' ₽';
-        }
-        document.querySelectorAll('#calcForm input').forEach(i => i.addEventListener('input', calculate));
-        calculate();
-    })();
-    </script>
-
-    <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
-        <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
-            <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
-                Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта и показа рекламы. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
-            </div>
-            <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">
-                Принять
-            </button>
-        </div>
-    </div>
-    <script>
-    (function(){
-        const banner = document.getElementById('cookieBanner');
-        const button = document.getElementById('acceptCookies');
-        if(!localStorage.getItem('cookieAccepted')){ banner.style.display = 'block'; }
-        button.addEventListener('click', function(){ localStorage.setItem('cookieAccepted', 'true'); banner.style.display = 'none'; });
-    })();
-    </script>
-</body>
-</html>
+<div class="scroll-progress"></div>
+<header class="header"><div class="header__container">
+<span class="header__logo">Millerson <span>Finance</span></span>
+<button class="burger" aria-label="Меню" id="burgerBtn"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+<nav class="nav nav--desktop"><ul class="nav__list">
+<li><a href="../index.html" class="nav__link">Главная</a></li><li><a href="../all.html" class="nav__link">Все проекты</a></li><li><a href="../about.html" class="nav__link">О компании</a></li><li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+<li><div class="theme-switch"><span class="theme-switch__label">Тёмная</span><label class="switch"><input type="checkbox" id="themeToggleDesktop"><span class="slider"></span></label></div></li>
+<li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--orange">Kwork</a></li>
+</ul></nav>
+<nav class="nav nav--mobile" id="navMobile"><ul class="nav__list">
+<li><a href="../index.html" class="nav__link">Главная</a></li><li><a href="../all.html" class="nav__link">Все проекты</a></li><li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+<li><div class="theme-switch"><label class="switch"><input type="checkbox" id="themeToggleMobile"><span class="slider"></span></label></div></li>
+<li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--orange">Kwork</a></li>
+</ul></nav>
+</div></header>
+<main class="main"><div class="container">
+<nav aria-label="Хлебные крошки"><ol class="breadcrumb"><li><a href="../index.html">Главная</a></li><li class="sep">/</li><li><a href="allfinance.html">Калькуляторы</a></li><li class="sep">/</li><li aria-current="page">Будущая стоимость</li></ol></nav><a href="allfinance.html" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</a>
+<h1 class="main__title"><span class="highlight">Будущая стоимость</span> (FV)</h1>
+<p class="main__description">Сколько вырастет ваш капитал с учётом процентов</p>
+<div class="calc-card"><div class="calc-card__header">
+<div class="calc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+<div><div class="calc-card__title">Future Value Calculator</div><div class="calc-card__subtitle">Будущая стоимость</div></div>
+</div><div class="calc-card__body">
+<div class="form-grid">
+<div class="form-group"><label for="fvPV">Начальный капитал (₽)</label><input type="number" id="fvPV" value="200000" min="0" step="1000"></div>
+<div class="form-group"><label for="fvPMT">Пополнение (₽/период)</label><input type="number" id="fvPMT" value="10000" min="0" step="500"></div>
+<div class="form-group"><label for="fvRate">Ставка (% за период)</label><input type="number" id="fvRate" value="1.2" min="0" step="0.01"><span class="input-hint">Если годовая 14.4%, то за месяц: 1.2%</span></div>
+<div class="form-group"><label for="fvN">Число периодов</label><input type="number" id="fvN" value="60" min="1" step="1"></div>
+<div class="form-group"><label>Когда платёж?</label><div class="radio-group" style="margin-top:8px;"><label class="radio-option"><input type="radio" name="fvtype" value="end" checked><span>Конец периода</span></label><label class="radio-option"><input type="radio" name="fvtype" value="begin"><span>Начало периода</span></label></div></div>
+</div>
+<div id="fvRes" class="result-grid" style="display:none;"></div>
+</div></div>
+<section class="seo-text">
+<h2>Формула будущей стоимости</h2>
+<p><strong>FV = PV × (1+r)^n + PMT × ((1+r)^n − 1) / r</strong> (для платежей в конце периода)</p>
+<p>Где PV — начальный капитал, PMT — регулярный платёж, r — ставка за период, n — число периодов.</p>
+<h2>Значение для планирования</h2>
+<p>Зная FV, вы понимаете, сколько накопите при разных сценариях. Это позволяет сравнивать вклады, инвестиции и принимать обоснованные финансовые решения.</p>
+</section>
+<div class="section-links"><p><strong>Другие</strong></p><div class="links-row"><a href="savings.html" class="btn btn--secondary">Накопления</a><a href="compound-interest.html" class="btn btn--secondary">Сложные %</a><a href="allfinance.html" class="btn btn--primary">Все</a></div></div>
+</div></main>
+<footer class="footer"><div class="container"><div class="footer__content">
+<p>&#169; 2026 Millerson Company.</p>
+<p><a href="allfinance.html">Все калькуляторы</a></p>
+</div></div></footer>
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#0d1f10;color:#f0fdf4;padding:18px;z-index:9999;display:none;">
+<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+<div style="flex:1 1 280px;font-size:13px;">Мы используем cookies. <a href="/privacy.html" style="color:#22c55e;">Подробнее</a>.</div>
+<button id="acceptCookies" style="background:#22c55e;border:none;color:#000;padding:9px 20px;font-weight:700;border-radius:8px;cursor:pointer;">Принять</button>
+</div></div>
+<script src="particles.js"></script>
+<script>(function(){
+function fmt(v){return Math.round(v).toLocaleString('ru-RU');}
+function calc(){
+  var PV=+document.getElementById('fvPV').value||0;
+  var PMT=+document.getElementById('fvPMT').value||0;
+  var r=+document.getElementById('fvRate').value/100||0;
+  var n=+document.getElementById('fvN').value||1;
+  var atBegin=document.querySelector('input[name="fvtype"]:checked').value==='begin';
+  var FV_PV=PV*Math.pow(1+r,n);
+  var FV_PMT=r>0?PMT*((Math.pow(1+r,n)-1)/r)*(atBegin?1+r:1):PMT*n;
+  var FV=FV_PV+FV_PMT;
+  var contrib=PV+PMT*n;
+  document.getElementById('fvRes').style.display='grid';
+  document.getElementById('fvRes').innerHTML=
+    '<div class="result-item"><div class="result-item__label">Будущая стоимость</div><div class="result-item__value">'+fmt(FV)+' ₽</div></div>'+
+    '<div class="result-item orange"><div class="result-item__label">Доход</div><div class="result-item__value">'+fmt(FV-contrib)+' ₽</div></div>'+
+    '<div class="result-item"><div class="result-item__label">Вложено</div><div class="result-item__value">'+fmt(contrib)+' ₽</div></div>'+
+    '<div class="result-item"><div class="result-item__label">Множитель</div><div class="result-item__value">'+(PV>0?(FV/PV).toFixed(2):'∞')+'x</div></div>';
+}
+document.querySelectorAll('#fvPV,#fvPMT,#fvRate,#fvN').forEach(function(el){el.addEventListener('input',calc);});
+document.querySelectorAll('input[name="fvtype"]').forEach(function(el){el.addEventListener('change',calc);});calc();
+})();
+</script>
+</body></html>

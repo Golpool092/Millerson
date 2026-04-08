@@ -1,884 +1,479 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="yandex-verification" content="09a9906cfe75b11e" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Финансовые калькуляторы онлайн — 27 инструментов для личных финансов | Millerson</title>
-    <meta name="description" content="27 бесплатных финансовых калькуляторов онлайн: кредит, НДФЛ, накопления, инфляция, ROI, FIRE, дивиденды, маржа, бюджет и многое другое. Millerson Company — точные расчёты без регистрации." />
-    <meta name="keywords" content="финансовые калькуляторы онлайн, кредитный калькулятор, калькулятор НДФЛ, накопления, инфляция, ROI, FIRE, дивиденды, бюджет, Millerson, сложные проценты, CAGR, NPV, маржа, зарплата" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Millerson Company" />
-    <meta name="language" content="ru" />
-    <link rel="canonical" href="https://millerson.shop/finance/allfinance.html" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Финансовые калькуляторы онлайн — 27 инструментов | Millerson Company" />
-    <meta property="og:description" content="27 бесплатных онлайн-калькуляторов для личных финансов, инвестиций и бизнеса. Без регистрации, результат мгновенно." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://millerson.shop/finance/allfinance.html" />
-    <meta property="og:image" content="https://millerson.shop/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:site_name" content="Millerson Company" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@MillersonShop" />
-    <meta name="twitter:title" content="Финансовые калькуляторы — 27 инструментов | Millerson Company" />
-    <meta name="twitter:description" content="27 бесплатных инструментов для финансовых расчётов: кредит, налоги, инвестиции, бюджет." />
-    <meta name="twitter:image" content="https://millerson.shop/twitter-image.jpg" />
-
-    <link rel="preload" href="style.css" as="style" />
-    <link rel="icon" type="image/png" href="../favicon.png" />
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- JSON-LD: CollectionPage -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "Финансовые калькуляторы онлайн",
-        "description": "27 бесплатных калькуляторов для финансовых расчётов: кредиты, налоги, инвестиции, бюджет.",
-        "url": "https://millerson.shop/finance/allfinance.html",
-        "numberOfItems": 27,
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "Millerson Company",
-            "url": "https://millerson.shop"
-        }
-    }
-    </script>
-
-    <!-- JSON-LD: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://millerson.shop/"},
-            {"@type": "ListItem", "position": 2, "name": "Все проекты", "item": "https://millerson.shop/all.html"},
-            {"@type": "ListItem", "position": 3, "name": "Финансовые калькуляторы", "item": "https://millerson.shop/finance/allfinance.html"}
-        ]
-    }
-    </script>
-
-    <!-- JSON-LD: Organization -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Millerson Company",
-        "url": "https://millerson.shop",
-        "logo": "https://millerson.shop/favicon.png",
-        "email": "MillersonShop@gmail.com"
-    }
-    </script>
-
-    <!-- JSON-LD: ItemList of calculators -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Финансовые калькуляторы",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Кредитный калькулятор", "url": "https://millerson.shop/finance/credit.html"},
-            {"@type": "ListItem", "position": 2, "name": "Калькулятор НДФЛ", "url": "https://millerson.shop/finance/ndfl.html"},
-            {"@type": "ListItem", "position": 3, "name": "Калькулятор накоплений", "url": "https://millerson.shop/finance/savings.html"},
-            {"@type": "ListItem", "position": 4, "name": "Калькулятор сложных процентов", "url": "https://millerson.shop/finance/compound-interest.html"},
-            {"@type": "ListItem", "position": 5, "name": "Калькулятор инфляции", "url": "https://millerson.shop/finance/inflation.html"},
-            {"@type": "ListItem", "position": 6, "name": "Калькулятор ROI", "url": "https://millerson.shop/finance/roi.html"},
-            {"@type": "ListItem", "position": 7, "name": "Калькулятор зарплаты", "url": "https://millerson.shop/finance/salary.html"},
-            {"@type": "ListItem", "position": 8, "name": "Калькулятор FIRE", "url": "https://millerson.shop/finance/fire.html"},
-            {"@type": "ListItem", "position": 9, "name": "Калькулятор NPV", "url": "https://millerson.shop/finance/npv.html"},
-            {"@type": "ListItem", "position": 10, "name": "Калькулятор маржи", "url": "https://millerson.shop/finance/margin.html"},
-            {"@type": "ListItem", "position": 11, "name": "Калькулятор точки безубыточности", "url": "https://millerson.shop/finance/breakeven.html"},
-            {"@type": "ListItem", "position": 12, "name": "Калькулятор дивидендов", "url": "https://millerson.shop/finance/dividends.html"},
-            {"@type": "ListItem", "position": 13, "name": "Калькулятор бюджета", "url": "https://millerson.shop/finance/budget.html"},
-            {"@type": "ListItem", "position": 14, "name": "Калькулятор пенсии", "url": "https://millerson.shop/finance/pension.html"},
-            {"@type": "ListItem", "position": 15, "name": "Калькулятор CAGR", "url": "https://millerson.shop/finance/cagr.html"},
-            {"@type": "ListItem", "position": 16, "name": "Калькулятор финансовой подушки", "url": "https://millerson.shop/finance/emergency-fund.html"},
-            {"@type": "ListItem", "position": 17, "name": "Калькулятор будущей стоимости", "url": "https://millerson.shop/finance/future-value.html"},
-            {"@type": "ListItem", "position": 18, "name": "Калькулятор реальной доходности", "url": "https://millerson.shop/finance/real-return.html"},
-            {"@type": "ListItem", "position": 19, "name": "Калькулятор обмена валют", "url": "https://millerson.shop/finance/currency.html"},
-            {"@type": "ListItem", "position": 20, "name": "Калькулятор ставки фрилансера", "url": "https://millerson.shop/finance/freelance-rate.html"},
-            {"@type": "ListItem", "position": 21, "name": "Почасовая в годовую зарплату", "url": "https://millerson.shop/finance/hourly-to-annual.html"},
-            {"@type": "ListItem", "position": 22, "name": "Калькулятор Burn Rate", "url": "https://millerson.shop/finance/burn-rate.html"},
-            {"@type": "ListItem", "position": 23, "name": "Калькулятор правила 4%", "url": "https://millerson.shop/finance/rule-4-percent.html"},
-            {"@type": "ListItem", "position": 24, "name": "Калькулятор расходов на топливо", "url": "https://millerson.shop/finance/fuel-cost.html"},
-            {"@type": "ListItem", "position": 25, "name": "Калькулятор бюджета на еду", "url": "https://millerson.shop/finance/food-budget.html"},
-            {"@type": "ListItem", "position": 26, "name": "Калькулятор подписок", "url": "https://millerson.shop/finance/subscriptions.html"},
-            {"@type": "ListItem", "position": 27, "name": "Калькулятор Cap Rate", "url": "https://millerson.shop/finance/cap-rate.html"}
-        ]
-    }
-    </script>
-
-    <!-- Yandex.Metrika -->
-    <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,accurateTrackBounce:true,trackLinks:true});</script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
-
-    <script src="https://yandex.ru/ads/system/context.js" async></script>
-    <script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
-
-    <style>
-        /* ===== GRID & CARDS ===== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-            margin: 36px 0 60px;
-        }
-        .project-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            border: 2px solid transparent;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 48px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.2);
-            border-color: var(--accent);
-        }
-
-        /* ===== ICON PREVIEW AREA ===== */
-        .project-preview {
-            height: 140px;
-            background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .project-preview::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.18) 0%, transparent 70%);
-        }
-        .card-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 18px;
-            background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-            border: 1.5px solid rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.25);
-            box-shadow: 0 4px 24px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.18);
-            transition: var(--transition);
-        }
-        .project-card:hover .card-icon {
-            background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.28);
-            transform: scale(1.08);
-        }
-        .card-icon svg {
-            width: 32px;
-            height: 32px;
-            fill: none;
-            stroke: var(--accent);
-            stroke-width: 1.6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        /* ===== CARD BODY ===== */
-        .project-info {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-info h3 {
-            font-size: 1.05rem;
-            color: var(--accent-light);
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-        .project-info p {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.55;
-            margin-bottom: 16px;
-            flex-grow: 1;
-        }
-        .project-link {
-            align-self: flex-start;
-            margin-top: auto;
-        }
-
-        /* ===== CATEGORY BADGE ===== */
-        .card-category {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--accent);
-            opacity: 0.75;
-            margin-bottom: 6px;
-        }
-
-        /* ===== BACK LINK ===== */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            background: var(--accent);
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 40px;
-            font-weight: 500;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-        .back-link:hover {
-            background: var(--accent-light);
-            transform: translateX(-4px);
-        }
-
-        /* ===== SEO TEXT BLOCK ===== */
-        .seo-text {
-            background: var(--card-bg);
-            padding: 28px;
-            border-radius: var(--border-radius);
-            margin: 36px 0;
-            box-shadow: var(--shadow);
-        }
-        .seo-text h2 {
-            color: var(--accent-light);
-            margin: 24px 0 12px;
-        }
-        .seo-text h2:first-of-type {
-            margin-top: 0;
-        }
-        .seo-text p,
-        .seo-text li {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-        .seo-text ul {
-            list-style: disc;
-            padding-left: 20px;
-            margin: 8px 0 16px;
-        }
-
-        /* ===== COUNTER BADGE ===== */
-        .calc-count {
-            background: var(--accent);
-            color: #fff;
-            border-radius: 20px;
-            padding: 2px 10px;
-            font-size: 0.85rem;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="yandex-verification" content="09a9906cfe75b11e" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Финансовые калькуляторы онлайн 2026 — 27 бесплатных инструментов | Millerson</title>
+<meta name="description" content="27 бесплатных финансовых калькуляторов онлайн: кредит, НДФЛ, накопления, FIRE, ROI, маржа, NPV, обмен валют, дивиденды и другие. Без регистрации." />
+<meta name="keywords" content="финансовые калькуляторы онлайн, калькулятор кредита, калькулятор НДФЛ, ROI, FIRE, калькулятор накоплений, бесплатные финансовые инструменты, Millerson" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Millerson Company" />
+<link rel="canonical" href="https://millerson.shop/finance/allfinance.html" />
+<meta property="og:title" content="27 финансовых калькуляторов онлайн — Millerson Company" />
+<meta property="og:description" content="Бесплатные финансовые калькуляторы: кредит, НДФЛ, накопления, FIRE, ROI, маржа и ещё 21 инструмент. Без регистрации." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://millerson.shop/finance/allfinance.html" />
+<meta property="og:image" content="https://millerson.shop/og-finance.jpg" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:site_name" content="Millerson Company" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="27 финансовых калькуляторов — Millerson" />
+<meta name="twitter:description" content="Бесплатные финансовые инструменты онлайн. FIRE, NDFL, кредит, дивиденды, ROI, маржа и другие." />
+<link rel="preload" href="style.css" as="style" />
+<link rel="preconnect" href="https://mc.yandex.ru" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="stylesheet" href="style.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Millerson Company","url":"https://millerson.shop","logo":"https://millerson.shop/favicon.png","email":"MillersonShop@gmail.com"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Финансовые калькуляторы Millerson","description":"27 бесплатных финансовых калькуляторов: кредит, НДФЛ, ROI, FIRE, инвестиции и быт.","url":"https://millerson.shop/finance/allfinance.html","numberOfItems":27}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://millerson.shop/"},{"@type":"ListItem","position":2,"name":"Все проекты","item":"https://millerson.shop/all.html"},{"@type":"ListItem","position":3,"name":"Финансовые калькуляторы","item":"https://millerson.shop/finance/allfinance.html"}]}
+</script>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=107027516','ym');ym(107027516,'init',{webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,accurateTrackBounce:true,trackLinks:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
 </head>
 <body>
-
-<header class="header">
-    <div class="header__container">
-        <span class="header__logo">Millerson Company</span>
-        <button class="burger" aria-label="Открыть меню" id="burgerBtn">
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-        </button>
-        <nav class="nav nav--desktop" aria-label="Основная навигация">
-            <ul class="nav__list">
-                <li><a href="../index.html" class="nav__link">Главная</a></li>
-                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
-                <li><a href="../about.html" class="nav__link">О компании</a></li>
-                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleDesktop" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Millerson SHOP на Kwork</a></li>
-            </ul>
-        </nav>
-        <nav class="nav nav--mobile" id="navMobile" aria-label="Мобильная навигация">
-            <ul class="nav__list">
-                <li><a href="../index.html" class="nav__link">Главная</a></li>
-                <li><a href="../all.html" class="nav__link">Все проекты</a></li>
-                <li><a href="../about.html" class="nav__link">О компании</a></li>
-                <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
-                <li>
-                    <div class="theme-switch">
-                        <span class="theme-switch__label">Тёмная тема</span>
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggleMobile" aria-label="Переключить тему">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </li>
-                <li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Millerson SHOP на Kwork</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div class="scroll-progress"></div>
+<header class="header"><div class="header__container">
+<span class="header__logo">Millerson <span>Finance</span></span>
+<button class="burger" aria-label="Открыть меню" id="burgerBtn"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+<nav class="nav nav--desktop" aria-label="Основная навигация"><ul class="nav__list">
+<li><a href="../index.html" class="nav__link">Главная</a></li>
+<li><a href="../all.html" class="nav__link">Все проекты</a></li>
+<li><a href="../about.html" class="nav__link">О компании</a></li>
+<li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+<li><div class="theme-switch"><span class="theme-switch__label">Тёмная</span><label class="switch"><input type="checkbox" id="themeToggleDesktop" aria-label="Тема"><span class="slider"></span></label></div></li>
+<li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--orange">Kwork</a></li>
+</ul></nav>
+<nav class="nav nav--mobile" id="navMobile"><ul class="nav__list">
+<li><a href="../index.html" class="nav__link">Главная</a></li><li><a href="../all.html" class="nav__link">Все проекты</a></li><li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+<li><div class="theme-switch"><span class="theme-switch__label">Тёмная</span><label class="switch"><input type="checkbox" id="themeToggleMobile"><span class="slider"></span></label></div></li>
+<li><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener noreferrer" class="btn btn--orange">Millerson на Kwork</a></li>
+</ul></nav>
+</div></header>
 
 <main class="main">
-    <div class="container">
+<div class="container">
+<nav aria-label="Хлебные крошки"><ol class="breadcrumb">
+<li><a href="../index.html">Главная</a></li><li class="sep">/</li>
+<li><a href="../all.html">Все проекты</a></li><li class="sep">/</li>
+<li aria-current="page">Финансовые калькуляторы</li>
+</ol></nav>
 
-        <!-- Breadcrumb for users -->
-        <nav aria-label="Хлебные крошки">
-            <ol style="display:flex;flex-wrap:wrap;gap:6px 4px;list-style:none;padding:0;margin:0 0 20px;font-size:0.88rem;color:var(--text-secondary);">
-                <li><a href="../index.html" style="color:var(--accent);">Главная</a></li>
-                <li style="opacity:0.4;">/</li>
-                <li><a href="../all.html" style="color:var(--accent);">Все проекты</a></li>
-                <li style="opacity:0.4;">/</li>
-                <li aria-current="page">Финансовые калькуляторы</li>
-            </ol>
-        </nav>
+<h1 class="main__title">Финансовые <span class="highlight">калькуляторы</span></h1>
+<p class="main__description">27 бесплатных инструментов для личных финансов, инвестиций и бизнеса <span class="calc-count">27</span></p>
 
-        <a href="../all.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-            Назад к списку проектов
-        </a>
-
-        <h1 class="main__title">Финансовые калькуляторы <span class="calc-count">27</span></h1>
-        <p class="main__description">Бесплатные инструменты для расчёта кредитов, налогов, инвестиций и управления личными финансами</p>
-
-        <section class="seo-text" aria-label="Информация о калькуляторах">
-            <h2>Зачем нужны финансовые калькуляторы?</h2>
-            <p>Финансовые калькуляторы — незаменимые помощники для тех, кто хочет грамотно управлять деньгами. Вместо сложных формул вы мгновенно получаете результат и можете принимать взвешенные решения о кредитах, инвестициях, пенсии и ежедневных расходах.</p>
-
-            <h2>Что можно рассчитать</h2>
-            <ul>
-                <li><strong>Кредиты и займы</strong> — ежемесячный платёж, переплата, аннуитет и дифференциал</li>
-                <li><strong>Налоги</strong> — НДФЛ 13%/15%, зарплата нетто из гросс, вычеты</li>
-                <li><strong>Инвестиции</strong> — ROI, NPV, CAGR, сложные проценты, реальная доходность</li>
-                <li><strong>Пенсия и FIRE</strong> — нужный капитал, ежемесячный взнос, правило 4%</li>
-                <li><strong>Бизнес</strong> — маржа, наценка, точка безубыточности, Burn Rate стартапа</li>
-                <li><strong>Личный бюджет</strong> — планирование расходов, подписки, топливо, питание</li>
-                <li><strong>Недвижимость</strong> — Cap Rate, доходность аренды, окупаемость</li>
-            </ul>
-
-            <h2>Преимущества наших инструментов</h2>
-            <ul>
-                <li><strong>Точность:</strong> расчёты по актуальным банковским и финансовым формулам</li>
-                <li><strong>Бесплатно:</strong> все калькуляторы полностью бесплатны и без регистрации</li>
-                <li><strong>Быстро:</strong> результат мгновенно обновляется при изменении параметров</li>
-                <li><strong>Удобно:</strong> тёмная тема, адаптив для мобильных, копирование результатов</li>
-            </ul>
-        </section>
-
-        <div class="projects-grid" role="list" aria-label="Список финансовых калькуляторов">
-
-            <!-- 1. Кредитный калькулятор -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4M16 15h2"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Кредиты</span>
-                    <h3>Кредитный калькулятор</h3>
-                    <p>Рассчитайте ежемесячный платёж, переплату и график погашения с учётом первоначального взноса и комиссии банка.</p>
-                    <a href="credit.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 2. НДФЛ -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><line x1="9" y1="9" x2="11" y2="9"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Налоги</span>
-                    <h3>Калькулятор НДФЛ</h3>
-                    <p>Рассчитайте налог 13%, 15% или 30% от дохода, узнайте сумму на руки или необходимый доход «гросс».</p>
-                    <a href="ndfl.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 3. Накопления -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Накопления</span>
-                    <h3>Калькулятор накоплений</h3>
-                    <p>Рассчитайте итоговую сумму накоплений с учётом ежемесячных пополнений и процентной ставки.</p>
-                    <a href="savings.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 4. Сложные проценты -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Инвестиции</span>
-                    <h3>Калькулятор сложных процентов</h3>
-                    <p>Узнайте, как растут инвестиции с учётом капитализации за любой период.</p>
-                    <a href="compound-interest.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 5. Инфляция -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Инфляция</span>
-                    <h3>Калькулятор инфляции</h3>
-                    <p>Рассчитайте, как обесцениваются деньги и какова их реальная покупательная способность через годы.</p>
-                    <a href="inflation.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 6. ROI -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Инвестиции</span>
-                    <h3>Калькулятор ROI</h3>
-                    <p>Рассчитайте рентабельность инвестиций (ROI) и аннуализированную доходность.</p>
-                    <a href="roi.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 7. Зарплата -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Налоги</span>
-                    <h3>Калькулятор зарплаты</h3>
-                    <p>Рассчитайте зарплату на руки (нетто) из гросс с учётом НДФЛ и страховых взносов.</p>
-                    <a href="salary.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 8. FIRE -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2c0 6-6 8-6 14a6 6 0 0 0 12 0c0-6-6-8-6-14z"/><path d="M12 12c0 3-2 4.5-2 7a2 2 0 0 0 4 0c0-2.5-2-4-2-7z"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">FIRE</span>
-                    <h3>Калькулятор FIRE</h3>
-                    <p>Рассчитайте целевой капитал и срок достижения финансовой независимости по стратегии FIRE.</p>
-                    <a href="fire.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 9. NPV -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Инвестиции</span>
-                    <h3>Калькулятор NPV</h3>
-                    <p>Рассчитайте чистую приведённую стоимость инвестиционного проекта по периодам.</p>
-                    <a href="npv.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 10. Маржа -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Бизнес</span>
-                    <h3>Калькулятор маржи</h3>
-                    <p>Рассчитайте маржу, наценку и прибыль с единицы товара или услуги.</p>
-                    <a href="margin.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 11. Точка безубыточности -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><polyline points="5 9 12 2 19 9"/><polyline points="5 15 12 22 19 15"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Бизнес</span>
-                    <h3>Точка безубыточности</h3>
-                    <p>Найдите объём продаж, при котором бизнес покрывает все расходы и выходит в ноль.</p>
-                    <a href="breakeven.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 12. Дивиденды -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Инвестиции</span>
-                    <h3>Калькулятор дивидендов</h3>
-                    <p>Рассчитайте дивидендный доход, доходность и налог с дивидендов по акциям.</p>
-                    <a href="dividends.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 13. Бюджет -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Бюджет</span>
-                    <h3>Калькулятор бюджета</h3>
-                    <p>Планируйте личный и семейный бюджет: введите доходы и расходы, узнайте остаток.</p>
-                    <a href="budget.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 14. Пенсия -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Пенсия</span>
-                    <h3>Калькулятор пенсии</h3>
-                    <p>Рассчитайте, сколько откладывать каждый месяц для желаемой пенсии с учётом инфляции.</p>
-                    <a href="pension.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 15. CAGR -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Инвестиции</span>
-                    <h3>Калькулятор CAGR</h3>
-                    <p>Рассчитайте среднегодовой темп роста (CAGR) для инвестиций или бизнес-показателей.</p>
-                    <a href="cagr.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 16. Финансовая подушка -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Накопления</span>
-                    <h3>Финансовая подушка</h3>
-                    <p>Узнайте оптимальный размер резервного фонда и срок его накопления.</p>
-                    <a href="emergency-fund.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 17. Будущая стоимость -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Инвестиции</span>
-                    <h3>Калькулятор будущей стоимости</h3>
-                    <p>Рассчитайте FV: сколько будет стоить сумма в будущем с учётом процентов и взносов.</p>
-                    <a href="future-value.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 18. Реальная доходность -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Инвестиции</span>
-                    <h3>Реальная доходность</h3>
-                    <p>Рассчитайте реальную доходность инвестиций с поправкой на инфляцию по формуле Фишера.</p>
-                    <a href="real-return.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 19. Обмен валют -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Валюты</span>
-                    <h3>Калькулятор обмена валют</h3>
-                    <p>Конвертируйте рубли, доллары, евро и юани по заданному курсу с учётом комиссии.</p>
-                    <a href="currency.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 20. Ставка фрилансера -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Фриланс</span>
-                    <h3>Ставка фрилансера</h3>
-                    <p>Рассчитайте оптимальную почасовую ставку с учётом расходов, налогов и желаемого дохода.</p>
-                    <a href="freelance-rate.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 21. Почасовая в годовую -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 15 15"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Зарплата</span>
-                    <h3>Почасовая в годовую</h3>
-                    <p>Переведите почасовую ставку в месячный и годовой эквивалент с учётом рабочих часов.</p>
-                    <a href="hourly-to-annual.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 22. Burn Rate -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Стартап</span>
-                    <h3>Калькулятор Burn Rate</h3>
-                    <p>Рассчитайте Burn Rate и Runway стартапа: сколько месяцев хватит текущего финансирования.</p>
-                    <a href="burn-rate.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 23. Правило 4% -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">FIRE</span>
-                    <h3>Правило 4%</h3>
-                    <p>Рассчитайте нужный портфель по правилу 4% для жизни на пассивный доход.</p>
-                    <a href="rule-4-percent.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 24. Расходы на топливо -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M3 22V10a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12"/><path d="M17 5v4h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/><path d="M7 9V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4"/><line x1="3" y1="22" x2="21" y2="22"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Бюджет</span>
-                    <h3>Расходы на топливо</h3>
-                    <p>Рассчитайте стоимость поездки и ежемесячные расходы на бензин.</p>
-                    <a href="fuel-cost.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 25. Бюджет на еду -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Бюджет</span>
-                    <h3>Бюджет на питание</h3>
-                    <p>Рассчитайте ежемесячный бюджет на питание для семьи с учётом кафе и доставки.</p>
-                    <a href="food-budget.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 26. Подписки -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Бюджет</span>
-                    <h3>Калькулятор подписок</h3>
-                    <p>Подсчитайте суммарные расходы на все подписки и найдите ненужные траты.</p>
-                    <a href="subscriptions.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-            <!-- 27. Cap Rate -->
-            <article class="project-card" role="listitem">
-                <div class="project-preview" aria-hidden="true">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="card-category">Недвижимость</span>
-                    <h3>Калькулятор Cap Rate</h3>
-                    <p>Рассчитайте ставку капитализации и доходность от сдачи недвижимости в аренду.</p>
-                    <a href="cap-rate.html" class="btn btn--primary project-link">Перейти</a>
-                </div>
-            </article>
-
-        </div>
-
-        <div style="margin:20px 0 40px;text-align:center;">
-            <p style="font-size:1.1rem;margin-bottom:15px;"><strong>Другие разделы:</strong></p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-                <a href="../mathematics.html" class="btn btn--secondary">Математические калькуляторы</a>
-                <a href="../algebra/algebra.html" class="btn btn--secondary">Алгебра</a>
-                <a href="../all.html" class="btn btn--secondary">Все проекты</a>
-            </div>
-        </div>
-
-    </div>
-</main>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer__content">
-            <p>&#169; 2026 Millerson Company</p>
-            <p>Все расчёты носят информационный характер и не являются публичной офертой.</p>
-            <p><a href="/privacy.html">Политика конфиденциальности</a></p>
-        </div>
-    </div>
-</footer>
-
-<script>
-(function () {
-    var td = document.getElementById('themeToggleDesktop');
-    var tm = document.getElementById('themeToggleMobile');
-    var saved = localStorage.getItem('theme');
-
-    function setTheme(dark) {
-        document.body.classList.toggle('dark-theme', dark);
-        localStorage.setItem('theme', dark ? 'dark' : 'light');
-        if (td) td.checked = dark;
-        if (tm) tm.checked = dark;
-    }
-
-    setTheme(saved === 'dark');
-
-    if (td) td.addEventListener('change', function (e) { setTheme(e.target.checked); });
-    if (tm) tm.addEventListener('change', function (e) { setTheme(e.target.checked); });
-
-    var burger = document.getElementById('burgerBtn');
-    var nav = document.getElementById('navMobile');
-
-    function closeMenu() {
-        nav.classList.remove('active');
-        burger.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    burger.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var isOpen = nav.classList.toggle('active');
-        burger.classList.toggle('active', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    nav.querySelectorAll('.nav__link, .btn').forEach(function (el) {
-        el.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('click', function (e) {
-        if (!nav.contains(e.target) && !burger.contains(e.target)) {
-            closeMenu();
-        }
-    });
-}());
-</script>
-
-<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;" role="dialog" aria-label="Уведомление о cookies" aria-live="polite">
-    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">
-        <div style="flex:1 1 300px;font-size:14px;line-height:1.5;">
-            Мы используем файлы cookie и сервисы аналитики (включая Яндекс.Метрику) для улучшения работы сайта.
-            Продолжая использование, вы соглашаетесь с <a href="/privacy.html" style="color:#ff8c00;text-decoration:underline;">Политикой конфиденциальности</a>.
-        </div>
-        <button id="acceptCookies" style="background:#ff8c00;border:none;color:#000;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;">Принять</button>
-    </div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;">
+<button class="btn btn--primary" onclick="filterCat('Все',this)">Все</button>
+<button class="btn btn--secondary" onclick="filterCat('Кредиты',this)">Кредиты</button>
+<button class="btn btn--secondary" onclick="filterCat('Налоги',this)">Налоги</button>
+<button class="btn btn--secondary" onclick="filterCat('Инвестиции',this)">Инвестиции</button>
+<button class="btn btn--secondary" onclick="filterCat('Планирование',this)">Планирование</button>
+<button class="btn btn--secondary" onclick="filterCat('Бизнес',this)">Бизнес</button>
+<button class="btn btn--secondary" onclick="filterCat('Карьера',this)">Карьера</button>
+<button class="btn btn--secondary" onclick="filterCat('Быт',this)">Быт</button>
+<button class="btn btn--secondary" onclick="filterCat('Недвижимость',this)">Недвижимость</button>
+<button class="btn btn--secondary" onclick="filterCat('Валюты',this)">Валюты</button>
+<button class="btn btn--secondary" onclick="filterCat('Сбережения',this)">Сбережения</button>
 </div>
 
-<script>
-(function () {
-    var banner = document.getElementById('cookieBanner');
-    var btn = document.getElementById('acceptCookies');
-    if (!localStorage.getItem('cookieAccepted')) {
-        banner.style.display = 'block';
-    }
-    btn.addEventListener('click', function () {
-        localStorage.setItem('cookieAccepted', 'true');
-        banner.style.display = 'none';
-    });
-}());
-</script>
+<div class="projects-grid" id="calcGrid">
 
-</body>
-</html>
+<article class="project-card" data-cat="Кредиты">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4M16 15h2"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Кредиты</span>
+    <h3>Кредитный калькулятор</h3>
+    <p>Аннуитет и дифференциал, переплата, график погашения</p>
+    <a href="credit.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Налоги">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Налоги</span>
+    <h3>НДФЛ 2025–2026</h3>
+    <p>Прогрессивная шкала, вычеты, гросс и нетто</p>
+    <a href="ndfl.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Валюты">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Валюты</span>
+    <h3>Обмен валют</h3>
+    <p>Актуальные курсы, комиссия, RUB USD EUR CNY</p>
+    <a href="currency.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Сбережения">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Сбережения</span>
+    <h3>Накопления</h3>
+    <p>Вклад, депозит, капитализация, пополнение</p>
+    <a href="savings.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Инвестиции">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Инвестиции</span>
+    <h3>Сложные проценты</h3>
+    <p>Рост инвестиций, магия реинвестирования</p>
+    <a href="compound-interest.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Планирование">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Планирование</span>
+    <h3>Инфляция</h3>
+    <p>Покупательная способность, обесценивание денег</p>
+    <a href="inflation.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Инвестиции">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Инвестиции</span>
+    <h3>ROI</h3>
+    <p>Рентабельность инвестиций, годовой ROI</p>
+    <a href="roi.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Налоги">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Налоги</span>
+    <h3>Зарплата</h3>
+    <p>Гросс → нетто, страховые взносы 2025</p>
+    <a href="salary.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Планирование">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c0 6-6 8-6 14a6 6 0 0 0 12 0c0-6-6-8-6-14z"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Планирование</span>
+    <h3>FIRE</h3>
+    <p>Финансовая независимость и ранний выход на пенсию</p>
+    <a href="fire.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Инвестиции">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Инвестиции</span>
+    <h3>NPV и IRR</h3>
+    <p>Чистая приведённая стоимость инвестиционного проекта</p>
+    <a href="npv.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Бизнес">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Бизнес</span>
+    <h3>Маржа и наценка</h3>
+    <p>Маржинальность, прибыль с товара, конвертация</p>
+    <a href="margin.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Бизнес">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="2" x2="12" y2="22"/><polyline points="5 9 12 2 19 9"/><polyline points="5 15 12 22 19 15"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Бизнес</span>
+    <h3>Точка безубыточности</h3>
+    <p>BEP в единицах и рублях, операционный рычаг</p>
+    <a href="breakeven.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Инвестиции">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Инвестиции</span>
+    <h3>Дивиденды</h3>
+    <p>Доходность, налог, DRIP реинвестирование</p>
+    <a href="dividends.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Планирование">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Планирование</span>
+    <h3>Личный бюджет</h3>
+    <p>Доходы, расходы, правило 50/30/20</p>
+    <a href="budget.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Планирование">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Планирование</span>
+    <h3>Пенсия</h3>
+    <p>Сколько откладывать для желаемой пенсии</p>
+    <a href="pension.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Инвестиции">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Инвестиции</span>
+    <h3>CAGR</h3>
+    <p>Среднегодовой темп роста инвестиций</p>
+    <a href="cagr.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Планирование">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Планирование</span>
+    <h3>Резервный фонд</h3>
+    <p>Подушка безопасности, срок накопления</p>
+    <a href="emergency-fund.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Инвестиции">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Инвестиции</span>
+    <h3>Будущая стоимость (FV)</h3>
+    <p>Сколько вырастет капитал с учётом процентов</p>
+    <a href="future-value.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Инвестиции">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Инвестиции</span>
+    <h3>Реальная доходность</h3>
+    <p>Формула Фишера, доходность минус инфляция</p>
+    <a href="real-return.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Карьера">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Карьера</span>
+    <h3>Ставка фрилансера</h3>
+    <p>Минимальная почасовая ставка, налоги, расходы</p>
+    <a href="freelance-rate.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Карьера">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Карьера</span>
+    <h3>Почасовая → Годовая</h3>
+    <p>Конвертер ставки в годовую и месячную зарплату</p>
+    <a href="hourly-to-annual.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Бизнес">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c0 6-6 8-6 14a6 6 0 0 0 12 0c0-6-6-8-6-14z"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Бизнес</span>
+    <h3>Burn Rate</h3>
+    <p>Скорость сжигания, Runway стартапа</p>
+    <a href="burn-rate.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Планирование">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Планирование</span>
+    <h3>Правило 4%</h3>
+    <p>Безопасная ставка изъятия, пенсионный портфель</p>
+    <a href="rule-4-percent.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Быт">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 22v-7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v7"/><path d="M3 11V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Быт</span>
+    <h3>Расход топлива</h3>
+    <p>Стоимость поездки, бака, ежемесячные затраты</p>
+    <a href="fuel-cost.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Быт">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Быт</span>
+    <h3>Бюджет на еду</h3>
+    <p>Расходы на питание, продукты, рестораны</p>
+    <a href="food-budget.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Быт">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Быт</span>
+    <h3>Подписки</h3>
+    <p>Суммарные расходы на сервисы и подписки</p>
+    <a href="subscriptions.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+
+<article class="project-card" data-cat="Недвижимость">
+  <div class="project-preview">
+    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+  </div>
+  <div class="project-info">
+    <span class="card-category">Недвижимость</span>
+    <h3>Cap Rate</h3>
+    <p>Ставка капитализации недвижимости, NOI, CoCR</p>
+    <a href="cap-rate.html" class="btn btn--primary project-link">Открыть</a>
+  </div>
+</article>
+</div>
+
+<section class="seo-text">
+<h2>27 финансовых калькуляторов от Millerson Company</h2>
+<p>Millerson Finance — бесплатная коллекция онлайн-инструментов для расчёта кредитов, налогов, инвестиций, бюджета и пенсии. Все калькуляторы работают прямо в браузере без регистрации и подписки.</p>
+
+<h2>Кредитные и долговые калькуляторы</h2>
+<p>Кредитный калькулятор позволяет рассчитать аннуитетный и дифференцированный платёж, полную стоимость кредита и детальный график погашения. Введите сумму, ставку и срок — результат готов за секунду.</p>
+
+<h2>Налоговые калькуляторы</h2>
+<p>Калькулятор НДФЛ 2025–2026 учитывает новую прогрессивную шкалу (13%, 15%, 18%, 20%, 22%), стандартные и социальные вычеты, расчёт зарплаты нетто из гросс. Калькулятор зарплаты показывает страховые взносы работодателя и полную стоимость сотрудника.</p>
+
+<h2>Инвестиционные калькуляторы</h2>
+<p>Для инвесторов доступны: ROI (рентабельность инвестиций), CAGR (среднегодовой темп роста), NPV (чистая приведённая стоимость), IRR, будущая стоимость (FV), реальная доходность по формуле Фишера, калькулятор дивидендов с DRIP и сложные проценты.</p>
+
+<h2>Пенсионные и FIRE калькуляторы</h2>
+<p>Калькулятор FIRE рассчитывает необходимый капитал и срок достижения финансовой независимости. Правило 4% показывает безопасную ставку изъятия для пенсионного портфеля. Пенсионный калькулятор учитывает реальную доходность и инфляцию.</p>
+
+<h2>Бизнес-калькуляторы</h2>
+<p>Маржа и наценка: конвертация, расчёт цены из желаемой маржи. Точка безубыточности (BEP) в единицах и рублях, операционный рычаг. Burn Rate и Runway для стартапов. Cap Rate для инвестиций в недвижимость.</p>
+
+<h2>Калькуляторы для фрилансеров</h2>
+<p>Ставка фрилансера помогает рассчитать минимальную почасовую ставку с учётом налогов, взносов ИП и расходов. Конвертер почасовой ставки в годовую зарплату позволяет сравнивать предложения.</p>
+
+<h2>Бытовые калькуляторы</h2>
+<p>Бюджет на еду, трекер подписок, расход топлива — помогают контролировать ежедневные расходы. Резервный фонд показывает, сколько нужно в подушке безопасности и как быстро её накопить.</p>
+</section>
+
+<section class="faq-section">
+<h2>Частые вопросы</h2>
+<div class="faq-item"><div class="faq-question">Все ли калькуляторы бесплатны?</div>
+<div class="faq-answer">Да, все 27 калькуляторов абсолютно бесплатны, без регистрации, без рекламных попапов. Просто открывайте и считайте.</div></div>
+<div class="faq-item"><div class="faq-question">Как работает конвертер валют?</div>
+<div class="faq-answer">Используется бесплатный API Fawaz Ahmed Currency (jsDelivr CDN) — реальные рыночные курсы, обновляются ежедневно. Нет интернета — введите курс вручную.</div></div>
+<div class="faq-item"><div class="faq-question">Точны ли расчёты?</div>
+<div class="faq-answer">Расчёты основаны на стандартных финансовых формулах. Результаты носят информационный характер — для принятия финансовых решений проконсультируйтесь со специалистом.</div></div>
+<div class="faq-item"><div class="faq-question">Сохраняются ли данные?</div>
+<div class="faq-answer">Нет. Все данные обрабатываются только в вашем браузере и никуда не передаются. Ни один сервер не получает ваши финансовые данные.</div></div>
+</section>
+
+</div>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer__content">
+<p>&#169; 2026 Millerson Company. Все расчёты носят информационный характер.</p>
+<p><a href="/privacy.html">Политика конфиденциальности</a> &middot; <a href="../all.html">Все проекты</a></p>
+</div></div></footer>
+
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#0d1f10;color:#f0fdf4;padding:18px;z-index:9999;display:none;">
+<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+<div style="flex:1 1 280px;font-size:13px;line-height:1.5;">Мы используем cookies и Яндекс.Метрику. <a href="/privacy.html" style="color:#22c55e;">Политика конфиденциальности</a>.</div>
+<button id="acceptCookies" style="background:#22c55e;border:none;color:#000;padding:9px 20px;font-weight:700;border-radius:8px;cursor:pointer;">Принять</button>
+</div></div>
+
+<script src="particles.js"></script>
+<script>
+function filterCat(cat, btn) {
+  document.querySelectorAll('.projects-grid article').forEach(function(el) {
+    el.style.display = (cat === 'Все' || el.dataset.cat === cat) ? '' : 'none';
+  });
+  document.querySelectorAll('[onclick^="filterCat"]').forEach(function(b) {
+    b.classList.remove('btn--primary');
+    b.classList.add('btn--secondary');
+  });
+  btn.classList.remove('btn--secondary');
+  btn.classList.add('btn--primary');
+}
+</script>
+</body></html>
