@@ -77,7 +77,7 @@
         var thematicItem = document.createElement('li');
         thematicItem.innerHTML =
             '<div class="sidebar__switch">' +
-                '<span><i class="fas fa-palette"></i> Тематическая тема</span>' +
+                '<span><i class="fas fa-leaf"></i> Финансовая тема</span>' +
                 '<label class="switch"><input type="checkbox" id="thematicToggleDesktop"><span class="slider"></span></label>' +
             '</div>';
         sidebarList.appendChild(thematicItem);
@@ -114,7 +114,7 @@
 
         var mobileThematicLi = document.createElement('li');
         mobileThematicLi.innerHTML =
-            '<div class="theme-switch"><span class="theme-switch__label">Тематическая тема</span>' +
+            '<div class="theme-switch"><span class="theme-switch__label">Финансовая тема</span>' +
             '<label class="switch"><input type="checkbox" id="thematicToggleMobile"><span class="slider"></span></label></div>';
         mobileUl.appendChild(mobileThematicLi);
 
@@ -139,8 +139,13 @@
     var savedTheme = localStorage.getItem('theme');
 
     function setTheme(checked) {
-        if (checked) { document.body.classList.add('dark-theme'); }
-        else { document.body.classList.remove('dark-theme'); }
+        if (checked) {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+        } else {
+            document.body.classList.remove('dark-theme');
+            document.body.classList.remove('light-theme');
+        }
         localStorage.setItem('theme', checked ? 'dark' : 'light');
         if (themeToggleDesktop) themeToggleDesktop.checked = checked;
         if (themeToggleMobile) themeToggleMobile.checked = checked;

@@ -1,8 +1,5 @@
-
-
 (function () {
 'use strict';
-
 
 var progressBar = document.querySelector('.scroll-progress');
 if (progressBar) {
@@ -12,48 +9,6 @@ if (progressBar) {
         progressBar.style.width = height > 0 ? (scrollTop / height * 100) + '%' : '0%';
     }, { passive: true });
 }
-
-
-var td = document.getElementById('themeToggleDesktop');
-var tm = document.getElementById('themeToggleMobile');
-var saved = localStorage.getItem('theme');
-
-function setTheme(dark) {
-    document.body.classList.toggle('dark-theme', dark);
-    document.body.classList.toggle('light-theme', !dark);
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
-    if (td) td.checked = dark;
-    if (tm) tm.checked = dark;
-}
-
-setTheme(saved === 'dark');
-if (td) td.addEventListener('change', function (e) { setTheme(e.target.checked); });
-if (tm) tm.addEventListener('change', function (e) { setTheme(e.target.checked); });
-
-
-var burger = document.getElementById('burgerBtn');
-var navMobile = document.getElementById('navMobile');
-
-if (burger && navMobile) {
-    function closeMenu() {
-        navMobile.classList.remove('active');
-        burger.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    burger.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var isOpen = navMobile.classList.toggle('active');
-        burger.classList.toggle('active', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    navMobile.querySelectorAll('.nav__link, .btn').forEach(function (el) {
-        el.addEventListener('click', closeMenu);
-    });
-    document.addEventListener('click', function (e) {
-        if (!navMobile.contains(e.target) && !burger.contains(e.target)) closeMenu();
-    });
-}
-
 
 var banner = document.getElementById('cookieBanner');
 var acceptBtn = document.getElementById('acceptCookies');
@@ -65,7 +20,6 @@ if (banner && acceptBtn) {
     });
 }
 
-
 document.querySelectorAll('.faq-question').forEach(function (q) {
     q.addEventListener('click', function () {
         var item = q.parentElement;
@@ -74,7 +28,6 @@ document.querySelectorAll('.faq-question').forEach(function (q) {
         if (!wasOpen) item.classList.add('open');
     });
 });
-
 
 var canvas = document.createElement('canvas');
 canvas.id = 'moneyCanvas';
@@ -148,7 +101,6 @@ function animate() {
 }
 animate();
 
-
 document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
         var target = document.getElementById(btn.dataset.copy);
@@ -160,7 +112,6 @@ document.querySelectorAll('[data-copy]').forEach(function (btn) {
         });
     });
 });
-
 
 window.animateValue = function (el, start, end, duration, fmt) {
     if (!el) return;

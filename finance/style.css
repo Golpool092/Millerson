@@ -11,6 +11,7 @@
     --accent-r: 255; --accent-g: 107; --accent-b: 53;
     --orange: #f97316;
     --orange-hover: #ea6c0a;
+    --orange-r: 249; --orange-g: 115; --orange-b: 22;
     --bg-color: #f5f7fa;
     --surface: rgba(255,255,255,0.75);
     --surface-solid: #ffffff;
@@ -35,6 +36,9 @@
     --accent-light: #22c55e;
     --accent-r: 22; --accent-g: 163; --accent-b: 74;
     --bg-color: #f0fdf4;
+    --orange: #059669;
+    --orange-hover: #047857;
+    --orange-r: 5; --orange-g: 150; --orange-b: 105;
     --result-bg: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
 }
 
@@ -72,6 +76,9 @@
     --primary: #0a0f0c;
     --secondary: #111a13;
     --result-bg: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+    --orange: #34d399;
+    --orange-hover: #10b981;
+    --orange-r: 52; --orange-g: 211; --orange-b: 153;
 }
 
 html, body { overflow-x: hidden; width: 100%; }
@@ -94,7 +101,7 @@ body {
     opacity: 0.4;
 }
 
-body > *:not(#moneyCanvas) { position: relative; z-index: 1; }
+body > *:not(#moneyCanvas):not(.sidebar):not(.sidebar-overlay):not(.header):not(.scroll-progress):not(#back-to-top) { position: relative; z-index: 1; }
 
 .scroll-progress {
     position: fixed; top: 0; left: 0;
@@ -544,7 +551,7 @@ input:checked + .slider::before { transform: translateY(-50%) translateX(20px); 
 .result-item__note { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
 
 .result-item.orange .result-item__value { color: var(--orange); }
-.result-item.orange { border-color: rgba(249,115,22,0.2); background: rgba(249,115,22,0.05); }
+.result-item.orange { border-color: rgba(var(--orange-r),var(--orange-g),var(--orange-b),0.2); background: rgba(var(--orange-r),var(--orange-g),var(--orange-b),0.05); }
 
 .table-wrap { overflow-x: auto; border-radius: 14px; margin-top: 20px; border: 1.5px solid var(--border); }
 table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
@@ -693,7 +700,7 @@ tbody tr:hover { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b
     line-height: 1.5;
 }
 .note--green { background: rgba(22,163,74,0.08); border-left: 3px solid var(--accent); color: var(--text-primary); }
-.note--orange { background: rgba(249,115,22,0.08); border-left: 3px solid var(--orange); color: var(--text-primary); }
+.note--orange { background: rgba(var(--orange-r),var(--orange-g),var(--orange-b),0.08); border-left: 3px solid var(--orange); color: var(--text-primary); }
 .note--info { background: rgba(14,165,233,0.08); border-left: 3px solid #0ea5e9; color: var(--text-primary); }
 
 .footer {
