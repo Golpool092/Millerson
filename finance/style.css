@@ -59,18 +59,18 @@
     --accent-hover: #16a34a;
     --accent-light: #4ade80;
     --accent-r: 34; --accent-g: 197; --accent-b: 94;
-    --bg-color: #061a0c;
-    --surface: rgba(15,30,18,0.85);
-    --surface-solid: #0d1f10;
-    --text-primary: #f0fdf4;
-    --text-secondary: #86efac;
-    --border: rgba(34,197,94,0.12);
-    --glass-border: rgba(34,197,94,0.12);
-    --card-bg: rgba(13,30,16,0.98);
-    --faq-bg: rgba(13,30,16,0.7);
-    --burger-color: #f0fdf4;
-    --primary: #061a0c;
-    --secondary: #0a2210;
+    --bg-color: #0a0f0c;
+    --surface: rgba(20,28,22,0.88);
+    --surface-solid: #141c16;
+    --text-primary: #e8f5ec;
+    --text-secondary: #b0bfb4;
+    --border: rgba(34,197,94,0.18);
+    --glass-border: rgba(34,197,94,0.18);
+    --card-bg: rgba(18,26,20,0.98);
+    --faq-bg: rgba(18,26,20,0.7);
+    --burger-color: #e8f5ec;
+    --primary: #0a0f0c;
+    --secondary: #111a13;
     --result-bg: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
 }
 

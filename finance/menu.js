@@ -78,7 +78,7 @@
         thematicItem.innerHTML =
             '<div class="sidebar__switch">' +
                 '<span><i class="fas fa-palette"></i> Тематическая тема</span>' +
-                '<label class="switch"><input type="checkbox" id="thematicToggleDesktop" checked><span class="slider"></span></label>' +
+                '<label class="switch"><input type="checkbox" id="thematicToggleDesktop"><span class="slider"></span></label>' +
             '</div>';
         sidebarList.appendChild(thematicItem);
 
@@ -115,7 +115,7 @@
         var mobileThematicLi = document.createElement('li');
         mobileThematicLi.innerHTML =
             '<div class="theme-switch"><span class="theme-switch__label">Тематическая тема</span>' +
-            '<label class="switch"><input type="checkbox" id="thematicToggleMobile" checked><span class="slider"></span></label></div>';
+            '<label class="switch"><input type="checkbox" id="thematicToggleMobile"><span class="slider"></span></label></div>';
         mobileUl.appendChild(mobileThematicLi);
 
         var mobileSupportLi = document.createElement('li');
@@ -162,7 +162,7 @@
         if (thematicMobile) thematicMobile.checked = checked;
     }
 
-    if (savedThematic !== 'off') { setThematic(true); } else { setThematic(false); }
+    if (savedThematic === 'on') { setThematic(true); } else { setThematic(false); }
     if (thematicDesktop) thematicDesktop.addEventListener('change', function(e) { setThematic(e.target.checked); });
     if (thematicMobile) thematicMobile.addEventListener('change', function(e) { setThematic(e.target.checked); });
 
