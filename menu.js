@@ -31,7 +31,8 @@
             { href: 'index.html', text: 'Главная' },
             { href: 'all.html', text: 'Все проекты' },
             { href: 'about.html', text: 'О компании' },
-            { href: 'contacts.html', text: 'Контакты' }
+            { href: 'contacts.html', text: 'Контакты' },
+            { href: 'shop/shop.html', text: 'Shop' }
         ];
         pages.forEach(p => {
             const li = document.createElement('li');
