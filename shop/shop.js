@@ -1,20 +1,44 @@
-(function() {
-    var cards = document.querySelectorAll('.sh-card, .sh-imp-card, .sh-step');
-    if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = entry.target.classList.contains('sh-step') ? 'none' : 'translateY(0)';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        cards.forEach(function(card) {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, box-shadow 0.2s';
-            observer.observe(card);
+document.addEventListener('DOMContentLoaded', function() {
+    var scrollProgress = document.querySelector('.scroll-progress');
+    var backToTop = document.getElementById('back-to-top');
+    
+    if (scrollProgress) {
+        window.addEventListener('scroll', function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            scrollProgress.style.width = (height > 0 ? (winScroll / height) * 100 : 0) + '%';
         });
     }
-})();
+    
+    if (backToTop) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+        var question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', function() {
+                var isActive = item.classList.contains('active');
+                faqItems.forEach(function(other) { other.classList.remove('active'); });
+                if (!isActive) item.classList.add('active');
+            });
+        }
+    });
+    
+    var cookieBanner = document.getElementById('cookieBanner');
+    var acceptBtn = document.getElementById('acceptCookies');
+    if (cookieBanner && acceptBtn) {
+        if (!localStorage.getItem('cookieAccepted')) cookieBanner.style.display = 'block';
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieAccepted', 'true');
+            cookieBanner.style.display = 'none';
+        });
+    }
+});
