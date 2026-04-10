@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
+Disallow: /google*.html
+Disallow: /yandex*.html
+
+User-agent: Yandex
+Allow: /
+Disallow: /google*.html
+Disallow: /yandex*.html
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
+
+User-agent: Googlebot
+Allow: /
+Disallow: /google*.html
+Disallow: /yandex*.html
+
 Sitemap: https://millerson.shop/sitemap.xml
 Host: https://millerson.shop
