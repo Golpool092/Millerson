@@ -1,11 +1,9 @@
-/* =============================================
-   MILLERSON FINANCE — MONEY PARTICLES + MENU
-   ============================================= */
+
 
 (function () {
 'use strict';
 
-/* ====== SCROLL PROGRESS ====== */
+
 var progressBar = document.querySelector('.scroll-progress');
 if (progressBar) {
     window.addEventListener('scroll', function () {
@@ -15,7 +13,7 @@ if (progressBar) {
     }, { passive: true });
 }
 
-/* ====== THEME ====== */
+
 var td = document.getElementById('themeToggleDesktop');
 var tm = document.getElementById('themeToggleMobile');
 var saved = localStorage.getItem('theme');
@@ -32,7 +30,7 @@ setTheme(saved === 'dark');
 if (td) td.addEventListener('change', function (e) { setTheme(e.target.checked); });
 if (tm) tm.addEventListener('change', function (e) { setTheme(e.target.checked); });
 
-/* ====== BURGER MENU ====== */
+
 var burger = document.getElementById('burgerBtn');
 var navMobile = document.getElementById('navMobile');
 
@@ -56,7 +54,7 @@ if (burger && navMobile) {
     });
 }
 
-/* ====== COOKIE BANNER ====== */
+
 var banner = document.getElementById('cookieBanner');
 var acceptBtn = document.getElementById('acceptCookies');
 if (banner && acceptBtn) {
@@ -67,7 +65,7 @@ if (banner && acceptBtn) {
     });
 }
 
-/* ====== FAQ ACCORDION ====== */
+
 document.querySelectorAll('.faq-question').forEach(function (q) {
     q.addEventListener('click', function () {
         var item = q.parentElement;
@@ -77,7 +75,7 @@ document.querySelectorAll('.faq-question').forEach(function (q) {
     });
 });
 
-/* ====== MONEY PARTICLES ====== */
+
 var canvas = document.createElement('canvas');
 canvas.id = 'moneyCanvas';
 document.body.insertBefore(canvas, document.body.firstChild);
@@ -150,7 +148,7 @@ function animate() {
 }
 animate();
 
-/* ====== COPY TO CLIPBOARD ====== */
+
 document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
         var target = document.getElementById(btn.dataset.copy);
@@ -163,7 +161,7 @@ document.querySelectorAll('[data-copy]').forEach(function (btn) {
     });
 });
 
-/* ====== ANIMATE RESULT NUMBERS ====== */
+
 window.animateValue = function (el, start, end, duration, fmt) {
     if (!el) return;
     var range = end - start;
