@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATELIER NORD — Портфолио арт-директора</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+*:focus,*:focus-visible{outline:none}
+button,a,input,textarea{outline:none!important;-webkit-tap-highlight-color:transparent}
+button::-moz-focus-inner{border:0}
+
+[data-theme="light"]{
+--paper:#f1ede2;
+--paper2:#e8e2d2;
+--paper3:#dcd4be;
+--ink:#0e0e0e;
+--ink2:#2a2823;
+--ink3:#5a574e;
+--ink4:#88857a;
+--line:#0e0e0e1a;
+--line2:#0e0e0e33;
+--card:#f7f4ea;
+--accent:#ff4a1f;
+--accent2:#e63d15;
+--mustard:#c8932a;
+--olive:#3a4a26;
+--shadow:0 6px 0 0 #0e0e0e;
+}
+[data-theme="dark"]{
+--paper:#141310;
+--paper2:#1c1a16;
+--paper3:#26241e;
+--ink:#f1ede2;
+--ink2:#d4d0c4;
+--ink3:#9a9688;
+--ink4:#6a665a;
+--line:#f1ede21f;
+--line2:#f1ede233;
+--card:#1c1a16;
+--accent:#ff5e36;
+--accent2:#ff7a52;
+--mustard:#e8b347;
+--olive:#7a9650;
+--shadow:0 6px 0 0 #f1ede2;
+}
+
+html{scroll-behavior:smooth}
+body{
+background:var(--paper);color:var(--ink);
+font-family:'Archivo',sans-serif;
+overflow-x:hidden;line-height:1.55;
+transition:background 0.4s,color 0.4s;
+}
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:var(--ink);border:2px solid var(--paper)}
+
+/* === GRAIN === */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.06;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+[data-theme="dark"] .grain{mix-blend-mode:screen;opacity:.08}
+
+/* === NAV === */
+nav{
+position:fixed;top:0;left:0;right:0;z-index:1000;
+background:var(--paper);
+border-bottom:1.5px solid var(--ink);
+display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+padding:0.85rem 1.6rem;
+transition:background 0.4s,border-color 0.4s;
+}
+.nav-l{display:flex;align-items:center;gap:1.4rem}
+.nav-mark{
+display:flex;align-items:center;gap:0.55rem;
+font-family:'Fraunces',serif;font-weight:900;font-size:1.15rem;
+color:var(--ink);text-decoration:none;letter-spacing:-0.01em;
+}
+.nav-mark .mk{
+width:26px;height:26px;border-radius:50%;background:var(--accent);
+display:flex;align-items:center;justify-content:center;
+color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:700;
+}
+.nav-mono{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase}
+.nav-c{display:flex;gap:0.4rem;align-items:center;justify-content:center}
+.nav-c a{
+font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+color:var(--ink2);text-decoration:none;
+padding:0.45rem 0.85rem;border:1px solid transparent;border-radius:99px;
+text-transform:uppercase;letter-spacing:0.06em;font-weight:500;
+transition:background 0.2s,color 0.2s,border-color 0.2s;
+}
+.nav-c a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-r{display:flex;align-items:center;gap:0.5rem;justify-content:flex-end}
+.icon-btn{
+width:36px;height:36px;border-radius:50%;
+background:transparent;border:1.5px solid var(--ink);
+cursor:pointer;display:flex;align-items:center;justify-content:center;
+color:var(--ink);transition:background 0.2s,color 0.2s;
+}
+.icon-btn:hover{background:var(--ink);color:var(--paper)}
+.nav-cta{
+display:inline-flex;align-items:center;gap:0.5rem;
+padding:0.55rem 1.05rem;
+background:var(--accent);border:1.5px solid var(--ink);border-radius:99px;
+color:#fff;font-family:'JetBrains Mono',monospace;
+font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+text-decoration:none;cursor:pointer;
+position:relative;
+animation:pulseAcc 3s ease-in-out infinite;
+}
+.nav-cta:hover{background:var(--accent2)}
+@keyframes pulseAcc{
+0%,100%{box-shadow:0 0 0 0 rgba(255,74,31,0.45),3px 3px 0 0 var(--ink)}
+50%{box-shadow:0 0 0 7px rgba(255,74,31,0),3px 3px 0 0 var(--ink)}
+}
+.burger{
+display:none;width:36px;height:36px;border:1.5px solid var(--ink);
+background:transparent;border-radius:50%;cursor:pointer;
+flex-direction:column;align-items:center;justify-content:center;gap:4px;
+}
+.burger span{display:block;width:14px;height:1.6px;background:var(--ink);transition:transform 0.3s,opacity 0.3s}
+.burger.open span:nth-child(1){transform:translateY(5.6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-5.6px) rotate(-45deg)}
+
+.mob-menu{
+display:flex;flex-direction:column;
+position:fixed;top:62px;left:0;right:0;bottom:0;
+background:var(--paper);
+z-index:999;visibility:hidden;opacity:0;
+transition:opacity 0.3s,visibility 0.3s;
+padding:2rem 1.6rem;
+}
+.mob-menu.open{visibility:visible;opacity:1}
+.mob-menu a.mlink{
+font-family:'Fraunces',serif;font-weight:700;font-size:2.2rem;
+color:var(--ink);text-decoration:none;
+padding:1rem 0;border-bottom:1px solid var(--line);
+display:flex;align-items:center;justify-content:space-between;
+}
+.mob-menu a.mlink span.idx{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--ink4);font-weight:500}
+.mob-bot{margin-top:auto;padding-top:1.5rem;display:flex;flex-direction:column;gap:0.8rem}
+.mob-theme{
+display:flex;align-items:center;justify-content:space-between;gap:0.6rem;
+padding:0.85rem 1.2rem;
+border:1.5px solid var(--ink);background:transparent;cursor:pointer;color:var(--ink);
+font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+border-radius:99px;
+}
+
+/* === HERO === */
+.hero{
+position:relative;padding:8rem 1.6rem 3rem;
+border-bottom:1.5px solid var(--ink);
+overflow:hidden;
+}
+.hero-meta-top{
+display:flex;justify-content:space-between;align-items:center;
+font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:var(--ink3);
+letter-spacing:0.12em;text-transform:uppercase;
+margin-bottom:2.5rem;
+padding-bottom:1.2rem;border-bottom:1px dashed var(--line2);
+}
+.hero-meta-top span b{color:var(--ink);font-weight:700}
+.hero-grid{
+display:grid;grid-template-columns:1fr 280px;gap:3rem;align-items:end;
+}
+.hero-title{
+font-family:'Fraunces',serif;
+font-weight:900;
+font-size:clamp(3.4rem,11vw,11rem);
+line-height:0.88;letter-spacing:-0.045em;
+color:var(--ink);
+}
+.hero-title .it{font-style:italic;font-weight:700;color:var(--accent)}
+.hero-title .ofs{display:block;padding-left:14%}
+.hero-title .ul{display:inline-block;border-bottom:5px solid var(--accent);padding-bottom:0.05em}
+.hero-side{
+display:flex;flex-direction:column;gap:1.4rem;
+padding-bottom:1rem;
+}
+.hero-side p{font-size:0.94rem;color:var(--ink2);line-height:1.65;font-weight:400}
+.hero-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.htag{
+padding:0.35rem 0.8rem;border:1.5px solid var(--ink);border-radius:99px;
+font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+text-transform:uppercase;letter-spacing:0.08em;color:var(--ink);font-weight:600;
+}
+.hero-arrow{
+display:inline-flex;align-items:center;gap:0.6rem;
+padding:0.85rem 1.4rem;background:var(--ink);color:var(--paper);
+font-family:'JetBrains Mono',monospace;font-size:0.74rem;font-weight:700;
+text-transform:uppercase;letter-spacing:0.1em;text-decoration:none;
+border-radius:99px;align-self:flex-start;
+transition:transform 0.2s;
+}
+.hero-arrow:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 0 var(--accent)}
+
+/* === MARQUEE === */
+.mq{
+overflow:hidden;background:var(--ink);color:var(--paper);
+border-bottom:1.5px solid var(--ink);
+padding:0.95rem 0;
+}
+.mq-row{display:flex;width:max-content;animation:mqa 40s linear infinite;align-items:center}
+.mq-row span{font-family:'Fraunces',serif;font-weight:700;font-size:1.85rem;padding:0 1.5rem;letter-spacing:-0.01em;white-space:nowrap}
+.mq-row span.it{font-style:italic;color:var(--accent)}
+.mq-row .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex-shrink:0;margin:0 0.6rem}
+@keyframes mqa{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* === SEC === */
+section{position:relative}
+.sec{padding:5rem 1.6rem;border-bottom:1.5px solid var(--ink)}
+.sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:end;margin-bottom:3rem;padding-bottom:1.2rem;border-bottom:1px dashed var(--line2)}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--accent);font-weight:700;letter-spacing:0.12em;text-transform:uppercase}
+.sec-h{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2rem,4.5vw,3.4rem);line-height:0.95;color:var(--ink);letter-spacing:-0.03em;max-width:780px}
+.sec-h i{font-style:italic;color:var(--accent)}
+.sec-side{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase;text-align:right}
+
+/* === ABOUT === */
+.about{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem}
+.about-l p{font-family:'Fraunces',serif;font-weight:400;font-size:1.5rem;line-height:1.4;color:var(--ink);margin-bottom:1.2rem;letter-spacing:-0.01em}
+.about-l p i{color:var(--accent);font-style:italic;font-weight:600}
+.about-l .signature{
+margin-top:2.2rem;font-family:'Fraunces',serif;font-style:italic;font-weight:700;
+font-size:2.2rem;color:var(--ink);transform:rotate(-2deg);display:inline-block;
+border-bottom:2px solid var(--accent);padding:0.1rem 0.4rem;
+}
+.about-r{display:flex;flex-direction:column;gap:1rem}
+.fact{
+display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:center;
+padding:1.4rem 1.6rem;border:1.5px solid var(--ink);background:var(--card);
+border-radius:6px;
+}
+.fact-n{font-family:'Fraunces',serif;font-weight:900;font-size:3.2rem;line-height:1;color:var(--ink);letter-spacing:-0.04em}
+.fact-n sup{font-size:1.2rem;color:var(--accent);vertical-align:super}
+.fact-info b{display:block;font-size:0.86rem;color:var(--ink);font-weight:700;margin-bottom:0.18rem}
+.fact-info span{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase}
+
+/* === SERVICES === */
+.serv-bg{background:var(--paper2)}
+.serv-list{display:flex;flex-direction:column}
+.serv-row{
+display:grid;grid-template-columns:60px 1fr 2fr auto;gap:2rem;
+padding:1.8rem 0;border-bottom:1px dashed var(--line2);
+align-items:center;cursor:default;
+transition:padding 0.3s;
+}
+.serv-row:hover{padding-left:1rem}
+.serv-row:last-child{border-bottom:none}
+.serv-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink4);font-weight:600}
+.serv-name{font-family:'Fraunces',serif;font-weight:700;font-size:1.85rem;color:var(--ink);line-height:1.1;letter-spacing:-0.02em}
+.serv-name i{font-style:italic;color:var(--accent);font-weight:700}
+.serv-desc{font-size:0.92rem;color:var(--ink2);line-height:1.6;font-weight:400}
+.serv-arr{
+width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);
+display:flex;align-items:center;justify-content:center;color:var(--ink);
+transition:background 0.2s,color 0.2s,transform 0.2s;
+}
+.serv-row:hover .serv-arr{background:var(--accent);color:#fff;border-color:var(--accent);transform:rotate(-45deg)}
+
+/* === WORKS === */
+.works{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+.wk{
+border:1.5px solid var(--ink);background:var(--card);border-radius:6px;
+overflow:hidden;display:flex;flex-direction:column;
+transition:transform 0.3s,box-shadow 0.3s;
+}
+.wk:hover{transform:translate(-4px,-4px);box-shadow:4px 4px 0 0 var(--ink)}
+.wk-img{height:240px;display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--ink);position:relative;overflow:hidden}
+.wk-bg-1{background:linear-gradient(135deg,#ff4a1f 0%,#ff7a52 100%)}
+.wk-bg-2{background:#2a3a18}
+.wk-bg-3{background:#c8932a}
+.wk-bg-4{background:#0e0e0e}
+.wk-bg-5{background:#dcd4be}
+.wk-bg-6{background:#3a4a26}
+.wk-img svg{opacity:0.9}
+.wk-img .ovh{position:absolute;top:0.8rem;right:0.8rem;display:inline-flex;align-items:center;gap:0.3rem;padding:0.3rem 0.7rem;background:#fff;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:0.08em}
+.wk-img .ovh.dk{background:#0e0e0e;color:#f1ede2}
+.wk-info{padding:1.3rem;flex:1;display:flex;flex-direction:column;gap:0.6rem}
+.wk-cat{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.1em}
+.wk-name{font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;color:var(--ink);line-height:1.2;letter-spacing:-0.015em}
+.wk-meta{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:var(--ink3);margin-top:auto;padding-top:0.4rem;display:flex;justify-content:space-between;border-top:1px dashed var(--line2)}
+
+.wk-w7{grid-column:span 7}
+.wk-w5{grid-column:span 5}
+.wk-w4{grid-column:span 4}
+.wk-w8{grid-column:span 8}
+.wk-w6{grid-column:span 6}
+
+/* === SHOP === */
+.shop-wrap{padding:5rem 1.6rem;border-bottom:1.5px solid var(--ink);background:var(--ink);color:var(--paper)}
+.shop-card{
+max-width:920px;margin:0 auto;text-align:center;
+position:relative;padding:3rem 1rem;
+}
+.shop-mono{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--accent);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:0.6rem}
+.shop-mono::before,.shop-mono::after{content:'';width:30px;height:1px;background:var(--accent)}
+.shop-h{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.4rem,6vw,4.2rem);line-height:0.95;letter-spacing:-0.035em;margin-bottom:1.4rem}
+.shop-h i{font-style:italic;color:var(--accent)}
+.shop-p{font-size:1.05rem;color:#dcd4be;max-width:540px;margin:0 auto 2.4rem;line-height:1.6}
+.shop-cta{
+display:inline-flex;align-items:center;gap:0.7rem;
+padding:1.1rem 2.4rem;background:var(--accent);color:#fff;
+font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:700;
+letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;
+border-radius:99px;border:2px solid var(--accent);
+animation:shopPulse 3s ease-in-out infinite;
+transition:transform 0.2s,background 0.2s;
+}
+.shop-cta:hover{transform:translateY(-3px);background:var(--accent2);border-color:var(--accent2)}
+@keyframes shopPulse{
+0%,100%{box-shadow:0 0 0 0 rgba(255,74,31,0.45)}
+50%{box-shadow:0 0 0 14px rgba(255,74,31,0)}
+}
+.shop-rt{margin-top:1.5rem;display:flex;justify-content:center;align-items:center;gap:0.4rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#dcd4be}
+.shop-rt .st{color:var(--mustard);font-size:0.85rem;letter-spacing:0.08em}
+
+/* === PROCESS === */
+.proc-bg{background:var(--paper2)}
+.proc-list{display:flex;flex-direction:column;gap:1.5rem}
+.proc-row{
+display:grid;grid-template-columns:80px 1fr 2.5fr;gap:2rem;align-items:start;
+padding:1.6rem;border:1.5px solid var(--ink);background:var(--card);border-radius:6px;
+position:relative;
+}
+.proc-step{font-family:'Fraunces',serif;font-weight:900;font-size:3rem;line-height:1;color:var(--accent);letter-spacing:-0.04em}
+.proc-name{font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;color:var(--ink);line-height:1.2;letter-spacing:-0.015em;margin-bottom:0.5rem}
+.proc-time{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase}
+.proc-desc{font-size:0.9rem;color:var(--ink2);line-height:1.65}
+
+/* === CLIENTS LOGOS === */
+.clients-bg{background:var(--paper)}
+.clients-row{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1.5px solid var(--ink);border-radius:6px;overflow:hidden}
+.cl{
+padding:2rem 1rem;text-align:center;
+border-right:1.5px solid var(--ink);
+font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:var(--ink);
+letter-spacing:-0.02em;
+transition:background 0.2s,color 0.2s;
+display:flex;align-items:center;justify-content:center;
+}
+.cl:last-child{border-right:none}
+.cl:hover{background:var(--ink);color:var(--accent)}
+.cl i{font-style:italic;color:var(--accent)}
+
+/* === REVIEWS PLACEHOLDER === */
+.rev-bg{background:var(--paper2)}
+.rev-card{
+border:1.5px solid var(--ink);background:var(--card);border-radius:6px;
+padding:4rem 2rem;text-align:center;max-width:680px;margin:0 auto;
+position:relative;
+}
+.rev-card::before{
+content:'×';position:absolute;top:-26px;left:50%;transform:translateX(-50%);
+width:52px;height:52px;border-radius:50%;background:var(--accent);
+color:#fff;font-family:'Fraunces',serif;font-size:2rem;font-weight:900;
+display:flex;align-items:center;justify-content:center;
+border:1.5px solid var(--ink);
+}
+.rev-mono{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--accent);font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:1rem;margin-top:0.5rem}
+.rev-h{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2rem,4.5vw,2.8rem);color:var(--ink);line-height:1;letter-spacing:-0.03em;margin-bottom:1rem}
+.rev-h i{font-style:italic;color:var(--accent)}
+.rev-p{font-size:0.95rem;color:var(--ink2);line-height:1.65;max-width:440px;margin:0 auto 1.8rem}
+.rev-link{
+display:inline-flex;align-items:center;gap:0.5rem;
+padding:0.85rem 1.8rem;background:var(--ink);color:var(--paper);
+font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;
+letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;
+border-radius:99px;
+transition:transform 0.2s;
+}
+.rev-link:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--accent)}
+
+/* === CONTACT === */
+.cont{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem}
+.cont-l h3{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.2rem,4vw,3rem);line-height:1;color:var(--ink);letter-spacing:-0.03em;margin-bottom:1rem}
+.cont-l h3 i{font-style:italic;color:var(--accent)}
+.cont-l p{font-size:1rem;color:var(--ink2);line-height:1.65;margin-bottom:2rem;max-width:380px}
+.cont-info{display:flex;flex-direction:column;gap:0.7rem}
+.cont-info a{
+display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;
+border:1.5px solid var(--ink);background:var(--card);border-radius:6px;
+text-decoration:none;color:var(--ink);
+transition:transform 0.2s;
+}
+.cont-info a:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--accent)}
+.cont-info .lbl{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase}
+.cont-info .val{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);letter-spacing:-0.01em}
+
+.cont-form{
+border:1.5px solid var(--ink);background:var(--card);border-radius:6px;padding:2.2rem;
+}
+.fg{margin-bottom:1.1rem}
+.fg label{display:block;font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;font-weight:600}
+.fg input,.fg textarea{
+width:100%;padding:0.85rem 1rem;
+background:var(--paper);border:1.5px solid var(--ink);border-radius:4px;
+color:var(--ink);font-family:'Archivo',sans-serif;font-size:0.95rem;
+font-weight:500;
+transition:background 0.2s,box-shadow 0.2s;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--ink4);font-weight:400}
+.fg input:focus,.fg textarea:focus{background:var(--paper2);box-shadow:3px 3px 0 0 var(--accent)}
+.fg textarea{resize:none;min-height:110px;font-family:'Archivo',sans-serif}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
+.fsub{
+width:100%;padding:1rem;background:var(--accent);color:#fff;
+font-family:'JetBrains Mono',monospace;font-size:0.8rem;font-weight:700;
+letter-spacing:0.1em;text-transform:uppercase;
+border:1.5px solid var(--ink);border-radius:99px;cursor:pointer;
+transition:transform 0.2s,background 0.2s;
+}
+.fsub:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--ink);background:var(--accent2)}
+
+/* === FOOTER === */
+footer{background:var(--ink);color:var(--paper);padding:3.5rem 1.6rem 1.5rem}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;padding-bottom:2.5rem;border-bottom:1px dashed #f1ede233}
+.foot-brand .b-mark{font-family:'Fraunces',serif;font-weight:900;font-size:1.6rem;letter-spacing:-0.02em;display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem}
+.foot-brand .b-mark .mk{width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:#fff}
+.foot-brand p{font-size:0.86rem;color:#dcd4be;line-height:1.6;max-width:280px}
+.fcol h5{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;font-weight:700}
+.fcol ul{list-style:none}
+.fcol li{margin-bottom:0.55rem}
+.fcol a{font-size:0.9rem;color:#dcd4be;text-decoration:none;transition:color 0.2s}
+.fcol a:hover{color:#fff}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem}
+.fcp{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#88857a;letter-spacing:0.06em}
+.fsoc{display:flex;gap:0.4rem}
+.fsoc a{
+width:34px;height:34px;border-radius:50%;border:1.5px solid #f1ede233;
+display:flex;align-items:center;justify-content:center;
+font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#dcd4be;font-weight:700;
+text-decoration:none;transition:background 0.2s,color 0.2s,border-color 0.2s;
+}
+.fsoc a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* === ANIM === */
+@keyframes fup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.r{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease}
+.r.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:0.05s}.d2{transition-delay:0.1s}.d3{transition-delay:0.15s}
+.d4{transition-delay:0.2s}.d5{transition-delay:0.25s}.d6{transition-delay:0.3s}
+
+/* === MODAL === */
+.modal-bd{
+position:fixed;inset:0;z-index:2000;
+background:rgba(14,14,14,0.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+display:flex;align-items:center;justify-content:center;padding:1.5rem;
+opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s;
+}
+.modal-bd.open{opacity:1;visibility:visible}
+.modal-box{
+background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;
+padding:3rem 2.4rem;max-width:460px;width:100%;text-align:center;
+box-shadow:8px 8px 0 0 var(--accent);
+transform:scale(0.92) translateY(14px);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+position:relative;
+}
+.modal-bd.open .modal-box{transform:scale(1) translateY(0)}
+.modal-icon{
+width:64px;height:64px;border-radius:50%;background:var(--accent);
+display:flex;align-items:center;justify-content:center;color:#fff;
+margin:0 auto 1.4rem;border:1.5px solid var(--ink);
+animation:modalPulse 2s ease-in-out infinite;
+}
+@keyframes modalPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,74,31,0.45)}50%{box-shadow:0 0 0 12px rgba(255,74,31,0)}}
+.modal-mono{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:0.85rem}
+.modal-h{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;line-height:1;color:var(--ink);letter-spacing:-0.03em;margin-bottom:0.85rem}
+.modal-h i{font-style:italic;color:var(--accent)}
+.modal-p{font-size:0.92rem;color:var(--ink2);line-height:1.6;margin-bottom:1.8rem;max-width:340px;margin-left:auto;margin-right:auto}
+.modal-btn{
+display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2rem;
+background:var(--ink);color:var(--paper);
+font-family:'JetBrains Mono',monospace;font-size:0.74rem;font-weight:700;
+letter-spacing:0.1em;text-transform:uppercase;
+border:1.5px solid var(--ink);border-radius:99px;cursor:pointer;
+transition:transform 0.2s;
+}
+.modal-btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--accent)}
+
+/* === RESPONSIVE === */
+@media(max-width:1100px){
+.hero-grid,.about,.cont{grid-template-columns:1fr}
+.hero-side{padding-bottom:0}
+.works{grid-template-columns:repeat(6,1fr)}
+.wk-w7,.wk-w5,.wk-w4,.wk-w8,.wk-w6{grid-column:span 6}
+.clients-row{grid-template-columns:repeat(3,1fr)}
+.cl:nth-child(3){border-right:none}
+.cl:nth-child(n+4){border-top:1.5px solid var(--ink)}
+.foot-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+nav{grid-template-columns:1fr auto;padding:0.7rem 1.1rem}
+.nav-c{display:none}
+.nav-r .icon-btn,.nav-r .nav-cta{display:none}
+.burger{display:flex}
+.hero{padding:7rem 1.1rem 2.5rem}
+.hero-meta-top{flex-direction:column;align-items:flex-start;gap:0.6rem}
+.sec{padding:3.5rem 1.1rem}
+.sec-head{grid-template-columns:1fr;gap:1rem}
+.sec-side{text-align:left}
+.serv-row{grid-template-columns:1fr;gap:0.7rem}
+.serv-arr{justify-self:end}
+.works{grid-template-columns:1fr;gap:1rem}
+.wk-w7,.wk-w5,.wk-w4,.wk-w8,.wk-w6{grid-column:span 1}
+.proc-row{grid-template-columns:1fr;gap:0.6rem}
+.clients-row{grid-template-columns:repeat(2,1fr)}
+.cl{border-right:1.5px solid var(--ink) !important}
+.cl:nth-child(2n){border-right:none !important}
+.cl:nth-child(n+3){border-top:1.5px solid var(--ink)}
+.frow{grid-template-columns:1fr}
+.foot-top{grid-template-columns:1fr;gap:1.5rem}
+.foot-bot{flex-direction:column;gap:0.8rem}
+.shop-wrap{padding:3rem 1.1rem}
+.mq-row span{font-size:1.4rem;padding:0 1rem}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav id="nav">
+  <div class="nav-l">
+    <a href="#top" class="nav-mark"><span class="mk">A</span> ATELIER<span style="color:var(--accent)">.</span>NORD</a>
+    <span class="nav-mono">EST. 2017 / Stockholm</span>
+  </div>
+  <div class="nav-c">
+    <a href="#about">01 / Bio</a>
+    <a href="#services">02 / Practice</a>
+    <a href="#works">03 / Works</a>
+    <a href="#process">04 / Method</a>
+    <a href="#contact">05 / Contact</a>
+  </div>
+  <div class="nav-r">
+    <button class="icon-btn" id="theme-btn" title="Сменить тему" aria-label="Тема"></button>
+    <a href="https://millerson.shop/shop/portfolio.html" class="nav-cta">← Вернуться на главную</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="#about" class="mlink">Bio<span class="idx">01</span></a>
+  <a href="#services" class="mlink">Practice<span class="idx">02</span></a>
+  <a href="#works" class="mlink">Works<span class="idx">03</span></a>
+  <a href="#process" class="mlink">Method<span class="idx">04</span></a>
+  <a href="#contact" class="mlink">Contact<span class="idx">05</span></a>
+  <div class="mob-bot">
+    <button class="mob-theme" id="mob-theme"><span id="mob-theme-lbl">Тёмная тема</span><span style="font-size:1rem">◐</span></button>
+    <a href="https://millerson.shop/shop/portfolio.html" class="nav-cta" style="justify-content:center">← Вернуться на главную</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-meta-top">
+    <span>Issue №<b>014</b> — Spring / Summer 2026</span>
+    <span>Stockholm <b>59°N</b> · 18°E — <b>04:21</b> CET</span>
+  </div>
+  <div class="hero-grid">
+    <h1 class="hero-title">
+      <span class="ofs">Independent</span><br>
+      <span class="it">art-direction</span><br>
+      <span class="ofs">& <span class="ul">visual</span> craft</span>
+    </h1>
+    <div class="hero-side">
+      <p>Atelier Nord — независимая студия Линнеи Сёдерберг, работающая на стыке арт-дирекшена, типографики и редакционного дизайна с 2017 года.</p>
+      <div class="hero-tags">
+        <span class="htag">Editorial</span>
+        <span class="htag">Identity</span>
+        <span class="htag">Print</span>
+        <span class="htag">Typography</span>
+      </div>
+      <a href="#works" class="hero-arrow">Открыть работы →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-row">
+    <span>Editorial Design</span><div class="dot"></div>
+    <span class="it">Visual Identity</span><div class="dot"></div>
+    <span>Typography</span><div class="dot"></div>
+    <span class="it">Art Direction</span><div class="dot"></div>
+    <span>Print</span><div class="dot"></div>
+    <span class="it">Books & Magazines</span><div class="dot"></div>
+    <span>Posters</span><div class="dot"></div>
+    <span class="it">Packaging</span><div class="dot"></div>
+    <span>Editorial Design</span><div class="dot"></div>
+    <span class="it">Visual Identity</span><div class="dot"></div>
+    <span>Typography</span><div class="dot"></div>
+    <span class="it">Art Direction</span><div class="dot"></div>
+    <span>Print</span><div class="dot"></div>
+    <span class="it">Books & Magazines</span><div class="dot"></div>
+    <span>Posters</span><div class="dot"></div>
+    <span class="it">Packaging</span><div class="dot"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sec-head r">
+    <span class="sec-num">§ 01</span>
+    <h2 class="sec-h">Здравствуйте — я <i>Линнея Сёдерберг.</i> Художник-постановщик, типограф и редакционный дизайнер.</h2>
+    <span class="sec-side">Bio<br>About me</span>
+  </div>
+  <div class="about">
+    <div class="about-l r">
+      <p>Девять лет назад я ушла из крупного агентства, чтобы создавать <i>штучные вещи.</i> Журналы, обложки книг, фирменные стили и плакаты — всё, что можно подержать в руках.</p>
+      <p>Сегодня <i>Atelier Nord</i> — это маленькая студия из трёх человек. Мы работаем медленно, обдуманно и только над тем, что нам по-настоящему нравится.</p>
+      <span class="signature">— Linnea S.</span>
+    </div>
+    <div class="about-r r d2">
+      <div class="fact"><div class="fact-n">14<sup>+</sup></div><div class="fact-info"><b>Опубликованных книг</b><span>Издательства / Сотрудничество</span></div></div>
+      <div class="fact"><div class="fact-n">62</div><div class="fact-info"><b>Обложки журналов</b><span>Editorial / 2017—2026</span></div></div>
+      <div class="fact"><div class="fact-n">9</div><div class="fact-info"><b>Лет ремесла</b><span>Независимая практика</span></div></div>
+      <div class="fact"><div class="fact-n">3</div><div class="fact-info"><b>Награды Type Directors</b><span>TDC / 2021—2024</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec serv-bg" id="services">
+  <div class="sec-head r">
+    <span class="sec-num">§ 02</span>
+    <h2 class="sec-h">Чем я <i>занимаюсь</i> — пять направлений, в которых нахожу смысл.</h2>
+    <span class="sec-side">Practice<br>What I do</span>
+  </div>
+  <div class="serv-list">
+    <div class="serv-row r d1">
+      <div class="serv-num">— 01</div>
+      <div class="serv-name"><i>Editorial</i> design</div>
+      <div class="serv-desc">Вёрстка журналов, книг и каталогов. От сетки до выбора бумаги — каждый разворот спроектирован вручную.</div>
+      <div class="serv-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="serv-row r d2">
+      <div class="serv-num">— 02</div>
+      <div class="serv-name">Visual <i>identity</i></div>
+      <div class="serv-desc">Айдентика для культурных институций, рестораторов и независимых брендов. Без шаблонов — каждый знак рисуется с нуля.</div>
+      <div class="serv-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="serv-row r d3">
+      <div class="serv-num">— 03</div>
+      <div class="serv-name"><i>Typography</i> & lettering</div>
+      <div class="serv-desc">Заказная типографика, кастомные шрифты и леттеринг для обложек. Работаю с латиницей, кириллицей и греческим.</div>
+      <div class="serv-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="serv-row r d4">
+      <div class="serv-num">— 04</div>
+      <div class="serv-name">Art <i>direction</i></div>
+      <div class="serv-desc">Создание визуальной концепции для съёмок, рекламных кампаний и редакционных историй. Работаю с фотографами и иллюстраторами.</div>
+      <div class="serv-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+    <div class="serv-row r d5">
+      <div class="serv-num">— 05</div>
+      <div class="serv-name"><i>Posters</i> & print</div>
+      <div class="serv-desc">Афиши для театров, концертов и выставок. Пробные оттиски, шелкография, риз — люблю печать как процесс.</div>
+      <div class="serv-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="sec" id="works">
+  <div class="sec-head r">
+    <span class="sec-num">§ 03</span>
+    <h2 class="sec-h">Избранные <i>работы</i> — фрагмент архива за последние годы.</h2>
+    <span class="sec-side">Works<br>Selected, 2021—26</span>
+  </div>
+  <div class="works">
+    <div class="wk wk-w7 r d1">
+      <div class="wk-img wk-bg-1">
+        <span class="ovh">Cover · 2025</span>
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="#fff" stroke-width="2"><circle cx="60" cy="60" r="40"/><path d="M30 60h60M60 30v60"/></svg>
+      </div>
+      <div class="wk-info">
+        <span class="wk-cat">Editorial / Magazine</span>
+        <h3 class="wk-name">Norra Magasin — обложка №14, весенний выпуск</h3>
+        <div class="wk-meta"><span>Стокгольм</span><span>FW · 2025</span></div>
+      </div>
+    </div>
+    <div class="wk wk-w5 r d2">
+      <div class="wk-img wk-bg-2">
+        <span class="ovh dk">Identity</span>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="#c8932a" stroke-width="2"><path d="M20 80V20l60 60V20"/></svg>
+      </div>
+      <div class="wk-info">
+        <span class="wk-cat">Visual Identity</span>
+        <h3 class="wk-name">Restaurang Femte — фирменный стиль</h3>
+        <div class="wk-meta"><span>Готеборг</span><span>2024</span></div>
+      </div>
+    </div>
+    <div class="wk wk-w4 r d3">
+      <div class="wk-img wk-bg-3">
+        <span class="ovh">Book · 2024</span>
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#0e0e0e" stroke-width="2"><rect x="15" y="10" width="50" height="60" rx="2"/><path d="M40 10v60M25 25h10M25 35h10"/></svg>
+      </div>
+      <div class="wk-info">
+        <span class="wk-cat">Book Design</span>
+        <h3 class="wk-name">«Tystnaden» — монография художника Х. Линда</h3>
+        <div class="wk-meta"><span>Norstedts</span><span>2024</span></div>
+      </div>
+    </div>
+    <div class="wk wk-w4 r d4">
+      <div class="wk-img wk-bg-4">
+        <span class="ovh dk">Type</span>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="#ff4a1f" stroke-width="3"><path d="M20 80L50 20L80 80M30 60h40"/></svg>
+      </div>
+      <div class="wk-info">
+        <span class="wk-cat">Typography</span>
+        <h3 class="wk-name">Kungs Display — кастомный заголовочный шрифт</h3>
+        <div class="wk-meta"><span>Custom</span><span>2023</span></div>
+      </div>
+    </div>
+    <div class="wk wk-w4 r d5">
+      <div class="wk-img wk-bg-5">
+        <span class="ovh">Poster</span>
+        <svg width="90" height="90" viewBox="0 0 90 90" fill="none" stroke="#0e0e0e" stroke-width="2"><circle cx="45" cy="45" r="30"/><circle cx="45" cy="45" r="15"/></svg>
+      </div>
+      <div class="wk-info">
+        <span class="wk-cat">Poster · Theatre</span>
+        <h3 class="wk-name">Dramaten — серия афиш сезона 2023/24</h3>
+        <div class="wk-meta"><span>Театр</span><span>2023</span></div>
+      </div>
+    </div>
+    <div class="wk wk-w8 r d6">
+      <div class="wk-img wk-bg-6">
+        <span class="ovh dk">Identity · Big</span>
+        <svg width="140" height="140" viewBox="0 0 140 140" fill="none" stroke="#f1ede2" stroke-width="2"><path d="M30 30h80v80H30zM30 70h80M70 30v80"/></svg>
+      </div>
+      <div class="wk-info">
+        <span class="wk-cat">Brand Identity</span>
+        <h3 class="wk-name">Moderna Museet — обновление визуальной системы и навигации</h3>
+        <div class="wk-meta"><span>Stockholm Museum</span><span>2022</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<div class="shop-wrap">
+  <div class="shop-card">
+    <div class="shop-mono">millerson.shop</div>
+    <h2 class="shop-h">Полное портфолио<br>и <i>отзывы</i> — на основном сайте</h2>
+    <p class="shop-p">Этот сайт — лишь визитка. Все живые проекты, реальные кейсы и отзывы клиентов смотрите на millerson.shop</p>
+    <a href="https://millerson.shop" class="shop-cta" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      ПОЛНОЕ ПОРТФОЛИО И ОТЗЫВЫ — millerson.shop
+    </a>
+    <div class="shop-rt"><span class="st">★ ★ ★ ★ ★</span> 4.97 / 89 отзывов</div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="sec proc-bg" id="process">
+  <div class="sec-head r">
+    <span class="sec-num">§ 04</span>
+    <h2 class="sec-h">Как я <i>работаю</i> — четыре фазы вдумчивой практики.</h2>
+    <span class="sec-side">Method<br>Process</span>
+  </div>
+  <div class="proc-list">
+    <div class="proc-row r d1">
+      <div class="proc-step">01</div>
+      <div><div class="proc-name">Брифинг и <i style="color:var(--accent);font-style:italic">погружение</i></div><div class="proc-time">~ 1 неделя</div></div>
+      <div class="proc-desc">Длинный разговор. Изучаю предмет, контекст, аудиторию. Хожу в библиотеку, собираю мудборды, читаю историю вопроса.</div>
+    </div>
+    <div class="proc-row r d2">
+      <div class="proc-step">02</div>
+      <div><div class="proc-name">Концепция и <i style="color:var(--accent);font-style:italic">эскизы</i></div><div class="proc-time">~ 2 недели</div></div>
+      <div class="proc-desc">Скетчбук, бумага, карандаш. Несколько направлений, отбираем одно вместе. Только после этого открываю компьютер.</div>
+    </div>
+    <div class="proc-row r d3">
+      <div class="proc-step">03</div>
+      <div><div class="proc-name">Проработка и <i style="color:var(--accent);font-style:italic">детали</i></div><div class="proc-time">~ 3—5 недель</div></div>
+      <div class="proc-desc">Финальный дизайн с пробными отпечатками, типографическими тестами и согласованием каждой мелочи. Без спешки.</div>
+    </div>
+    <div class="proc-row r d4">
+      <div class="proc-step">04</div>
+      <div><div class="proc-name">Производство и <i style="color:var(--accent);font-style:italic">релиз</i></div><div class="proc-time">~ 1—2 недели</div></div>
+      <div class="proc-desc">Подготовка к печати, надзор за производством, цветопробы. Готовый объект — в ваших руках.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="sec clients-bg">
+  <div class="sec-head r">
+    <span class="sec-num">§ 05</span>
+    <h2 class="sec-h">Со мной работали <i>замечательные</i> люди и институции.</h2>
+    <span class="sec-side">Clients<br>Selected</span>
+  </div>
+  <div class="clients-row r">
+    <div class="cl">Norstedts</div>
+    <div class="cl"><i>Moderna</i></div>
+    <div class="cl">Dramaten</div>
+    <div class="cl"><i>Acne</i></div>
+    <div class="cl">Bonnier</div>
+    <div class="cl"><i>Hasselblad</i></div>
+  </div>
+</section>
+
+<!-- REVIEWS PLACEHOLDER -->
+<section class="sec rev-bg" id="reviews">
+  <div class="sec-head r">
+    <span class="sec-num">§ 06</span>
+    <h2 class="sec-h"><i>Отзывы</i> клиентов и партнёров.</h2>
+    <span class="sec-side">Reviews<br>Testimonials</span>
+  </div>
+  <div class="rev-card r">
+    <div class="rev-mono">Important note</div>
+    <h3 class="rev-h">У макета <i>не может быть</i> отзывов</h3>
+    <p class="rev-p">Это демонстрационный шаблон портфолио. Настоящие отзывы клиентов и партнёров вы найдёте на основном сайте.</p>
+    <a href="https://millerson.shop" target="_blank" class="rev-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Реальные отзывы — millerson.shop
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="sec-head r">
+    <span class="sec-num">§ 07</span>
+    <h2 class="sec-h">Напишите мне — <i>обсудим</i> ваш замысел.</h2>
+    <span class="sec-side">Contact<br>Get in touch</span>
+  </div>
+  <div class="cont">
+    <div class="cont-l r">
+      <h3>Beredd att <i>börja?</i></h3>
+      <p>Открыта для editorial-проектов, айдентики, книг и сотрудничества с фотографами. Отвечаю в течение двух рабочих дней.</p>
+      <div class="cont-info">
+        <a href="mailto:linnea@ateliernord.se">
+          <div><div class="lbl">Email</div><div class="val">linnea@ateliernord.se</div></div>
+        </a>
+        <a href="#">
+          <div><div class="lbl">Studio</div><div class="val">Hornsgatan 24, Stockholm</div></div>
+        </a>
+        <a href="https://millerson.shop" target="_blank">
+          <div><div class="lbl">Portfolio</div><div class="val">millerson.shop</div></div>
+        </a>
+      </div>
+    </div>
+    <form class="cont-form r d2" onsubmit="submitForm(event)">
+      <div class="frow">
+        <div class="fg"><label>Имя</label><input type="text" placeholder="Ваше имя"></div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="you@studio.com"></div>
+      </div>
+      <div class="fg"><label>Тип проекта</label><input type="text" placeholder="Журнал / Айдентика / Книга..."></div>
+      <div class="fg"><label>О проекте</label><textarea placeholder="Расскажите о замысле, сроках и ожиданиях"></textarea></div>
+      <button type="submit" class="fsub">Отправить заявку →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="b-mark"><span class="mk">A</span> ATELIER<span style="color:var(--accent)">.</span>NORD</div>
+      <p>Независимая студия арт-дирекшена и редакционного дизайна. Стокгольм, Швеция.</p>
+    </div>
+    <div class="fcol"><h5>Practice</h5><ul><li><a href="#services">Editorial</a></li><li><a href="#services">Identity</a></li><li><a href="#services">Typography</a></li><li><a href="#services">Posters</a></li></ul></div>
+    <div class="fcol"><h5>Studio</h5><ul><li><a href="#about">Bio</a></li><li><a href="#works">Works</a></li><li><a href="#process">Method</a></li><li><a href="https://millerson.shop" target="_blank">millerson.shop</a></li></ul></div>
+    <div class="fcol"><h5>Contact</h5><ul><li><a href="mailto:linnea@ateliernord.se">linnea@ateliernord.se</a></li><li><a href="#">Stockholm, SE</a></li></ul></div>
+  </div>
+  <div class="foot-bot">
+    <div class="fcp">© 2017—2026 Atelier Nord — All rights reserved</div>
+    <div class="fsoc"><a href="#">IG</a><a href="#">BĒ</a><a href="#">IS</a></div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-bd" id="mock-modal">
+  <div class="modal-box">
+    <div class="modal-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+    <div class="modal-mono">Демонстрация</div>
+    <h3 class="modal-h">Это <i>макет</i><br>для портфолио</h3>
+    <p class="modal-p">Форма заявки здесь не работает — это демонстрационный шаблон. Настоящие заявки принимаются на основном сайте.</p>
+    <button class="modal-btn" id="mock-close">Понятно →</button>
+  </div>
+</div>
+
+<script>
+(function(){
+const html=document.documentElement;
+const burger=document.getElementById('burger');
+const mobMenu=document.getElementById('mob-menu');
+const themeBtn=document.getElementById('theme-btn');
+const mobTheme=document.getElementById('mob-theme');
+const mobLbl=document.getElementById('mob-theme-lbl');
+
+const moonSVG='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+const sunSVG='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+
+let isLight=true;
+function setTheme(light){
+  isLight=light;
+  html.setAttribute('data-theme', light ? 'light' : 'dark');
+  themeBtn.innerHTML = light ? moonSVG : sunSVG;
+  mobLbl.textContent = light ? 'Тёмная тема' : 'Светлая тема';
+}
+setTheme(true);
+themeBtn.addEventListener('click', function(){ setTheme(!isLight) });
+mobTheme.addEventListener('click', function(){ setTheme(!isLight) });
+
+burger.addEventListener('click', function(){
+  const o=mobMenu.classList.toggle('open');
+  burger.classList.toggle('open', o);
+  document.body.style.overflow = o ? 'hidden' : '';
+});
+document.querySelectorAll('.mlink').forEach(function(l){
+  l.addEventListener('click', function(){
+    mobMenu.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+
+const obs=new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('in') });
+},{threshold:0.1});
+document.querySelectorAll('.r').forEach(function(el){ obs.observe(el) });
+
+const modal=document.getElementById('mock-modal');
+const modalClose=document.getElementById('mock-close');
+function openModal(){ modal.classList.add('open'); document.body.style.overflow='hidden' }
+function closeModal(){ modal.classList.remove('open'); document.body.style.overflow='' }
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', function(e){ if(e.target===modal) closeModal() });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeModal() });
+
+window.submitForm=function(e){ e.preventDefault(); openModal() };
+})();
+</script>
+</body>
+</html>

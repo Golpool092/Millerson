@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио Millerson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+*:focus{outline:none}
+*:focus-visible{outline:none}
+button,a,input,textarea,select{outline:none!important;-webkit-tap-highlight-color:transparent}
+button::-moz-focus-inner{border:0}
+
+[data-theme="dark"]{
+--bg:#07070e;
+--bg2:#0c0c1a;
+--bg3:#111122;
+--bg4:#181830;
+--border:#ffffff0f;
+--border2:#7c5cf520;
+--text:#f0ecff;
+--text2:#b8aee0;
+--text3:#6e659c;
+--card:#0f0f1e;
+--card2:#14142a;
+--acc:#6d42e8;
+--acc2:#8b5cf6;
+--acc3:#a78bfa;
+--gold:#c9993a;
+--gold2:#e8b84b;
+--teal:#0891b2;
+--teal2:#22c0d9;
+--red:#b02040;
+--inv:#f0ecff;
+--nav-bg:rgba(7,7,14,0.85);
+--stat-bg:#0c0c1a;
+}
+[data-theme="light"]{
+--bg:#f8f7ff;
+--bg2:#f0eeff;
+--bg3:#e8e4ff;
+--bg4:#ddd8ff;
+--border:#0000000d;
+--border2:#6d42e820;
+--text:#1a1630;
+--text2:#4a4270;
+--text3:#8880b0;
+--card:#ffffff;
+--card2:#f4f2ff;
+--acc:#6d42e8;
+--acc2:#7c52f5;
+--acc3:#9d75fa;
+--gold:#b8820a;
+--gold2:#d4a020;
+--teal:#0773a0;
+--teal2:#0994c8;
+--red:#a01830;
+--inv:#1a1630;
+--nav-bg:rgba(248,247,255,0.9);
+--stat-bg:#f0eeff;
+}
+
+html{scroll-behavior:smooth}
+body{
+background:var(--bg);color:var(--text);
+font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.65;
+transition:background 0.4s,color 0.4s;
+}
+::selection{background:rgba(109,66,232,0.25);color:var(--text)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--acc);border-radius:3px}
+#bg-c{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* === NAV === */
+nav{
+position:fixed;top:0;left:0;right:0;z-index:1000;
+height:64px;padding:0 2.5rem;
+display:flex;align-items:center;justify-content:space-between;
+background:var(--nav-bg);
+backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);
+transition:background 0.4s,height 0.3s,border-color 0.3s;
+}
+nav.scrolled{height:56px;border-color:var(--border2)}
+.nav-logo{
+font-family:'Cormorant Garamond',serif;
+font-size:1.55rem;font-weight:700;
+color:var(--text);text-decoration:none;
+letter-spacing:0.01em;
+}
+.nav-logo b{color:var(--acc2);font-weight:700}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{
+color:var(--text3);text-decoration:none;
+font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.theme-btn{
+width:34px;height:34px;border-radius:50%;
+background:transparent;border:1px solid var(--border2);
+cursor:pointer;display:flex;align-items:center;justify-content:center;
+transition:border-color 0.25s,background 0.25s;
+color:var(--text3);
+}
+.theme-btn:hover{border-color:var(--acc2);background:rgba(109,66,232,0.08);color:var(--acc3)}
+.nav-cta{
+display:inline-flex;align-items:center;gap:0.45rem;
+padding:0.45rem 1.1rem;
+border:1px solid var(--acc);border-radius:3px;
+color:var(--text2);background:transparent;
+font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+text-decoration:none;cursor:pointer;
+animation:ctaGlow 3s ease-in-out infinite;
+transition:background 0.2s,color 0.2s;
+white-space:nowrap;
+}
+.nav-cta:hover{background:rgba(109,66,232,0.12);color:var(--text)}
+@keyframes ctaGlow{
+0%,100%{box-shadow:0 0 6px rgba(109,66,232,0.3)}
+50%{box-shadow:0 0 16px rgba(109,66,232,0.6),0 0 30px rgba(109,66,232,0.15)}
+}
+.burger{
+display:none;flex-direction:column;justify-content:center;gap:4px;
+background:none;border:none;cursor:pointer;padding:6px;width:36px;height:36px;
+}
+.burger span{
+display:block;width:20px;height:1.5px;background:var(--text2);
+transition:transform 0.3s,opacity 0.3s;
+}
+.burger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+.mob-menu{
+display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;
+position:fixed;top:64px;left:0;right:0;bottom:0;
+background:var(--bg);
+z-index:999;visibility:hidden;opacity:0;
+transition:opacity 0.3s,visibility 0.3s;
+}
+.mob-menu.open{visibility:visible;opacity:1}
+.mob-menu a.mlink{
+font-family:'Cormorant Garamond',serif;
+font-size:2.4rem;font-weight:700;
+color:var(--text2);text-decoration:none;
+transition:color 0.2s;
+}
+.mob-menu a.mlink:hover{color:var(--text)}
+.mob-divider{width:40px;height:1px;background:var(--border2)}
+.mob-bottom{display:flex;flex-direction:column;align-items:center;gap:1rem;margin-top:0.5rem}
+.mob-theme{
+display:flex;align-items:center;gap:0.6rem;
+padding:0.5rem 1.2rem;
+border:1px solid var(--border2);border-radius:3px;
+background:transparent;cursor:pointer;color:var(--text3);
+font-size:0.78rem;font-weight:500;letter-spacing:0.08em;
+transition:border-color 0.2s,color 0.2s;
+}
+.mob-theme:hover{border-color:var(--acc2);color:var(--text)}
+
+/* === HERO === */
+.hero{
+position:relative;min-height:100vh;
+display:flex;align-items:center;justify-content:flex-start;
+z-index:1;padding:8rem 8% 5rem;
+overflow:hidden;
+}
+.hero-orb1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(109,66,232,0.1) 0%,transparent 65%);top:-200px;right:-100px;pointer-events:none;animation:orbf 18s ease-in-out infinite}
+.hero-orb2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(8,145,178,0.07) 0%,transparent 65%);bottom:-100px;left:10%;pointer-events:none;animation:orbf 14s ease-in-out infinite reverse}
+@keyframes orbf{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,15px)}}
+.hero-wrap{position:relative;z-index:2;max-width:720px}
+.hero-tag{
+display:inline-flex;align-items:center;gap:0.6rem;
+padding:0.35rem 0.9rem;
+border:1px solid var(--border2);border-radius:2px;
+font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+color:var(--text3);margin-bottom:2rem;
+animation:fup 0.8s ease both;
+}
+.hero-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--acc2);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-title{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(2.8rem,6vw,5.5rem);
+font-weight:700;line-height:1.07;letter-spacing:-0.01em;
+color:var(--text);margin-bottom:1.6rem;
+animation:fup 0.9s 0.08s ease both;
+}
+.hero-title i{font-style:italic;color:var(--acc3)}
+.hero-sub{
+font-size:1rem;color:var(--text3);max-width:500px;
+line-height:1.85;margin-bottom:2.5rem;font-weight:300;
+animation:fup 0.9s 0.16s ease both;
+}
+.hero-btns{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fup 0.9s 0.24s ease both}
+.btn-a{
+display:inline-flex;align-items:center;gap:0.5rem;
+padding:0.85rem 2rem;background:var(--acc);border:1px solid var(--acc);border-radius:3px;
+color:#fff;font-size:0.85rem;font-weight:600;letter-spacing:0.03em;
+text-decoration:none;transition:background 0.2s,box-shadow 0.2s,transform 0.2s;
+}
+.btn-a:hover{background:var(--acc2);box-shadow:0 8px 28px rgba(109,66,232,0.4);transform:translateY(-2px)}
+.btn-b{
+display:inline-flex;align-items:center;gap:0.5rem;
+padding:0.85rem 2rem;background:transparent;border:1px solid var(--border);border-radius:3px;
+color:var(--text2);font-size:0.85rem;font-weight:500;
+text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.2s;
+}
+.btn-b:hover{border-color:var(--border2);color:var(--text);transform:translateY(-2px)}
+.hero-meta{
+position:absolute;right:6%;bottom:40px;
+display:flex;flex-direction:column;gap:1.5rem;
+align-items:flex-end;z-index:2;
+animation:fup 1s 0.4s ease both;
+}
+.hero-m-item{text-align:right}
+.hero-m-num{font-family:'Space Mono',monospace;font-size:2rem;font-weight:700;color:var(--text);line-height:1}
+.hero-m-num sup{font-size:1rem;color:var(--acc2)}
+.hero-m-lbl{font-size:0.68rem;color:var(--text3);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.2rem}
+.hero-line{width:1px;height:36px;background:var(--border2);margin:0 auto}
+
+/* === DIVIDER === */
+.sec-div{
+height:1px;background:var(--border);
+max-width:100%;position:relative;z-index:1;
+}
+.sec-div::after{
+content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+width:6px;height:6px;border-radius:50%;background:var(--acc);
+box-shadow:0 0 10px rgba(109,66,232,0.6);
+}
+
+/* === TICKER === */
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.9rem 0;position:relative;z-index:1}
+.ticker-row{display:flex;width:max-content;animation:tick 38s linear infinite}
+.ticker-item{display:flex;align-items:center;gap:1.5rem;padding:0 2rem;font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--text3);white-space:nowrap}
+.tick-dot{width:3px;height:3px;border-radius:50%;background:var(--acc2)}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* === SECTION === */
+section{position:relative;z-index:1}
+.si{max-width:1240px;margin:0 auto;padding:5.5rem 2.5rem}
+.si-sm{max-width:1240px;margin:0 auto;padding:4.5rem 2.5rem}
+.slbl{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--acc2);margin-bottom:1rem}
+.slbl::before{content:'';display:block;width:20px;height:1px;background:var(--acc2)}
+.sh{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.2vw,2.7rem);font-weight:700;line-height:1.15;color:var(--text);margin-bottom:0.85rem}
+.sh i{font-style:italic;color:var(--text2)}
+.sdesc{font-size:0.9rem;color:var(--text3);line-height:1.85;max-width:480px;font-weight:300;margin-bottom:3rem}
+
+/* === ABOUT === */
+.about-g{display:grid;grid-template-columns:420px 1fr;gap:4rem;align-items:start}
+.acard{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.acard-top{padding:2.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1.5rem}
+.aavatar{width:72px;height:72px;border-radius:6px;background:var(--acc);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:#fff;flex-shrink:0}
+.aname{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--text);line-height:1.2}
+.arole{font-size:0.72rem;color:var(--text3);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.2rem}
+.acard-body{padding:2rem 2.5rem;font-size:0.87rem;color:var(--text3);line-height:1.85;font-weight:300;border-bottom:1px solid var(--border)}
+.acard-tags{padding:1.5rem 2.5rem;display:flex;flex-wrap:wrap;gap:0.45rem}
+.atag{padding:0.26rem 0.75rem;border:1px solid var(--border);border-radius:2px;font-size:0.7rem;color:var(--text3);letter-spacing:0.05em}
+.acard-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border)}
+.ast{padding:1.5rem;text-align:center;border-right:1px solid var(--border)}
+.ast:last-child{border-right:none}
+.ast-n{font-family:'Space Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--text)}
+.ast-n sup{font-size:0.9rem;color:var(--acc2)}
+.ast-l{font-size:0.65rem;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.2rem}
+.feats{display:flex;flex-direction:column;gap:0.85rem}
+.feat{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;border:1px solid var(--border);border-radius:5px;background:var(--card);transition:border-color 0.25s,background 0.25s}
+.feat:hover{border-color:var(--border2);background:var(--card2)}
+.ficon{width:38px;height:38px;border-radius:5px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.25s}
+.feat:hover .ficon{background:var(--acc);border-color:var(--acc)}
+.fh{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:0.25rem}
+.fp{font-size:0.8rem;color:var(--text3);line-height:1.65;font-weight:300}
+
+/* === SERVICES === */
+.srv-bg{background:var(--bg2)}
+.srv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.sc{background:var(--card);padding:2.2rem;transition:background 0.25s;position:relative;overflow:hidden}
+.sc:hover{background:var(--card2)}
+.sc::after{content:'';position:absolute;left:0;bottom:0;right:0;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.sc:hover::after{transform:scaleX(1)}
+.snum{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--text3);letter-spacing:0.15em;margin-bottom:1.8rem}
+.sico{width:44px;height:44px;border-radius:5px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;transition:background 0.25s,border-color 0.25s}
+.sc:hover .sico{background:var(--acc);border-color:var(--acc)}
+.stit{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:0.65rem}
+.sdsc{font-size:0.82rem;color:var(--text3);line-height:1.78;margin-bottom:1.3rem;font-weight:300}
+.spills{display:flex;flex-wrap:wrap;gap:0.35rem}
+.sp{padding:0.2rem 0.6rem;border:1px solid var(--border);border-radius:2px;font-size:0.68rem;color:var(--text3)}
+
+/* === PORTFOLIO === */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pc{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--card);transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+.pc:hover{border-color:var(--border2);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.35)}
+.pt{height:180px;display:flex;align-items:center;justify-content:center;position:relative}
+.pb1{background:#080514}.pb2{background:#040c14}.pb3{background:#100900}.pb4{background:#040d10}.pb5{background:#0d0408}.pb6{background:#090900}
+.pt svg{opacity:0.18;transition:opacity 0.3s}
+.pc:hover .pt svg{opacity:0.3}
+.pinfo{padding:1.3rem 1.5rem;border-top:1px solid var(--border)}
+.pcat{font-size:0.67rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--acc2);margin-bottom:0.3rem}
+.pname{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;line-height:1.3}
+.plink{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.75rem;color:var(--text3);text-decoration:none;transition:color 0.2s}
+.plink:hover{color:var(--text)}
+.plink svg{width:11px;height:11px;transition:transform 0.2s}
+.plink:hover svg{transform:translate(2px,-2px)}
+
+/* === SHOP === */
+.shop-s{background:var(--bg2)}
+.shop-inner{
+max-width:1240px;margin:0 auto;padding:5.5rem 2.5rem;
+}
+.shop-block{
+border:1px solid var(--border2);border-radius:6px;
+padding:4.5rem;text-align:center;
+background:var(--card);
+position:relative;overflow:hidden;
+}
+.shop-block::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:280px;height:1px;background:var(--acc);opacity:0.4}
+.shop-bg-glow{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:500px;height:350px;border-radius:50%;background:radial-gradient(ellipse,rgba(109,66,232,0.07) 0%,transparent 65%);pointer-events:none}
+.shop-lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--acc2);margin-bottom:0.9rem;position:relative;z-index:1}
+.shop-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:700;color:var(--text);margin-bottom:0.8rem;position:relative;z-index:1}
+.shop-h i{font-style:italic;color:var(--acc3)}
+.shop-p{font-size:0.9rem;color:var(--text3);max-width:440px;margin:0 auto 2.2rem;line-height:1.85;font-weight:300;position:relative;z-index:1}
+.shop-btn{
+display:inline-flex;align-items:center;gap:0.65rem;
+padding:0.95rem 2.5rem;
+background:var(--acc);border:1px solid var(--acc);border-radius:3px;
+color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+text-decoration:none;position:relative;z-index:1;
+animation:shopb 3.5s ease-in-out infinite;
+transition:background 0.2s,transform 0.2s;
+}
+.shop-btn:hover{background:var(--acc2);transform:translateY(-2px)}
+@keyframes shopb{
+0%,100%{box-shadow:0 0 0 0 rgba(109,66,232,0.4),0 6px 24px rgba(109,66,232,0.2)}
+50%{box-shadow:0 0 0 6px rgba(109,66,232,0),0 6px 36px rgba(109,66,232,0.35)}
+}
+.shop-stars{display:flex;justify-content:center;align-items:center;gap:0.25rem;margin-top:1.4rem;position:relative;z-index:1}
+.shop-stars .ss{color:var(--gold2);font-size:0.9rem}
+.shop-rt{font-size:0.78rem;color:var(--text3);margin-left:0.5rem}
+
+/* === PROCESS === */
+.proc-bg{background:var(--bg2)}
+.proc-g{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.proc-g::before{content:'';position:absolute;top:50px;left:10%;right:10%;height:1px;background:var(--border);z-index:0}
+.pstep{position:relative;z-index:1;text-align:center;padding:1.8rem 1rem}
+.pcirc{width:78px;height:78px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative;transition:border-color 0.3s}
+.pstep:hover .pcirc{border-color:var(--acc)}
+.pn{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:var(--acc);font-size:0.58rem;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center}
+.ptit{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:0.4rem}
+.pdsc{font-size:0.77rem;color:var(--text3);line-height:1.65;font-weight:300}
+
+/* === SKILLS + AWARDS === */
+.skcols{display:grid;grid-template-columns:1fr 1fr;gap:5rem}
+.skim{margin-bottom:1.4rem}
+.skh{display:flex;justify-content:space-between;margin-bottom:0.45rem}
+.skn{font-size:0.82rem;font-weight:500;color:var(--text2)}
+.skp{font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--text3)}
+.skbar{height:2px;background:var(--border);border-radius:1px;overflow:hidden}
+.skfill{height:100%;border-radius:1px;background:var(--acc2);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(0.23,1,0.32,1)}
+.skfill.go{transform:scaleX(1)}
+.awlist{display:flex;flex-direction:column;gap:0.85rem}
+.awrow{display:flex;align-items:center;gap:1rem;padding:1.2rem;background:var(--card);border:1px solid var(--border);border-radius:5px;transition:border-color 0.25s}
+.awrow:hover{border-color:rgba(201,153,58,0.3)}
+.awico{width:42px;height:42px;border-radius:5px;background:rgba(201,153,58,0.07);border:1px solid rgba(201,153,58,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.awyr{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--gold2);letter-spacing:0.1em}
+.awnm{font-size:0.87rem;font-weight:600;color:var(--text);margin:0.1rem 0}
+.aworg{font-size:0.75rem;color:var(--text3);font-weight:300}
+
+/* === TESTIMONIALS === */
+.test-bg{background:var(--bg2)}
+.testg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.tc{padding:1.8rem;background:var(--card);border:1px solid var(--border);border-radius:6px;transition:border-color 0.3s,transform 0.3s}
+.tc:hover{border-color:var(--border2);transform:translateY(-5px)}
+.tq{font-size:2rem;color:var(--acc);opacity:0.18;font-family:'Cormorant Garamond',serif;line-height:1;margin-bottom:0.3rem}
+.tt{font-size:0.85rem;color:var(--text2);line-height:1.8;margin-bottom:1.3rem;font-style:italic;font-weight:300}
+.tau{display:flex;align-items:center;gap:0.8rem}
+.tav{width:38px;height:38px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;font-weight:700;color:#fff;flex-shrink:0}
+.tnm{font-size:0.84rem;font-weight:600;color:var(--text)}
+.trl{font-size:0.72rem;color:var(--text3)}
+.tst{display:flex;gap:1px;margin-top:2px}
+.tst span{font-size:0.62rem;color:var(--gold2)}
+
+/* === CONTACT === */
+.cg{display:grid;grid-template-columns:1fr 1.5fr;gap:4.5rem;align-items:start}
+.cih{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;line-height:1.2}
+.cip{font-size:0.87rem;color:var(--text3);line-height:1.85;margin-bottom:1.8rem;font-weight:300}
+.citems{display:flex;flex-direction:column;gap:0.7rem}
+.citem{display:flex;align-items:center;gap:1rem;padding:0.95rem 1.2rem;background:var(--card);border:1px solid var(--border);border-radius:5px;text-decoration:none;transition:border-color 0.25s,transform 0.25s}
+.citem:hover{border-color:var(--border2);transform:translateX(4px)}
+.cion{width:36px;height:36px;border-radius:5px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cit span{display:block;font-size:0.67rem;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase}
+.cit strong{font-size:0.84rem;color:var(--text);font-weight:500}
+.cform{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:2.2rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-bottom:0.9rem}
+.fg{margin-bottom:0.9rem}
+.fg label{display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-bottom:0.45rem}
+.fg input,.fg textarea{
+width:100%;padding:0.78rem 0.95rem;
+background:var(--bg2);border:1px solid var(--border);border-radius:3px;
+color:var(--text);font-family:'Inter',sans-serif;font-size:0.85rem;
+outline:none;resize:none;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--text3);opacity:0.45}
+.fg input:focus,.fg textarea:focus{border-color:var(--acc);box-shadow:0 0 0 2px rgba(109,66,232,0.12)}
+.fsub{width:100%;padding:0.9rem;background:var(--acc);border:1px solid var(--acc);border-radius:3px;color:#fff;font-size:0.85rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;transition:background 0.2s,transform 0.2s,box-shadow 0.2s}
+.fsub:hover{background:var(--acc2);transform:translateY(-1px);box-shadow:0 6px 24px rgba(109,66,232,0.35)}
+
+/* === FOOTER === */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);background:var(--bg2)}
+.fi{max-width:1240px;margin:0 auto;padding:3.5rem 2.5rem 2rem}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.fbr .logo{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;color:var(--text);display:block;margin-bottom:0.75rem}
+.fbr .logo b{color:var(--acc2)}
+.fbr p{font-size:0.82rem;color:var(--text3);line-height:1.8;max-width:250px;font-weight:300}
+.fcol h4{font-size:0.67rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text2);margin-bottom:1.1rem}
+.fcol ul{list-style:none}
+.fcol li{margin-bottom:0.55rem}
+.fcol a{font-size:0.82rem;color:var(--text3);text-decoration:none;transition:color 0.2s}
+.fcol a:hover{color:var(--text)}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--border)}
+.fcp{font-size:0.77rem;color:var(--text3)}
+.fsoc{display:flex;gap:0.5rem}
+.sb{width:34px;height:34px;border-radius:3px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text3);text-decoration:none;font-size:0.82rem;transition:border-color 0.2s,color 0.2s,transform 0.2s}
+.sb:hover{border-color:var(--border2);color:var(--text);transform:translateY(-2px)}
+
+/* === ANIMATIONS === */
+@keyframes fup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.r{opacity:0;transform:translateY(28px);transition:opacity 0.75s ease,transform 0.75s ease}
+.r.in{opacity:1;transform:translateY(0)}
+.rl{opacity:0;transform:translateX(-28px);transition:opacity 0.75s ease,transform 0.75s ease}
+.rl.in{opacity:1;transform:translateX(0)}
+.rr{opacity:0;transform:translateX(28px);transition:opacity 0.75s ease,transform 0.75s ease}
+.rr.in{opacity:1;transform:translateX(0)}
+.d1{transition-delay:0.05s}.d2{transition-delay:0.1s}.d3{transition-delay:0.15s}
+.d4{transition-delay:0.2s}.d5{transition-delay:0.25s}.d6{transition-delay:0.3s}
+
+/* === MODAL === */
+.modal-bd{
+position:fixed;inset:0;z-index:2000;
+background:rgba(7,7,14,0.78);
+backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+display:flex;align-items:center;justify-content:center;
+opacity:0;visibility:hidden;transition:opacity 0.35s,visibility 0.35s;
+padding:1.5rem;
+}
+[data-theme="light"] .modal-bd{background:rgba(248,247,255,0.85)}
+.modal-bd.open{opacity:1;visibility:visible}
+.modal-box{
+position:relative;
+background:var(--card);
+border:1px solid var(--border2);
+border-radius:8px;
+padding:3rem 2.5rem;
+max-width:440px;width:100%;
+text-align:center;
+transform:scale(0.92) translateY(14px);
+transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+box-shadow:0 30px 80px rgba(0,0,0,0.5),0 0 60px rgba(109,66,232,0.18);
+overflow:hidden;
+}
+.modal-bd.open .modal-box{transform:scale(1) translateY(0)}
+.modal-box::before{
+content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+width:120px;height:1px;background:var(--acc);opacity:0.5;
+}
+.modal-glow{
+position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+width:300px;height:200px;border-radius:50%;
+background:radial-gradient(ellipse,rgba(109,66,232,0.15) 0%,transparent 70%);
+pointer-events:none;
+}
+.modal-icon{
+width:64px;height:64px;border-radius:50%;
+background:rgba(109,66,232,0.1);border:1px solid var(--acc);
+display:flex;align-items:center;justify-content:center;
+margin:0 auto 1.4rem;color:var(--acc3);
+position:relative;z-index:1;
+animation:modalPulse 2s ease-in-out infinite;
+}
+@keyframes modalPulse{
+0%,100%{box-shadow:0 0 0 0 rgba(109,66,232,0.4)}
+50%{box-shadow:0 0 0 12px rgba(109,66,232,0)}
+}
+.modal-lbl{
+font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;
+color:var(--acc2);margin-bottom:0.85rem;position:relative;z-index:1;
+}
+.modal-h{
+font-family:'Cormorant Garamond',serif;
+font-size:2rem;font-weight:700;color:var(--text);
+line-height:1.2;margin-bottom:0.85rem;position:relative;z-index:1;
+}
+.modal-h i{font-style:italic;color:var(--acc3)}
+.modal-p{
+font-size:0.88rem;color:var(--text3);line-height:1.7;
+margin-bottom:1.8rem;font-weight:300;position:relative;z-index:1;
+}
+.modal-btn{
+display:inline-flex;align-items:center;gap:0.5rem;
+padding:0.78rem 2rem;
+background:var(--acc);border:1px solid var(--acc);border-radius:3px;
+color:#fff;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;
+text-transform:uppercase;cursor:pointer;
+transition:background 0.2s,transform 0.2s;
+position:relative;z-index:1;
+}
+.modal-btn:hover{background:var(--acc2);transform:translateY(-2px)}
+
+/* === RESPONSIVE === */
+@media(max-width:1080px){
+.about-g,.skcols,.cg{grid-template-columns:1fr}
+.srv-g{grid-template-columns:1fr 1fr}
+.ft{grid-template-columns:1fr 1fr}
+.proc-g{grid-template-columns:repeat(3,1fr)}
+.proc-g::before{display:none}
+.hero-meta{display:none}
+}
+@media(max-width:760px){
+nav{padding:0 1.2rem}
+.nav-links,.nav-right .nav-cta,.nav-right .theme-btn{display:none}
+.burger{display:flex}
+.nav-right{gap:0.5rem}
+.nav-right .theme-btn{display:flex}
+.pg{grid-template-columns:1fr}
+.testg{grid-template-columns:1fr}
+.srv-g{grid-template-columns:1fr}
+.proc-g{grid-template-columns:1fr 1fr}
+.shop-block{padding:2.5rem 1.5rem}
+.frow{grid-template-columns:1fr}
+.ft{grid-template-columns:1fr}
+.fb{flex-direction:column;gap:1rem;text-align:center}
+.hero{padding:7rem 6% 4rem}
+}
+</style>
+</head>
+<body>
+<canvas id="bg-c"></canvas>
+
+<nav id="nav">
+  <a href="#home" class="nav-logo">Miller<b>son</b></a>
+  <ul class="nav-links">
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#portfolio">Работы</a></li>
+    <li><a href="#process">Процесс</a></li>
+    <li><a href="#reviews">Отзывы</a></li>
+    <li><a href="#contact">Контакт</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-btn" title="Сменить тему">
+      <svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+    <a href="https://millerson.shop/shop/portfolio.html" class="nav-cta">Вернуться на главную</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="#about" class="mlink">О нас</a>
+  <a href="#services" class="mlink">Услуги</a>
+  <a href="#portfolio" class="mlink">Работы</a>
+  <a href="#process" class="mlink">Процесс</a>
+  <a href="#reviews" class="mlink">Отзывы</a>
+  <a href="#contact" class="mlink">Контакт</a>
+  <div class="mob-divider"></div>
+  <div class="mob-bottom">
+    <button class="mob-theme" id="mob-theme">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg>
+      <span id="mob-theme-lbl">Светлая тема</span>
+    </button>
+    <a href="https://millerson.shop/shop/portfolio.html" class="nav-cta">Вернуться на главную</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-wrap">
+    <div class="hero-tag"><span class="dot"></span>Цифровое агентство — Портфолио Millerson</div>
+    <h1 class="hero-title">
+      Создаём продукты,<br>
+      <i>которые остаются</i><br>
+      в памяти
+    </h1>
+    <p class="hero-sub">Профессиональный дизайн, разработка и брендинг для компаний и предпринимателей по всему миру. Без компромиссов с качеством исполнения.</p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn-a">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        Смотреть работы
+      </a>
+      <a href="#contact" class="btn-b">Обсудить проект →</a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-m-item">
+      <div class="hero-m-num">140<sup>+</sup></div>
+      <div class="hero-m-lbl">Проектов</div>
+    </div>
+    <div class="hero-line"></div>
+    <div class="hero-m-item">
+      <div class="hero-m-num">7<sup>+</sup></div>
+      <div class="hero-m-lbl">Лет опыта</div>
+    </div>
+    <div class="hero-line"></div>
+    <div class="hero-m-item">
+      <div class="hero-m-num">98<sup>%</sup></div>
+      <div class="hero-m-lbl">Довольных</div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+<div class="ticker-wrap">
+  <div class="ticker-row">
+    <div class="ticker-item"><span>Дизайн</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Разработка</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Брендинг</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Анимация</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Стратегия</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>UX / UI</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>SEO</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Маркетинг</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Millerson</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Дизайн</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Разработка</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Брендинг</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Анимация</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Стратегия</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>UX / UI</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>SEO</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Маркетинг</span><div class="tick-dot"></div></div>
+    <div class="ticker-item"><span>Millerson</span><div class="tick-dot"></div></div>
+  </div>
+</div>
+<div class="sec-div"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="si">
+    <div class="about-g">
+      <div class="rl">
+        <div class="acard">
+          <div class="acard-top">
+            <div class="aavatar">M</div>
+            <div>
+              <div class="aname">Millerson Studio</div>
+              <div class="arole">Creative Digital Agency</div>
+            </div>
+          </div>
+          <div class="acard-body">
+            Мы — команда дизайнеров, разработчиков и стратегов, создающих цифровые продукты мирового уровня. Работаем с малым бизнесом и корпорациями, стартапами и устоявшимися брендами. Каждый проект — это история, рассказанная со смыслом и вниманием к деталям.
+          </div>
+          <div class="acard-tags">
+            <span class="atag">UI Design</span><span class="atag">Web Dev</span><span class="atag">Branding</span><span class="atag">Motion</span><span class="atag">Strategy</span><span class="atag">SEO</span>
+          </div>
+          <div class="acard-stats">
+            <div class="ast"><div class="ast-n"><span class="cnt" data-to="7">0</span><sup>+</sup></div><div class="ast-l">Лет опыта</div></div>
+            <div class="ast"><div class="ast-n"><span class="cnt" data-to="140">0</span><sup>+</sup></div><div class="ast-l">Проектов</div></div>
+            <div class="ast"><div class="ast-n"><span class="cnt" data-to="24">0</span><sup>+</sup></div><div class="ast-l">Стран</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rr">
+        <div class="slbl">О нас</div>
+        <h2 class="sh">Мы создаём не просто сайты — мы строим <i>инструменты роста</i></h2>
+        <p class="sdesc">Millerson — цифровое агентство полного цикла. Объединяем стратегическое мышление, передовой дизайн и техническое мастерство ради одной цели: ваш результат.</p>
+        <div class="feats">
+          <div class="feat">
+            <div class="ficon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></div>
+            <div><div class="fh">Уникальный подход к каждому проекту</div><div class="fp">Глубокое погружение в бизнес и аудиторию перед началом работы</div></div>
+          </div>
+          <div class="feat">
+            <div class="ficon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <div><div class="fh">Pixel Perfect — без компромиссов</div><div class="fp">Каждый элемент продуман и проверен на всех устройствах</div></div>
+          </div>
+          <div class="feat">
+            <div class="ficon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <div><div class="fh">Сроки — это закон</div><div class="fp">Результат точно в дедлайн, без потери качества</div></div>
+          </div>
+          <div class="feat">
+            <div class="ficon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+            <div><div class="fh">Поддержка после запуска</div><div class="fp">Сопровождаем и развиваем продукт после релиза</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- SERVICES -->
+<section id="services" class="srv-bg">
+  <div class="si">
+    <div class="r" style="max-width:560px;margin:0 auto 3.5rem;text-align:center">
+      <div class="slbl" style="justify-content:center">Услуги</div>
+      <h2 class="sh">Что мы <i>делаем</i></h2>
+      <p class="sdesc" style="margin:0 auto">Полный спектр цифровых услуг — от концепции до запуска и масштабирования</p>
+    </div>
+    <div class="srv-g">
+      <div class="sc r d1">
+        <div class="snum">01</div>
+        <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3 class="stit">Веб-дизайн</h3>
+        <p class="sdsc">Красивые и удобные интерфейсы, которые влюбляют с первого взгляда. От лендингов до сложных SaaS-платформ.</p>
+        <div class="spills"><span class="sp">Figma</span><span class="sp">UI/UX</span><span class="sp">Prototype</span><span class="sp">Motion</span></div>
+      </div>
+      <div class="sc r d2">
+        <div class="snum">02</div>
+        <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3 class="stit">Разработка</h3>
+        <p class="sdsc">Превращаем дизайн в живой, быстрый и надёжный продукт. React, Next.js, Node.js — всё современное.</p>
+        <div class="spills"><span class="sp">React</span><span class="sp">Next.js</span><span class="sp">TypeScript</span><span class="sp">Node.js</span></div>
+      </div>
+      <div class="sc r d3">
+        <div class="snum">03</div>
+        <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3 class="stit">Брендинг</h3>
+        <p class="sdsc">Логотип, фирменный стиль, tone of voice — всё, что делает ваш бизнес узнаваемым и запоминающимся.</p>
+        <div class="spills"><span class="sp">Logo</span><span class="sp">Identity</span><span class="sp">Guidelines</span><span class="sp">Print</span></div>
+      </div>
+      <div class="sc r d1">
+        <div class="snum">04</div>
+        <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3 class="stit">Анимация и Motion</h3>
+        <p class="sdsc">Оживляем интерфейсы: плавные переходы, микровзаимодействия, сторителлинг через движение.</p>
+        <div class="spills"><span class="sp">After Effects</span><span class="sp">Lottie</span><span class="sp">GSAP</span><span class="sp">Framer</span></div>
+      </div>
+      <div class="sc r d2">
+        <div class="snum">05</div>
+        <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3 class="stit">SEO и Маркетинг</h3>
+        <p class="sdsc">Настраиваем видимость в поиске, строим стратегии роста и привлекаем целевую аудиторию.</p>
+        <div class="spills"><span class="sp">Technical SEO</span><span class="sp">Analytics</span><span class="sp">Content</span><span class="sp">Ads</span></div>
+      </div>
+      <div class="sc r d3">
+        <div class="snum">06</div>
+        <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="stit">Поддержка и Хостинг</h3>
+        <p class="sdsc">Обновления, безопасность, мониторинг скорости и доступности вашего продукта 24/7.</p>
+        <div class="spills"><span class="sp">DevOps</span><span class="sp">CI/CD</span><span class="sp">Monitoring</span><span class="sp">Security</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="si">
+    <div class="r" style="max-width:560px;margin:0 auto 3.5rem;text-align:center">
+      <div class="slbl" style="justify-content:center">Работы</div>
+      <h2 class="sh">Избранные <i>проекты</i></h2>
+      <p class="sdesc" style="margin:0 auto">Малая часть того, чем мы гордимся — полное портфолио на millerson.shop</p>
+    </div>
+    <div class="pg">
+      <div class="pc r d1">
+        <div class="pt pb1"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="pinfo"><div class="pcat">E-commerce</div><div class="pname">LuxeMarket — Платформа премиум-товаров</div><a href="#" class="plink">Смотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a></div>
+      </div>
+      <div class="pc r d2">
+        <div class="pt pb2"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="0.7"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="pinfo"><div class="pcat">SaaS Dashboard</div><div class="pname">Analytix — Аналитическая платформа</div><a href="#" class="plink">Смотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a></div>
+      </div>
+      <div class="pc r d3">
+        <div class="pt pb3"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="0.7"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="pinfo"><div class="pcat">Brand Identity</div><div class="pname">GoldCraft — Фирменный стиль ювелирного дома</div><a href="#" class="plink">Смотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a></div>
+      </div>
+      <div class="pc r d1">
+        <div class="pt pb4"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="0.7"><path d="M12 2a10 10 0 1 0 10 10"/></svg></div>
+        <div class="pinfo"><div class="pcat">Mobile App</div><div class="pname">TealMind — Приложение для медитации</div><a href="#" class="plink">Смотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a></div>
+      </div>
+      <div class="pc r d2">
+        <div class="pt pb5"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c46070" stroke-width="0.7"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="pinfo"><div class="pcat">Landing Page</div><div class="pname">RoseGlow — Лендинг косметического бренда</div><a href="#" class="plink">Смотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a></div>
+      </div>
+      <div class="pc r d3">
+        <div class="pt pb6"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="0.7"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="pinfo"><div class="pcat">Corporate</div><div class="pname">NovaGroup — Сайт инвестиционной компании</div><a href="#" class="plink">Смотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- SHOP -->
+<section class="shop-s">
+  <div class="shop-inner">
+    <div class="shop-block r">
+      <div class="shop-bg-glow"></div>
+      <div class="shop-lbl">Полное портфолио и отзывы</div>
+      <h2 class="shop-h">Всё самое лучшее —<br>на <i>millerson.shop</i></h2>
+      <p class="shop-p">Загляните на официальный сайт: больше работ, реальные отзывы клиентов, актуальные цены и условия сотрудничества.</p>
+      <a href="https://millerson.shop" class="shop-btn" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        ПОЛНОЕ ПОРТФОЛИО И ОТЗЫВЫ — millerson.shop
+      </a>
+      <div class="shop-stars">
+        <span class="ss">★</span><span class="ss">★</span><span class="ss">★</span><span class="ss">★</span><span class="ss">★</span>
+        <span class="shop-rt">4.97 на основе 89 отзывов</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- PROCESS -->
+<section id="process" class="proc-bg">
+  <div class="si">
+    <div class="r" style="max-width:560px;margin:0 auto 3.5rem;text-align:center">
+      <div class="slbl" style="justify-content:center">Процесс</div>
+      <h2 class="sh">Как мы <i>работаем</i></h2>
+      <p class="sdesc" style="margin:0 auto">Чёткая методология — от первого контакта до финального запуска</p>
+    </div>
+    <div class="proc-g">
+      <div class="pstep r d1"><div class="pcirc"><span class="pn">01</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="ptit">Брифинг</div><p class="pdsc">Погружаемся в бизнес, изучаем рынок и конкурентов</p></div>
+      <div class="pstep r d2"><div class="pcirc"><span class="pn">02</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div class="ptit">Стратегия</div><p class="pdsc">Разрабатываем концепцию и структуру, согласовываем</p></div>
+      <div class="pstep r d3"><div class="pcirc"><span class="pn">03</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4"/></svg></div><div class="ptit">Дизайн</div><p class="pdsc">Макеты и прототипы. Итерируем до идеала</p></div>
+      <div class="pstep r d4"><div class="pcirc"><span class="pn">04</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="ptit">Разработка</div><p class="pdsc">Чистый и быстрый код. Тестирование везде</p></div>
+      <div class="pstep r d5"><div class="pcirc"><span class="pn">05</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.7"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="ptit">Запуск</div><p class="pdsc">Деплой, аналитика, сопровождение старта</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- SKILLS + AWARDS -->
+<section>
+  <div class="si">
+    <div class="skcols">
+      <div class="rl">
+        <div class="slbl">Технологии</div>
+        <h2 class="sh">Наш <i>стек</i></h2>
+        <p class="sdesc">Только проверенные и современные инструменты для надёжного, масштабируемого результата.</p>
+        <div class="skim"><div class="skh"><span class="skn">UI / UX Design</span><span class="skp">98%</span></div><div class="skbar"><div class="skfill" style="width:98%"></div></div></div>
+        <div class="skim"><div class="skh"><span class="skn">React / Next.js</span><span class="skp">95%</span></div><div class="skbar"><div class="skfill" style="width:95%"></div></div></div>
+        <div class="skim"><div class="skh"><span class="skn">Motion Design</span><span class="skp">90%</span></div><div class="skbar"><div class="skfill" style="width:90%"></div></div></div>
+        <div class="skim"><div class="skh"><span class="skn">Branding</span><span class="skp">93%</span></div><div class="skbar"><div class="skfill" style="width:93%"></div></div></div>
+        <div class="skim"><div class="skh"><span class="skn">Backend / API</span><span class="skp">88%</span></div><div class="skbar"><div class="skfill" style="width:88%"></div></div></div>
+        <div class="skim"><div class="skh"><span class="skn">SEO & Analytics</span><span class="skp">91%</span></div><div class="skbar"><div class="skfill" style="width:91%"></div></div></div>
+      </div>
+      <div class="rr">
+        <div class="slbl">Признание</div>
+        <h2 class="sh">Награды <i>индустрии</i></h2>
+        <p class="sdesc">Наша работа получила признание в ведущих профессиональных сообществах мира.</p>
+        <div class="awlist">
+          <div class="awrow"><div class="awico">🏆</div><div><div class="awyr">2024</div><div class="awnm">Best Digital Agency</div><div class="aworg">Awwwards — Site of the Day</div></div></div>
+          <div class="awrow"><div class="awico">✦</div><div><div class="awyr">2023</div><div class="awnm">Innovation in Design</div><div class="aworg">CSS Design Awards</div></div></div>
+          <div class="awrow"><div class="awico">🎯</div><div><div class="awyr">2023</div><div class="awnm">Top UX Agency</div><div class="aworg">Clutch Global Leaders</div></div></div>
+          <div class="awrow"><div class="awico">💎</div><div><div class="awyr">2022</div><div class="awnm">Design Excellence</div><div class="aworg">FWA — Favourite Website</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- TESTIMONIALS PLACEHOLDER -->
+<section id="reviews" class="test-bg">
+  <div class="si" style="text-align:center">
+    <div class="r" style="max-width:560px;margin:0 auto">
+      <div class="slbl" style="justify-content:center">Отзывы</div>
+      <h2 class="sh">У макета <i>не может быть</i> отзывов</h2>
+      <p class="sdesc" style="margin:1rem auto 2rem">Это демонстрационный шаблон. Настоящие отзывы клиентов смотрите на основном сайте.</p>
+      <a href="https://millerson.shop" target="_blank" class="btn-a" style="margin:0 auto"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Реальные отзывы — millerson.shop</a>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="si">
+    <div class="cg">
+      <div class="rl">
+        <div class="slbl">Контакты</div>
+        <h2 class="cih">Начнём <i style="font-style:italic;color:var(--text2)">работу?</i></h2>
+        <p class="cip">Расскажите о вашем проекте — ответим в течение нескольких часов и обсудим детали без обязательств.</p>
+        <div class="citems">
+          <a href="https://millerson.shop" class="citem" target="_blank"><div class="cion"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="cit"><span>Сайт</span><strong>millerson.shop</strong></div></a>
+          <a href="mailto:hello@millerson.shop" class="citem"><div class="cion"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="cit"><span>Email</span><strong>hello@millerson.shop</strong></div></a>
+          <a href="tel:+79000000000" class="citem"><div class="cion"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="cit"><span>Телефон</span><strong>+7 (900) 000-00-00</strong></div></a>
+          <div class="citem" style="cursor:default"><div class="cion"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc2)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="cit"><span>Адрес</span><strong>Москва (удалённо — весь мир)</strong></div></div>
+        </div>
+      </div>
+      <div class="cform rr">
+        <form onsubmit="submitForm(event)">
+          <div class="frow"><div class="fg"><label>Имя</label><input type="text" placeholder="Ваше имя"></div><div class="fg"><label>Email</label><input type="email" placeholder="you@example.com"></div></div>
+          <div class="fg"><label>Тема</label><input type="text" placeholder="Новый проект / Консультация..."></div>
+          <div class="fg"><label>Сообщение</label><textarea rows="5" placeholder="Расскажите о проекте, бюджете и сроках..."></textarea></div>
+          <button type="submit" class="fsub">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div class="fbr"><span class="logo">Miller<b>son</b></span><p>Цифровое агентство полного цикла. Создаём красивые, быстрые и эффективные продукты для бизнесов по всему миру.</p></div>
+      <div class="fcol"><h4>Услуги</h4><ul><li><a href="#services">Веб-дизайн</a></li><li><a href="#services">Разработка</a></li><li><a href="#services">Брендинг</a></li><li><a href="#services">Анимация</a></li><li><a href="#services">SEO</a></li></ul></div>
+      <div class="fcol"><h4>Компания</h4><ul><li><a href="#about">О нас</a></li><li><a href="#portfolio">Работы</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#process">Процесс</a></li><li><a href="https://millerson.shop" target="_blank">millerson.shop</a></li></ul></div>
+      <div class="fcol"><h4>Контакты</h4><ul><li><a href="mailto:hello@millerson.shop">hello@millerson.shop</a></li><li><a href="tel:+79000000000">+7 (900) 000-00-00</a></li><li><a href="https://millerson.shop" target="_blank">millerson.shop</a></li></ul></div>
+    </div>
+    <div class="fb">
+      <div class="fcp">© 2024 Millerson. Все права защищены.</div>
+      <div class="fsoc">
+        <a href="#" class="sb">TG</a>
+        <a href="#" class="sb">IG</a>
+        <a href="https://millerson.shop" class="sb" target="_blank">WB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-bd" id="mock-modal">
+  <div class="modal-box">
+    <div class="modal-glow"></div>
+    <div class="modal-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+    <div class="modal-lbl">Демонстрация</div>
+    <h3 class="modal-h">Это <i>макет</i> для портфолио</h3>
+    <p class="modal-p">Форма заявки здесь не работает — это демонстрационный шаблон. Чтобы связаться с нами по-настоящему, перейдите на основной сайт.</p>
+    <button class="modal-btn" id="mock-close">Понятно</button>
+  </div>
+</div>
+
+<script>
+(function(){
+const html = document.documentElement;
+const nav = document.getElementById('nav');
+const burger = document.getElementById('burger');
+const mobMenu = document.getElementById('mob-menu');
+const themeBtn = document.getElementById('theme-btn');
+const mobTheme = document.getElementById('mob-theme');
+const mobLbl = document.getElementById('mob-theme-lbl');
+const themeIcon = document.getElementById('theme-icon');
+
+const moonSVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+const sunSVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+
+let dark = true;
+function setTheme(d){
+  dark = d;
+  html.setAttribute('data-theme', d ? 'dark' : 'light');
+  themeIcon.innerHTML = d ? moonSVG.replace('svg','').split('>').slice(1).join('>') : '';
+  themeBtn.innerHTML = d ? moonSVG : sunSVG;
+  mobLbl.textContent = d ? 'Светлая тема' : 'Тёмная тема';
+}
+themeBtn.addEventListener('click', function(){ setTheme(!dark) });
+mobTheme.addEventListener('click', function(){ setTheme(!dark) });
+themeBtn.innerHTML = moonSVG;
+
+burger.addEventListener('click', function(){
+  const o = mobMenu.classList.toggle('open');
+  burger.classList.toggle('open', o);
+  document.body.style.overflow = o ? 'hidden' : '';
+});
+document.querySelectorAll('.mlink').forEach(function(l){
+  l.addEventListener('click', function(){
+    mobMenu.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 30) }, {passive:true});
+
+const obs = new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.skfill').forEach(function(f){ f.classList.add('go') });
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.r,.rl,.rr').forEach(function(el){ obs.observe(el) });
+
+const skObs = new IntersectionObserver(function(es){
+  if(es[0].isIntersecting) document.querySelectorAll('.skfill').forEach(function(f){ f.classList.add('go') });
+},{threshold:0.2});
+const sc = document.querySelector('.skcols');
+if(sc) skObs.observe(sc);
+
+const cntObs = new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting && !e.target.dataset.done){
+      e.target.dataset.done='1';
+      const to = +e.target.dataset.to;
+      let s=null;
+      (function step(ts){
+        if(!s) s=ts;
+        const p=Math.min((ts-s)/1600,1);
+        e.target.textContent=Math.floor((1-Math.pow(1-p,3))*to);
+        if(p<1) requestAnimationFrame(step); else e.target.textContent=to;
+      })(performance.now());
+    }
+  });
+},{threshold:0.6});
+document.querySelectorAll('.cnt').forEach(function(c){ cntObs.observe(c) });
+
+const modal = document.getElementById('mock-modal');
+const modalClose = document.getElementById('mock-close');
+function openModal(){ modal.classList.add('open'); document.body.style.overflow='hidden' }
+function closeModal(){ modal.classList.remove('open'); document.body.style.overflow='' }
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', function(e){ if(e.target===modal) closeModal() });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeModal() });
+
+window.submitForm = function(e){
+  e.preventDefault();
+  openModal();
+};
+
+const canvas = document.getElementById('bg-c');
+const ctx = canvas.getContext('2d');
+let W, H;
+function rsz(){ W=canvas.width=innerWidth; H=canvas.height=innerHeight }
+rsz(); window.addEventListener('resize',rsz,{passive:true});
+
+const pts=[];
+for(let i=0;i<50;i++) pts.push({x:Math.random()*1600,y:Math.random()*900,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*.9+.25,a:Math.random()*.28+.04});
+
+let t=0;
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  t+=.002;
+  const isDark=html.getAttribute('data-theme')==='dark';
+  const c1=isDark?'109,66,232':'109,66,232';
+  const c2=isDark?'8,145,178':'8,145,178';
+  const g1=ctx.createRadialGradient(W*.1,H*.1,0,W*.1,H*.1,W*.4);
+  g1.addColorStop(0,'rgba('+c1+','+(isDark?.08:.04)+')');
+  g1.addColorStop(1,'transparent');
+  ctx.fillStyle=g1;ctx.fillRect(0,0,W,H);
+  const g2=ctx.createRadialGradient(W*.9,H*.88,0,W*.9,H*.88,W*.3);
+  g2.addColorStop(0,'rgba('+c2+','+(isDark?.05:.025)+')');
+  g2.addColorStop(1,'transparent');
+  ctx.fillStyle=g2;ctx.fillRect(0,0,W,H);
+  pts.forEach(function(p){
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle='rgba('+c1+','+p.a+')';ctx.fill();
+  });
+  for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+    const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
+    if(d<100){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba('+c1+','+(0.05*(1-d/100))+')';ctx.lineWidth=.4;ctx.stroke()}
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+})();
+</script>
+</body>
+</html>
