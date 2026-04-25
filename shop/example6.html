@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Никита НоваКаст — YouTube блогер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:'DM Sans',sans-serif;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+transition:background .35s,color .35s;
+}
+body.dark{background:#080808;color:#f0ede8}
+body.light{background:#fafaf8;color:#0a0a0a}
+::selection{background:rgba(249,115,22,.22)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#080808}
+::-webkit-scrollbar-thumb{background:#f97316;border-radius:4px}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;object-fit:cover}
+
+/* FONTS shorthand */
+.syne{font-family:'Syne',sans-serif}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* ======= NAV ======= */
+#nav{
+position:fixed;top:0;left:0;right:0;z-index:999;
+height:64px;display:flex;align-items:center;justify-content:space-between;
+padding:0 3rem;transition:all .3s;
+}
+#nav.scrolled.dark{background:rgba(8,8,8,.92);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+#nav.scrolled.light{background:rgba(250,250,248,.93);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+body.dark #nav.scrolled{background:rgba(8,8,8,.92)}
+body.light #nav.scrolled{background:rgba(250,250,248,.93)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:900;font-size:1.25rem}
+.logo-sq{width:32px;height:32px;border-radius:8px;background:#f97316;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.85rem;font-family:'Syne',sans-serif}
+.nav-acc{color:#f97316}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{padding:.45rem .9rem;border-radius:10px;font-size:.84rem;font-weight:500;transition:all .2s}
+body.dark .nav-links a{color:#888}
+body.light .nav-links a{color:#555}
+body.dark .nav-links a:hover{color:#fff;background:rgba(255,255,255,.07)}
+body.light .nav-links a:hover{color:#0a0a0a;background:rgba(0,0,0,.05)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.theme-btn{width:36px;height:36px;border-radius:50%;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .2s}
+body.dark .theme-btn{background:rgba(255,255,255,.08);color:#ccc}
+body.light .theme-btn{background:rgba(0,0,0,.06);color:#555}
+.theme-btn:hover{opacity:.75}
+.nav-cta{
+display:inline-flex;align-items:center;gap:7px;
+padding:.55rem 1.3rem;border-radius:99px;
+background:#f97316;color:#fff;font-size:.78rem;font-weight:700;
+letter-spacing:.05em;text-transform:uppercase;
+box-shadow:0 8px 24px rgba(249,115,22,.35);
+transition:all .2s;
+}
+.nav-cta:hover{background:#fb923c;transform:scale(1.04)}
+
+/* BURGER */
+.burger{display:none;width:36px;height:36px;border-radius:50%;border:0;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4.5px;transition:all .2s}
+body.dark .burger{background:rgba(255,255,255,.08)}
+body.light .burger{background:rgba(0,0,0,.06)}
+.burger span{display:block;width:15px;height:1.5px;border-radius:2px;transition:all .3s}
+body.dark .burger span{background:#ddd}
+body.light .burger span{background:#333}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* MOB MENU */
+#mob{
+position:fixed;inset:0;z-index:998;
+display:flex;flex-direction:column;
+padding:5.5rem 1.8rem 2rem;
+opacity:0;visibility:hidden;transition:all .3s;
+}
+#mob.open{opacity:1;visibility:visible}
+body.dark #mob{background:#080808}
+body.light #mob{background:#fafaf8}
+.mob-link{
+display:flex;align-items:center;justify-content:space-between;
+padding:1rem 0;font-family:'Syne',sans-serif;font-weight:900;font-size:1.9rem;letter-spacing:-.02em;
+}
+body.dark .mob-link{color:#fff;border-bottom:1px solid rgba(255,255,255,.06)}
+body.light .mob-link{color:#0a0a0a;border-bottom:1px solid rgba(0,0,0,.06)}
+.mob-idx{font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:500;color:#555}
+.mob-bot{margin-top:auto;padding-top:2rem}
+.mob-cta{display:block;text-align:center;padding:1rem;border-radius:99px;background:#f97316;color:#fff;font-weight:700}
+
+/* ======= HERO ======= */
+#hero{
+position:relative;min-height:100vh;
+display:flex;align-items:flex-end;padding-bottom:5rem;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.75) 40%,rgba(0,0,0,.25) 100%)}
+.hero-overlay2{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.1) 60%,transparent 100%)}
+.hero-content{
+position:relative;z-index:2;
+max-width:1200px;margin:0 auto;padding:0 2rem;width:100%;
+}
+.hero-badge{
+display:inline-flex;align-items:center;gap:8px;
+padding:.4rem 1rem;border-radius:99px;
+background:rgba(255,255,255,.10);backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.18);
+color:rgba(255,255,255,.8);font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+margin-bottom:1.5rem;
+}
+.hero-badge .live{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero-name{
+font-family:'Syne',sans-serif;font-weight:900;
+font-size:clamp(3rem,8vw,7rem);line-height:.92;letter-spacing:-.03em;
+color:#fff;margin-bottom:1.6rem;
+}
+.hero-name .o{color:#f97316}
+.hero-desc{
+font-size:1.1rem;color:rgba(255,255,255,.65);
+font-weight:300;line-height:1.75;max-width:520px;margin-bottom:2rem;
+}
+.hero-desc b{color:#fff;font-weight:600}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.85rem;margin-bottom:2.5rem}
+.btn-orange{
+display:inline-flex;align-items:center;gap:8px;
+padding:.9rem 2rem;border-radius:99px;
+background:#f97316;color:#fff;font-weight:700;font-size:.88rem;
+box-shadow:0 12px 30px rgba(249,115,22,.45);
+transition:all .2s;
+}
+.btn-orange:hover{background:#fb923c;transform:translateY(-2px)}
+.btn-ghost{
+display:inline-flex;align-items:center;gap:8px;
+padding:.9rem 2rem;border-radius:99px;
+background:rgba(255,255,255,.10);backdrop-filter:blur(12px);
+color:#fff;border:1.5px solid rgba(255,255,255,.25);
+font-weight:500;font-size:.88rem;transition:all .2s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+.hero-plats{display:flex;flex-wrap:wrap;gap:.6rem}
+.plat-pill{
+display:inline-flex;align-items:center;gap:7px;
+padding:.38rem 1rem;border-radius:99px;
+background:rgba(255,255,255,.10);backdrop-blur:blur(8px);
+border:1px solid rgba(255,255,255,.15);
+color:rgba(255,255,255,.8);font-size:.75rem;font-weight:500;
+}
+.plat-pill .dot{width:7px;height:7px;border-radius:50%}
+.scroll-hint{
+position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:.4rem;
+color:rgba(255,255,255,.45);font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;
+cursor:pointer;transition:color .2s;z-index:2;
+}
+.scroll-hint:hover{color:rgba(255,255,255,.7)}
+.scroll-arrow{animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ======= STATS STRIP ======= */
+.stats-strip{
+display:grid;grid-template-columns:repeat(4,1fr);
+border-bottom:1px solid;
+}
+body.dark .stats-strip{background:#0f0f0f;border-color:rgba(255,255,255,.06)}
+body.light .stats-strip{background:#f2f0ec;border-color:rgba(0,0,0,.07)}
+.stat-cell{
+padding:1.8rem 1.5rem;text-align:center;
+}
+.stat-cell:not(:last-child){border-right:1px solid}
+body.dark .stat-cell{border-color:rgba(255,255,255,.06)}
+body.light .stat-cell{border-color:rgba(0,0,0,.07)}
+.stat-n{font-family:'Syne',sans-serif;font-weight:900;font-size:2rem;color:#f97316;line-height:1;margin-bottom:.25rem}
+.stat-l{font-size:.75rem;font-weight:500;letter-spacing:.04em}
+body.dark .stat-l{color:#666}
+body.light .stat-l{color:#888}
+
+/* ======= MARQUEE ======= */
+.marquee-wrap{overflow:hidden;padding:.9rem 0;background:#f97316}
+.marquee-row{display:flex;width:max-content;animation:marquee 38s linear infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.m-item{display:flex;align-items:center;gap:1.2rem;padding:0 1.4rem}
+.m-text{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.m-sep{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.5);flex-shrink:0}
+
+/* ======= SEC COMMON ======= */
+.sec{padding:5rem 2rem}
+.si{max-width:1200px;margin:0 auto}
+.sec-label{
+display:inline-flex;align-items:center;gap:.6rem;
+font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;
+letter-spacing:.2em;text-transform:uppercase;color:#f97316;
+margin-bottom:.75rem;
+}
+.sec-label::before{content:'';width:16px;height:1px;background:#f97316}
+.sec-h{
+font-family:'Syne',sans-serif;font-weight:900;
+font-size:clamp(1.9rem,3.5vw,2.9rem);letter-spacing:-.02em;line-height:1.05;
+}
+body.dark .sec-h{color:#fff}
+body.light .sec-h{color:#0a0a0a}
+.sec-h em{font-style:normal;color:#f97316}
+
+/* ======= FEATURED ======= */
+.featured-bg{border-top:1px solid}
+body.dark .featured-bg{background:#080808;border-color:rgba(255,255,255,.06)}
+body.light .featured-bg{background:#fff;border-color:rgba(0,0,0,.06)}
+.featured-banner{
+position:relative;border-radius:20px;overflow:hidden;cursor:pointer;
+aspect-ratio:21/9;
+}
+@media(max-width:768px){.featured-banner{aspect-ratio:4/3}}
+.featured-banner img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.featured-banner:hover img{transform:scale(1.04)}
+.featured-banner .ov{
+position:absolute;inset:0;
+background:linear-gradient(95deg,rgba(0,0,0,.82) 38%,rgba(0,0,0,.2) 100%);
+}
+.featured-content{
+position:absolute;inset:0;display:flex;align-items:center;
+padding:3.5rem 4rem;
+}
+@media(max-width:768px){.featured-content{padding:2rem}}
+.f-tag{display:inline-block;padding:.3rem .85rem;border-radius:99px;background:#f97316;color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.2rem}
+.f-title{font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(1.4rem,3.5vw,2.8rem);color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.2rem;max-width:520px}
+.f-meta{display:flex;align-items:center;gap:1.2rem;color:rgba(255,255,255,.6);font-family:'JetBrains Mono',monospace;font-size:.72rem;margin-bottom:1.8rem}
+.f-btn{
+display:inline-flex;align-items:center;gap:.6rem;
+padding:.85rem 1.8rem;border-radius:99px;
+background:#fff;color:#0a0a0a;font-weight:700;font-size:.85rem;
+transition:all .2s;
+}
+.f-btn:hover{background:#f97316;color:#fff}
+.f-play-big{
+position:absolute;right:4rem;top:50%;transform:translateY(-50%);
+width:90px;height:90px;border-radius:50%;
+background:rgba(255,255,255,.18);backdrop-filter:blur(12px);
+border:2px solid rgba(255,255,255,.35);
+display:flex;align-items:center;justify-content:center;
+transition:transform .3s,background .3s;
+}
+.featured-banner:hover .f-play-big{transform:translateY(-50%) scale(1.1);background:rgba(255,255,255,.28)}
+.play-tri{width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:22px solid #fff;margin-left:5px}
+
+/* ======= VIDEO GRID ======= */
+.video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.vcard{
+border-radius:14px;overflow:hidden;cursor:pointer;
+transition:transform .3s,box-shadow .3s;
+}
+body.dark .vcard{background:#111;border:1px solid rgba(255,255,255,.05)}
+body.light .vcard{background:#f5f5f5;border:1px solid rgba(0,0,0,.06)}
+.vcard:hover{transform:translateY(-5px)}
+body.dark .vcard:hover{box-shadow:0 20px 50px rgba(0,0,0,.5)}
+body.light .vcard:hover{box-shadow:0 16px 40px rgba(0,0,0,.12)}
+.vthumb{position:relative;aspect-ratio:16/9;overflow:hidden}
+.vthumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.vcard:hover .vthumb img{transform:scale(1.06)}
+.vplay-over{
+position:absolute;inset:0;background:rgba(0,0,0,.35);
+display:flex;align-items:center;justify-content:center;
+opacity:0;transition:opacity .25s;
+}
+.vcard:hover .vplay-over{opacity:1}
+.vplay-circle{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,255,255,.4)}
+.vplay-tri{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:17px solid #fff;margin-left:4px}
+.vtag{position:absolute;top:8px;left:8px;padding:.22rem .65rem;border-radius:99px;background:rgba(0,0,0,.62);backdrop-filter:blur(6px);color:#fff;font-size:.62rem;font-weight:600}
+.vdur{position:absolute;bottom:8px;right:8px;padding:.18rem .5rem;border-radius:5px;background:rgba(0,0,0,.72);color:#fff;font-family:'JetBrains Mono',monospace;font-size:.62rem}
+.vinfo{padding:.9rem 1rem 1rem}
+.vtitle{font-weight:600;font-size:.82rem;line-height:1.35;margin-bottom:.5rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+body.dark .vtitle{color:#f0ede8}
+body.light .vtitle{color:#111}
+.vmeta{display:flex;justify-content:space-between;font-size:.68rem}
+body.dark .vmeta{color:#666}
+body.light .vmeta{color:#999}
+
+/* ======= ABOUT ======= */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-photo-wrap{position:relative}
+.about-photo{
+border-radius:20px;overflow:hidden;
+aspect-ratio:4/5;position:relative;
+}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo-ov{
+position:absolute;inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%);
+}
+.about-photo-bot{
+position:absolute;bottom:0;left:0;right:0;
+padding:1.2rem 1.4rem;
+display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;
+}
+.about-name-card{
+background:rgba(0,0,0,.6);backdrop-filter:blur(12px);
+border-radius:14px;padding:.85rem 1.1rem;border:1px solid rgba(255,255,255,.12);
+}
+.anc-name{color:#fff;font-weight:700;font-size:.88rem;margin-bottom:.2rem}
+.anc-sub{color:rgba(255,255,255,.55);font-family:'JetBrains Mono',monospace;font-size:.65rem}
+.online-badge{
+display:inline-flex;align-items:center;gap.4rem;
+padding:.5rem .9rem;border-radius:99px;
+background:#22c55e;color:#fff;font-size:.7rem;font-weight:700;
+white-space:nowrap;gap:.4rem;
+}
+.online-dot{width:6px;height:6px;border-radius:50%;background:#fff}
+
+.award-float{
+position:absolute;top:1.8rem;right:-1.5rem;
+border-radius:18px;padding:.85rem 1rem;text-align:center;
+border:1px solid;box-shadow:0 16px 40px rgba(0,0,0,.2);
+}
+body.dark .award-float{background:#181818;border-color:rgba(255,255,255,.08)}
+body.light .award-float{background:#fff;border-color:rgba(0,0,0,.08)}
+.award-em{font-size:1.6rem;margin-bottom:.3rem}
+.award-title{font-weight:700;font-size:.72rem;margin-bottom:.1rem}
+body.dark .award-title{color:#fff}
+body.light .award-title{color:#0a0a0a}
+.award-sub{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#f97316}
+
+.about-text .desc{font-size:.95rem;font-weight:300;line-height:1.8;margin-bottom:.85rem}
+body.dark .about-text .desc{color:#999}
+body.light .about-text .desc{color:#555}
+.about-text .desc b{font-weight:600}
+body.dark .about-text .desc b{color:#f0ede8}
+body.light .about-text .desc b{color:#0a0a0a}
+.facts{display:flex;flex-direction:column;gap:.7rem;margin:1.6rem 0}
+.fact{display:flex;align-items:center;gap:.9rem;font-size:.85rem}
+body.dark .fact{color:#999}
+body.light .fact{color:#666}
+.fact-icon{width:36px;height:36px;border-radius:11px;background:rgba(249,115,22,.12);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.btn-dark{
+display:inline-flex;align-items:center;gap:8px;
+padding:.9rem 2rem;border-radius:99px;
+font-weight:700;font-size:.85rem;transition:all .2s;
+}
+body.dark .btn-dark{background:#fff;color:#0a0a0a}
+body.light .btn-dark{background:#0a0a0a;color:#fff}
+.btn-dark:hover{opacity:.82;transform:translateY(-2px)}
+
+/* ======= TRIPS PHOTO GRID ======= */
+.trips-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto;gap:.8rem}
+.trip-card{
+position:relative;border-radius:16px;overflow:hidden;cursor:pointer;
+}
+.trip-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.trip-card:hover img{transform:scale(1.06)}
+.trip-card:first-child{grid-column:span 2;aspect-ratio:4/3}
+.trip-card:not(:first-child){aspect-ratio:3/4}
+.trip-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.08) 55%,transparent 100%)}
+.trip-info{position:absolute;bottom:0;left:0;right:0;padding:1.2rem}
+.trip-year{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#fb923c;margin-bottom:.3rem}
+.trip-name{font-family:'Syne',sans-serif;font-weight:900;font-size:1.2rem;color:#fff;line-height:1.1;margin-bottom:.2rem}
+.trip-desc{font-size:.72rem;color:rgba(255,255,255,.65)}
+.trip-btn{
+position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+padding:.55rem 1.3rem;border-radius:99px;
+background:#fff;color:#0a0a0a;font-weight:700;font-size:.75rem;
+opacity:0;transition:opacity .25s;white-space:nowrap;
+}
+.trip-card:hover .trip-btn{opacity:1}
+
+/* ======= TOPICS GRID ======= */
+.topics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.topic-card{
+position:relative;border-radius:16px;overflow:hidden;cursor:pointer;
+aspect-ratio:4/3;
+}
+.topic-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.topic-card:hover img{transform:scale(1.06)}
+.topic-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.15) 55%,transparent 100%)}
+.topic-info{position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.4rem}
+.topic-name{font-family:'Syne',sans-serif;font-weight:900;font-size:1.15rem;color:#fff;margin-bottom:.3rem}
+.topic-count{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#fb923c}
+.topic-hover-btn{
+position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+padding:.55rem 1.3rem;border-radius:99px;
+background:#fff;color:#0a0a0a;font-size:.75rem;font-weight:700;
+opacity:0;transition:opacity .25s;
+}
+.topic-card:hover .topic-hover-btn{opacity:1}
+
+/* ======= PLATFORMS ======= */
+.platforms-bg{}
+body.dark .platforms-bg{background:#080808}
+body.light .platforms-bg{background:#fff}
+.platforms-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.plat-card{
+border-radius:20px;padding:2rem;text-align:center;cursor:pointer;
+transition:transform .28s;border:1px solid;
+}
+body.dark .plat-card{background:#111;border-color:rgba(255,255,255,.06)}
+body.light .plat-card{background:#fafafa;border-color:rgba(0,0,0,.07)}
+.plat-card:hover{transform:translateY(-6px)}
+.plat-icon-wrap{
+width:64px;height:64px;border-radius:18px;
+margin:0 auto 1.2rem;
+display:flex;align-items:center;justify-content:center;
+transition:transform .28s;
+}
+.plat-card:hover .plat-icon-wrap{transform:scale(1.12)}
+.plat-icon-wrap svg{width:34px;height:34px}
+.plat-name{font-family:'Syne',sans-serif;font-weight:900;font-size:1.05rem;margin-bottom:.25rem}
+body.dark .plat-name{color:#fff}
+body.light .plat-name{color:#0a0a0a}
+.plat-handle{font-family:'JetBrains Mono',monospace;font-size:.68rem;margin-bottom:.9rem}
+body.dark .plat-handle{color:#555}
+body.light .plat-handle{color:#888}
+.plat-count{
+display:inline-block;padding:.3rem .9rem;border-radius:99px;
+font-size:.78rem;font-weight:700;
+}
+
+/* ======= CONTACT ======= */
+.contact-sec{position:relative;padding:7rem 2rem;overflow:hidden}
+.contact-bg-img{position:absolute;inset:0}
+.contact-bg-img img{width:100%;height:100%;object-fit:cover}
+.contact-bg-ov{position:absolute;inset:0;background:rgba(0,0,0,.78)}
+.contact-inner{position:relative;z-index:2;max-width:640px;margin:0 auto;text-align:center}
+.contact-h{font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);color:#fff;letter-spacing:-.03em;line-height:1.05;margin-bottom:1rem}
+.contact-sub{font-size:1rem;color:rgba(255,255,255,.62);font-weight:300;line-height:1.75;margin-bottom:2.5rem;max-width:480px;margin-inline:auto;margin-bottom:2.5rem}
+.contact-btns{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
+
+/* ======= FOOTER ======= */
+footer{padding:1.8rem 2rem}
+body.dark footer{background:#060606;border-top:1px solid rgba(255,255,255,.05)}
+body.light footer{background:#f2f0ec;border-top:1px solid rgba(0,0,0,.07)}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem}
+.f-logo{font-family:'Syne',sans-serif;font-weight:900;font-size:1.15rem}
+body.dark .f-logo{color:#fff}
+body.light .f-logo{color:#0a0a0a}
+.f-copy{font-family:'JetBrains Mono',monospace;font-size:.72rem}
+body.dark .f-copy{color:#444}
+body.light .f-copy{color:#888}
+
+/* ======= PORTFOLIO BADGE ======= */
+.port-badge{
+position:fixed;bottom:1.2rem;right:1.4rem;z-index:500;
+display:flex;align-items:center;gap:.45rem;
+padding:.42rem 1rem;border-radius:99px;
+backdrop-filter:blur(14px);pointer-events:none;
+font-family:'JetBrains Mono',monospace;font-size:.6rem;
+font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
+body.dark .port-badge{background:rgba(15,15,15,.85);border:1px solid rgba(255,255,255,.1);color:#666}
+body.light .port-badge{background:rgba(255,255,255,.88);border:1px solid rgba(0,0,0,.12);color:#999}
+.pb-dot{width:5px;height:5px;border-radius:50%;background:#f97316;box-shadow:0 0 7px #f97316}
+
+/* ======= RESPONSIVE ======= */
+@media(max-width:1024px){
+.video-grid{grid-template-columns:repeat(2,1fr)}
+.platforms-grid{grid-template-columns:repeat(2,1fr)}
+.about-grid{grid-template-columns:1fr;gap:3rem}
+.award-float{display:none}
+.trips-grid{grid-template-columns:repeat(2,1fr)}
+.trip-card:first-child{grid-column:span 2;aspect-ratio:16/9}
+.trip-card:not(:first-child){aspect-ratio:4/3}
+.topics-grid{grid-template-columns:repeat(2,1fr)}
+.stats-strip{grid-template-columns:repeat(2,1fr)}
+.stat-cell:nth-child(2){border-right:none}
+.f-play-big{display:none}
+.featured-content{padding:2rem 2.5rem}
+}
+@media(max-width:640px){
+#nav{padding:0 1.2rem}
+.nav-links,.nav-cta{display:none}
+.burger{display:flex}
+.hero-content{padding:0 1.2rem}
+.sec{padding:3.5rem 1.2rem}
+.video-grid{grid-template-columns:1fr}
+.trips-grid{grid-template-columns:1fr}
+.trip-card:first-child,.trip-card:not(:first-child){grid-column:unset;aspect-ratio:4/3}
+.topics-grid{grid-template-columns:1fr 1fr}
+.platforms-grid{grid-template-columns:1fr 1fr}
+.stats-strip{grid-template-columns:repeat(2,1fr)}
+.stat-cell:nth-child(2){border-right:none}
+.featured-content{padding:1.5rem}
+.f-title{font-size:1.2rem}
+}
+</style>
+</head>
+<body class="dark">
+
+<!-- ===== NAV ===== -->
+<nav id="nav" class="">
+  <a href="#hero" class="nav-logo" onclick="return smoothNav('#hero',event)">
+    <span class="logo-sq">N</span>
+    Nova<span class="nav-acc">Cast</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero" onclick="return smoothNav('#hero',event)">Главная</a></li>
+    <li><a href="#about" onclick="return smoothNav('#about',event)">О блоге</a></li>
+    <li><a href="#videos" onclick="return smoothNav('#videos',event)">Видео</a></li>
+    <li><a href="#topics" onclick="return smoothNav('#topics',event)">Рубрики</a></li>
+    <li><a href="#contact" onclick="return smoothNav('#contact',event)">Контакт</a></li>
+  </ul>
+  <div class="nav-r">
+    <button class="theme-btn" onclick="toggleTheme()" title="Тема">☀️</button>
+    <a href="#contact" class="nav-cta" onclick="return smoothNav('#contact',event)">Сотрудничество</a>
+    <button class="burger" id="burger" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mob">
+  <a href="#hero" class="mob-link" onclick="return smoothNav('#hero',event)">Главная <span class="mob-idx">01</span></a>
+  <a href="#about" class="mob-link" onclick="return smoothNav('#about',event)">О блоге <span class="mob-idx">02</span></a>
+  <a href="#videos" class="mob-link" onclick="return smoothNav('#videos',event)">Видео <span class="mob-idx">03</span></a>
+  <a href="#topics" class="mob-link" onclick="return smoothNav('#topics',event)">Рубрики <span class="mob-idx">04</span></a>
+  <a href="#contact" class="mob-link" onclick="return smoothNav('#contact',event)">Контакт <span class="mob-idx">05</span></a>
+  <div class="mob-bot">
+    <a href="#contact" class="mob-cta" onclick="return smoothNav('#contact',event)">Сотрудничество</a>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1800&q=85" alt="hero" loading="eager">
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="live"></span> Онлайн · Новое видео каждую пятницу
+    </div>
+    <h1 class="hero-name syne">
+      Никита<br>
+      <span class="o">НоваКаст</span>
+    </h1>
+    <p class="hero-desc">
+      Блогер, путешественник, рассказчик. Снимаю видео о том, что делает жизнь <b>интересной</b> — от японских деревень до лабораторий нобелевских лауреатов.
+    </p>
+    <div class="hero-btns">
+      <a href="#videos" class="btn-orange" onclick="return smoothNav('#videos',event)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+        Смотреть видео
+      </a>
+      <a href="#about" class="btn-ghost" onclick="return smoothNav('#about',event)">
+        О блоге &rarr;
+      </a>
+    </div>
+    <div class="hero-plats">
+      <span class="plat-pill">
+        <span class="dot" style="background:#FF0000"></span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 7s-.3-2-1.2-2.8C21.2 3 19.9 3 19.3 2.9 16.7 2.7 12 2.7 12 2.7s-4.7 0-7.3.2c-.6.1-1.9.1-3 1.3C.7 5.1.5 7.1.5 7.1S.2 9.2.2 11.5v2c0 2.3.3 4.5.3 4.5s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.3C7.2 22.3 12 22.3 12 22.3s4.7 0 7.3-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.2.3-4.5v-2c0-2.3-.3-4.5-.3-4.5zm-14 9.2V7.8l8.1 4.2-8.1 4.2z"/></svg>
+        3.2M
+      </span>
+      <span class="plat-pill">
+        <span class="dot" style="background:#E1306C"></span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#E1306C"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        890K
+      </span>
+      <span class="plat-pill">
+        <span class="dot" style="background:#1DA1F2"></span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        420K
+      </span>
+      <span class="plat-pill">
+        <span class="dot" style="background:#9146FF"></span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#9146FF"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
+        210K
+      </span>
+    </div>
+  </div>
+  <div class="scroll-hint" onclick="smoothNav('#stats',null)">
+    <span>Листай вниз</span>
+    <span class="scroll-arrow">↓</span>
+  </div>
+</section>
+
+<!-- ===== STATS STRIP ===== -->
+<div id="stats" class="stats-strip">
+  <div class="stat-cell"><div class="stat-n syne">3.2M</div><div class="stat-l">Подписчиков</div></div>
+  <div class="stat-cell"><div class="stat-n syne">280M</div><div class="stat-l">Просмотров</div></div>
+  <div class="stat-cell"><div class="stat-n syne">6</div><div class="stat-l">Лет на YouTube</div></div>
+  <div class="stat-cell"><div class="stat-n syne">47</div><div class="stat-l">Стран</div></div>
+</div>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee-wrap">
+  <div class="marquee-row">
+    <div class="m-item"><span class="m-text">Путешествия</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Технологии</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Кино</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Lifestyle</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Наука</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Культура</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Кулинария</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Природа</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Приключения</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Путешествия</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Технологии</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Кино</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Lifestyle</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Наука</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Культура</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Кулинария</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Природа</span><span class="m-sep"></span></div>
+    <div class="m-item"><span class="m-text">Приключения</span><span class="m-sep"></span></div>
+  </div>
+</div>
+
+<!-- ===== FEATURED BANNER ===== -->
+<section class="featured-bg sec">
+  <div class="si">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.8rem">
+      <div>
+        <div class="sec-label">Последний выпуск</div>
+        <h2 class="sec-h syne">Главное видео</h2>
+      </div>
+      <a href="#" style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:#666">Все видео →</a>
+    </div>
+
+    <div class="featured-banner">
+      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1400&q=85" alt="Japan">
+      <div class="ov"></div>
+      <div class="featured-content">
+        <div style="max-width:520px">
+          <span class="f-tag">Путешествия</span>
+          <h3 class="f-title syne">Я провёл месяц в Японии без денег</h3>
+          <div class="f-meta mono">
+            <span>👁 4.1M просмотров</span>
+            <span>42:15</span>
+            <span>2 нед. назад</span>
+          </div>
+          <a href="#" class="f-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            Смотреть выпуск
+          </a>
+        </div>
+      </div>
+      <div class="f-play-big">
+        <div class="play-tri"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO GRID ===== -->
+<section id="videos" class="sec featured-bg" style="padding-top:0">
+  <div class="si">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.8rem">
+      <div>
+        <div class="sec-label">Видео</div>
+        <h2 class="sec-h syne">Популярные <em>выпуски</em></h2>
+      </div>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="vcard">
+        <div class="vthumb">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=75" alt="tech">
+          <div class="vplay-over"><div class="vplay-circle"><div class="vplay-tri"></div></div></div>
+          <span class="vtag">Технологии</span>
+          <span class="vdur mono">28:44</span>
+        </div>
+        <div class="vinfo">
+          <div class="vtitle">Самый честный обзор iPhone 17</div>
+          <div class="vmeta mono"><span>👁 2.8M</span><span>1 мес. назад</span></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <img src="https://images.unsplash.com/photo-1518656306295-aa28b28b2504?auto=format&fit=crop&w=800&q=75" alt="castle">
+          <div class="vplay-over"><div class="vplay-circle"><div class="vplay-tri"></div></div></div>
+          <span class="vtag">Приключения</span>
+          <span class="vdur mono">54:30</span>
+        </div>
+        <div class="vinfo">
+          <div class="vtitle">Ночь в заброшенном замке Германии</div>
+          <div class="vmeta mono"><span>👁 6.2M</span><span>3 мес. назад</span></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=800&q=75" alt="ramen">
+          <div class="vplay-over"><div class="vplay-circle"><div class="vplay-tri"></div></div></div>
+          <span class="vtag">Кулинария</span>
+          <span class="vdur mono">1:08:22</span>
+        </div>
+        <div class="vinfo">
+          <div class="vtitle">Рецепты мира: 10 блюд за 10 часов</div>
+          <div class="vmeta mono"><span>👁 1.9M</span><span>4 мес. назад</span></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=75" alt="lab">
+          <div class="vplay-over"><div class="vplay-circle"><div class="vplay-tri"></div></div></div>
+          <span class="vtag">Наука</span>
+          <span class="vdur mono">35:10</span>
+        </div>
+        <div class="vinfo">
+          <div class="vtitle">Я поговорил с нобелевским лауреатом</div>
+          <div class="vmeta mono"><span>👁 3.3M</span><span>5 мес. назад</span></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?auto=format&fit=crop&w=800&q=75" alt="ice">
+          <div class="vplay-over"><div class="vplay-circle"><div class="vplay-tri"></div></div></div>
+          <span class="vtag">Природа</span>
+          <span class="vdur mono">1:02:18</span>
+        </div>
+        <div class="vinfo">
+          <div class="vtitle">Как выглядит жизнь в Антарктиде</div>
+          <div class="vmeta mono"><span>👁 5.7M</span><span>6 мес. назад</span></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=75" alt="vintage">
+          <div class="vplay-over"><div class="vplay-circle"><div class="vplay-tri"></div></div></div>
+          <span class="vtag">Культура</span>
+          <span class="vdur mono">47:09</span>
+        </div>
+        <div class="vinfo">
+          <div class="vtitle">Прожил неделю по правилам 1920-х</div>
+          <div class="vmeta mono"><span>👁 2.2M</span><span>7 мес. назад</span></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=75" alt="skyline">
+          <div class="vplay-over"><div class="vplay-circle"><div class="vplay-tri"></div></div></div>
+          <span class="vtag">Путешествия</span>
+          <span class="vdur mono">22:55</span>
+        </div>
+        <div class="vinfo">
+          <div class="vtitle">Самая высокая смотровая площадка в мире</div>
+          <div class="vmeta mono"><span>👁 3.9M</span><span>8 мес. назад</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="sec" style="border-top:1px solid;border-bottom:1px solid">
+<style>
+body.dark #about{background:#0f0f0f;border-color:rgba(255,255,255,.06)}
+body.light #about{background:#f5f3ef;border-color:rgba(0,0,0,.07)}
+</style>
+  <div class="si">
+    <div class="about-grid">
+      <!-- Photo -->
+      <div class="about-photo-wrap">
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&w=800&q=80" alt="Никита НоваКаст">
+          <div class="about-photo-ov"></div>
+          <div class="about-photo-bot">
+            <div class="about-name-card">
+              <div class="anc-name">Никита НоваКаст</div>
+              <div class="anc-sub mono">YouTube · 3.2M подписчиков</div>
+            </div>
+            <div class="online-badge">
+              <span class="online-dot"></span>
+              Активен
+            </div>
+          </div>
+        </div>
+        <div class="award-float">
+          <div class="award-em">🏆</div>
+          <div class="award-title">Gold Play Button</div>
+          <div class="award-sub mono">1M+ подписчиков</div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="about-text">
+        <div class="sec-label">О блоге</div>
+        <h2 class="sec-h syne" style="margin-bottom:1.4rem">
+          Истории, которые <em>меняют</em> взгляд на мир
+        </h2>
+        <p class="desc">
+          Я Никита, мне 29 лет. Уже 6 лет путешествую, снимаю и рассказываю о вещах, которые меня по-настоящему восхищают. <b>Ни одного видео из тех, что снять «надо»</b> — только то, что горит.
+        </p>
+        <p class="desc">
+          НоваКаст — это место, где длинные документальные истории соседствуют с честными обзорами и научными разборами. Формат: <b>20–60 минут</b>. Не для фона — для внимания.
+        </p>
+        <div class="facts">
+          <div class="fact"><div class="fact-icon">🌍</div>Побывал в 47 странах на 6 континентах</div>
+          <div class="fact"><div class="fact-icon">🕑</div>Более 2000 часов видеоконтента</div>
+          <div class="fact"><div class="fact-icon">🏆</div>Gold Play Button — 1M+ подписчиков в 2022</div>
+        </div>
+        <a href="#contact" class="btn-dark" onclick="return smoothNav('#contact',event)">
+          Написать мне &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRIPS GRID ===== -->
+<section class="sec" style="border-bottom:1px solid">
+<style>
+body.dark section.sec{border-color:rgba(255,255,255,.06)}
+body.light section.sec{border-color:rgba(0,0,0,.07)}
+</style>
+  <div class="si">
+    <div style="margin-bottom:1.8rem">
+      <div class="sec-label">Экспедиции</div>
+      <h2 class="sec-h syne">47 стран. Реальные истории.</h2>
+    </div>
+    <div class="trips-grid">
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=75" alt="Japan">
+        <div class="trip-ov"></div>
+        <div class="trip-info">
+          <div class="trip-year mono">2024</div>
+          <div class="trip-name syne">Япония</div>
+          <div class="trip-desc">30 дней без денег</div>
+        </div>
+        <div class="trip-btn">Смотреть видео</div>
+      </div>
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?auto=format&fit=crop&w=700&q=75" alt="Antarctica">
+        <div class="trip-ov"></div>
+        <div class="trip-info">
+          <div class="trip-year mono">2023</div>
+          <div class="trip-name syne">Антарктида</div>
+          <div class="trip-desc">На научной станции</div>
+        </div>
+        <div class="trip-btn">Смотреть видео</div>
+      </div>
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?auto=format&fit=crop&w=700&q=75" alt="Nepal">
+        <div class="trip-ov"></div>
+        <div class="trip-info">
+          <div class="trip-year mono">2023</div>
+          <div class="trip-name syne">Непал</div>
+          <div class="trip-desc">Базовый лагерь Эвереста</div>
+        </div>
+        <div class="trip-btn">Смотреть видео</div>
+      </div>
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1504233529578-6d46baba6d34?auto=format&fit=crop&w=700&q=75" alt="Iceland">
+        <div class="trip-ov"></div>
+        <div class="trip-info">
+          <div class="trip-year mono">2022</div>
+          <div class="trip-name syne">Исландия</div>
+          <div class="trip-desc">Северное сияние</div>
+        </div>
+        <div class="trip-btn">Смотреть видео</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOPICS ===== -->
+<section id="topics" class="sec" style="border-top:1px solid;border-bottom:1px solid">
+  <div class="si">
+    <div style="text-align:center;margin-bottom:1.8rem">
+      <div class="sec-label" style="justify-content:center">Рубрики</div>
+      <h2 class="sec-h syne" style="text-align:center">О чём снимаю</h2>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=700&q=70" alt="travel">
+        <div class="topic-ov"></div>
+        <div class="topic-info"><div class="topic-name syne">Путешествия</div><div class="topic-count mono">120+ видео</div></div>
+        <div class="topic-hover-btn">Смотреть</div>
+      </div>
+      <div class="topic-card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=70" alt="tech">
+        <div class="topic-ov"></div>
+        <div class="topic-info"><div class="topic-name syne">Технологии</div><div class="topic-count mono">85+ видео</div></div>
+        <div class="topic-hover-btn">Смотреть</div>
+      </div>
+      <div class="topic-card">
+        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=700&q=70" alt="cinema">
+        <div class="topic-ov"></div>
+        <div class="topic-info"><div class="topic-name syne">Кино</div><div class="topic-count mono">60+ видео</div></div>
+        <div class="topic-hover-btn">Смотреть</div>
+      </div>
+      <div class="topic-card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=70" alt="lifestyle">
+        <div class="topic-ov"></div>
+        <div class="topic-info"><div class="topic-name syne">Lifestyle</div><div class="topic-count mono">55+ видео</div></div>
+        <div class="topic-hover-btn">Смотреть</div>
+      </div>
+      <div class="topic-card">
+        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=700&q=70" alt="science">
+        <div class="topic-ov"></div>
+        <div class="topic-info"><div class="topic-name syne">Наука</div><div class="topic-count mono">40+ видео</div></div>
+        <div class="topic-hover-btn">Смотреть</div>
+      </div>
+      <div class="topic-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=70" alt="experiment">
+        <div class="topic-ov"></div>
+        <div class="topic-info"><div class="topic-name syne">Эксперименты</div><div class="topic-count mono">30+ видео</div></div>
+        <div class="topic-hover-btn">Смотреть</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLATFORMS ===== -->
+<section class="sec platforms-bg">
+  <div class="si">
+    <div style="text-align:center;margin-bottom:1.8rem">
+      <div class="sec-label" style="justify-content:center">Платформы</div>
+      <h2 class="sec-h syne" style="text-align:center">Найди меня <em>везде</em></h2>
+    </div>
+    <div class="platforms-grid">
+
+      <a href="#" class="plat-card">
+        <div class="plat-icon-wrap" style="background:rgba(255,0,0,.08)">
+          <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 7s-.3-2-1.2-2.8C21.2 3 19.9 3 19.3 2.9 16.7 2.7 12 2.7 12 2.7s-4.7 0-7.3.2c-.6.1-1.9.1-3 1.3C.7 5.1.5 7.1.5 7.1S.2 9.2.2 11.5v2c0 2.3.3 4.5.3 4.5s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.3C7.2 22.3 12 22.3 12 22.3s4.7 0 7.3-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.2.3-4.5v-2c0-2.3-.3-4.5-.3-4.5zm-14 9.2V7.8l8.1 4.2-8.1 4.2z"/></svg>
+        </div>
+        <div class="plat-name syne">YouTube</div>
+        <div class="plat-handle mono">@novacast</div>
+        <span class="plat-count" style="background:rgba(255,0,0,.1);color:#FF0000">3.2M</span>
+      </a>
+
+      <a href="#" class="plat-card">
+        <div class="plat-icon-wrap" style="background:rgba(225,48,108,.08)">
+          <svg viewBox="0 0 24 24" fill="#E1306C"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </div>
+        <div class="plat-name syne">Instagram</div>
+        <div class="plat-handle mono">@novacast.official</div>
+        <span class="plat-count" style="background:rgba(225,48,108,.1);color:#E1306C">890K</span>
+      </a>
+
+      <a href="#" class="plat-card">
+        <div class="plat-icon-wrap" style="background:rgba(29,161,242,.08)">
+          <svg viewBox="0 0 24 24" fill="#1DA1F2"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        </div>
+        <div class="plat-name syne">Twitter/X</div>
+        <div class="plat-handle mono">@novacast_ru</div>
+        <span class="plat-count" style="background:rgba(29,161,242,.1);color:#1DA1F2">420K</span>
+      </a>
+
+      <a href="#" class="plat-card">
+        <div class="plat-icon-wrap" style="background:rgba(145,70,255,.08)">
+          <svg viewBox="0 0 24 24" fill="#9146FF"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
+        </div>
+        <div class="plat-name syne">Twitch</div>
+        <div class="plat-handle mono">novacast_live</div>
+        <span class="plat-count" style="background:rgba(145,70,255,.1);color:#9146FF">210K</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-sec">
+  <div class="contact-bg-img">
+    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=75" alt="contact bg">
+    <div class="contact-bg-ov"></div>
+  </div>
+  <div class="contact-inner">
+    <div class="sec-label" style="justify-content:center;color:#fb923c;margin-bottom:1rem">
+      <span style="width:16px;height:1px;background:#fb923c;display:block"></span>
+      Контакт
+      <span style="width:16px;height:1px;background:#fb923c;display:block"></span>
+    </div>
+    <h2 class="contact-h syne">Хочешь сотрудничать?</h2>
+    <p class="contact-sub">Рекламные интеграции, совместные проекты, интервью — напишите на почту и я отвечу в течение 2 рабочих дней.</p>
+    <div class="contact-btns">
+      <a href="mailto:hello@novacast.ru" class="btn-orange">
+        ✉ hello@novacast.ru
+      </a>
+      <a href="#" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Telegram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <span class="f-logo syne">Nova<span style="color:#f97316">Cast</span></span>
+    <span class="f-copy mono">© 2025 Никита НоваКаст · Все права защищены</span>
+    <span class="f-copy mono">@novacast_ru</span>
+  </div>
+</footer>
+
+<!-- PORTFOLIO BADGE -->
+<div class="port-badge">
+  <span class="pb-dot"></span>
+  Портфолио · Millerson Shop
+</div>
+
+<script>
+/* INIT */
+(function(){
+  var t=localStorage.getItem('nc_theme')||'dark';
+  document.body.className=t;
+  document.getElementById('nav').className=t;
+})();
+
+function toggleTheme(){
+  var isDark=document.body.classList.contains('dark');
+  var t=isDark?'light':'dark';
+  document.body.className=t;
+  document.getElementById('nav').className=t;
+  var btn=document.querySelector('.theme-btn');
+  btn.textContent=t==='dark'?'☀️':'🌙';
+  localStorage.setItem('nc_theme',t);
+  var mob=document.getElementById('mob');
+  mob.className=mob.classList.contains('open')?'open':'';
+}
+
+/* NAV SCROLL */
+window.addEventListener('scroll',function(){
+  var n=document.getElementById('nav');
+  var isDark=document.body.classList.contains('dark');
+  if(window.scrollY>20){n.classList.add('scrolled',isDark?'dark':'light');n.classList.remove(isDark?'light':'dark')}
+  else{n.classList.remove('scrolled','dark','light')}
+},{passive:true});
+
+/* SMOOTH NAV */
+function smoothNav(sel,e){
+  if(e&&e.preventDefault)e.preventDefault();
+  var el=document.querySelector(sel);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+  closeMob();
+  return false;
+}
+
+/* MOB MENU */
+function toggleMob(){
+  var m=document.getElementById('mob');
+  var b=document.getElementById('burger');
+  var open=!m.classList.contains('open');
+  m.classList.toggle('open',open);
+  b.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMob(){
+  var m=document.getElementById('mob');
+  var b=document.getElementById('burger');
+  m.classList.remove('open');
+  b.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* INTERSECTION FADE-IN */
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.vcard,.plat-card,.topic-card,.trip-card,.stat-cell,.fact').forEach(function(el){
+  el.style.opacity='0';
+  el.style.transform='translateY(18px)';
+  el.style.transition='opacity .6s ease,transform .6s ease';
+  io.observe(el);
+});
+</script>
+</body>
+</html>

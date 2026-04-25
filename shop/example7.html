@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анна Серебрякова — репетитор по математике · Сделано для Millerson Shop</title>
+<meta name="description" content="Частный репетитор по математике. ЕГЭ, ОГЭ, олимпиадная подготовка, школьная программа.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600;1,9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+*:focus,*:focus-visible{outline:none}
+button,a{outline:none!important;-webkit-tap-highlight-color:transparent}
+button::-moz-focus-inner{border:0}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+
+[data-theme="dark"]{
+  --bg:#0c1518;
+  --bg2:#101e21;
+  --bg3:#15282b;
+  --paper:#0a1316;
+  --card:#13242a;
+  --card2:#1a2f35;
+  --line:#ffffff10;
+  --line2:#e8d8b220;
+  --ink:#ede5d0;
+  --ink2:#c5bca5;
+  --ink3:#8b8472;
+  --ink4:#4d4a3f;
+  --teal:#2d6e6e;
+  --teal2:#3f9292;
+  --amber:#e8a534;
+  --amber2:#f0b955;
+  --burgundy:#b85440;
+  --olive:#7a8455;
+  --inv:#0c1518;
+  --nav-bg:rgba(12,21,24,0.78);
+  --shadow:0 30px 80px rgba(0,0,0,.55);
+}
+[data-theme="light"]{
+  --bg:#f5f1e6;
+  --bg2:#ede7d6;
+  --bg3:#e3dac3;
+  --paper:#fbf7ec;
+  --card:#fbf7ec;
+  --card2:#f1ebd9;
+  --line:#1a1f2c14;
+  --line2:#1a1f2c2a;
+  --ink:#0d2024;
+  --ink2:#384148;
+  --ink3:#6a6a5a;
+  --ink4:#a6a190;
+  --teal:#0d3b3a;
+  --teal2:#175557;
+  --amber:#b67912;
+  --amber2:#c8861a;
+  --burgundy:#9c3e2c;
+  --olive:#5d6a3d;
+  --inv:#fbf7ec;
+  --nav-bg:rgba(245,241,230,0.85);
+  --shadow:0 24px 70px rgba(13,32,36,.18);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',sans-serif;line-height:1.65;font-weight:400;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  transition:background .4s,color .4s;
+}
+::selection{background:var(--amber);color:var(--inv)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--teal2);border-radius:6px}
+
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.015em;line-height:1.05}
+.serif{font-family:'Fraunces',serif}
+.serif-i{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
+.mono{font-family:'JetBrains Mono',monospace;letter-spacing:.05em}
+
+/* === GRAIN OVERLAY === */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.04;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+[data-theme="light"] .grain{mix-blend-mode:multiply;opacity:.05}
+
+/* === ANNOUNCE BAR === */
+.announce{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.45rem 1rem;background:var(--teal);color:#f5f1e6;
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;
+  position:relative;z-index:1001;
+}
+.announce .sep{width:4px;height:4px;border-radius:50%;background:var(--amber);flex-shrink:0}
+.announce a{color:var(--amber2);font-weight:600;border-bottom:1px dashed currentColor;padding-bottom:1px}
+.announce .hide-sm{display:inline}
+
+/* === NAV === */
+nav{
+  position:sticky;top:0;left:0;right:0;z-index:1000;
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.4rem;
+  padding:.95rem 2rem;
+  background:var(--nav-bg);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--line);
+  transition:background .3s,border-color .3s,padding .3s;
+}
+nav.scrolled{padding:.7rem 2rem;border-color:var(--line2)}
+.nav-l{display:flex;align-items:center;gap:.65rem}
+.nav-mark{
+  display:flex;align-items:center;gap:.6rem;color:var(--ink);
+  font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;letter-spacing:-.01em;
+}
+.nav-mark .mk{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--teal);color:var(--amber2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:1.05rem;
+  border:1px solid var(--line2);
+}
+.nav-mark .mk::after{content:'';position:absolute;width:34px;height:34px;border-radius:50%;border:1px dashed var(--amber);transform:scale(1.18);opacity:.55}
+.nav-mark .mk{position:relative;overflow:visible}
+.nav-mark b{color:var(--ink);font-weight:700}
+.nav-mark .dot{color:var(--amber)}
+
+.nav-c{display:flex;gap:.1rem;justify-content:center}
+.nav-c a{
+  padding:.55rem .95rem;color:var(--ink2);
+  font-size:.82rem;font-weight:500;letter-spacing:.01em;
+  border-radius:99px;transition:color .2s,background .2s;
+  display:inline-flex;align-items:center;gap:.45rem;
+}
+.nav-c a .num{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--ink4);font-weight:500}
+.nav-c a:hover{color:var(--ink);background:var(--card2)}
+
+.nav-r{display:flex;align-items:center;gap:.55rem;justify-content:flex-end}
+.icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--card);border:1px solid var(--line2);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  color:var(--ink2);transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.icon-btn:hover{background:var(--card2);border-color:var(--amber);color:var(--ink);transform:rotate(15deg)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.65rem 1.2rem;
+  background:var(--amber);color:#1a1408;
+  font-size:.78rem;font-weight:700;letter-spacing:.02em;
+  border-radius:99px;
+  animation:pulseBtn 3.2s ease-in-out infinite;
+  transition:transform .2s,background .2s;
+  white-space:nowrap;
+}
+[data-theme="light"] .nav-cta{color:#fbf7ec}
+.nav-cta:hover{background:var(--amber2);transform:translateY(-1px)}
+@keyframes pulseBtn{
+  0%,100%{box-shadow:0 0 0 0 rgba(232,165,52,.5)}
+  50%{box-shadow:0 0 0 10px rgba(232,165,52,0)}
+}
+
+.burger{
+  display:none;width:38px;height:38px;border-radius:50%;
+  background:var(--card);border:1px solid var(--line2);cursor:pointer;
+  flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--ink);
+}
+.burger span{display:block;width:14px;height:1.6px;background:currentColor;border-radius:1px;transition:transform .3s,opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(5.6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-5.6px) rotate(-45deg)}
+
+.mob-menu{
+  position:fixed;inset:0;z-index:999;background:var(--bg);
+  display:flex;flex-direction:column;
+  visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s;
+  padding:6.2rem 1.5rem 2rem;overflow-y:auto;
+}
+.mob-menu.open{visibility:visible;opacity:1}
+.mob-menu a.mlink{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.15rem 0;border-bottom:1px solid var(--line);
+  font-family:'Fraunces',serif;font-size:1.85rem;font-weight:600;
+  color:var(--ink);letter-spacing:-.02em;
+}
+.mob-menu a.mlink .num{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink4);font-weight:500}
+.mob-menu a.mlink:hover{color:var(--amber)}
+.mob-bot{margin-top:auto;padding-top:2rem;display:flex;flex-direction:column;gap:.6rem}
+.mob-theme{
+  display:flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.95rem 1.4rem;background:var(--card);border:1px solid var(--line2);
+  border-radius:99px;cursor:pointer;color:var(--ink);
+  font-size:.85rem;font-weight:500;
+}
+.mob-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.95rem 1.4rem;background:var(--amber);color:#1a1408;
+  font-weight:700;font-size:.85rem;border-radius:99px;letter-spacing:.02em;
+}
+[data-theme="light"] .mob-cta{color:#fbf7ec}
+
+/* === HERO === */
+.hero{
+  position:relative;padding:5rem 2rem 4rem;
+  max-width:1320px;margin:0 auto;
+}
+.hero-meta-top{
+  display:flex;justify-content:space-between;align-items:center;gap:2rem;
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink3);
+  letter-spacing:.16em;text-transform:uppercase;
+  padding-bottom:1.4rem;border-bottom:1px dashed var(--line2);margin-bottom:2.5rem;
+}
+.hero-meta-top span b{color:var(--ink);font-weight:600}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr 1fr;gap:3.5rem;align-items:center;
+}
+.hero-l{display:flex;flex-direction:column;gap:1.6rem}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.55rem;align-self:flex-start;
+  padding:.4rem .9rem;background:var(--card);border:1px solid var(--line2);
+  border-radius:99px;font-size:.74rem;color:var(--ink2);font-weight:500;
+}
+.hero-tag .gd{
+  width:8px;height:8px;border-radius:50%;background:var(--olive);
+  box-shadow:0 0 12px var(--olive);animation:pulseDot 2.2s ease-in-out infinite;
+}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-h{
+  font-size:clamp(3rem,7vw,6rem);
+  line-height:.96;letter-spacing:-.035em;color:var(--ink);
+  font-weight:500;
+}
+.hero-h .em{font-style:italic;font-weight:500;color:var(--amber)}
+.hero-h .sm{display:block;font-family:'Inter',sans-serif;font-size:.22em;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem;line-height:1}
+.hero-sub{
+  font-size:1.05rem;color:var(--ink2);max-width:480px;line-height:1.65;font-weight:400;
+}
+.hero-sub b{color:var(--ink);font-weight:600}
+.hero-meta-row{display:flex;flex-wrap:wrap;gap:.4rem}
+.hero-meta-row span{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.4rem .85rem;background:var(--card);border:1px solid var(--line2);
+  border-radius:99px;font-size:.74rem;color:var(--ink2);font-weight:500;
+}
+.hero-meta-row span b{color:var(--amber);font-weight:700}
+.hero-cta-row{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.4rem}
+.cta-prime{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.95rem 1.7rem;background:var(--amber);color:#1a1408;
+  font-size:.88rem;font-weight:700;letter-spacing:.01em;
+  border-radius:99px;transition:transform .2s,background .2s,box-shadow .2s;
+}
+[data-theme="light"] .cta-prime{color:#fbf7ec}
+.cta-prime:hover{transform:translateY(-2px);background:var(--amber2);box-shadow:0 12px 26px rgba(232,165,52,.35)}
+.cta-ghost{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.95rem 1.7rem;background:transparent;color:var(--ink);
+  border:1px solid var(--line2);font-size:.88rem;font-weight:500;
+  border-radius:99px;transition:background .2s,border-color .2s;
+}
+.cta-ghost:hover{background:var(--card);border-color:var(--amber)}
+
+/* HERO PHOTO */
+.hero-r{position:relative;aspect-ratio:4/5;max-height:640px}
+.hero-photo{
+  position:relative;width:100%;height:100%;border-radius:14px;overflow:hidden;
+  border:1px solid var(--line2);box-shadow:var(--shadow);
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.02)}
+.hero-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(8,16,18,.55) 100%);
+}
+.hero-photo-tag{
+  position:absolute;top:1rem;left:1rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.45rem .9rem;background:rgba(8,16,18,.55);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);
+  border-radius:99px;color:#f5f1e6;font-size:.7rem;font-weight:500;
+  font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;
+}
+.hero-photo-tag .gd{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.hero-photo-foot{
+  position:absolute;bottom:1.2rem;left:1.2rem;right:1.2rem;z-index:2;
+  display:flex;justify-content:space-between;align-items:flex-end;color:#f5f1e6;
+}
+.hero-photo-foot b{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;letter-spacing:-.01em;display:block;line-height:1.1}
+.hero-photo-foot span{font-size:.74rem;opacity:.8;display:block;margin-top:.2rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+
+/* Floating quote card */
+.hero-quote{
+  position:absolute;left:-40px;bottom:60px;z-index:3;
+  width:230px;padding:1.1rem 1.2rem;background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.32);
+  display:flex;flex-direction:column;gap:.6rem;
+  animation:floatY 6s ease-in-out infinite;
+}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-quote .q{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;line-height:1.3;color:var(--ink);font-weight:500}
+.hero-quote .by{font-size:.7rem;color:var(--ink3);display:flex;align-items:center;gap:.45rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+.hero-quote .by::before{content:'';width:18px;height:1px;background:var(--amber)}
+
+/* Floating score card */
+.hero-score{
+  position:absolute;right:-30px;top:80px;z-index:3;
+  width:180px;padding:1.1rem 1.2rem;background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.32);
+  display:flex;flex-direction:column;gap:.4rem;
+  animation:floatY 7s ease-in-out infinite reverse;
+}
+.hero-score .lbl{font-size:.7rem;color:var(--ink3);font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.hero-score .num{font-family:'Fraunces',serif;font-weight:700;font-size:2.6rem;color:var(--ink);line-height:1;letter-spacing:-.04em}
+.hero-score .num sup{font-size:.9rem;color:var(--amber);font-weight:600;vertical-align:super;margin-left:2px}
+.hero-score .delta{font-size:.74rem;color:var(--olive);font-weight:600;display:flex;align-items:center;gap:.3rem}
+
+/* === MARQUEE === */
+.mq{
+  overflow:hidden;background:var(--teal);color:var(--inv);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:1.1rem 0;position:relative;
+}
+.mq-row{display:flex;width:max-content;animation:mqa 38s linear infinite;align-items:center}
+.mq-row span{font-family:'Fraunces',serif;font-weight:500;font-size:1.7rem;padding:0 1.5rem;letter-spacing:-.015em;white-space:nowrap;color:#f5f1e6}
+.mq-row span.it{font-style:italic;color:var(--amber2)}
+.mq-row .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0;margin:0 .55rem}
+@keyframes mqa{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* === SECTIONS === */
+section{position:relative}
+.sec{padding:6rem 2rem;max-width:1320px;margin:0 auto}
+.sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:end;margin-bottom:3rem;padding-bottom:1.2rem;border-bottom:1px dashed var(--line2)}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--amber);font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.sec-h{
+  font-family:'Fraunces',serif;font-weight:500;
+  font-size:clamp(2rem,4.6vw,3.6rem);line-height:1;color:var(--ink);
+  letter-spacing:-.03em;max-width:780px;
+}
+.sec-h .em{font-style:italic;color:var(--amber);font-weight:500}
+.sec-side{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink3);letter-spacing:.12em;text-transform:uppercase;text-align:right;line-height:1.6}
+
+/* === ABOUT === */
+.about-bg{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about{display:grid;grid-template-columns:.95fr 1.05fr;gap:3.5rem;align-items:start}
+.about-photo{
+  position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line2);
+  aspect-ratio:4/5;box-shadow:var(--shadow);
+}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(8,16,18,.55) 100%)}
+.about-photo .stamp{
+  position:absolute;top:1.1rem;right:1.1rem;z-index:2;
+  width:90px;height:90px;border-radius:50%;
+  background:var(--amber);color:#1a1408;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-weight:600;
+  font-size:.74rem;line-height:1.1;text-align:center;
+  letter-spacing:.04em;text-transform:uppercase;
+  transform:rotate(8deg);box-shadow:0 8px 22px rgba(232,165,52,.35);
+  border:1px dashed rgba(26,20,8,.4);
+}
+.about-photo .stamp b{display:block;font-size:1.35rem;font-weight:700;margin:.15rem 0;letter-spacing:0}
+.about-photo .tag{
+  position:absolute;bottom:1.1rem;left:1.1rem;z-index:2;color:#f5f1e6;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.4rem .85rem;background:rgba(8,16,18,.55);backdrop-filter:blur(10px);
+  border-radius:99px;border:1px solid rgba(255,255,255,.1);
+}
+
+.about-r{display:flex;flex-direction:column;gap:1.6rem}
+.about-eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;align-self:flex-start;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--amber);
+  font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+}
+.about-eyebrow::before{content:'';width:24px;height:1px;background:var(--amber)}
+.about-r .big{
+  font-family:'Fraunces',serif;font-weight:500;
+  font-size:clamp(1.5rem,2.6vw,2.05rem);color:var(--ink);
+  letter-spacing:-.02em;line-height:1.25;
+}
+.about-r .big i{color:var(--amber);font-style:italic;font-weight:500}
+.about-r p{font-size:.96rem;color:var(--ink2);line-height:1.75;max-width:580px}
+.about-r p b{color:var(--ink);font-weight:600}
+
+.about-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-top:.5rem}
+.about-strip .it{padding:1.15rem 1rem;background:var(--card);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;gap:.3rem;transition:border-color .2s,transform .2s}
+.about-strip .it:hover{border-color:var(--amber);transform:translateY(-3px)}
+.about-strip .num{font-family:'Fraunces',serif;font-weight:700;font-size:1.85rem;color:var(--ink);line-height:1;letter-spacing:-.03em}
+.about-strip .num sup{font-size:.85rem;color:var(--amber);font-weight:600;vertical-align:super}
+.about-strip .lbl{font-size:.72rem;color:var(--ink3);letter-spacing:.05em;font-weight:500}
+
+.about-sig{
+  display:flex;align-items:center;gap:1rem;margin-top:.8rem;
+  padding-top:1.5rem;border-top:1px dashed var(--line2);
+}
+.about-sig .ssvg{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:1.85rem;color:var(--amber);transform:rotate(-2deg);letter-spacing:-.02em}
+.about-sig .info{font-size:.78rem;color:var(--ink3);font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
+.about-sig .info b{color:var(--ink);display:block;font-weight:600;font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;font-size:.92rem;margin-bottom:.15rem}
+
+/* === PROGRAMS === */
+.prg-bg{background:var(--bg)}
+.prg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.prg{
+  position:relative;border-radius:14px;overflow:hidden;
+  background:var(--card);border:1px solid var(--line);
+  display:flex;flex-direction:column;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.prg:hover{transform:translateY(-6px);border-color:var(--amber);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.prg-img{aspect-ratio:4/3;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.prg-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.prg:hover .prg-img img{transform:scale(1.06)}
+.prg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,16,18,.65) 100%)}
+.prg-badge{
+  position:absolute;top:.85rem;left:.85rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.4rem .8rem;background:rgba(8,16,18,.55);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);
+  border-radius:99px;color:#f5f1e6;font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+}
+.prg-badge.gold{background:var(--amber);color:#1a1408;border-color:transparent}
+.prg-num{
+  position:absolute;top:.85rem;right:.85rem;z-index:2;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#f5f1e6;
+  background:rgba(8,16,18,.55);backdrop-filter:blur(10px);
+  padding:.3rem .55rem;border-radius:6px;border:1px solid rgba(255,255,255,.12);
+  letter-spacing:.08em;
+}
+.prg-img-foot{
+  position:absolute;bottom:.9rem;left:.9rem;right:.9rem;z-index:2;color:#f5f1e6;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;
+}
+.prg-img-foot b{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;letter-spacing:-.01em;line-height:1.05;display:block}
+.prg-img-foot b i{font-style:italic;color:var(--amber2);font-weight:500}
+.prg-img-foot .dur{font-family:'JetBrains Mono',monospace;font-size:.66rem;opacity:.85;letter-spacing:.08em;text-transform:uppercase;flex-shrink:0;background:rgba(0,0,0,.4);padding:.3rem .55rem;border-radius:99px;backdrop-filter:blur(8px)}
+.prg-body{padding:1.4rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.95rem;flex:1}
+.prg-body p{font-size:.88rem;color:var(--ink2);line-height:1.6}
+.prg-feats{display:flex;flex-direction:column;gap:.5rem;border-top:1px dashed var(--line2);padding-top:.95rem;margin-top:auto}
+.prg-feats .ft{display:flex;align-items:center;gap:.55rem;font-size:.8rem;color:var(--ink2)}
+.prg-feats .ft::before{content:'';width:14px;height:1px;background:var(--amber);flex-shrink:0}
+.prg-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.4rem;border-top:1px solid var(--line);background:var(--card2);
+}
+.prg-price{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--ink);letter-spacing:-.01em}
+.prg-price span{font-size:.72rem;color:var(--ink3);font-weight:500;font-family:'Inter',sans-serif;letter-spacing:0;margin-left:.15rem}
+.prg-arr{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--amber);color:#1a1408;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .25s,background .25s;
+}
+[data-theme="light"] .prg-arr{color:#fbf7ec}
+.prg:hover .prg-arr{transform:rotate(-45deg);background:var(--amber2)}
+
+/* === BANNER LARGE === */
+.banner-bg{padding:0;max-width:1320px;margin:0 auto;padding:2rem 2rem 0}
+.banner{
+  position:relative;border-radius:18px;overflow:hidden;
+  border:1px solid var(--line2);
+  min-height:420px;display:flex;align-items:flex-end;
+  box-shadow:var(--shadow);
+}
+.banner-img{position:absolute;inset:0;z-index:0}
+.banner-img img{width:100%;height:100%;object-fit:cover}
+.banner-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,rgba(13,59,58,.92) 0%,rgba(13,59,58,.55) 50%,rgba(8,16,18,.35) 100%);
+}
+.banner-content{
+  position:relative;z-index:2;padding:3rem 3rem 3rem;
+  display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:end;width:100%;color:#f5f1e6;
+}
+.banner-l{display:flex;flex-direction:column;gap:1.2rem;max-width:620px}
+.banner-eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;align-self:flex-start;
+  padding:.4rem .85rem;background:rgba(245,241,230,.12);border:1px solid rgba(245,241,230,.2);
+  border-radius:99px;color:var(--amber2);font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+}
+.banner-h{
+  font-family:'Fraunces',serif;font-weight:500;
+  font-size:clamp(2rem,4.5vw,3.4rem);line-height:1;letter-spacing:-.03em;color:#f5f1e6;
+}
+.banner-h .em{font-style:italic;color:var(--amber2);font-weight:500}
+.banner-p{font-size:1rem;color:rgba(245,241,230,.85);line-height:1.65;max-width:480px}
+.banner-cta-row{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.4rem}
+.banner-cta-row .cta-prime{background:var(--amber);color:#1a1408}
+.banner-cta-row .cta-ghost{background:transparent;color:#f5f1e6;border-color:rgba(245,241,230,.3)}
+.banner-cta-row .cta-ghost:hover{background:rgba(245,241,230,.1);border-color:var(--amber)}
+.banner-r{display:flex;flex-direction:column;gap:.6rem;align-self:end}
+.banner-stat{
+  padding:1.2rem 1.4rem;background:rgba(8,16,18,.45);
+  backdrop-filter:blur(12px);border:1px solid rgba(245,241,230,.15);
+  border-radius:14px;
+}
+.banner-stat .num{font-family:'Fraunces',serif;font-weight:700;font-size:2.4rem;color:#f5f1e6;line-height:1;letter-spacing:-.03em;margin-bottom:.25rem}
+.banner-stat .num sup{font-size:.9rem;color:var(--amber);font-weight:600}
+.banner-stat .lbl{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:rgba(245,241,230,.7);letter-spacing:.1em;text-transform:uppercase}
+
+/* === METHOD === */
+.method{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:14px;overflow:hidden}
+.mt{
+  padding:2rem 1.6rem;background:var(--card);
+  display:flex;flex-direction:column;gap:1rem;
+  transition:background .25s;
+}
+.mt:hover{background:var(--card2)}
+.mt-num{font-family:'Fraunces',serif;font-weight:700;font-size:2.4rem;color:var(--amber);line-height:1;letter-spacing:-.04em;font-style:italic}
+.mt h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.35rem;color:var(--ink);line-height:1.15;letter-spacing:-.015em}
+.mt p{font-size:.88rem;color:var(--ink2);line-height:1.6}
+
+/* === STATS PANEL === */
+.stats-panel{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;
+  margin-top:3rem;
+}
+.stp{
+  padding:1.7rem 1.4rem;background:var(--card);border:1px solid var(--line2);border-radius:14px;
+  position:relative;overflow:hidden;
+}
+.stp::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--amber);opacity:0;transition:opacity .25s}
+.stp:hover::before{opacity:1}
+.stp .lbl{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.55rem}
+.stp .num{font-family:'Fraunces',serif;font-weight:700;font-size:2.3rem;color:var(--ink);line-height:1;letter-spacing:-.03em}
+.stp .num sup{font-size:.95rem;color:var(--amber);font-weight:600}
+.stp .desc{font-size:.78rem;color:var(--ink3);margin-top:.5rem;line-height:1.4}
+
+/* === REVIEWS === */
+.rev-bg{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.rev{
+  display:flex;flex-direction:column;gap:1.2rem;
+  padding:1.8rem 1.7rem;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  transition:transform .25s,border-color .25s;
+}
+.rev:hover{transform:translateY(-4px);border-color:var(--amber)}
+.rev-stars{display:flex;gap:.15rem;color:var(--amber)}
+.rev-q{font-family:'Fraunces',serif;font-weight:500;font-size:1.15rem;line-height:1.4;color:var(--ink);letter-spacing:-.01em;flex:1}
+.rev-q::before{content:'\201C';font-family:'Fraunces',serif;font-size:3rem;color:var(--amber);line-height:.5;display:block;margin-bottom:.4rem;font-style:italic}
+.rev-by{display:flex;align-items:center;gap:.85rem;padding-top:1rem;border-top:1px dashed var(--line2)}
+.rev-av{
+  width:48px;height:48px;border-radius:50%;overflow:hidden;
+  border:1px solid var(--line2);flex-shrink:0;background:var(--bg3);
+}
+.rev-av img{width:100%;height:100%;object-fit:cover}
+.rev-info b{display:block;font-size:.92rem;color:var(--ink);font-weight:600;letter-spacing:-.01em}
+.rev-info span{display:block;font-size:.74rem;color:var(--ink3);margin-top:.15rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+
+/* === FAQ === */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 3rem;align-items:start}
+.faq-l h2{
+  font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);
+  letter-spacing:-.03em;line-height:1.05;color:var(--ink);margin-bottom:1rem;
+}
+.faq-l h2 .em{font-style:italic;color:var(--amber);font-weight:500}
+.faq-l p{font-size:.96rem;color:var(--ink2);line-height:1.7;max-width:380px;margin-bottom:1.5rem}
+.faq-l .cta-prime{background:var(--ink);color:var(--inv)}
+.faq-l .cta-prime:hover{background:var(--teal)}
+
+.faq-list{display:flex;flex-direction:column;gap:.6rem}
+.faq-item{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;transition:border-color .25s,background .25s;
+}
+.faq-item:hover{border-color:var(--line2)}
+.faq-item.open{border-color:var(--amber);background:var(--card2)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.2rem 1.4rem;cursor:pointer;
+  font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.3;
+  background:transparent;border:none;width:100%;text-align:left;
+}
+.faq-icn{
+  width:30px;height:30px;border-radius:50%;background:var(--bg3);
+  display:flex;align-items:center;justify-content:center;color:var(--amber);
+  flex-shrink:0;transition:transform .3s,background .25s;
+}
+.faq-item.open .faq-icn{transform:rotate(45deg);background:var(--amber);color:#1a1408}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .35s ease;
+  padding:0 1.4rem;color:var(--ink2);font-size:.92rem;line-height:1.65;
+}
+.faq-item.open .faq-a{max-height:280px;padding:0 1.4rem 1.3rem}
+
+/* === CONTACTS === */
+.contact-bg{background:var(--paper)}
+[data-theme="dark"] .contact-bg{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+.contact-l h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.5rem,5vw,4.2rem);letter-spacing:-.035em;line-height:.98;color:var(--ink);margin-bottom:1.4rem}
+.contact-l h2 .em{font-style:italic;color:var(--amber);font-weight:500}
+.contact-l p{font-size:1.05rem;color:var(--ink2);line-height:1.7;max-width:480px;margin-bottom:2rem}
+.contact-channels{display:flex;flex-direction:column;gap:.7rem}
+.ch{
+  display:grid;grid-template-columns:48px 1fr auto;gap:1rem;align-items:center;
+  padding:1.1rem 1.3rem;background:var(--card);border:1px solid var(--line2);
+  border-radius:12px;transition:transform .25s,border-color .25s,background .25s;
+}
+.ch:hover{transform:translateX(4px);border-color:var(--amber);background:var(--card2)}
+.ch-ic{
+  width:48px;height:48px;border-radius:12px;background:var(--bg3);
+  display:flex;align-items:center;justify-content:center;color:var(--amber);
+  border:1px solid var(--line2);
+}
+.ch:hover .ch-ic{background:var(--amber);color:#1a1408;border-color:transparent}
+.ch-info b{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--ink);letter-spacing:-.01em}
+.ch-info span{display:block;font-size:.82rem;color:var(--ink3);margin-top:.15rem}
+.ch-arr{color:var(--ink3);transition:color .25s,transform .25s}
+.ch:hover .ch-arr{color:var(--amber);transform:translateX(4px)}
+
+.contact-r{
+  position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line2);
+  aspect-ratio:4/5;box-shadow:var(--shadow);
+}
+.contact-r img{width:100%;height:100%;object-fit:cover}
+.contact-r::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,16,18,.7) 100%)}
+.contact-r .info{
+  position:absolute;left:1.3rem;right:1.3rem;bottom:1.3rem;z-index:2;color:#f5f1e6;
+}
+.contact-r .info b{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;letter-spacing:-.015em;display:block;margin-bottom:.3rem}
+.contact-r .info span{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.contact-r .pin{
+  position:absolute;top:1rem;left:1rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.45rem .9rem;background:rgba(8,16,18,.5);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.12);border-radius:99px;
+  color:#f5f1e6;font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.contact-r .pin .gd{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber)}
+
+/* === FOOTER === */
+footer{
+  background:var(--paper);border-top:1px solid var(--line2);
+  padding:4rem 2rem 1.5rem;
+}
+[data-theme="dark"] footer{background:var(--bg2)}
+.foot-wrap{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px dashed var(--line2)}
+.foot-l h3{font-family:'Fraunces',serif;font-weight:500;font-size:2.4rem;letter-spacing:-.025em;color:var(--ink);line-height:1.05;margin-bottom:1rem}
+.foot-l h3 .em{font-style:italic;color:var(--amber)}
+.foot-l p{font-size:.92rem;color:var(--ink3);line-height:1.7;max-width:380px}
+.foot-col h4{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--amber);font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.1rem}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.foot-col a{font-size:.92rem;color:var(--ink2);font-weight:500;transition:color .2s,padding .2s}
+.foot-col a:hover{color:var(--amber);padding-left:6px}
+
+.foot-bot{
+  max-width:1320px;margin:0 auto;padding-top:1.5rem;
+  display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;
+}
+.foot-bot .made{display:inline-flex;align-items:center;gap:.5rem}
+.foot-bot .made b{color:var(--amber);font-weight:600}
+.foot-bot .made .star{color:var(--amber)}
+
+/* === RESPONSIVE === */
+@media (max-width:1080px){
+  .hero-grid{grid-template-columns:1fr;gap:3rem}
+  .hero-r{max-width:520px;width:100%;margin:0 auto;aspect-ratio:1/1}
+  .hero-quote{left:1rem;bottom:1rem}
+  .hero-score{right:1rem;top:1rem}
+  .about{grid-template-columns:1fr;gap:2.5rem}
+  .about-photo{max-width:520px;width:100%;margin:0 auto;aspect-ratio:1/1}
+  .prg-grid{grid-template-columns:repeat(2,1fr)}
+  .method{grid-template-columns:repeat(2,1fr)}
+  .stats-panel{grid-template-columns:repeat(2,1fr)}
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .faq-grid{grid-template-columns:1fr;gap:2.5rem}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .contact-r{max-width:520px;width:100%;margin:0 auto;aspect-ratio:1/1}
+  .banner-content{grid-template-columns:1fr;padding:2.4rem;gap:2rem}
+  .foot-wrap{grid-template-columns:1fr 1fr;gap:2rem}
+  .nav-c{display:none}
+  .burger{display:flex}
+  .nav-cta{display:none}
+  .about-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+  .announce .hide-sm{display:none}
+  nav{padding:.7rem 1.2rem;gap:.7rem}
+  .hero{padding:3.5rem 1.2rem 3rem}
+  .hero-meta-top{flex-direction:column;align-items:flex-start;gap:.5rem}
+  .hero-meta-top span{font-size:.6rem}
+  .sec{padding:4rem 1.2rem}
+  .sec-head{grid-template-columns:1fr;gap:.8rem}
+  .sec-side{text-align:left}
+  .prg-grid{grid-template-columns:1fr}
+  .method{grid-template-columns:1fr}
+  .stats-panel{grid-template-columns:repeat(2,1fr);gap:.6rem}
+  .rev-grid{grid-template-columns:1fr}
+  .banner-bg{padding:1.2rem 1.2rem 0}
+  .banner-content{padding:2rem 1.6rem}
+  .banner{min-height:360px}
+  .foot-wrap{grid-template-columns:1fr;gap:2rem;padding-bottom:2.2rem}
+  footer{padding:3rem 1.2rem 1.2rem}
+  .hero-r{aspect-ratio:4/5}
+  .hero-quote{display:none}
+  .hero-score{display:none}
+  .mq-row span{font-size:1.25rem;padding:0 1rem}
+  .about-strip{grid-template-columns:repeat(2,1fr)}
+  .ch{grid-template-columns:42px 1fr auto;padding:.95rem 1.05rem;gap:.85rem}
+  .ch-ic{width:42px;height:42px}
+  .ch-info b{font-size:1.02rem}
+  .foot-bot{flex-direction:column;align-items:flex-start;gap:.7rem}
+}
+
+/* === FADE UP === */
+.fadeup{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.fadeup.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ANNOUNCE -->
+<div class="announce">
+  <span>Сделано для портфолио</span>
+  <span class="sep"></span>
+  <a href="#">Millerson Shop</a>
+  <span class="sep hide-sm"></span>
+  <span class="hide-sm">Дизайн-работа · 2026</span>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-l">
+    <a href="#top" class="nav-mark">
+      <span class="mk">A</span>
+      <span>Серебрякова<span class="dot">.</span></span>
+    </a>
+  </div>
+  <div class="nav-c">
+    <a href="#about"><span class="num">01</span> Обо мне</a>
+    <a href="#programs"><span class="num">02</span> Программы</a>
+    <a href="#method"><span class="num">03</span> Подход</a>
+    <a href="#reviews"><span class="num">04</span> Отзывы</a>
+    <a href="#faq"><span class="num">05</span> Вопросы</a>
+    <a href="#contacts"><span class="num">06</span> Контакты</a>
+  </div>
+  <div class="nav-r">
+    <button class="icon-btn" id="themeBtn" aria-label="Переключить тему">
+      <svg id="themeIc" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+    <a href="#contacts" class="nav-cta">
+      Записаться
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+    </a>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" class="mlink"><span>Обо мне</span><span class="num">01</span></a>
+  <a href="#programs" class="mlink"><span>Программы</span><span class="num">02</span></a>
+  <a href="#method" class="mlink"><span>Подход</span><span class="num">03</span></a>
+  <a href="#reviews" class="mlink"><span>Отзывы</span><span class="num">04</span></a>
+  <a href="#faq" class="mlink"><span>Вопросы</span><span class="num">05</span></a>
+  <a href="#contacts" class="mlink"><span>Контакты</span><span class="num">06</span></a>
+  <div class="mob-bot">
+    <a href="#contacts" class="mob-cta">Записаться на занятие</a>
+    <button class="mob-theme" id="mobThemeBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span id="mobThemeLbl">Светлая тема</span>
+    </button>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-meta-top">
+    <span><b>А.С.</b> · Москва · онлайн по СНГ и Европе</span>
+    <span>Принимает учеников <b>с сентября 2026</b></span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-l fadeup">
+      <span class="hero-tag"><span class="gd"></span>Готовлю к ЕГЭ-2027 · набор открыт</span>
+      <h1 class="hero-h">
+        <span class="sm">Анна Серебрякова</span>
+        Математика без <span class="em">страха</span><br>
+        и без <span class="em">зубрёжки</span>.
+      </h1>
+      <p class="hero-sub">
+        Частный репетитор с <b>14-летним стажем</b>. Готовлю школьников и абитуриентов к ЕГЭ профильного уровня, ОГЭ, олимпиадам и поступлению в ведущие вузы. Работаю индивидуально — каждому ученику собираю собственную программу.
+      </p>
+      <div class="hero-meta-row">
+        <span><b>МГУ</b> · мехмат</span>
+        <span>стаж <b>14 лет</b></span>
+        <span><b>312</b> выпускников</span>
+        <span>средний балл <b>87</b></span>
+      </div>
+      <div class="hero-cta-row">
+        <a href="#programs" class="cta-prime">
+          Посмотреть программы
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="#about" class="cta-ghost">
+          Обо мне
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-r fadeup">
+      <div class="hero-photo">
+        <span class="hero-photo-tag"><span class="gd"></span>На связи · отвечаю в течение часа</span>
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=85&auto=format&fit=crop" alt="Анна Серебрякова — репетитор по математике">
+        <div class="hero-photo-foot">
+          <div>
+            <b>Анна Серебрякова</b>
+            <span>репетитор · Москва · онлайн</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-quote">
+        <p class="q">«Объяснила за вечер то, что в школе не понимал полгода.»</p>
+        <span class="by">Артём, 11 класс</span>
+      </div>
+      <div class="hero-score">
+        <span class="lbl">средний балл ЕГЭ</span>
+        <span class="num">87<sup>/100</sup></span>
+        <span class="delta">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+          +24 балла за год
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-row">
+    <span>Алгебра</span><span class="dot"></span>
+    <span class="it">геометрия</span><span class="dot"></span>
+    <span>тригонометрия</span><span class="dot"></span>
+    <span class="it">логарифмы</span><span class="dot"></span>
+    <span>стереометрия</span><span class="dot"></span>
+    <span class="it">производные</span><span class="dot"></span>
+    <span>теория вероятностей</span><span class="dot"></span>
+    <span class="it">параметры</span><span class="dot"></span>
+    <span>олимпиадная математика</span><span class="dot"></span>
+    <span>Алгебра</span><span class="dot"></span>
+    <span class="it">геометрия</span><span class="dot"></span>
+    <span>тригонометрия</span><span class="dot"></span>
+    <span class="it">логарифмы</span><span class="dot"></span>
+    <span>стереометрия</span><span class="dot"></span>
+    <span class="it">производные</span><span class="dot"></span>
+    <span>теория вероятностей</span><span class="dot"></span>
+    <span class="it">параметры</span><span class="dot"></span>
+    <span>олимпиадная математика</span><span class="dot"></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-bg">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">01 — обо мне</span>
+      <h2 class="sec-h">Учу математике <span class="em">с любовью</span><br>к предмету и к ученику.</h2>
+      <span class="sec-side">Москва<br>онлайн / очно</span>
+    </div>
+    <div class="about">
+      <div class="about-photo fadeup">
+        <span class="stamp">с 2012<br><b>14</b>лет<br>опыта</span>
+        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=900&q=85&auto=format&fit=crop" alt="Преподавание математики">
+        <span class="tag">кабинет на Маяковской</span>
+      </div>
+      <div class="about-r fadeup">
+        <span class="about-eyebrow">Кратко о главном</span>
+        <p class="big">
+          Меня зовут <i>Анна</i>. Окончила мехмат МГУ, преподавала в московском физико-математическом лицее, а сейчас работаю только индивидуально — чтобы каждому ученику успевать смотреть в глаза и слышать, где именно он спотыкается.
+        </p>
+        <p>
+          Я не верю в «у тебя нет способностей к математике». Верю в то, что любой школьник может научиться решать задачи, если ему правильно объяснить — и не один раз, а столько, сколько нужно. <b>Мои ученики поступали в МГУ, ВШЭ, МФТИ, ИТМО, Бауманку и СПбГУ.</b>
+        </p>
+        <div class="about-strip">
+          <div class="it"><span class="num">14<sup>+</sup></span><span class="lbl">лет преподавания</span></div>
+          <div class="it"><span class="num">312</span><span class="lbl">выпускников</span></div>
+          <div class="it"><span class="num">96<sup>%</sup></span><span class="lbl">сдали выше 80 баллов</span></div>
+          <div class="it"><span class="num">8</span><span class="lbl">стобалльников</span></div>
+        </div>
+        <div class="about-sig">
+          <span class="ssvg">~ Анна С.</span>
+          <span class="info"><b>Анна Серебрякова</b>преподаватель · мехмат МГУ, 2010</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="prg-bg">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">02 — программы</span>
+      <h2 class="sec-h">Шесть направлений, каждое — <span class="em">под ученика</span>.</h2>
+      <span class="sec-side">Очно: Москва<br>Онлайн: весь мир</span>
+    </div>
+    <div class="prg-grid">
+
+      <article class="prg fadeup">
+        <div class="prg-img">
+          <span class="prg-badge gold">Хит</span>
+          <span class="prg-num">N° 01</span>
+          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&q=85&auto=format&fit=crop" alt="ЕГЭ профильный уровень">
+          <div class="prg-img-foot">
+            <b>ЕГЭ <i>профиль</i></b>
+            <span class="dur">9 мес</span>
+          </div>
+        </div>
+        <div class="prg-body">
+          <p>Полная подготовка к экзамену: первая часть до автоматизма, вторая — с разбором каждой задачи на пальцах. Закрываем все типы 13–19 номеров.</p>
+          <div class="prg-feats">
+            <span class="ft">Параметры с нуля</span>
+            <span class="ft">Стереометрия и №14</span>
+            <span class="ft">Экономическая задача</span>
+          </div>
+        </div>
+        <div class="prg-foot">
+          <span class="prg-price">3 800 ₽<span>/ 90 мин</span></span>
+          <a href="#contacts" class="prg-arr" aria-label="Подробнее">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="prg fadeup">
+        <div class="prg-img">
+          <span class="prg-badge">База</span>
+          <span class="prg-num">N° 02</span>
+          <img src="https://images.unsplash.com/photo-1509869175650-a1d97972541a?w=900&q=85&auto=format&fit=crop" alt="ЕГЭ базовый уровень">
+          <div class="prg-img-foot">
+            <b>ЕГЭ <i>база</i></b>
+            <span class="dur">5 мес</span>
+          </div>
+        </div>
+        <div class="prg-body">
+          <p>Для тех, кому математика нужна как обязательный экзамен. Спокойно доводим до уверенной пятёрки даже в случае пробелов с 7-го класса.</p>
+          <div class="prg-feats">
+            <span class="ft">Без стресса и зубрёжки</span>
+            <span class="ft">Карта пробелов за 1 встречу</span>
+            <span class="ft">Гарантированно от 17 баллов</span>
+          </div>
+        </div>
+        <div class="prg-foot">
+          <span class="prg-price">3 200 ₽<span>/ 90 мин</span></span>
+          <a href="#contacts" class="prg-arr" aria-label="Подробнее">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="prg fadeup">
+        <div class="prg-img">
+          <span class="prg-badge">9 класс</span>
+          <span class="prg-num">N° 03</span>
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=85&auto=format&fit=crop" alt="ОГЭ">
+          <div class="prg-img-foot">
+            <b>ОГЭ <i>математика</i></b>
+            <span class="dur">7 мес</span>
+          </div>
+        </div>
+        <div class="prg-body">
+          <p>Закрываем разрывы школьной программы и аккуратно готовим ко второй части — она ключ к высокому баллу для гимназий и лицеев.</p>
+          <div class="prg-feats">
+            <span class="ft">Геометрия со скелета</span>
+            <span class="ft">Алгебра без формул-страшилок</span>
+            <span class="ft">Подготовка к олимп. турам</span>
+          </div>
+        </div>
+        <div class="prg-foot">
+          <span class="prg-price">2 800 ₽<span>/ 90 мин</span></span>
+          <a href="#contacts" class="prg-arr" aria-label="Подробнее">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="prg fadeup">
+        <div class="prg-img">
+          <span class="prg-badge gold">Олимп.</span>
+          <span class="prg-num">N° 04</span>
+          <img src="https://images.unsplash.com/photo-1596496050755-c923e73e42e1?w=900&q=85&auto=format&fit=crop" alt="Олимпиадная математика">
+          <div class="prg-img-foot">
+            <b>Олимпиады <i>и перечни</i></b>
+            <span class="dur">от 8 мес</span>
+          </div>
+        </div>
+        <div class="prg-body">
+          <p>Подготовка к ВсОШ, «Высшей пробе», «Покори Воробьёвы горы», Физтеху. Учу видеть структуру задачи и находить идею, а не подбирать формулу.</p>
+          <div class="prg-feats">
+            <span class="ft">Комбинаторика и графы</span>
+            <span class="ft">Теория чисел</span>
+            <span class="ft">Геометрические инварианты</span>
+          </div>
+        </div>
+        <div class="prg-foot">
+          <span class="prg-price">4 500 ₽<span>/ 90 мин</span></span>
+          <a href="#contacts" class="prg-arr" aria-label="Подробнее">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="prg fadeup">
+        <div class="prg-img">
+          <span class="prg-badge">5–9 класс</span>
+          <span class="prg-num">N° 05</span>
+          <img src="https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=900&q=85&auto=format&fit=crop" alt="Школьная программа">
+          <div class="prg-img-foot">
+            <b>Школьная <i>программа</i></b>
+            <span class="dur">регулярно</span>
+          </div>
+        </div>
+        <div class="prg-body">
+          <p>Помощь в текущих темах: разбор контрольных, домашних работ, объяснение материала впрок. Идеально, если ребёнок «потерял ниточку» в школе.</p>
+          <div class="prg-feats">
+            <span class="ft">Подтянем оценку за четверть</span>
+            <span class="ft">Объясню, что прошло мимо</span>
+            <span class="ft">Без давления и оценок</span>
+          </div>
+        </div>
+        <div class="prg-foot">
+          <span class="prg-price">2 500 ₽<span>/ 60 мин</span></span>
+          <a href="#contacts" class="prg-arr" aria-label="Подробнее">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="prg fadeup">
+        <div class="prg-img">
+          <span class="prg-badge">1–2 курс</span>
+          <span class="prg-num">N° 06</span>
+          <img src="https://images.unsplash.com/photo-1635372722656-389f87a941b7?w=900&q=85&auto=format&fit=crop" alt="Высшая математика">
+          <div class="prg-img-foot">
+            <b>Высшая <i>математика</i></b>
+            <span class="dur">сессионно</span>
+          </div>
+        </div>
+        <div class="prg-body">
+          <p>Матанализ, линейная алгебра, теория вероятностей и матстатистика. Помощь студентам технических и экономических вузов перед сессией.</p>
+          <div class="prg-feats">
+            <span class="ft">Подготовка к зачёту / экзамену</span>
+            <span class="ft">Контрольные и типовые расчёты</span>
+            <span class="ft">«Срочный» формат — за 1–2 дня</span>
+          </div>
+        </div>
+        <div class="prg-foot">
+          <span class="prg-price">4 200 ₽<span>/ 90 мин</span></span>
+          <a href="#contacts" class="prg-arr" aria-label="Подробнее">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<div class="banner-bg">
+  <div class="banner fadeup">
+    <div class="banner-img">
+      <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1600&q=85&auto=format&fit=crop" alt="Подготовка к ЕГЭ">
+    </div>
+    <div class="banner-content">
+      <div class="banner-l">
+        <span class="banner-eyebrow">Бесплатное диагностическое занятие</span>
+        <h3 class="banner-h">За один час пойму, где у тебя <span class="em">пробелы</span> — и составлю план до экзамена.</h3>
+        <p class="banner-p">Это не урок-распродажа. Реально провожу диагностику по 14 ключевым темам, показываю слабые места и присылаю персональный маршрут подготовки. Без обязательств.</p>
+        <div class="banner-cta-row">
+          <a href="#contacts" class="cta-prime">
+            Записаться на диагностику
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#programs" class="cta-ghost">Сначала посмотреть программы</a>
+        </div>
+      </div>
+      <div class="banner-r">
+        <div class="banner-stat">
+          <div class="num">60<sup>мин</sup></div>
+          <div class="lbl">Длительность</div>
+        </div>
+        <div class="banner-stat">
+          <div class="num">14</div>
+          <div class="lbl">ключевых тем в диагностике</div>
+        </div>
+        <div class="banner-stat">
+          <div class="num">0 ₽</div>
+          <div class="lbl">бесплатно для новых учеников</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- METHOD -->
+<section id="method">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">03 — подход</span>
+      <h2 class="sec-h">Четыре принципа, на которых <span class="em">всё держится</span>.</h2>
+      <span class="sec-side">Никаких<br>волшебных таблеток</span>
+    </div>
+    <div class="method fadeup">
+      <div class="mt">
+        <span class="mt-num">i.</span>
+        <h3>Сначала диагностика</h3>
+        <p>Любая работа начинается с того, что я понимаю реальный уровень ученика — а не тот, который указан в дневнике. Дальше — план.</p>
+      </div>
+      <div class="mt">
+        <span class="mt-num">ii.</span>
+        <h3>Объясняю по-человечески</h3>
+        <p>Без формул-страшилок. Любая тема разбирается на образах, рисунках и реальных примерах — пока не станет очевидной.</p>
+      </div>
+      <div class="mt">
+        <span class="mt-num">iii.</span>
+        <h3>Работаем над ошибками</h3>
+        <p>Каждое задание разбирается дважды: что не получилось и почему. Так ошибки превращаются в инструмент, а не в повод злиться.</p>
+      </div>
+      <div class="mt">
+        <span class="mt-num">iv.</span>
+        <h3>Контакт с родителями</h3>
+        <p>Раз в месяц — короткий отчёт: что прошли, что получается, над чем работаем. Без приукрашиваний и без пугалок.</p>
+      </div>
+    </div>
+
+    <div class="stats-panel fadeup">
+      <div class="stp">
+        <div class="lbl">средний балл ЕГЭ</div>
+        <div class="num">87<sup>/100</sup></div>
+        <div class="desc">по выпускникам 2024–2025</div>
+      </div>
+      <div class="stp">
+        <div class="lbl">прирост за год</div>
+        <div class="num">+24<sup>б.</sup></div>
+        <div class="desc">средний рост по диагностике</div>
+      </div>
+      <div class="stp">
+        <div class="lbl">поступили в МГУ / МФТИ / ВШЭ</div>
+        <div class="num">112</div>
+        <div class="desc">за последние 5 лет</div>
+      </div>
+      <div class="stp">
+        <div class="lbl">остаются на второй год</div>
+        <div class="num">82<sup>%</sup></div>
+        <div class="desc">учеников продолжают со мной</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="rev-bg">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">04 — отзывы</span>
+      <h2 class="sec-h">Что говорят <span class="em">родители</span><br>и сами ученики.</h2>
+      <span class="sec-side">Реальные<br>истории</span>
+    </div>
+    <div class="rev-grid">
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Сын год ходил к двум репетиторам — толку ноль. С Анной за полгода с тройки вышел на 86 баллов на пробнике. И, что важно, он впервые сам захотел заниматься.</p>
+        <div class="rev-by">
+          <div class="rev-av"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80&auto=format&fit=crop" alt=""></div>
+          <div class="rev-info">
+            <b>Марина К.</b>
+            <span>мама ученика 11 класса</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Я всю школу боялась алгебру. На первом занятии Анна объяснила параметры так, что я расплакалась — оказывается, всё это время я просто не понимала, что от меня хотят. 92 балла на ЕГЭ.</p>
+        <div class="rev-by">
+          <div class="rev-av"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80&auto=format&fit=crop" alt=""></div>
+          <div class="rev-info">
+            <b>Алина М.</b>
+            <span>выпуск 2025 · ВШЭ, экономика</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Готовились к олимпиаде «Высшая проба». Анна не вдалбливает шаблоны — она учит думать. В итоге дочь взяла диплом II степени и поступила без экзаменов.</p>
+        <div class="rev-by">
+          <div class="rev-av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&auto=format&fit=crop" alt=""></div>
+          <div class="rev-info">
+            <b>Дмитрий Н.</b>
+            <span>папа ученицы 10 класса</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="sec">
+    <div class="faq-grid">
+      <div class="faq-l fadeup">
+        <span class="sec-num" style="margin-bottom:1rem;display:inline-block">05 — частые вопросы</span>
+        <h2>Отвечаю <span class="em">честно</span><br>на главное.</h2>
+        <p>Если вашего вопроса здесь нет — напишите мне в Telegram, отвечу в течение часа в рабочее время.</p>
+        <a href="#contacts" class="cta-prime">
+          Написать в Telegram
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+      <div class="faq-list fadeup">
+        <div class="faq-item open">
+          <button class="faq-q">Как проходит первое занятие?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">Это диагностика — 60 минут бесплатно. Я даю задачи на 14 ключевых тем, смотрю, как ученик мыслит, и составляю персональный план на ближайшие месяцы. На второе занятие приходим уже с чёткой картиной.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">С какого класса лучше начинать?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">К ЕГЭ-профилю — за полтора года, в идеале с весны 10 класса. К ОГЭ — за один учебный год. Школьную программу подтягиваем в любой момент. К олимпиадам — чем раньше, тем лучше.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Очно или онлайн — что эффективнее?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">У меня одинаково оборудовано и то, и другое: графический планшет, доска, общий рабочий лист. Результат не отличается. Ученики из других городов и стран занимаются у меня уже больше шести лет.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Что, если ребёнок «совсем ничего не понимает»?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">Это самый частый случай. Возвращаемся туда, где появилась первая «дыра» — и идём дальше уже с фундаментом. Не ругаемся, не сравниваем с одноклассниками. Скорость задаёт ученик, а не календарь.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Можно ли заниматься 1 раз в неделю?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">Для школьной программы — да. Для подготовки к ЕГЭ и олимпиадам нужны минимум 2 встречи плюс домашняя работа. Иначе материал не усваивается, а только проходит мимо.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" class="contact-bg">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">06 — контакты</span>
+      <h2 class="sec-h">Напишите — обсудим, <span class="em">подойдём ли</span> друг другу.</h2>
+      <span class="sec-side">Москва<br>МСК · UTC+3</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-l fadeup">
+        <h2>Любой вопрос — на <span class="em">«ты»</span>.</h2>
+        <p>Самый быстрый способ — Telegram. Если предпочитаете голос — звоните, я почти всегда на связи с 10:00 до 21:00 по Москве, кроме воскресенья.</p>
+        <div class="contact-channels">
+          <a href="https://t.me/serebryakova_math" class="ch">
+            <span class="ch-ic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+            </span>
+            <div class="ch-info">
+              <b>@serebryakova_math</b>
+              <span>Telegram · отвечаю в течение часа</span>
+            </div>
+            <span class="ch-arr">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+          <a href="https://wa.me/79161234567" class="ch">
+            <span class="ch-ic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 14.2c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-1-.5-2.2-.9-3.5-2-.7-.6-1.3-1.4-1.7-2.3-.2-.4 0-.6.2-.8l.5-.6c.2-.2.2-.3.3-.5s.1-.4 0-.6-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.4c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 2.9 1.2 4.5 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            </span>
+            <div class="ch-info">
+              <b>+7 (916) 123-45-67</b>
+              <span>WhatsApp · сообщения и видеозвонки</span>
+            </div>
+            <span class="ch-arr">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+          <a href="tel:+74951234567" class="ch">
+            <span class="ch-ic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </span>
+            <div class="ch-info">
+              <b>+7 (495) 123-45-67</b>
+              <span>Звонок · ежедневно 10:00–21:00</span>
+            </div>
+            <span class="ch-arr">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+          <a href="mailto:hello@serebryakova-math.ru" class="ch">
+            <span class="ch-ic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </span>
+            <div class="ch-info">
+              <b>hello@serebryakova-math.ru</b>
+              <span>Почта · для длинных вопросов</span>
+            </div>
+            <span class="ch-arr">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-r fadeup">
+        <span class="pin"><span class="gd"></span>Москва · Маяковская</span>
+        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&q=85&auto=format&fit=crop" alt="Кабинет">
+        <div class="info">
+          <b>Очно — Тверская-Ямская, 12</b>
+          <span>5 минут от метро · кофе и чай за счёт хозяйки</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-wrap">
+    <div class="foot-l">
+      <h3>Анна <span class="em">Серебрякова</span><br>репетитор по математике</h3>
+      <p>Частная практика с 2012 года. Готовлю школьников и студентов к экзаменам, олимпиадам и поступлению в ведущие вузы России.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#programs">Программы</a></li>
+        <li><a href="#method">Подход</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#faq">Частые вопросы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Связь</h4>
+      <ul>
+        <li><a href="https://t.me/serebryakova_math">Telegram</a></li>
+        <li><a href="https://wa.me/79161234567">WhatsApp</a></li>
+        <li><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+        <li><a href="mailto:hello@serebryakova-math.ru">hello@serebryakova-math.ru</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Анна Серебрякова · все права защищены</span>
+    <span class="made">
+      <span class="star">✦</span>
+      <span>Сделано для портфолио</span>
+      <b>Millerson Shop</b>
+    </span>
+  </div>
+</footer>
+
+<script>
+// Theme toggle
+const root = document.documentElement;
+const themeBtn = document.getElementById('themeBtn');
+const themeIc = document.getElementById('themeIc');
+const mobThemeBtn = document.getElementById('mobThemeBtn');
+const mobThemeLbl = document.getElementById('mobThemeLbl');
+
+const sunSvg = '<circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>';
+const moonSvg = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+
+function setTheme(t){
+  root.setAttribute('data-theme', t);
+  themeIc.innerHTML = (t === 'dark') ? moonSvg : sunSvg;
+  if(mobThemeLbl) mobThemeLbl.textContent = (t === 'dark') ? 'Светлая тема' : 'Тёмная тема';
+}
+function toggleTheme(){
+  const cur = root.getAttribute('data-theme');
+  setTheme(cur === 'dark' ? 'light' : 'dark');
+}
+themeBtn.addEventListener('click', toggleTheme);
+if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+setTheme(root.getAttribute('data-theme') || 'dark');
+
+// Burger
+const burger = document.getElementById('burger');
+const mobMenu = document.getElementById('mobMenu');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  mobMenu.classList.toggle('open');
+  document.body.style.overflow = mobMenu.classList.contains('open') ? 'hidden' : '';
+});
+mobMenu.querySelectorAll('a.mlink, .mob-cta').forEach(a => a.addEventListener('click', () => {
+  burger.classList.remove('open');
+  mobMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+// Nav scrolled state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 30) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-item .faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
+// Fade-up on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      obs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.12});
+document.querySelectorAll('.fadeup').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

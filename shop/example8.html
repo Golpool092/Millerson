@@ -1,0 +1,3044 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Медицинский центр «Полярис+» — клиника полного цикла</title>
+<meta name="description" content="Клиника «Полярис+» — многопрофильный медицинский центр в Москве. Кардиология, онкология, хирургия, педиатрия. Запись 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+*:focus,*:focus-visible{outline:none}
+button,a{outline:none!important}
+button::-moz-focus-inner{border:0}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+
+[data-theme="light"]{
+  --bg:#e9f1fa;
+  --bg2:#dceaf6;
+  --bg3:#c5dbf0;
+  --paper:#f3f8fd;
+  --card:#ffffff;
+  --card2:#eef5fc;
+  --card3:#e0ecf7;
+  --line:rgba(10,37,64,.08);
+  --line2:rgba(10,37,64,.16);
+  --line3:rgba(10,37,64,.32);
+  --ink:#0a1929;
+  --ink2:#2d3e52;
+  --ink3:#5a6a7e;
+  --ink4:#8095ab;
+  --ink5:#bccbdc;
+  --navy:#0a2540;
+  --navy2:#13345e;
+  --blue:#1e5b9c;
+  --blue2:#2d7dd2;
+  --blue3:#4f9bdf;
+  --blue-soft:#cfe2f7;
+  --blue-softer:#e2eff9;
+  --emer:#0d9488;
+  --emer2:#14b8a6;
+  --emer-soft:#ccfbf1;
+  --emer-d:#0a6e64;
+  --gold:#c8861a;
+  --gold2:#e0a232;
+  --gold-soft:#fbeed1;
+  --crimson:#dc4848;
+  --crimson-soft:#fee2e2;
+  --crimson-d:#a82e2e;
+  --shadow:0 18px 50px rgba(10,37,64,.10);
+  --shadow-lg:0 30px 80px rgba(10,37,64,.16);
+  --shadow-xl:0 40px 120px rgba(10,37,64,.22);
+  --header-bg:rgba(243,248,253,.88);
+  --body-grad:radial-gradient(ellipse 1200px 700px at 80% -200px,rgba(45,125,210,.18) 0%,transparent 60%),radial-gradient(ellipse 900px 600px at 0% 800px,rgba(13,148,136,.10) 0%,transparent 60%);
+}
+[data-theme="dark"]{
+  --bg:#06121a;
+  --bg2:#0a1c28;
+  --bg3:#0f2738;
+  --paper:#08182a;
+  --card:#0e2336;
+  --card2:#13304a;
+  --card3:#1a3d5c;
+  --line:rgba(255,255,255,.06);
+  --line2:rgba(255,255,255,.12);
+  --line3:rgba(255,255,255,.22);
+  --ink:#e8f0fa;
+  --ink2:#a9bfd6;
+  --ink3:#7e94ad;
+  --ink4:#566c84;
+  --ink5:#3a4d63;
+  --navy:#1d4577;
+  --navy2:#2a5a96;
+  --blue:#3b82d6;
+  --blue2:#4f9bdf;
+  --blue3:#6cb1e8;
+  --blue-soft:rgba(45,125,210,.18);
+  --blue-softer:rgba(45,125,210,.08);
+  --emer:#14b8a6;
+  --emer2:#34d399;
+  --emer-soft:rgba(20,184,166,.18);
+  --emer-d:#0d9488;
+  --gold:#e0a232;
+  --gold2:#f0bf5b;
+  --gold-soft:rgba(224,162,50,.18);
+  --crimson:#ef5050;
+  --crimson-soft:rgba(220,72,72,.18);
+  --crimson-d:#b03434;
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+  --shadow-lg:0 30px 80px rgba(0,0,0,.55);
+  --shadow-xl:0 40px 120px rgba(0,0,0,.65);
+  --header-bg:rgba(8,24,42,.85);
+  --body-grad:radial-gradient(ellipse 1200px 700px at 80% -200px,rgba(45,125,210,.18) 0%,transparent 60%),radial-gradient(ellipse 900px 600px at 0% 800px,rgba(20,184,166,.08) 0%,transparent 60%);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Manrope',sans-serif;line-height:1.65;font-weight:400;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background-image:var(--body-grad);
+  transition:background .3s,color .3s;
+}
+::selection{background:var(--blue);color:#fff}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:var(--blue2)}
+
+h1,h2,h3,h4{font-family:'Spectral',serif;font-weight:500;letter-spacing:-.02em;line-height:1.05;color:var(--ink)}
+.serif{font-family:'Spectral',serif}
+.serif-i{font-family:'Spectral',serif;font-style:italic;font-weight:500}
+.mono{font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+
+/* === EMERGENCY TOP BAR === */
+.emer-bar{
+  background:linear-gradient(90deg,var(--navy) 0%,var(--blue) 100%);
+  color:#fff;
+  padding:.6rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  font-size:.74rem;font-weight:500;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;
+  position:relative;z-index:50;
+}
+.emer-l{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.emer-r{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.emer-bar a{display:inline-flex;align-items:center;gap:.45rem;color:#fff;transition:color .2s;line-height:1.2;opacity:.85}
+.emer-bar a:hover{opacity:1;color:var(--gold2)}
+.emer-pulse{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.3rem .8rem;
+  background:linear-gradient(90deg,rgba(220,72,72,.5) 0%,rgba(220,72,72,.2) 100%);
+  border:1px solid rgba(255,200,200,.4);border-radius:99px;
+  color:#fff;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  animation:emerPulse 2s ease-in-out infinite;
+}
+@keyframes emerPulse{0%,100%{box-shadow:0 0 0 0 rgba(220,72,72,.5)}50%{box-shadow:0 0 0 8px rgba(220,72,72,0)}}
+.emer-pulse .dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1s linear infinite;box-shadow:0 0 8px #fff}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.3}}
+.lang-pick{display:inline-flex;gap:.15rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:.18rem}
+.lang-pick a{padding:.2rem .55rem;border-radius:99px;font-size:.66rem;font-weight:700;letter-spacing:.08em;opacity:1}
+.lang-pick a.active{background:var(--gold);color:var(--navy)}
+.ms-link{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:rgba(255,255,255,.12);
+  color:#fff;padding:.3rem .8rem;border-radius:99px;
+  border:1px solid rgba(255,255,255,.22);font-weight:600;
+  cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;
+  transition:background .2s,color .2s,border-color .2s;
+}
+.ms-link:hover{background:var(--gold);color:var(--navy);border-color:transparent}
+.hide-md{display:inline-flex}
+.hide-sm{display:inline-flex}
+
+/* === HEADER === */
+header{
+  position:sticky;top:0;left:0;right:0;z-index:40;
+  background:var(--header-bg);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);
+  border-bottom:1px solid var(--line);
+  transition:background .3s,box-shadow .3s,border-color .3s;
+}
+header.scrolled{box-shadow:0 8px 30px rgba(10,37,64,.08)}
+.head-wrap{
+  max-width:1480px;margin:0 auto;padding:1rem 2rem;
+  display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;
+}
+.brand{display:flex;align-items:center;gap:.85rem}
+.brand-mark{
+  width:48px;height:48px;border-radius:14px;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px rgba(30,91,156,.32),inset 0 1px 0 rgba(255,255,255,.2);
+}
+.brand-mark svg{width:26px;height:26px;stroke:var(--gold2);stroke-width:2.4}
+.brand-text{display:flex;flex-direction:column;gap:.1rem;line-height:1}
+.brand-text b{font-family:'Spectral',serif;font-size:1.45rem;font-weight:600;color:var(--ink);letter-spacing:-.015em}
+.brand-text b i{font-style:italic;color:var(--blue);font-weight:600}
+.brand-text span{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.18em;font-weight:500;margin-top:.3rem}
+
+.head-c{display:flex;justify-content:center;gap:.1rem;flex-wrap:wrap}
+.head-c a{
+  padding:.55rem 1rem;color:var(--ink2);
+  font-size:.84rem;font-weight:500;
+  border-radius:99px;transition:color .2s,background .2s;
+  position:relative;
+}
+.head-c a::before{content:'';position:absolute;left:50%;bottom:.3rem;width:0;height:2px;background:var(--blue);transition:width .25s,left .25s}
+.head-c a:hover{color:var(--blue)}
+.head-c a:hover::before{width:18px;left:calc(50% - 9px)}
+
+.head-r{display:flex;align-items:center;gap:.6rem;justify-content:flex-end}
+.phone-bar{
+  display:flex;flex-direction:column;align-items:flex-end;gap:.05rem;line-height:1.2;
+  padding-right:.9rem;border-right:1px solid var(--line2);margin-right:.2rem;
+}
+.phone-bar b{font-size:1.05rem;font-weight:700;color:var(--blue);letter-spacing:.01em;font-family:'Manrope',sans-serif}
+.phone-bar span{font-size:.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.16em;font-weight:600;font-family:'JetBrains Mono',monospace}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.85rem 1.5rem;border-radius:99px;font-weight:700;
+  font-size:.84rem;letter-spacing:.02em;cursor:pointer;border:none;
+  transition:transform .2s,background .2s,box-shadow .2s,color .2s,border-color .2s;
+  white-space:nowrap;font-family:'Manrope',sans-serif;
+  text-transform:uppercase;
+}
+.btn-prime{
+  background:linear-gradient(135deg,var(--blue) 0%,var(--blue2) 100%);color:#fff;
+  box-shadow:0 10px 24px rgba(30,91,156,.32),inset 0 1px 0 rgba(255,255,255,.2);
+}
+.btn-prime:hover{background:linear-gradient(135deg,var(--blue2) 0%,var(--blue3) 100%);transform:translateY(-2px);box-shadow:0 14px 30px rgba(30,91,156,.42)}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);color:#fff;
+  box-shadow:0 10px 24px rgba(200,134,26,.3),inset 0 1px 0 rgba(255,255,255,.2);
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(200,134,26,.42)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line2)}
+.btn-ghost:hover{background:var(--card);border-color:var(--blue);color:var(--blue)}
+.btn-emer{
+  background:linear-gradient(135deg,var(--crimson-d) 0%,var(--crimson) 100%);color:#fff;
+  box-shadow:0 10px 24px rgba(220,72,72,.32),inset 0 1px 0 rgba(255,255,255,.18);
+}
+.btn-emer:hover{transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--navy);border:1.5px solid rgba(255,255,255,.85)}
+.btn-light:hover{background:var(--gold);color:#fff;border-color:transparent;transform:translateY(-2px)}
+.btn-sm{padding:.55rem 1.05rem;font-size:.72rem}
+
+.theme-toggle{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--card);border:1px solid var(--line2);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:var(--ink);
+  transition:background .2s,color .2s,border-color .2s,transform .3s;
+}
+.theme-toggle:hover{background:var(--blue);color:#fff;border-color:transparent;transform:rotate(20deg)}
+[data-theme="dark"] .sun-ic{display:block}
+[data-theme="dark"] .moon-ic{display:none}
+[data-theme="light"] .sun-ic{display:none}
+[data-theme="light"] .moon-ic{display:block}
+
+.menu-btn{
+  display:flex;align-items:center;gap:.55rem;
+  padding:.7rem 1rem .7rem 1.1rem;border-radius:99px;
+  background:var(--card);
+  border:1px solid var(--line2);cursor:pointer;
+  color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .2s,color .2s,border-color .2s;
+}
+.menu-btn:hover{background:var(--blue);color:#fff;border-color:transparent}
+.menu-btn:hover .menu-ic{color:#fff}
+.menu-ic{display:flex;flex-direction:column;gap:3px;color:var(--blue);transition:color .2s}
+.menu-ic span{display:block;width:14px;height:1.6px;background:currentColor;border-radius:1px}
+.menu-ic span:nth-child(2){width:10px;align-self:flex-end}
+
+/* === SIDE MENU === */
+.side-overlay{
+  position:fixed;inset:0;background:rgba(10,37,64,.55);backdrop-filter:blur(8px);
+  z-index:90;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;
+}
+.side-overlay.open{opacity:1;visibility:visible}
+.side{
+  position:fixed;top:0;right:0;bottom:0;width:480px;max-width:96vw;
+  background:var(--paper);z-index:100;
+  transform:translateX(100%);transition:transform .55s cubic-bezier(.16,1,.3,1);
+  display:flex;flex-direction:column;overflow-y:auto;
+  box-shadow:-40px 0 100px rgba(10,37,64,.3);
+  border-left:1px solid var(--line2);
+}
+.side.open{transform:translateX(0)}
+
+.side-photo{
+  position:relative;height:240px;flex-shrink:0;overflow:hidden;
+}
+.side-photo img{width:100%;height:100%;object-fit:cover}
+.side-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,37,64,.55) 0%,rgba(10,37,64,.45) 50%,rgba(10,37,64,.85) 100%);
+}
+.side-head-row{
+  position:absolute;top:0;left:0;right:0;z-index:3;
+  padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.side-head-row .brand-text b{color:#fff;font-size:1.25rem}
+.side-head-row .brand-text b i{color:var(--gold2)}
+.side-head-row .brand-mark{box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.side-close{
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,.15);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.25);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  transition:background .2s,color .2s,transform .3s,border-color .2s;
+}
+.side-close:hover{background:var(--crimson);color:#fff;border-color:transparent;transform:rotate(90deg)}
+.side-photo-cap{
+  position:absolute;left:2rem;right:2rem;bottom:1.5rem;z-index:3;color:#fff;
+  display:flex;flex-direction:column;gap:.4rem;
+}
+.side-photo-cap .pin{
+  display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;
+  padding:.4rem .85rem;background:rgba(20,184,166,.25);
+  border:1px solid var(--emer2);border-radius:99px;
+  color:#fff;font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+}
+.side-photo-cap .pin .gd{width:6px;height:6px;border-radius:50%;background:var(--emer2);box-shadow:0 0 8px var(--emer2);animation:pulseDot 1.8s infinite}
+.side-photo-cap b{font-family:'Spectral',serif;font-size:1.7rem;font-weight:500;letter-spacing:-.02em;line-height:1;color:#fff}
+.side-photo-cap b i{font-style:italic;color:var(--gold2);font-weight:500}
+
+.side-body{flex:1;padding:2rem;display:flex;flex-direction:column;gap:1.6rem}
+.side-section h5{
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--blue);
+  text-transform:uppercase;letter-spacing:.18em;font-weight:600;
+  margin-bottom:1rem;display:flex;align-items:center;gap:.55rem;
+}
+.side-section h5::before{content:'';width:24px;height:1px;background:var(--blue)}
+.side-section h5::after{content:'';flex:1;height:1px;background:var(--line);margin-left:.5rem}
+.side-nav{display:flex;flex-direction:column;gap:.1rem}
+.side-nav a{
+  display:flex;align-items:center;gap:1rem;
+  padding:.85rem .9rem;border-radius:10px;
+  font-family:'Spectral',serif;font-size:1.2rem;font-weight:500;
+  color:var(--ink);letter-spacing:-.01em;line-height:1.1;
+  transition:background .25s,color .25s,padding-left .25s;
+}
+.side-nav a .num{
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink4);font-weight:600;
+  width:30px;flex-shrink:0;letter-spacing:.06em;
+  border-right:1px solid var(--line);padding-right:.7rem;text-align:right;
+}
+.side-nav a .lbl{flex:1}
+.side-nav a .arr{
+  width:26px;height:26px;border-radius:50%;background:transparent;
+  display:flex;align-items:center;justify-content:center;color:var(--blue);
+  opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s,background .25s;
+}
+.side-nav a:hover{background:var(--card2);color:var(--blue);padding-left:1rem}
+.side-nav a:hover .num{color:var(--blue)}
+.side-nav a:hover .arr{opacity:1;transform:translateX(0);background:var(--blue-soft)}
+
+.side-contacts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.side-contact{
+  padding:1rem 1.05rem;border-radius:10px;
+  background:var(--card);
+  border:1px solid var(--line2);
+  display:flex;flex-direction:column;gap:.25rem;
+  transition:border-color .25s,transform .25s,background .25s;
+}
+.side-contact:hover{border-color:var(--blue);transform:translateY(-3px)}
+.side-contact span{font-size:.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.14em;font-weight:600;font-family:'JetBrains Mono',monospace}
+.side-contact b{font-size:.95rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.side-contact.emer{
+  background:var(--crimson-soft);
+  border-color:var(--crimson);
+}
+.side-contact.emer span{color:var(--crimson)}
+.side-contact.emer b{color:var(--crimson-d)}
+
+.side-cta-row{display:flex;flex-direction:column;gap:.55rem}
+.side-cta-row .btn{width:100%}
+
+.side-quote{
+  padding:1.4rem 1.5rem;border-radius:14px;
+  background:var(--card);
+  border:1px solid var(--line2);
+  position:relative;
+}
+.side-quote::before{
+  content:'\201C';font-family:'Spectral',serif;font-size:3.4rem;color:var(--blue);
+  line-height:.5;display:block;margin-bottom:.4rem;font-style:italic;font-weight:600;
+}
+.side-quote p{font-family:'Spectral',serif;font-style:italic;font-size:1rem;color:var(--ink);line-height:1.4;font-weight:400}
+.side-quote .by{display:block;margin-top:.85rem;font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.side-quote .by::before{content:'— '}
+
+.side-foot{
+  padding:1.3rem 2rem;border-top:1px solid var(--line);
+  background:var(--card2);
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--ink3);
+  text-transform:uppercase;letter-spacing:.14em;text-align:center;font-weight:500;
+}
+.side-foot button{
+  background:none;border:none;cursor:pointer;color:var(--blue);font-weight:700;
+  font-family:inherit;font-size:inherit;letter-spacing:inherit;text-transform:inherit;
+  border-bottom:1px dashed currentColor;padding:0;
+}
+.side-foot button:hover{color:var(--blue2)}
+
+/* === HERO === */
+.hero{position:relative;padding:4rem 2rem 5rem;max-width:1480px;margin:0 auto}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:stretch}
+.hero-l{display:flex;flex-direction:column;gap:1.6rem;justify-content:center;padding:1rem 0}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.6rem;align-self:flex-start;
+  padding:.5rem 1rem;
+  background:var(--emer-soft);
+  border:1px solid var(--emer);border-radius:99px;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--emer-d);
+  font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+}
+.hero-tag .gd{
+  width:8px;height:8px;border-radius:50%;background:var(--emer);
+  box-shadow:0 0 12px var(--emer);animation:pulseDot 1.8s infinite;
+}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero-h{
+  font-family:'Spectral',serif;font-weight:500;
+  font-size:clamp(2.8rem,6.5vw,5.6rem);line-height:.98;letter-spacing:-.03em;color:var(--ink);
+}
+.hero-h .em{font-style:italic;color:var(--blue);font-weight:500}
+.hero-h .accent{color:var(--gold);font-weight:600}
+.hero-sub{
+  font-size:1.08rem;color:var(--ink2);max-width:540px;line-height:1.75;
+}
+.hero-sub b{color:var(--ink);font-weight:700}
+.hero-cta-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+.hero-meta{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  padding-top:1.8rem;border-top:1px solid var(--line2);position:relative;
+}
+.hero-meta::before{
+  content:'';position:absolute;top:-1px;left:0;width:60px;height:2px;background:var(--blue);
+}
+.hero-meta .it{display:flex;flex-direction:column;line-height:1.2;padding:0 1rem;border-right:1px solid var(--line)}
+.hero-meta .it:last-child{border-right:none}
+.hero-meta .it:first-child{padding-left:0}
+.hero-meta .it b{font-family:'Spectral',serif;font-size:1.85rem;font-weight:600;color:var(--ink);letter-spacing:-.025em}
+.hero-meta .it b sup{font-size:.7rem;color:var(--blue);font-weight:600;vertical-align:super;margin-left:2px}
+.hero-meta .it span{font-size:.65rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.14em;font-weight:600;margin-top:.3rem;font-family:'JetBrains Mono',monospace}
+
+.hero-r{position:relative;display:flex;flex-direction:column;gap:1rem}
+.hero-photo{
+  position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;
+  box-shadow:var(--shadow-lg);border:1px solid var(--line2);
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,37,64,.05) 0%,transparent 30%,rgba(10,37,64,.7) 100%);
+}
+.hero-photo .h-cap{
+  position:absolute;left:1.6rem;right:1.6rem;bottom:1.6rem;z-index:3;color:#fff;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;
+}
+.hero-photo .h-cap b{font-family:'Spectral',serif;font-weight:600;font-size:1.4rem;line-height:1.1;letter-spacing:-.015em;display:block}
+.hero-photo .h-cap b i{font-style:italic;color:var(--gold2);font-weight:500}
+.hero-photo .h-cap span{font-size:.66rem;opacity:.8;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:.35rem}
+.hero-photo .h-pin{
+  position:absolute;top:1.4rem;left:1.4rem;z-index:3;
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.45rem .9rem;background:rgba(255,255,255,.18);
+  backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.3);
+  border-radius:99px;color:#fff;font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+}
+.hero-photo .h-pin .gd{width:7px;height:7px;border-radius:50%;background:var(--emer2);box-shadow:0 0 12px var(--emer2);animation:pulseDot 1.8s infinite}
+.hero-photo .h-rate{
+  position:absolute;top:1.4rem;right:1.4rem;z-index:3;
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.5rem .85rem;background:#fff;
+  border-radius:99px;color:var(--ink);font-size:.85rem;font-weight:800;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);
+}
+.hero-photo .h-rate svg{color:var(--gold)}
+
+.hero-mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.hero-mini{
+  padding:1.15rem 1.25rem;
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;
+  display:flex;flex-direction:column;gap:.45rem;
+  transition:transform .2s,border-color .2s;
+}
+.hero-mini:hover{transform:translateY(-3px);border-color:var(--blue)}
+.hero-mini-ic{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--blue-soft);
+  display:flex;align-items:center;justify-content:center;color:var(--blue);
+}
+.hero-mini b{font-family:'Spectral',serif;font-size:1.05rem;font-weight:600;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.hero-mini span{font-size:.78rem;color:var(--ink3);line-height:1.4}
+
+/* === EMOTIONAL BANNER 1 (FREE CONSULTATION) === */
+.banner-emo-bg{padding:0 2rem;max-width:1480px;margin:0 auto}
+.banner-emo{
+  position:relative;overflow:hidden;
+  border-radius:24px;
+  display:grid;grid-template-columns:1.2fr 1fr;align-items:stretch;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);color:#fff;
+  box-shadow:var(--shadow-xl);
+  min-height:380px;
+}
+.banner-emo-l{padding:3rem 3.2rem;display:flex;flex-direction:column;gap:1.4rem;justify-content:center;position:relative;z-index:2}
+.banner-emo-l::before{
+  content:'';position:absolute;top:-100px;left:-100px;width:380px;height:380px;
+  background:radial-gradient(circle,rgba(224,162,50,.25) 0%,transparent 70%);
+}
+.banner-emo-tag{
+  position:relative;display:inline-flex;align-items:center;gap:.55rem;align-self:flex-start;
+  padding:.5rem 1rem;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:99px;color:var(--gold2);font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+}
+.banner-emo h2{
+  position:relative;font-family:'Spectral',serif;font-weight:500;
+  font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.025em;color:#fff;
+}
+.banner-emo h2 .em{font-style:italic;color:var(--gold2);font-weight:500}
+.banner-emo p{position:relative;font-size:1.05rem;color:rgba(255,255,255,.85);line-height:1.7;max-width:520px}
+.banner-emo .cta-row{position:relative;display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+.banner-emo-r{position:relative;overflow:hidden}
+.banner-emo-r img{width:100%;height:100%;object-fit:cover;min-height:380px}
+.banner-emo-r::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--navy) 0%,transparent 30%);z-index:1;
+}
+.banner-emo-quote{
+  position:absolute;bottom:1.5rem;right:1.5rem;left:1.5rem;z-index:2;
+  padding:1.2rem 1.4rem;background:rgba(10,37,64,.7);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.2);border-radius:14px;
+}
+.banner-emo-quote p{
+  font-family:'Spectral',serif;font-style:italic;font-size:1rem;color:#fff;line-height:1.4;
+  font-weight:400;margin-bottom:.5rem;
+}
+.banner-emo-quote .by{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--gold2);letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+
+/* === SECTIONS === */
+section{position:relative}
+.sec{padding:7rem 2rem;max-width:1480px;margin:0 auto;position:relative}
+.sec-head{
+  display:grid;grid-template-columns:auto 1fr auto;gap:2.5rem;align-items:end;
+  margin-bottom:3.5rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line2);
+  position:relative;
+}
+.sec-head::after{
+  content:'';position:absolute;left:0;bottom:-1px;width:80px;height:2px;background:var(--blue);
+}
+.sec-num{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);
+  font-weight:700;text-transform:uppercase;letter-spacing:.18em;
+}
+.sec-num::before{content:'';width:30px;height:1px;background:var(--blue)}
+.sec-h{
+  font-family:'Spectral',serif;font-weight:500;
+  font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-.025em;color:var(--ink);
+  max-width:820px;
+}
+.sec-h .em{font-style:italic;color:var(--blue);font-weight:500}
+.sec-h .accent{color:var(--gold);font-weight:600}
+.sec-side{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--ink3);
+  text-transform:uppercase;letter-spacing:.12em;text-align:right;line-height:1.6;
+  display:flex;flex-direction:column;gap:.4rem;align-items:flex-end;font-weight:500;
+}
+.sec-side a{
+  display:inline-flex;align-items:center;gap:.45rem;padding:.55rem 1rem;
+  background:var(--card);border:1px solid var(--line2);border-radius:99px;color:var(--blue);
+  letter-spacing:.06em;font-weight:700;transition:background .2s,border-color .2s,color .2s;
+}
+.sec-side a:hover{background:var(--blue);color:#fff;border-color:transparent}
+
+/* === TRUST STRIP === */
+.trust{
+  background:linear-gradient(180deg,var(--bg2) 0%,var(--bg3) 100%);
+  border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);
+  padding:2.4rem 2rem;position:relative;overflow:hidden;
+}
+.trust-wrap{
+  max-width:1480px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:0;align-items:stretch;
+}
+.trust .it{display:flex;flex-direction:column;gap:.45rem;line-height:1;padding:.5rem 1.4rem;border-right:1px solid var(--line)}
+.trust .it:last-child{border-right:none}
+.trust .it:first-child{padding-left:0}
+.trust .it b{font-family:'Spectral',serif;font-size:2.4rem;font-weight:600;letter-spacing:-.035em;color:var(--ink)}
+.trust .it b sup{font-size:1rem;color:var(--blue);font-weight:600;vertical-align:super;margin-left:2px}
+.trust .it span{font-size:.66rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.14em;font-weight:600;font-family:'JetBrains Mono',monospace}
+
+/* === DEPARTMENTS === */
+.deps-wrap{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.deps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.dep{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line2);
+  border-radius:14px;padding:1.6rem 1.5rem;
+  display:flex;flex-direction:column;gap:1rem;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+  cursor:pointer;overflow:hidden;
+}
+.dep::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--blue);
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.dep:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:var(--shadow)}
+.dep:hover::before{transform:scaleX(1)}
+.dep-head{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem}
+.dep-ic{
+  width:54px;height:54px;border-radius:14px;
+  background:linear-gradient(135deg,var(--blue) 0%,var(--blue2) 100%);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 18px rgba(30,91,156,.3),inset 0 1px 0 rgba(255,255,255,.18);
+}
+.dep-num{
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink4);
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding-top:.4rem;
+}
+.dep h3{font-family:'Spectral',serif;font-size:1.4rem;font-weight:600;color:var(--ink);letter-spacing:-.015em;line-height:1.15}
+.dep p{font-size:.86rem;color:var(--ink2);line-height:1.6;flex:1}
+.dep-foot{display:flex;justify-content:space-between;align-items:center;padding-top:.95rem;border-top:1px dashed var(--line2);margin-top:auto}
+.dep-foot .doc-c{font-size:.7rem;color:var(--blue);font-weight:700;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.dep-foot .arr{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--blue-soft);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,color .2s,transform .2s;
+}
+.dep:hover .arr{background:var(--blue);color:#fff;transform:rotate(-45deg)}
+
+/* === ABOUT === */
+.about-wrap{padding:7rem 2rem;max-width:1480px;margin:0 auto;position:relative}
+.about{display:grid;grid-template-columns:1fr 1.05fr;gap:4rem;align-items:center}
+.about-photos{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:.9rem}
+.about-photos .ap1{aspect-ratio:3/4;grid-row:span 2}
+.about-photos .ap2{aspect-ratio:4/3}
+.about-photos .ap3{aspect-ratio:4/3}
+.about-photos > div{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line2)}
+.about-photos > div img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.about-photos > div:hover img{transform:scale(1.04)}
+.about-photos > div::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,37,64,.5) 100%)}
+.about-photos .stamp{
+  position:absolute;bottom:1rem;left:1rem;right:1rem;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+  padding:.65rem .95rem;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-radius:10px;
+  font-size:.66rem;font-weight:700;color:var(--ink);
+  font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;
+}
+.about-photos .stamp .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue)}
+.about-photos .badge-stamp{
+  position:absolute;top:-12px;right:-12px;z-index:3;
+  width:90px;height:90px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Spectral',serif;font-weight:600;font-size:.62rem;line-height:1.1;text-align:center;
+  letter-spacing:.06em;text-transform:uppercase;
+  transform:rotate(8deg);box-shadow:0 10px 26px rgba(200,134,26,.45);
+}
+.about-photos .badge-stamp b{display:block;font-size:1.55rem;font-weight:700;margin:.15rem 0;letter-spacing:-.02em;font-style:normal}
+
+.about-r{display:flex;flex-direction:column;gap:1.5rem;position:relative}
+.about-r h2{
+  font-family:'Spectral',serif;font-weight:500;
+  font-size:clamp(2rem,4.2vw,3.2rem);line-height:1.04;letter-spacing:-.025em;color:var(--ink);
+}
+.about-r h2 .em{font-style:italic;color:var(--blue);font-weight:500}
+.about-r .lead{font-family:'Spectral',serif;font-size:1.4rem;font-weight:400;color:var(--blue);line-height:1.4;font-style:italic;border-left:2px solid var(--blue);padding-left:1.2rem}
+.about-r p{font-size:.98rem;color:var(--ink2);line-height:1.78;max-width:580px}
+.about-r p b{color:var(--ink);font-weight:600}
+.about-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.5rem}
+.about-strip .it{
+  padding:1.3rem 1.2rem;
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:10px;
+  display:flex;flex-direction:column;gap:.35rem;transition:border-color .2s,transform .2s;
+}
+.about-strip .it:hover{border-color:var(--blue);transform:translateY(-3px)}
+.about-strip .num{font-family:'Spectral',serif;font-weight:700;font-size:1.95rem;color:var(--ink);line-height:1;letter-spacing:-.025em}
+.about-strip .num sup{font-size:.85rem;color:var(--blue);font-weight:600;vertical-align:super}
+.about-strip .lbl{font-size:.72rem;color:var(--ink3);font-weight:600;line-height:1.4;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+.about-sig{
+  display:flex;align-items:center;gap:1rem;padding-top:1.4rem;border-top:1px dashed var(--line2);margin-top:.5rem;
+}
+.about-sig .ssvg{font-family:'Spectral',serif;font-style:italic;font-weight:600;font-size:1.85rem;color:var(--blue);transform:rotate(-2deg);letter-spacing:-.02em}
+.about-sig .info{font-size:.72rem;color:var(--ink3);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;line-height:1.5;font-weight:500}
+.about-sig .info b{color:var(--ink);display:block;font-weight:700;font-family:'Manrope',sans-serif;text-transform:none;letter-spacing:-.005em;font-size:.95rem;margin-bottom:.15rem}
+
+/* === WHY US === */
+.why-bg{
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.wh{
+  padding:2rem 1.7rem;
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;
+  display:flex;flex-direction:column;gap:1rem;
+  transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden;
+}
+.wh::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue2) 100%);transition:width .4s}
+.wh:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:var(--shadow)}
+.wh:hover::before{width:100%}
+.wh-num{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);
+  font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  padding:.35rem .7rem;background:var(--blue-soft);border-radius:99px;
+  align-self:flex-start;
+}
+.wh h3{font-family:'Spectral',serif;font-size:1.55rem;font-weight:600;color:var(--ink);letter-spacing:-.015em;line-height:1.15}
+.wh p{font-size:.92rem;color:var(--ink2);line-height:1.7}
+.wh-ic{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--blue-soft);
+  display:flex;align-items:center;justify-content:center;color:var(--blue);
+}
+
+/* === DOCTORS === */
+.doc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.doc{
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.doc:hover{transform:translateY(-7px);border-color:var(--blue);box-shadow:var(--shadow-lg)}
+.doc-img{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--card3)}
+.doc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.doc:hover .doc-img img{transform:scale(1.04)}
+.doc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,37,64,.6) 100%)}
+.doc-spec{
+  position:absolute;top:.85rem;left:.85rem;z-index:2;
+  padding:.4rem .85rem;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-radius:99px;
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;
+}
+.doc-rate{
+  position:absolute;top:.85rem;right:.85rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.3rem;
+  padding:.4rem .7rem;background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);color:#fff;
+  border-radius:99px;font-size:.78rem;font-weight:800;
+  box-shadow:0 6px 16px rgba(200,134,26,.35);
+}
+.doc-rate svg{color:#fff}
+.doc-img-foot{
+  position:absolute;bottom:1rem;left:1rem;right:1rem;z-index:2;color:#fff;
+  display:flex;justify-content:flex-end;align-items:flex-end;gap:.5rem;
+}
+.doc-img-foot .exp{
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:.35rem .65rem;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.18);border-radius:6px;backdrop-filter:blur(10px);color:#fff;
+}
+.doc-body{padding:1.4rem 1.5rem 1.5rem;display:flex;flex-direction:column;gap:1rem;flex:1}
+.doc-body h3{font-family:'Spectral',serif;font-size:1.4rem;font-weight:600;color:var(--ink);letter-spacing:-.015em;line-height:1.15}
+.doc-cred{display:flex;flex-direction:column;gap:.5rem}
+.doc-cred .cr{display:flex;align-items:flex-start;gap:.55rem;font-size:.83rem;color:var(--ink2);line-height:1.4}
+.doc-cred .cr svg{flex-shrink:0;color:var(--blue);margin-top:2px}
+.doc-foot{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px dashed var(--line2);margin-top:auto;gap:.5rem}
+.doc-foot .price{font-family:'Spectral',serif;font-weight:700;font-size:1.05rem;color:var(--blue);letter-spacing:-.01em;line-height:1.1}
+.doc-foot .price span{display:block;font-size:.62rem;color:var(--ink3);font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;margin-top:.2rem}
+.doc-foot .btn-sm{padding:.5rem .9rem;font-size:.68rem}
+
+/* === BANNER LARGE (PREMIUM CHECK-UP) === */
+.banner-bg{padding:0 2rem;max-width:1480px;margin:0 auto}
+.banner{
+  position:relative;border-radius:24px;overflow:hidden;
+  min-height:520px;display:flex;align-items:flex-end;
+  box-shadow:var(--shadow-xl);
+}
+.banner-img{position:absolute;inset:0;z-index:0}
+.banner-img img{width:100%;height:100%;object-fit:cover}
+.banner-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,rgba(10,37,64,.92) 0%,rgba(10,37,64,.65) 50%,rgba(30,91,156,.4) 100%);
+}
+.banner-content{
+  position:relative;z-index:2;padding:3.5rem 3.5rem;
+  display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:end;width:100%;color:#fff;
+}
+.banner-l{display:flex;flex-direction:column;gap:1.4rem;max-width:700px}
+.banner-eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;align-self:flex-start;
+  padding:.45rem 1rem;background:rgba(224,162,50,.2);border:1px solid var(--gold2);
+  border-radius:99px;color:var(--gold2);font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+}
+.banner-h{
+  font-family:'Spectral',serif;font-weight:500;
+  font-size:clamp(2.2rem,4.8vw,4rem);line-height:1;letter-spacing:-.025em;color:#fff;
+}
+.banner-h .em{font-style:italic;color:var(--gold2);font-weight:500}
+.banner-p{font-size:1.05rem;color:rgba(255,255,255,.85);line-height:1.7;max-width:540px}
+.banner-cta-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.5rem}
+.banner-cta-row .btn-light:hover{background:var(--gold);color:#fff;border-color:transparent}
+.banner-r{display:flex;flex-direction:column;gap:.7rem;align-self:end}
+.banner-stat{
+  padding:1.4rem 1.6rem;background:rgba(255,255,255,.12);
+  backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2);
+  border-radius:14px;position:relative;overflow:hidden;
+}
+.banner-stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold2)}
+.banner-stat .num{font-family:'Spectral',serif;font-weight:600;font-size:2.4rem;color:#fff;line-height:1;letter-spacing:-.025em;margin-bottom:.3rem}
+.banner-stat .num sup{font-size:1rem;color:var(--gold2);font-weight:600}
+.banner-stat .lbl{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.78);letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+
+/* === EMOTIONAL BANNER 2 (FAMILY) === */
+.banner-fam-bg{padding:0 2rem;max-width:1480px;margin:0 auto}
+.banner-fam{
+  position:relative;overflow:hidden;border-radius:24px;
+  display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;
+  background:var(--card);border:1px solid var(--line2);
+  box-shadow:var(--shadow-lg);min-height:420px;
+}
+.banner-fam-img{position:relative;overflow:hidden}
+.banner-fam-img img{width:100%;height:100%;object-fit:cover;min-height:420px}
+.banner-fam-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 50%,var(--card) 100%);
+}
+.banner-fam-img .img-tag{
+  position:absolute;top:1.3rem;left:1.3rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.5rem .95rem;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-radius:99px;color:var(--blue);font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+}
+.banner-fam-img .img-tag .gd{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);animation:pulseDot 1.8s infinite}
+.banner-fam-r{padding:3rem 3.2rem;display:flex;flex-direction:column;gap:1.4rem;justify-content:center}
+.banner-fam-eye{
+  display:inline-flex;align-items:center;gap:.55rem;align-self:flex-start;
+  padding:.45rem 1rem;background:var(--gold-soft);border:1px solid var(--gold);
+  border-radius:99px;color:var(--gold);font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+}
+.banner-fam h2{
+  font-family:'Spectral',serif;font-weight:500;
+  font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.025em;color:var(--ink);
+}
+.banner-fam h2 .em{font-style:italic;color:var(--blue);font-weight:500}
+.banner-fam p{font-size:1.02rem;color:var(--ink2);line-height:1.7;max-width:520px}
+.banner-fam .feats{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.4rem}
+.banner-fam .feat{
+  display:flex;align-items:center;gap:.7rem;
+  padding:.85rem 1rem;background:var(--card2);border:1px solid var(--line);border-radius:10px;
+}
+.banner-fam .feat svg{color:var(--blue);flex-shrink:0}
+.banner-fam .feat span{font-size:.85rem;color:var(--ink);font-weight:600;letter-spacing:-.005em}
+.banner-fam .cta-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.6rem}
+
+/* === TECHNOLOGIES === */
+.tech-bg{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tech{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem}
+.tech-l{display:flex;flex-direction:column;gap:.9rem}
+.tech-row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
+  padding:1.5rem 1.6rem;
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;
+  transition:transform .2s,border-color .2s,background .2s;cursor:pointer;
+}
+.tech-row:hover{transform:translateX(8px);border-color:var(--blue)}
+.tech-row .ic{
+  width:56px;height:56px;border-radius:14px;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
+  color:var(--gold2);
+  display:flex;align-items:center;justify-content:center;
+}
+.tech-row .info b{display:block;font-family:'Spectral',serif;font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:-.015em;margin-bottom:.25rem}
+.tech-row .info span{font-size:.86rem;color:var(--ink2);line-height:1.5}
+.tech-row .lbl{
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--blue);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--blue-soft);padding:.4rem .7rem;border-radius:6px;white-space:nowrap;
+}
+.tech-r{position:relative}
+.tech-photo{aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);position:relative;border:1px solid var(--line2)}
+.tech-photo img{width:100%;height:100%;object-fit:cover}
+.tech-photo::after{content:'';position:absolute;inset:0;border-radius:22px;background:linear-gradient(180deg,transparent 50%,rgba(10,37,64,.85) 100%)}
+.tech-photo-cap{
+  position:absolute;left:1.7rem;right:1.7rem;bottom:1.7rem;color:#fff;z-index:2;
+}
+.tech-photo-cap b{font-family:'Spectral',serif;font-size:1.5rem;font-weight:600;letter-spacing:-.015em;display:block;margin-bottom:.4rem}
+.tech-photo-cap b i{font-style:italic;color:var(--gold2);font-weight:500}
+.tech-photo-cap p{font-size:.88rem;color:rgba(255,255,255,.85);line-height:1.55}
+.tech-photo-tag{
+  position:absolute;top:1.5rem;left:1.5rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.5rem .95rem;background:rgba(255,255,255,.18);
+  backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.3);
+  border-radius:99px;color:#fff;font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+}
+.tech-photo-tag .gd{width:7px;height:7px;border-radius:50%;background:var(--emer2);box-shadow:0 0 10px var(--emer2);animation:pulseDot 1.8s infinite}
+
+/* === JOURNEY === */
+.journey{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:22px;overflow:hidden;
+}
+.jr{
+  padding:2.4rem 1.7rem;background:transparent;
+  display:flex;flex-direction:column;gap:1rem;position:relative;
+  border-right:1px solid var(--line2);transition:background .3s;
+}
+.jr:last-child{border-right:none}
+.jr:hover{background:var(--card2)}
+.jr-num{
+  font-family:'Spectral',serif;font-weight:700;font-size:3.4rem;color:var(--blue);
+  line-height:1;letter-spacing:-.04em;opacity:.8;
+}
+.jr h3{font-family:'Spectral',serif;font-size:1.3rem;font-weight:600;color:var(--ink);letter-spacing:-.015em;line-height:1.15}
+.jr p{font-size:.88rem;color:var(--ink2);line-height:1.65}
+.jr-time{
+  margin-top:auto;display:inline-flex;align-items:center;gap:.45rem;
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--blue);
+  font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding-top:.7rem;
+  border-top:1px dashed var(--line2);
+}
+
+/* === PROGRAMS === */
+.prog-bg{
+  background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.progs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.pg{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.pg:hover{transform:translateY(-7px);border-color:var(--blue);box-shadow:var(--shadow-lg)}
+.pg.featured{
+  border-color:var(--gold);
+  background:linear-gradient(180deg,var(--card) 0%,var(--gold-soft) 100%);
+  box-shadow:0 0 0 1px var(--gold),0 20px 50px rgba(200,134,26,.15);
+}
+.pg-img{aspect-ratio:16/10;position:relative;overflow:hidden}
+.pg-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pg:hover .pg-img img{transform:scale(1.06)}
+.pg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,37,64,.7) 100%)}
+.pg-badge{
+  position:absolute;top:.95rem;left:.95rem;z-index:2;
+  padding:.4rem .85rem;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-radius:99px;
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;
+}
+.pg-badge.gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);color:#fff}
+.pg-img-cap{
+  position:absolute;bottom:1.1rem;left:1.2rem;right:1.2rem;z-index:2;color:#fff;
+}
+.pg-img-cap b{font-family:'Spectral',serif;font-size:1.7rem;font-weight:600;letter-spacing:-.015em;display:block;line-height:1.05}
+.pg-img-cap b i{font-style:italic;color:var(--gold2);font-weight:500}
+.pg-body{padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:1rem;flex:1}
+.pg-body p{font-size:.9rem;color:var(--ink2);line-height:1.65}
+.pg-list{display:flex;flex-direction:column;gap:.6rem;border-top:1px dashed var(--line2);padding-top:1rem;margin-top:auto}
+.pg-list .it{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--ink2)}
+.pg-list .it svg{color:var(--blue);flex-shrink:0}
+.pg-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+  padding:1.2rem 1.6rem;border-top:1px solid var(--line2);
+  background:var(--card2);
+}
+.pg-price{display:flex;flex-direction:column;line-height:1.1}
+.pg-price b{font-family:'Spectral',serif;font-weight:700;font-size:1.45rem;color:var(--blue);letter-spacing:-.01em}
+.pg-price span{font-size:.62rem;color:var(--ink3);font-weight:700;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+.pg-price s{color:var(--ink4);font-size:.85rem;font-weight:500;margin-right:.4rem}
+
+/* === FORM CARD === */
+.form-bg{padding:0 2rem;max-width:1480px;margin:0 auto}
+.form-card{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
+  border-radius:24px;
+  padding:0;color:#fff;
+  display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden;
+  position:relative;box-shadow:var(--shadow-xl);
+}
+.form-card::before{
+  content:'';position:absolute;top:-100px;right:-100px;width:380px;height:380px;
+  background:radial-gradient(circle,rgba(224,162,50,.25) 0%,transparent 70%);
+}
+.form-l{padding:3rem 3rem 3rem;display:flex;flex-direction:column;gap:1.5rem;position:relative}
+.form-l h2{
+  font-family:'Spectral',serif;font-weight:500;
+  font-size:clamp(1.9rem,3.8vw,2.9rem);line-height:1.05;letter-spacing:-.025em;color:#fff;
+}
+.form-l h2 .em{font-style:italic;color:var(--gold2);font-weight:500}
+.form-l > p{font-size:1rem;color:rgba(255,255,255,.85);line-height:1.7;max-width:480px}
+.form-feats{display:flex;flex-direction:column;gap:.85rem;margin-top:.5rem}
+.form-feat{display:flex;align-items:flex-start;gap:.85rem;font-size:.92rem;color:#fff;line-height:1.5}
+.form-feat svg{flex-shrink:0;color:var(--gold2);margin-top:2px}
+.form-r{
+  background:var(--card);
+  color:var(--ink);padding:2.7rem 2.7rem;
+  position:relative;display:flex;flex-direction:column;gap:1rem;
+}
+.form-r h3{font-family:'Spectral',serif;font-size:1.55rem;font-weight:600;color:var(--ink);letter-spacing:-.015em;margin-bottom:.4rem}
+.form-r .field{display:flex;flex-direction:column;gap:.45rem}
+.form-r label{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.14em;font-weight:600}
+.form-r input,.form-r select,.form-r textarea{
+  width:100%;padding:.95rem 1.05rem;
+  background:var(--card2);border:1px solid var(--line2);border-radius:10px;
+  font-family:'Manrope',sans-serif;font-size:.92rem;color:var(--ink);font-weight:500;
+  transition:border-color .2s,background .2s;
+}
+.form-r input::placeholder,.form-r textarea::placeholder{color:var(--ink4)}
+.form-r input:focus,.form-r select:focus,.form-r textarea:focus{border-color:var(--blue);background:var(--card)}
+.form-r select{cursor:pointer}
+.form-r .row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.form-r .submit-row{display:flex;flex-direction:column;gap:.7rem;margin-top:.4rem}
+.form-r .submit-row .btn{width:100%}
+.form-r .agree{font-size:.74rem;color:var(--ink3);line-height:1.55}
+.form-r .agree a{color:var(--blue);font-weight:600}
+.form-msg{
+  padding:.95rem 1.05rem;background:var(--emer-soft);border:1px solid var(--emer);border-radius:10px;
+  font-size:.85rem;color:var(--emer-d);font-weight:600;display:none;
+}
+.form-msg.show{display:block;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+
+/* === INSURANCE === */
+.ins{display:grid;grid-template-columns:1.1fr 2fr;gap:3rem;align-items:start}
+.ins-l h2{font-family:'Spectral',serif;font-weight:500;font-size:clamp(1.9rem,3.8vw,2.9rem);line-height:1.05;letter-spacing:-.025em;color:var(--ink);margin-bottom:1.3rem}
+.ins-l h2 .em{font-style:italic;color:var(--blue);font-weight:500}
+.ins-l p{font-size:.96rem;color:var(--ink2);line-height:1.75;margin-bottom:1.6rem;max-width:380px}
+.ins-r{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.ins-card{
+  aspect-ratio:1.6/1;
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;
+  padding:1rem;transition:border-color .2s,transform .2s,background .2s;
+}
+.ins-card:hover{border-color:var(--blue);transform:translateY(-3px);background:var(--blue-softer)}
+.ins-card .ic{font-family:'Spectral',serif;font-weight:700;font-size:1.55rem;color:var(--blue);letter-spacing:-.025em}
+.ins-card span{font-size:.7rem;color:var(--ink3);font-weight:600;text-align:center;line-height:1.3;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+
+/* === REVIEWS === */
+.rev-bg{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.rev{
+  display:flex;flex-direction:column;gap:1.3rem;
+  padding:1.95rem 1.8rem;
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;
+  transition:transform .25s,border-color .25s;position:relative;overflow:hidden;
+}
+.rev::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--blue);transition:width .35s}
+.rev:hover{transform:translateY(-5px);border-color:var(--blue)}
+.rev:hover::before{width:100%}
+.rev-stars{display:flex;gap:.2rem;color:var(--gold)}
+.rev-q{font-family:'Spectral',serif;font-weight:400;font-size:1.15rem;line-height:1.55;color:var(--ink);letter-spacing:-.005em;flex:1}
+.rev-q::before{content:'\201C';font-family:'Spectral',serif;font-size:3.6rem;color:var(--blue);line-height:.5;display:block;margin-bottom:.5rem;font-style:italic;font-weight:600}
+.rev-meta{display:flex;justify-content:space-between;align-items:center;padding-top:1.1rem;border-top:1px dashed var(--line2);gap:.6rem}
+.rev-by{display:flex;align-items:center;gap:.85rem;min-width:0;flex:1}
+.rev-av{
+  width:46px;height:46px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--blue);flex-shrink:0;background:var(--card3);
+}
+.rev-av img{width:100%;height:100%;object-fit:cover}
+.rev-info{min-width:0}
+.rev-info b{display:block;font-size:.9rem;color:var(--ink);font-weight:700;letter-spacing:-.005em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rev-info span{display:block;font-size:.7rem;color:var(--ink3);margin-top:.1rem;font-weight:500;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+.rev-dep{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.1em;background:var(--blue-soft);padding:.32rem .55rem;border-radius:6px;white-space:nowrap}
+
+/* === NEWS === */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.nw{
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.nw:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:var(--shadow)}
+.nw-img{aspect-ratio:16/10;overflow:hidden;position:relative}
+.nw-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.nw:hover .nw-img img{transform:scale(1.06)}
+.nw-cat{
+  position:absolute;top:.95rem;left:.95rem;z-index:2;
+  padding:.4rem .8rem;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-radius:99px;
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;
+}
+.nw-body{padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:.85rem;flex:1}
+.nw-date{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.nw h3{font-family:'Spectral',serif;font-size:1.4rem;font-weight:600;color:var(--ink);letter-spacing:-.015em;line-height:1.2}
+.nw p{font-size:.88rem;color:var(--ink2);line-height:1.6}
+.nw-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px dashed var(--line2);margin-top:auto}
+.nw-foot .author{font-size:.74rem;color:var(--ink3);font-weight:500;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+.nw-foot .read{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--blue);font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:gap .2s;font-family:'JetBrains Mono',monospace}
+.nw-foot .read:hover{gap:.65rem}
+
+/* === FAQ === */
+.faq-bg{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:3.5rem;align-items:start}
+.faq-l h2{font-family:'Spectral',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3rem);letter-spacing:-.025em;line-height:1.05;color:var(--ink);margin-bottom:1.1rem}
+.faq-l h2 .em{font-style:italic;color:var(--blue);font-weight:500}
+.faq-l p{font-size:.96rem;color:var(--ink2);line-height:1.75;max-width:380px;margin-bottom:1.6rem}
+.faq-list{display:flex;flex-direction:column;gap:.6rem}
+.faq-item{
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:10px;overflow:hidden;
+  transition:border-color .25s;
+}
+.faq-item:hover{border-color:var(--line3)}
+.faq-item.open{border-color:var(--blue);background:var(--blue-softer)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.3rem 1.5rem;cursor:pointer;
+  font-family:'Spectral',serif;font-weight:600;font-size:1.1rem;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.3;background:transparent;border:none;width:100%;text-align:left;
+}
+.faq-icn{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--blue-soft);
+  display:flex;align-items:center;justify-content:center;color:var(--blue);
+  flex-shrink:0;transition:transform .3s,background .25s,color .25s;
+}
+.faq-item.open .faq-icn{transform:rotate(45deg);background:var(--blue);color:#fff}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .35s ease;
+  padding:0 1.5rem;color:var(--ink2);font-size:.92rem;line-height:1.75;
+}
+.faq-item.open .faq-a{max-height:340px;padding:0 1.5rem 1.4rem}
+
+/* === LOCATIONS === */
+.locs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.lc{
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:14px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.lc:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:var(--shadow)}
+.lc-img{aspect-ratio:16/10;position:relative;overflow:hidden}
+.lc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.lc:hover .lc-img img{transform:scale(1.05)}
+.lc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,37,64,.75) 100%)}
+.lc-tag{
+  position:absolute;top:.95rem;left:.95rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.45rem .9rem;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-radius:99px;color:var(--blue);font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
+.lc-tag .gd{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);animation:pulseDot 1.8s infinite}
+.lc-img-cap{position:absolute;bottom:1rem;left:1.2rem;right:1.2rem;z-index:2;color:#fff}
+.lc-img-cap b{font-family:'Spectral',serif;font-size:1.45rem;font-weight:600;letter-spacing:-.015em;display:block;line-height:1.05}
+.lc-body{padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:1rem;flex:1}
+.lc-info{display:flex;flex-direction:column;gap:.6rem}
+.lc-info .it{display:flex;align-items:flex-start;gap:.7rem;font-size:.88rem;color:var(--ink2);line-height:1.45}
+.lc-info .it svg{flex-shrink:0;color:var(--blue);margin-top:2px}
+.lc-foot{display:flex;gap:.5rem;padding-top:1rem;border-top:1px dashed var(--line2);margin-top:auto}
+.lc-foot .btn{flex:1}
+
+/* === FOOTER === */
+footer{
+  background:linear-gradient(180deg,var(--navy) 0%,#061a30 100%);
+  color:#e5edf6;padding:5rem 2rem 2rem;position:relative;overflow:hidden;
+}
+footer::before{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:900px;height:900px;
+  background:radial-gradient(circle,rgba(45,125,210,.18) 0%,transparent 70%);
+}
+.foot-wrap{max-width:1480px;margin:0 auto;position:relative}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px dashed rgba(255,255,255,.15)}
+.foot-l h3{font-family:'Spectral',serif;font-weight:500;font-size:2.7rem;letter-spacing:-.025em;color:#fff;line-height:1.05;margin-bottom:1.1rem}
+.foot-l h3 .em{font-style:italic;color:var(--gold2);font-weight:500}
+.foot-l p{font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.75;max-width:400px;margin-bottom:1.5rem}
+.foot-l .channels{display:flex;gap:.55rem}
+.foot-l .channels a{
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  transition:background .2s,color .2s,transform .2s,border-color .2s;
+}
+.foot-l .channels a:hover{background:var(--gold);color:#fff;border-color:transparent;transform:translateY(-3px)}
+.foot-col h4{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--gold2);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.foot-col h4::before{content:'';width:18px;height:1px;background:var(--gold2)}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.foot-col a{font-size:.92rem;color:rgba(255,255,255,.7);font-weight:500;transition:color .2s,padding .2s}
+.foot-col a:hover{color:var(--gold2);padding-left:6px}
+
+.foot-portfolio{
+  margin-top:3rem;padding:1.6rem 2rem;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.15);border-radius:14px;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+}
+.foot-portfolio .lbl{display:flex;align-items:center;gap:1rem}
+.foot-portfolio .star{
+  width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'Spectral',serif;font-style:italic;font-weight:700;font-size:1.4rem;
+  box-shadow:0 6px 16px rgba(200,134,26,.35);
+}
+.foot-portfolio .text b{font-family:'Spectral',serif;font-size:1.15rem;font-weight:600;color:#fff;letter-spacing:-.015em;display:block;margin-bottom:.2rem}
+.foot-portfolio .text span{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.foot-portfolio button{
+  background:transparent;border:1px solid var(--gold2);color:var(--gold2);
+  padding:.65rem 1.2rem;border-radius:99px;cursor:pointer;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .2s,color .2s;
+}
+.foot-portfolio button:hover{background:var(--gold);color:#fff;border-color:transparent}
+
+.foot-bot{
+  margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.5);
+  letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+}
+.foot-bot .made{display:inline-flex;align-items:center;gap:.5rem}
+.foot-bot .made b{color:var(--gold2);font-weight:700}
+.foot-legal{display:flex;gap:1rem}
+.foot-legal a:hover{color:var(--gold2)}
+
+/* === MILLERSON MODAL === */
+.mod-overlay{
+  position:fixed;inset:0;background:rgba(10,37,64,.65);backdrop-filter:blur(10px);
+  z-index:200;display:flex;align-items:center;justify-content:center;padding:1.5rem;
+  opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;
+}
+.mod-overlay.open{opacity:1;visibility:visible}
+.mod{
+  background:var(--card);
+  border:1px solid var(--line2);border-radius:22px;
+  max-width:540px;width:100%;
+  transform:scale(.9) translateY(20px);transition:transform .4s cubic-bezier(.16,1,.3,1);
+  box-shadow:var(--shadow-xl);
+  position:relative;overflow:hidden;
+}
+.mod-overlay.open .mod{transform:scale(1) translateY(0)}
+.mod-close{
+  position:absolute;top:1rem;right:1rem;z-index:5;
+  width:38px;height:38px;border-radius:50%;background:var(--card2);
+  border:1px solid var(--line2);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:var(--ink);
+  transition:background .2s,color .2s,transform .3s,border-color .2s;
+}
+.mod-close:hover{background:var(--crimson);color:#fff;border-color:transparent;transform:rotate(90deg)}
+.mod-body{padding:3rem 2.5rem 2.5rem;text-align:center;position:relative}
+.mod-mark{
+  width:80px;height:80px;border-radius:22px;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Spectral',serif;font-weight:700;font-style:italic;font-size:2.6rem;
+  margin:0 auto 1.6rem;
+  box-shadow:0 14px 32px rgba(200,134,26,.4);
+}
+.mod-eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.4rem .9rem;background:var(--gold-soft);border:1px solid var(--gold);
+  border-radius:99px;color:var(--gold);font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.2rem;
+}
+.mod-h{
+  font-family:'Spectral',serif;font-weight:500;
+  font-size:clamp(1.7rem,3.5vw,2.3rem);line-height:1.1;letter-spacing:-.025em;color:var(--ink);margin-bottom:1rem;
+}
+.mod-h .em{font-style:italic;color:var(--blue);font-weight:500}
+.mod-text{font-size:1rem;color:var(--ink2);line-height:1.7;max-width:420px;margin:0 auto}
+.mod-text b{color:var(--ink);font-weight:600}
+.mod-divider{
+  width:80px;height:1px;background:var(--blue);margin:2rem auto 1.5rem;opacity:.6;
+}
+.mod-foot{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink3);letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.mod-foot b{color:var(--blue)}
+
+/* === FADE UP === */
+.fadeup{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.fadeup.in{opacity:1;transform:translateY(0)}
+
+/* === RESPONSIVE === */
+@media (max-width:1180px){
+  .head-c{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-r{max-width:560px;width:100%;margin:0 auto}
+  .trust-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 0}
+  .trust .it{padding:.5rem 1.2rem}
+  .deps{grid-template-columns:repeat(3,1fr)}
+  .about{grid-template-columns:1fr;gap:2.5rem}
+  .why{grid-template-columns:repeat(2,1fr)}
+  .doc-grid{grid-template-columns:repeat(2,1fr)}
+  .banner-content{grid-template-columns:1fr;padding:2.5rem}
+  .banner-emo{grid-template-columns:1fr}
+  .banner-emo-r{display:none}
+  .banner-fam{grid-template-columns:1fr}
+  .banner-fam-img{min-height:280px}
+  .banner-fam-img img{min-height:280px}
+  .banner-fam-img::after{background:linear-gradient(180deg,transparent 50%,var(--card) 100%)}
+  .tech{grid-template-columns:1fr;gap:2.5rem}
+  .journey{grid-template-columns:repeat(2,1fr)}
+  .jr{border-right:none;border-bottom:1px solid var(--line2)}
+  .progs{grid-template-columns:repeat(2,1fr)}
+  .form-card{grid-template-columns:1fr}
+  .ins{grid-template-columns:1fr;gap:2.5rem}
+  .ins-r{grid-template-columns:repeat(4,1fr)}
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .news-grid{grid-template-columns:1fr 1fr}
+  .faq-grid{grid-template-columns:1fr;gap:2.5rem}
+  .locs{grid-template-columns:1fr 1fr}
+  .foot-top{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .foot-portfolio{flex-direction:column;text-align:center}
+  .foot-portfolio .lbl{flex-direction:column;text-align:center}
+}
+@media (max-width:780px){
+  .emer-bar{padding:.55rem 1rem;font-size:.66rem;gap:.8rem}
+  .hide-md{display:none}
+  .head-wrap{padding:.85rem 1rem;gap:.7rem}
+  .phone-bar{display:none}
+  .brand-text span{display:none}
+  .menu-btn{padding:.6rem .8rem;font-size:.66rem}
+  .menu-btn span:not(.menu-ic *){display:none}
+  .hero{padding:2.5rem 1rem 3.5rem}
+  .hero-meta{grid-template-columns:1fr 1fr;gap:1rem 0}
+  .hero-meta .it{padding:.6rem 1rem;border-right:1px solid var(--line)}
+  .hero-meta .it:nth-child(2n){border-right:none}
+  .trust{padding:2rem 1rem}
+  .trust .it b{font-size:1.95rem}
+  .sec{padding:4.5rem 1rem}
+  .sec-head{grid-template-columns:1fr;gap:.8rem}
+  .sec-side{text-align:left;align-items:flex-start}
+  .deps{grid-template-columns:1fr 1fr;gap:.8rem}
+  .why{grid-template-columns:1fr}
+  .doc-grid{grid-template-columns:1fr 1fr;gap:.8rem}
+  .banner-bg,.banner-emo-bg,.banner-fam-bg{padding:0 1rem}
+  .banner{min-height:420px}
+  .banner-content{padding:2rem 1.6rem;gap:1.5rem}
+  .banner-emo-l{padding:2.2rem 1.7rem}
+  .banner-fam-r{padding:2.2rem 1.7rem}
+  .banner-fam .feats{grid-template-columns:1fr}
+  .journey{grid-template-columns:1fr}
+  .jr{padding:2rem 1.5rem}
+  .progs{grid-template-columns:1fr;gap:.8rem}
+  .form-bg{padding:0 1rem}
+  .form-l{padding:2.2rem 1.7rem}
+  .form-r{padding:2rem 1.7rem}
+  .form-r .row{grid-template-columns:1fr}
+  .ins-r{grid-template-columns:repeat(2,1fr)}
+  .rev-grid{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+  .locs{grid-template-columns:1fr}
+  .about-photos{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .about-photos .ap1{grid-row:span 1;aspect-ratio:1/1}
+  .about-photos .badge-stamp{width:72px;height:72px;font-size:.55rem;top:-8px;right:-8px}
+  .about-photos .badge-stamp b{font-size:1.2rem}
+  .about-strip{grid-template-columns:1fr 1fr}
+  .foot-top{grid-template-columns:1fr;gap:2rem}
+  footer{padding:3.5rem 1rem 1.5rem}
+  .foot-portfolio{padding:1.5rem}
+  .foot-bot{flex-direction:column;align-items:flex-start;gap:.8rem}
+  .side{width:100%}
+  .side-photo{height:200px}
+  .side-body{padding:1.5rem}
+  .side-head-row{padding:1.4rem 1.5rem}
+  .side-photo-cap{left:1.5rem;right:1.5rem;bottom:1.3rem}
+  .side-photo-cap b{font-size:1.4rem}
+  .side-foot{padding:1.2rem 1.5rem}
+  .side-contacts{grid-template-columns:1fr}
+  .mod-body{padding:2.5rem 1.7rem 2rem}
+  .mod-mark{width:68px;height:68px;font-size:2.1rem}
+}
+@media (max-width:560px){
+  .emer-bar .hide-sm{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP EMERGENCY BAR -->
+<div class="emer-bar">
+  <div class="emer-l">
+    <span class="emer-pulse"><span class="dot"></span> Скорая 24/7 — +7 (495) 199-09-11</span>
+    <a href="#contacts" class="hide-md">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      Москва · 3 филиала
+    </a>
+    <a href="#about" class="hide-sm">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      Круглосуточно
+    </a>
+  </div>
+  <div class="emer-r">
+    <button class="ms-link" onclick="openModal()">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      Сделано для портфолио Millerson Shop
+    </button>
+    <span class="lang-pick hide-md">
+      <a href="#" class="active">RU</a>
+      <a href="#">EN</a>
+    </span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="head-wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 12 7 12 9.5 5 14.5 19 17 12 20.5 12"></polyline></svg>
+      </span>
+      <span class="brand-text">
+        <b>Полярис<i>+</i></b>
+        <span>Медицинский центр · с 1998</span>
+      </span>
+    </a>
+    <nav class="head-c">
+      <a href="#departments">Отделения</a>
+      <a href="#about">О клинике</a>
+      <a href="#doctors">Врачи</a>
+      <a href="#tech">Технологии</a>
+      <a href="#programs">Программы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#locations">Филиалы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="head-r">
+      <div class="phone-bar hide-md">
+        <b>+7 (495) 199-00-00</b>
+        <span>круглосуточно</span>
+      </div>
+      <a href="#booking" class="btn btn-prime hide-md">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        Запись
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+        <svg class="moon-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="sun-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Открыть меню">
+        <span class="menu-ic"><span></span><span></span></span>
+        <span>Меню</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SIDE MENU -->
+<div class="side-overlay" id="sideOverlay"></div>
+<aside class="side" id="side" aria-hidden="true">
+  <div class="side-photo">
+    <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=1200&q=85&auto=format&fit=crop" alt="Клиника Полярис">
+    <div class="side-head-row">
+      <div class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 12 7 12 9.5 5 14.5 19 17 12 20.5 12"></polyline></svg>
+        </span>
+        <span class="brand-text">
+          <b>Полярис<i>+</i></b>
+        </span>
+      </div>
+      <button class="side-close" id="sideClose" aria-label="Закрыть">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="side-photo-cap">
+      <span class="pin"><span class="gd"></span>Открыто сейчас</span>
+      <b>Многопрофильная <i>клиника</i></b>
+    </div>
+  </div>
+
+  <div class="side-body">
+    <div class="side-section">
+      <h5>Навигация</h5>
+      <nav class="side-nav">
+        <a href="#departments"><span class="num">01</span><span class="lbl">Отделения</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#about"><span class="num">02</span><span class="lbl">О клинике</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#why"><span class="num">03</span><span class="lbl">Почему мы</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#doctors"><span class="num">04</span><span class="lbl">Наши врачи</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#tech"><span class="num">05</span><span class="lbl">Технологии</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#journey"><span class="num">06</span><span class="lbl">Как лечимся</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#programs"><span class="num">07</span><span class="lbl">Программы</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#booking"><span class="num">08</span><span class="lbl">Записаться</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#insurance"><span class="num">09</span><span class="lbl">Страховки</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#reviews"><span class="num">10</span><span class="lbl">Отзывы</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#news"><span class="num">11</span><span class="lbl">Новости</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#faq"><span class="num">12</span><span class="lbl">Вопросы</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#locations"><span class="num">13</span><span class="lbl">Филиалы</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <a href="#contacts"><span class="num">14</span><span class="lbl">Контакты</span><span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+      </nav>
+    </div>
+
+    <div class="side-section">
+      <h5>Связаться сейчас</h5>
+      <div class="side-contacts">
+        <a href="tel:+74951990000" class="side-contact">
+          <span>Регистратура</span>
+          <b>+7 (495) 199-00-00</b>
+        </a>
+        <a href="tel:+74951990911" class="side-contact emer">
+          <span>Скорая 24/7</span>
+          <b>+7 (495) 199-09-11</b>
+        </a>
+        <a href="mailto:hello@polaris-med.ru" class="side-contact">
+          <span>Почта</span>
+          <b style="font-size:.85rem">hello@polaris-med.ru</b>
+        </a>
+        <a href="https://t.me/polaris_clinic" class="side-contact">
+          <span>Telegram</span>
+          <b>@polaris_clinic</b>
+        </a>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <h5>Быстрое действие</h5>
+      <div class="side-cta-row">
+        <a href="#booking" class="btn btn-prime side-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Записаться на приём
+        </a>
+        <a href="tel:+74951990911" class="btn btn-emer side-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Вызвать скорую
+        </a>
+      </div>
+    </div>
+
+    <div class="side-quote">
+      <p>Лечим не симптом, а человека. С 1998 года и без компромиссов.</p>
+      <span class="by">Виктор Зеленцов, главный врач</span>
+    </div>
+  </div>
+
+  <div class="side-foot">
+    Сайт <button onclick="openModal()">создан для портфолио Millerson Shop</button>
+  </div>
+</aside>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-l fadeup">
+      <span class="hero-tag"><span class="gd"></span>Принимаем сегодня · 12 окон свободно</span>
+      <h1 class="hero-h">
+        Многопрофильная <span class="em">клиника</span>,<br>
+        где вас лечат <span class="accent">по-настоящему</span>.
+      </h1>
+      <p class="hero-sub">
+        «Полярис+» — частный медицинский центр в Москве с собственным стационаром, операционными и диагностическим комплексом. <b>28 лет опыта, 14 отделений и команда из 240 врачей</b> — в одном месте.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#booking" class="btn btn-prime">
+          Записаться к врачу
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="#departments" class="btn btn-ghost">
+          Отделения
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <a href="tel:+74951990911" class="btn btn-emer">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Срочно
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div class="it"><b>240<sup>+</sup></b><span>врачей</span></div>
+        <div class="it"><b>14</b><span>отделений</span></div>
+        <div class="it"><b>28<sup>лет</sup></b><span>в Москве</span></div>
+        <div class="it"><b>4.9</b><span>рейтинг</span></div>
+      </div>
+    </div>
+    <div class="hero-r fadeup">
+      <div class="hero-photo">
+        <span class="h-pin"><span class="gd"></span>Открыто · приём идёт</span>
+        <span class="h-rate">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          4.9
+        </span>
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1100&q=85&auto=format&fit=crop" alt="Команда «Полярис+»">
+        <div class="h-cap">
+          <div>
+            <b>Команда, которой <i>доверяют</i></b>
+            <span>Главный корпус · ул. Мясницкая, 14</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-mini-cards">
+        <div class="hero-mini">
+          <span class="hero-mini-ic">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </span>
+          <b>Запись за 30 секунд</b>
+          <span>Онлайн или по телефону</span>
+        </div>
+        <div class="hero-mini">
+          <span class="hero-mini-ic">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </span>
+          <b>Без переплат</b>
+          <span>ОМС, ДМС всех страховых</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMOTIONAL BANNER 1 -->
+<div class="banner-emo-bg">
+  <div class="banner-emo fadeup">
+    <div class="banner-emo-l">
+      <span class="banner-emo-tag">Бесплатная первичная консультация</span>
+      <h2>Здоровье — то, что нельзя <span class="em">купить потом</span>.</h2>
+      <p>Бесплатный приём терапевта в течение часа. Поможем понять, что важно сделать сейчас, а что подождёт. Без давления, без обязательств.</p>
+      <div class="cta-row">
+        <a href="#booking" class="btn btn-light">
+          Записаться бесплатно
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="tel:+74951990000" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.3)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Позвонить
+        </a>
+      </div>
+    </div>
+    <div class="banner-emo-r">
+      <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&q=85&auto=format&fit=crop" alt="Врач разговаривает с пациентом">
+      <div class="banner-emo-quote">
+        <p>«Раннее обращение — это не страх и не „мнительность“. Это осознанность.»</p>
+        <span class="by">Виктор Зеленцов, главврач</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust" style="margin-top:5rem">
+  <div class="trust-wrap">
+    <div class="it"><b>240<sup>+</sup></b><span>врачей в команде</span></div>
+    <div class="it"><b>180<sup>тыс</sup></b><span>пациентов в год</span></div>
+    <div class="it"><b>14</b><span>профильных отделений</span></div>
+    <div class="it"><b>3</b><span>филиала по Москве</span></div>
+    <div class="it"><b>96<sup>%</sup></b><span>повторных визитов</span></div>
+    <div class="it"><b>24/7</b><span>скорая и стационар</span></div>
+  </div>
+</div>
+
+<!-- DEPARTMENTS -->
+<section id="departments" class="deps-wrap">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">01 / Отделения</span>
+      <h2 class="sec-h">Двенадцать <span class="em">направлений</span> — от первичного приёма до сложной хирургии.</h2>
+      <span class="sec-side">Полный цикл лечения<br><a href="#booking">Все услуги <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></span>
+    </div>
+
+    <div class="deps">
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>
+          <span class="dep-num">01 / 12</span>
+        </div>
+        <h3>Кардиология</h3>
+        <p>УЗИ сердца, холтер, нагрузочные пробы, имплантация кардиостимуляторов, лечение аритмий и ИБС.</p>
+        <div class="dep-foot">
+          <span class="doc-c">28 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span>
+          <span class="dep-num">02 / 12</span>
+        </div>
+        <h3>Неврология</h3>
+        <p>МРТ-диагностика, лечение мигрени, остеохондроза, реабилитация после инсульта, ботулинотерапия.</p>
+        <div class="dep-foot">
+          <span class="doc-c">22 врача</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+          <span class="dep-num">03 / 12</span>
+        </div>
+        <h3>Онкология</h3>
+        <p>Ранняя диагностика, ПЭТ-КТ, химиотерапия, малоинвазивные операции, индивидуальные протоколы.</p>
+        <div class="dep-foot">
+          <span class="doc-c">18 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+          <span class="dep-num">04 / 12</span>
+        </div>
+        <h3>Хирургия</h3>
+        <p>Эндоскопические и лапароскопические операции, общая хирургия, сосудистая хирургия, день в стационаре.</p>
+        <div class="dep-foot">
+          <span class="doc-c">34 врача</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H5a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h4l5 4V7L9 11z"></path><path d="M19 12c0-1.7-1.3-3-3-3"></path><path d="M22 12a6 6 0 0 0-6-6"></path></svg></span>
+          <span class="dep-num">05 / 12</span>
+        </div>
+        <h3>Педиатрия</h3>
+        <p>Детская поликлиника, профосмотры, прививки по нац. календарю, узкие специалисты, плановая хирургия.</p>
+        <div class="dep-foot">
+          <span class="doc-c">26 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg></span>
+          <span class="dep-num">06 / 12</span>
+        </div>
+        <h3>Гинекология</h3>
+        <p>Ведение беременности, ЭКО, гистероскопия, кольпоскопия, эстетическая гинекология, скрининги онкорисков.</p>
+        <div class="dep-foot">
+          <span class="doc-c">20 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><polyline points="6 6 12 12 18 6"></polyline><polyline points="6 18 12 12 18 18"></polyline></svg></span>
+          <span class="dep-num">07 / 12</span>
+        </div>
+        <h3>Ортопедия</h3>
+        <p>Эндопротезирование суставов, артроскопия, лечение плоскостопия, реабилитация спортсменов.</p>
+        <div class="dep-foot">
+          <span class="doc-c">16 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+          <span class="dep-num">08 / 12</span>
+        </div>
+        <h3>Стоматология</h3>
+        <p>Имплантация под микроскопом, ортодонтия (брекеты, элайнеры), отбеливание, детский приём.</p>
+        <div class="dep-foot">
+          <span class="doc-c">19 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+          <span class="dep-num">09 / 12</span>
+        </div>
+        <h3>Офтальмология</h3>
+        <p>Лазерная коррекция зрения, лечение катаракты и глаукомы, детская офтальмология, очки и линзы.</p>
+        <div class="dep-foot">
+          <span class="doc-c">12 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span>
+          <span class="dep-num">10 / 12</span>
+        </div>
+        <h3>Дерматология</h3>
+        <p>Дерматоскопия родинок, лечение псориаза и экземы, удаление новообразований, косметология.</p>
+        <div class="dep-foot">
+          <span class="doc-c">14 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></span>
+          <span class="dep-num">11 / 12</span>
+        </div>
+        <h3>ЛОР</h3>
+        <p>Аудиометрия, эндоскопия носа и горла, лечение отитов и тонзиллитов, септопластика.</p>
+        <div class="dep-foot">
+          <span class="doc-c">11 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+      <div class="dep fadeup">
+        <div class="dep-head">
+          <span class="dep-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
+          <span class="dep-num">12 / 12</span>
+        </div>
+        <h3>Урология</h3>
+        <p>Лечение МКБ, лазерная литотрипсия, мужское здоровье, диагностика онкоурологии, малоинвазивные операции.</p>
+        <div class="dep-foot">
+          <span class="doc-c">9 врачей</span>
+          <span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about">
+      <div class="about-photos fadeup">
+        <div class="ap1">
+          <div class="badge-stamp">с 1998<br><b>28</b>лет</div>
+          <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=900&q=85&auto=format&fit=crop" alt="Главное здание клиники">
+          <span class="stamp"><span><span class="dot"></span> Главный корпус</span><span>Мясницкая, 14</span></span>
+        </div>
+        <div class="ap2"><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&q=85&auto=format&fit=crop" alt="Операционная"></div>
+        <div class="ap3"><img src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?w=700&q=85&auto=format&fit=crop" alt="Лаборатория"></div>
+      </div>
+      <div class="about-r fadeup">
+        <span class="sec-num">02 / О клинике</span>
+        <h2>Клиника, в которой к пациенту относятся как <span class="em">к человеку</span>, а не как к карточке.</h2>
+        <p class="lead">Мы работаем с 1998 года — почти три десятилетия с одной командой основателей и одной философией: лечить не симптом, а человека.</p>
+        <p>«Полярис+» начинался как небольшая семейная клиника на Чистых Прудах. Сегодня — это многопрофильный медицинский центр с тремя филиалами, собственным стационаром на 60 коек, четырьмя операционными и диагностическим комплексом, оснащённым по стандартам крупнейших европейских госпиталей.</p>
+        <p>Мы принимаем <b>по полисам ОМС, ДМС всех ведущих страховых</b> и за наличный расчёт. У нас нет «обязательных» дополнительных анализов — врач назначает только то, что действительно нужно для диагноза.</p>
+        <div class="about-strip">
+          <div class="it"><span class="num">28<sup>лет</sup></span><span class="lbl">опыта</span></div>
+          <div class="it"><span class="num">180<sup>тыс</sup></span><span class="lbl">пациентов в год</span></div>
+          <div class="it"><span class="num">96<sup>%</sup></span><span class="lbl">приходят повторно</span></div>
+        </div>
+        <div class="about-sig">
+          <span class="ssvg">~ В. Зеленцов</span>
+          <span class="info"><b>Виктор Зеленцов</b>главный врач, к.м.н. · с 1998 года</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="why-bg">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">03 / Почему мы</span>
+      <h2 class="sec-h">Шесть причин, по которым пациенты <span class="em">остаются с нами</span> на годы.</h2>
+      <span class="sec-side">Без скрытых платежей<br>без воды</span>
+    </div>
+    <div class="why">
+
+      <div class="wh fadeup">
+        <span class="wh-num">01 — Команда</span>
+        <span class="wh-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </span>
+        <h3>Команда, которой доверяют</h3>
+        <p>240 врачей: 28 кандидатов и 9 докторов медицинских наук, 12 — с международными сертификатами. Всех принимаем строго по результатам экзамена клиники.</p>
+      </div>
+
+      <div class="wh fadeup">
+        <span class="wh-num">02 — Скорость</span>
+        <span class="wh-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </span>
+        <h3>Запись и приём — без ожиданий</h3>
+        <p>К большинству врачей запись доступна на сегодня или завтра. Среднее время ожидания приёма в клинике — 7 минут с момента назначенного времени.</p>
+      </div>
+
+      <div class="wh fadeup">
+        <span class="wh-num">03 — Цены</span>
+        <span class="wh-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        </span>
+        <h3>Прозрачные цены</h3>
+        <p>Перед началом любого лечения вы получаете подробную смету. Без «вдруг назначенных» процедур и неожиданных счетов после визита.</p>
+      </div>
+
+      <div class="wh fadeup">
+        <span class="wh-num">04 — Цикл</span>
+        <span class="wh-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        </span>
+        <h3>Полный цикл в одном здании</h3>
+        <p>Приём, анализы, диагностика, операция и восстановление — всё на одной территории. Не нужно ездить по городу с направлениями.</p>
+      </div>
+
+      <div class="wh fadeup">
+        <span class="wh-num">05 — Куратор</span>
+        <span class="wh-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </span>
+        <h3>Личный куратор</h3>
+        <p>За каждым пациентом закрепляется куратор — координирует визиты, напоминает о приёмах, всегда на связи в чате и по телефону.</p>
+      </div>
+
+      <div class="wh fadeup">
+        <span class="wh-num">06 — История</span>
+        <span class="wh-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 12l-4 4-4-4"></path><path d="M12 8v8"></path></svg>
+        </span>
+        <h3>Электронная история</h3>
+        <p>Все ваши анализы, снимки и заключения доступны в личном кабинете. Делитесь данными с врачом одной ссылкой — без папок и распечаток.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">04 / Врачи</span>
+      <h2 class="sec-h">Ключевые специалисты, ради <span class="em">которых</span> к нам приходят.</h2>
+      <span class="sec-side">8 из 240<br><a href="#booking">Полный состав <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></span>
+    </div>
+    <div class="doc-grid">
+
+      <article class="doc fadeup">
+        <div class="doc-img">
+          <span class="doc-spec">Кардиохирург</span>
+          <span class="doc-rate"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 4.9</span>
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=85&auto=format&fit=crop" alt="Игорь Воронцов">
+          <div class="doc-img-foot"><span class="exp">стаж 24 года</span></div>
+        </div>
+        <div class="doc-body">
+          <h3>Игорь Воронцов</h3>
+          <div class="doc-cred">
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Доктор мед. наук, профессор</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> &gt;1500 операций на сердце</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Стажировка Mayo Clinic, США</div>
+          </div>
+          <div class="doc-foot">
+            <span class="price">от 4 800 ₽<span>за приём</span></span>
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc fadeup">
+        <div class="doc-img">
+          <span class="doc-spec">Невролог</span>
+          <span class="doc-rate"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 5.0</span>
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=85&auto=format&fit=crop" alt="Елена Самойлова">
+          <div class="doc-img-foot"><span class="exp">стаж 18 лет</span></div>
+        </div>
+        <div class="doc-body">
+          <h3>Елена Самойлова</h3>
+          <div class="doc-cred">
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Кандидат мед. наук</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Эксперт по мигрени и БАС</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Преподаватель РНИМУ им. Пирогова</div>
+          </div>
+          <div class="doc-foot">
+            <span class="price">от 3 500 ₽<span>за приём</span></span>
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc fadeup">
+        <div class="doc-img">
+          <span class="doc-spec">Онколог</span>
+          <span class="doc-rate"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 4.9</span>
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=700&q=85&auto=format&fit=crop" alt="Михаил Долгополов">
+          <div class="doc-img-foot"><span class="exp">стаж 21 год</span></div>
+        </div>
+        <div class="doc-body">
+          <h3>Михаил Долгополов</h3>
+          <div class="doc-cred">
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Доктор мед. наук</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Член ESMO и ASCO</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Подбор таргетной терапии</div>
+          </div>
+          <div class="doc-foot">
+            <span class="price">от 5 200 ₽<span>за приём</span></span>
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc fadeup">
+        <div class="doc-img">
+          <span class="doc-spec">Педиатр</span>
+          <span class="doc-rate"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 5.0</span>
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=700&q=85&auto=format&fit=crop" alt="Анна Литвинова">
+          <div class="doc-img-foot"><span class="exp">стаж 15 лет</span></div>
+        </div>
+        <div class="doc-body">
+          <h3>Анна Литвинова</h3>
+          <div class="doc-cred">
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Зав. отделением педиатрии</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Грудничковая медицина</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Доказательный подход</div>
+          </div>
+          <div class="doc-foot">
+            <span class="price">от 3 200 ₽<span>за приём</span></span>
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc fadeup">
+        <div class="doc-img">
+          <span class="doc-spec">Ортопед-травматолог</span>
+          <span class="doc-rate"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 4.8</span>
+          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=700&q=85&auto=format&fit=crop" alt="Дмитрий Соколов">
+          <div class="doc-img-foot"><span class="exp">стаж 19 лет</span></div>
+        </div>
+        <div class="doc-body">
+          <h3>Дмитрий Соколов</h3>
+          <div class="doc-cred">
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Кандидат мед. наук</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> &gt;800 эндопротезирований</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Спортивная медицина</div>
+          </div>
+          <div class="doc-foot">
+            <span class="price">от 4 200 ₽<span>за приём</span></span>
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc fadeup">
+        <div class="doc-img">
+          <span class="doc-spec">Гинеколог</span>
+          <span class="doc-rate"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 4.9</span>
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=85&auto=format&fit=crop" alt="Ольга Зеленцова">
+          <div class="doc-img-foot"><span class="exp">стаж 20 лет</span></div>
+        </div>
+        <div class="doc-body">
+          <h3>Ольга Зеленцова</h3>
+          <div class="doc-cred">
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Соучредитель клиники</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Ведение беременности</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Эстетическая гинекология</div>
+          </div>
+          <div class="doc-foot">
+            <span class="price">от 4 000 ₽<span>за приём</span></span>
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc fadeup">
+        <div class="doc-img">
+          <span class="doc-spec">Терапевт</span>
+          <span class="doc-rate"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 4.8</span>
+          <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=700&q=85&auto=format&fit=crop" alt="Сергей Климовский">
+          <div class="doc-img-foot"><span class="exp">стаж 16 лет</span></div>
+        </div>
+        <div class="doc-body">
+          <h3>Сергей Климовский</h3>
+          <div class="doc-cred">
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Семейный врач</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Чек-апы и диспансеризация</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Доказательная медицина</div>
+          </div>
+          <div class="doc-foot">
+            <span class="price">от 2 800 ₽<span>за приём</span></span>
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc fadeup">
+        <div class="doc-img">
+          <span class="doc-spec">Эндокринолог</span>
+          <span class="doc-rate"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 5.0</span>
+          <img src="https://images.unsplash.com/photo-1559839914-17aae19cec71?w=700&q=85&auto=format&fit=crop" alt="Татьяна Бирюкова">
+          <div class="doc-img-foot"><span class="exp">стаж 17 лет</span></div>
+        </div>
+        <div class="doc-body">
+          <h3>Татьяна Бирюкова</h3>
+          <div class="doc-cred">
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Кандидат мед. наук</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Сахарный диабет, щитовидка</div>
+            <div class="cr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Член ассоциации эндокринологов</div>
+          </div>
+          <div class="doc-foot">
+            <span class="price">от 3 800 ₽<span>за приём</span></span>
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- BANNER LARGE (PREMIUM CHECK-UP) -->
+<div class="banner-bg">
+  <div class="banner fadeup">
+    <div class="banner-img">
+      <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1800&q=85&auto=format&fit=crop" alt="Чек-ап в клинике">
+    </div>
+    <div class="banner-content">
+      <div class="banner-l">
+        <span class="banner-eyebrow">Скидка 30% на чек-ап до конца месяца</span>
+        <h3 class="banner-h">Полное обследование организма за <span class="em">один день</span> — без беготни между кабинетами.</h3>
+        <p class="banner-p">Программа Premium Check-Up: 38 показателей, консультации 6 врачей, расширенная биохимия, УЗИ-скрининг, ЭКГ. Утром приехали — вечером уехали с заключением.</p>
+        <div class="banner-cta-row">
+          <a href="#booking" class="btn btn-light">
+            Записаться на чек-ап
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#programs" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.3)">Посмотреть программы</a>
+        </div>
+      </div>
+      <div class="banner-r">
+        <div class="banner-stat">
+          <div class="num">38</div>
+          <div class="lbl">показателей крови</div>
+        </div>
+        <div class="banner-stat">
+          <div class="num">6<sup>врачей</sup></div>
+          <div class="lbl">консультаций входит</div>
+        </div>
+        <div class="banner-stat">
+          <div class="num">1 день</div>
+          <div class="lbl">от приёма до заключения</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECH -->
+<section id="tech" class="tech-bg" style="margin-top:5rem">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">05 / Технологии</span>
+      <h2 class="sec-h">Оборудование уровня <span class="em">европейских госпиталей</span> — без перелёта.</h2>
+      <span class="sec-side">Сертификаты CE, FDA<br>обновление каждые 3 года</span>
+    </div>
+    <div class="tech">
+      <div class="tech-l fadeup">
+
+        <div class="tech-row">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
+          <div class="info">
+            <b>МРТ Siemens MAGNETOM 3T</b>
+            <span>Высокопольный томограф для точной диагностики мозга, суставов и онкопатологий — без контраста при большинстве исследований.</span>
+          </div>
+          <span class="lbl">Siemens · 3T</span>
+        </div>
+
+        <div class="tech-row">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg></span>
+          <div class="info">
+            <b>КТ GE Revolution Apex 256</b>
+            <span>256-срезовый компьютерный томограф. Снижает дозу облучения на 82% и позволяет проводить исследования сердца за один удар.</span>
+          </div>
+          <span class="lbl">GE · 256</span>
+        </div>
+
+        <div class="tech-row">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
+          <div class="info">
+            <b>Робот-хирург da Vinci Xi</b>
+            <span>Роботизированная система для малоинвазивных операций. Меньше боли, рубцов, и срок реабилитации в 3 раза короче.</span>
+          </div>
+          <span class="lbl">Intuitive · Xi</span>
+        </div>
+
+        <div class="tech-row">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg></span>
+          <div class="info">
+            <b>УЗИ Philips EPIQ Elite</b>
+            <span>Премиальный класс УЗ-аппаратов с эластографией. Видим то, что обычные аппараты пропускают: ранние опухоли, мелкие кровотоки, фиброз.</span>
+          </div>
+          <span class="lbl">Philips · Elite</span>
+        </div>
+
+        <div class="tech-row">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H5a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h4l5 4V7L9 11z"></path></svg></span>
+          <div class="info">
+            <b>Собственная лаборатория</b>
+            <span>Более 1200 видов анализов. Большинство срочных результатов — за 30–60 минут. Ничего не отправляем «во внешнюю лабораторию».</span>
+          </div>
+          <span class="lbl">CAP/ISO 15189</span>
+        </div>
+
+      </div>
+      <div class="tech-r fadeup">
+        <div class="tech-photo">
+          <span class="tech-photo-tag"><span class="gd"></span>Корпус «Северный» · 4 этаж</span>
+          <img src="https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?w=900&q=85&auto=format&fit=crop" alt="МРТ-кабинет">
+          <div class="tech-photo-cap">
+            <b>МРТ Siemens 3T нового <i>поколения</i></b>
+            <p>Установлен в 2024 году. Тихий режим работы, поддержка пациентов с клаустрофобией, сертифицирован для исследований сердца.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMOTIONAL BANNER 2 (FAMILY) -->
+<div class="banner-fam-bg" style="margin-bottom:5rem">
+  <div class="banner-fam fadeup">
+    <div class="banner-fam-img">
+      <span class="img-tag"><span class="gd"></span>Семейная медицина</span>
+      <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=1200&q=85&auto=format&fit=crop" alt="Семья на приёме">
+    </div>
+    <div class="banner-fam-r">
+      <span class="banner-fam-eye">Один врач для всей семьи</span>
+      <h2>От первой прививки до <span class="em">золотой свадьбы</span> — рядом.</h2>
+      <p>Семейный доктор знает историю каждого члена семьи, помнит хронические заболевания, аллергии и реакции. Он видит вас не как один эпизод, а как историю длиною в десятилетия.</p>
+      <div class="feats">
+        <div class="feat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>До 6 человек в семье</span>
+        </div>
+        <div class="feat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Выезд на дом включён</span>
+        </div>
+        <div class="feat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Связь с врачом 24/7</span>
+        </div>
+        <div class="feat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>Чат с семейным врачом</span>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a href="#booking" class="btn btn-prime">
+          Узнать о программе
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="#programs" class="btn btn-ghost">Все программы</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">06 / Как лечимся</span>
+      <h2 class="sec-h">Путь пациента — <span class="em">пять простых шагов</span> от записи до выздоровления.</h2>
+      <span class="sec-side">Без бумажной волокиты<br>с куратором на связи</span>
+    </div>
+    <div class="journey fadeup">
+      <div class="jr">
+        <span class="jr-num">01</span>
+        <h3>Запись и приём</h3>
+        <p>Записываетесь онлайн или по телефону. К большинству врачей — на сегодня или завтра. Без очередей.</p>
+        <span class="jr-time"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 30 секунд</span>
+      </div>
+      <div class="jr">
+        <span class="jr-num">02</span>
+        <h3>Диагностика</h3>
+        <p>Анализы и инструментальная диагностика — в день обращения. Результаты приходят в личный кабинет.</p>
+        <span class="jr-time"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 1 день</span>
+      </div>
+      <div class="jr">
+        <span class="jr-num">03</span>
+        <h3>План лечения</h3>
+        <p>Врач разбирает результаты, объясняет диагноз простым языком и составляет план с прозрачной сметой.</p>
+        <span class="jr-time"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 30–45 минут</span>
+      </div>
+      <div class="jr">
+        <span class="jr-num">04</span>
+        <h3>Лечение</h3>
+        <p>Терапия, операция или процедуры — в нашем стационаре. Вас сопровождает личный куратор.</p>
+        <span class="jr-time"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> по показаниям</span>
+      </div>
+      <div class="jr">
+        <span class="jr-num">05</span>
+        <h3>Контроль</h3>
+        <p>Контрольные приёмы, корректировка терапии и наблюдение в течение года — без дополнительной оплаты.</p>
+        <span class="jr-time"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 12 месяцев</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="prog-bg">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">07 / Программы</span>
+      <h2 class="sec-h">Готовые программы <span class="em">здоровья</span> — выгоднее, чем по отдельности.</h2>
+      <span class="sec-side">Можно оформить рассрочку<br>0% на 12 месяцев</span>
+    </div>
+    <div class="progs">
+
+      <article class="pg fadeup">
+        <div class="pg-img">
+          <span class="pg-badge">Базовая</span>
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=85&auto=format&fit=crop" alt="Базовый чек-ап">
+          <div class="pg-img-cap"><b>Базовый <i>чек-ап</i></b></div>
+        </div>
+        <div class="pg-body">
+          <p>Скрининг основных систем организма за один визит. Идеально для ежегодного профилактического обследования взрослого человека.</p>
+          <div class="pg-list">
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 24 показателя крови</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ЭКГ + консультация терапевта</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Заключение в личном кабинете</span>
+          </div>
+        </div>
+        <div class="pg-foot">
+          <div class="pg-price"><b>14 800 ₽</b><span>за всё</span></div>
+          <a href="#booking" class="btn btn-prime btn-sm">Выбрать</a>
+        </div>
+      </article>
+
+      <article class="pg featured fadeup">
+        <div class="pg-img">
+          <span class="pg-badge gold">Хит года</span>
+          <img src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=900&q=85&auto=format&fit=crop" alt="Premium Check-Up">
+          <div class="pg-img-cap"><b>Premium <i>Check-Up</i></b></div>
+        </div>
+        <div class="pg-body">
+          <p>Расширенная программа «всё включено» за один день. 6 врачей, расширенная биохимия, УЗИ-скрининг и онкомаркеры.</p>
+          <div class="pg-list">
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 38 показателей + онкомаркеры</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 6 врачей-специалистов</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> УЗИ + ЭКГ + холтер</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Личный куратор + завтрак</span>
+          </div>
+        </div>
+        <div class="pg-foot">
+          <div class="pg-price"><b><s>62 000 ₽</s> 43 400 ₽</b><span>скидка 30%</span></div>
+          <a href="#booking" class="btn btn-prime btn-sm">Выбрать</a>
+        </div>
+      </article>
+
+      <article class="pg fadeup">
+        <div class="pg-img">
+          <span class="pg-badge">Женское здоровье</span>
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=85&auto=format&fit=crop" alt="Женский скрининг">
+          <div class="pg-img-cap"><b>Женский <i>скрининг</i></b></div>
+        </div>
+        <div class="pg-body">
+          <p>Профилактика женского здоровья: УЗИ малого таза, маммография, цитология, гормональный профиль, консультация гинеколога.</p>
+          <div class="pg-list">
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> УЗИ + маммография + цитология</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Гормональный профиль</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Гинеколог + маммолог</span>
+          </div>
+        </div>
+        <div class="pg-foot">
+          <div class="pg-price"><b>22 600 ₽</b><span>за всё</span></div>
+          <a href="#booking" class="btn btn-prime btn-sm">Выбрать</a>
+        </div>
+      </article>
+
+      <article class="pg fadeup">
+        <div class="pg-img">
+          <span class="pg-badge">Мужское здоровье</span>
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=85&auto=format&fit=crop" alt="Мужской скрининг">
+          <div class="pg-img-cap"><b>Мужской <i>скрининг</i></b></div>
+        </div>
+        <div class="pg-body">
+          <p>Кардиологический и урологический скрининг для мужчин 35+. Сердце, простата, гормональный профиль, биохимия. Тихо, быстро, конфиденциально.</p>
+          <div class="pg-list">
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ЭКГ + ЭХО-КГ + холтер</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ПСА + УЗИ простаты</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Кардиолог + уролог</span>
+          </div>
+        </div>
+        <div class="pg-foot">
+          <div class="pg-price"><b>24 200 ₽</b><span>за всё</span></div>
+          <a href="#booking" class="btn btn-prime btn-sm">Выбрать</a>
+        </div>
+      </article>
+
+      <article class="pg fadeup">
+        <div class="pg-img">
+          <span class="pg-badge">Детям</span>
+          <img src="https://images.unsplash.com/photo-1631815587646-b85a1bb027e1?w=900&q=85&auto=format&fit=crop" alt="Детский чек-ап">
+          <div class="pg-img-cap"><b>Детский <i>чек-ап</i></b></div>
+        </div>
+        <div class="pg-body">
+          <p>Годовой профилактический осмотр ребёнка по программе «Здоровый школьник» — от педиатра до окулиста, в игровой форме без слёз.</p>
+          <div class="pg-list">
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 5 узких специалистов</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Анализы + ЭКГ + УЗИ</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Справка для школы / спорта</span>
+          </div>
+        </div>
+        <div class="pg-foot">
+          <div class="pg-price"><b>11 900 ₽</b><span>за всё</span></div>
+          <a href="#booking" class="btn btn-prime btn-sm">Выбрать</a>
+        </div>
+      </article>
+
+      <article class="pg fadeup">
+        <div class="pg-img">
+          <span class="pg-badge">Корпоративам</span>
+          <img src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?w=900&q=85&auto=format&fit=crop" alt="Корпоративные программы">
+          <div class="pg-img-cap"><b>Программы <i>для компаний</i></b></div>
+        </div>
+        <div class="pg-body">
+          <p>Чек-апы для команд от 10 человек. Личный куратор, выезд врача в офис для анализов, прозрачная отчётность для HR-департамента.</p>
+          <div class="pg-list">
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Скидка от 15% за группу</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Выезд врача в офис</span>
+            <span class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Конфиденциальные результаты</span>
+          </div>
+        </div>
+        <div class="pg-foot">
+          <div class="pg-price"><b>от 9 800 ₽</b><span>/ человек</span></div>
+          <a href="#booking" class="btn btn-prime btn-sm">Обсудить</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<div id="booking" class="form-bg" style="padding-top:5rem;padding-bottom:5rem">
+  <div class="form-card fadeup">
+    <div class="form-l">
+      <span class="banner-eyebrow">08 / Запись на приём</span>
+      <h2>Запишитесь — и мы перезвоним <span class="em">в течение 5 минут</span>.</h2>
+      <p>Оставьте номер и удобное направление. Куратор подберёт врача, время и сразу подтвердит запись. Без call-центра и долгого «вас переключат на специалиста».</p>
+      <div class="form-feats">
+        <div class="form-feat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Запись подтвердим в течение 5 минут
+        </div>
+        <div class="form-feat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Подберём врача и время под вас
+        </div>
+        <div class="form-feat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Принимаем по ОМС, ДМС и наличными
+        </div>
+        <div class="form-feat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Первая консультация куратора — бесплатно
+        </div>
+      </div>
+    </div>
+    <form class="form-r" id="bookingForm" onsubmit="return submitBooking(event)">
+      <h3>Заявка на приём</h3>
+      <div class="form-msg" id="formMsg">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:.4rem"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Спасибо! Куратор перезвонит в течение 5 минут.
+      </div>
+      <div class="field">
+        <label for="fname">Как к вам обращаться</label>
+        <input id="fname" name="fname" type="text" placeholder="Имя и отчество" required>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="fphone">Телефон</label>
+          <input id="fphone" name="fphone" type="tel" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="field">
+          <label for="fdep">Направление</label>
+          <select id="fdep" name="fdep" required>
+            <option value="">Выберите</option>
+            <option>Кардиология</option>
+            <option>Неврология</option>
+            <option>Онкология</option>
+            <option>Хирургия</option>
+            <option>Педиатрия</option>
+            <option>Гинекология</option>
+            <option>Ортопедия</option>
+            <option>Стоматология</option>
+            <option>Офтальмология</option>
+            <option>Дерматология</option>
+            <option>ЛОР</option>
+            <option>Урология</option>
+            <option>Терапия / чек-ап</option>
+            <option>Не знаю — нужна консультация</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="fcomment">Что вас беспокоит (необязательно)</label>
+        <textarea id="fcomment" name="fcomment" rows="3" placeholder="Симптомы, желаемый врач, удобные дни и время"></textarea>
+      </div>
+      <div class="submit-row">
+        <button type="submit" class="btn btn-prime">
+          Записаться сейчас
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+        <span class="agree">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a> и условиями <a href="#">медицинской помощи</a>.</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- INSURANCE -->
+<section id="insurance">
+  <div class="sec">
+    <div class="ins">
+      <div class="ins-l fadeup">
+        <span class="sec-num">09 / Страховые партнёры</span>
+        <h2>Принимаем полисы <span class="em">всех ведущих страховых</span> компаний России.</h2>
+        <p>Если у вас есть ДМС от работодателя — мы почти гарантированно входим в вашу программу. Покажите полис при записи, и приём пройдёт без оплаты с вашей стороны.</p>
+        <a href="#booking" class="btn btn-prime">
+          Проверить мой полис
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+      <div class="ins-r fadeup">
+        <div class="ins-card"><span class="ic">SOG</span><span>Согласие</span></div>
+        <div class="ins-card"><span class="ic">RGS</span><span>Росгосстрах</span></div>
+        <div class="ins-card"><span class="ic">VTB</span><span>ВТБ</span></div>
+        <div class="ins-card"><span class="ic">SBR</span><span>СберСтрах</span></div>
+        <div class="ins-card"><span class="ic">ALF</span><span>АльфаСтрах</span></div>
+        <div class="ins-card"><span class="ic">RST</span><span>Ресо</span></div>
+        <div class="ins-card"><span class="ic">ING</span><span>Ингосстрах</span></div>
+        <div class="ins-card"><span class="ic">RNH</span><span>Ренессанс</span></div>
+        <div class="ins-card"><span class="ic">EUR</span><span>Европлан</span></div>
+        <div class="ins-card"><span class="ic">MAX</span><span>МАКС</span></div>
+        <div class="ins-card"><span class="ic">ZTM</span><span>Zетта</span></div>
+        <div class="ins-card"><span class="ic">+22</span><span>и ещё 22</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="rev-bg">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">10 / Отзывы</span>
+      <h2 class="sec-h">Что говорят те, кто <span class="em">прошёл лечение</span> у нас.</h2>
+      <span class="sec-side">2 364 отзыва<br>на ProDoctorov, Yandex и Google</span>
+    </div>
+    <div class="rev-grid">
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Игорь Андреевич сделал моему отцу шунтирование в 2024 году. Папе 71, мы уже не очень верили. Сейчас он гуляет, ездит на дачу. Мы очень благодарны всей команде — от регистратуры до реанимации.</p>
+        <div class="rev-meta">
+          <div class="rev-by">
+            <div class="rev-av"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80&auto=format&fit=crop" alt=""></div>
+            <div class="rev-info">
+              <b>Марина Кирьянова</b>
+              <span>Москва · 09.2024</span>
+            </div>
+          </div>
+          <span class="rev-dep">Кардиология</span>
+        </div>
+      </article>
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Водим сына к Анне Литвиновой третий год. Доктор, который реально объясняет, а не отмахивается «само пройдёт». Без избыточных назначений, без давления — просто работает по протоколам.</p>
+        <div class="rev-meta">
+          <div class="rev-by">
+            <div class="rev-av"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80&auto=format&fit=crop" alt=""></div>
+            <div class="rev-info">
+              <b>Алина Маркина</b>
+              <span>Москва · 11.2025</span>
+            </div>
+          </div>
+          <span class="rev-dep">Педиатрия</span>
+        </div>
+      </article>
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Делал чек-ап Premium перед сорокалетием. Прошло за один день, как и обещали. Утром приехал, к 18:00 уже сидел с врачом и разбирал заключение. Нашли начальный диабет — благодарен, что вовремя.</p>
+        <div class="rev-meta">
+          <div class="rev-by">
+            <div class="rev-av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&auto=format&fit=crop" alt=""></div>
+            <div class="rev-info">
+              <b>Дмитрий Носов</b>
+              <span>Москва · 02.2026</span>
+            </div>
+          </div>
+          <span class="rev-dep">Premium</span>
+        </div>
+      </article>
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Спасибо Дмитрию Соколову за операцию на колене после футбольной травмы. Через 6 недель уже бегал, через 3 месяца вернулся в команду. Реабилитация была расписана буквально по дням.</p>
+        <div class="rev-meta">
+          <div class="rev-by">
+            <div class="rev-av"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80&auto=format&fit=crop" alt=""></div>
+            <div class="rev-info">
+              <b>Артём Громов</b>
+              <span>Москва · 06.2025</span>
+            </div>
+          </div>
+          <span class="rev-dep">Ортопедия</span>
+        </div>
+      </article>
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Веду беременность у Ольги Васильевны. Очень спокойно — все назначения и причины подробно объясняются, ни одного «лишнего» анализа за деньги. Чувствую, что мне действительно помогают.</p>
+        <div class="rev-meta">
+          <div class="rev-by">
+            <div class="rev-av"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80&auto=format&fit=crop" alt=""></div>
+            <div class="rev-info">
+              <b>Юлия Светлова</b>
+              <span>Москва · 03.2026</span>
+            </div>
+          </div>
+          <span class="rev-dep">Гинекология</span>
+        </div>
+      </article>
+
+      <article class="rev fadeup">
+        <div class="rev-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="rev-q">Записалась к терапевту в 9 утра — попала на 10:30. После приёма сразу сделали анализы. Результаты пришли в личный кабинет вечером. Всё под одной крышей и реально удобно.</p>
+        <div class="rev-meta">
+          <div class="rev-by">
+            <div class="rev-av"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80&auto=format&fit=crop" alt=""></div>
+            <div class="rev-info">
+              <b>Наталья Дёмина</b>
+              <span>Москва · 04.2026</span>
+            </div>
+          </div>
+          <span class="rev-dep">Терапия</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">11 / Новости</span>
+      <h2 class="sec-h">Что нового <span class="em">в клинике</span> и в большой медицине.</h2>
+      <span class="sec-side">Обновляем еженедельно<br><a href="#">Все статьи <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></span>
+    </div>
+    <div class="news-grid">
+
+      <article class="nw fadeup">
+        <div class="nw-img">
+          <span class="nw-cat">Новости клиники</span>
+          <img src="https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?w=900&q=85&auto=format&fit=crop" alt="МРТ">
+        </div>
+        <div class="nw-body">
+          <span class="nw-date">12 апреля 2026</span>
+          <h3>В корпусе на Мясницкой запустили новый МРТ Siemens 3T</h3>
+          <p>Новый аппарат снижает время исследования вдвое и работает в тихом режиме — комфортнее для пациентов с клаустрофобией.</p>
+          <div class="nw-foot">
+            <span class="author">Пресс-служба «Полярис+»</span>
+            <a href="#" class="read">Читать <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="nw fadeup">
+        <div class="nw-img">
+          <span class="nw-cat">Гайд</span>
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=85&auto=format&fit=crop" alt="Чек-апы">
+        </div>
+        <div class="nw-body">
+          <span class="nw-date">28 марта 2026</span>
+          <h3>Зачем взрослым ежегодный чек-ап и почему его не стоит откладывать</h3>
+          <p>Кардиолог клиники объясняет, какие 5 показателей действительно важно отслеживать после 35 лет — и какие анализы переоценены.</p>
+          <div class="nw-foot">
+            <span class="author">Сергей Климовский</span>
+            <a href="#" class="read">Читать <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="nw fadeup">
+        <div class="nw-img">
+          <span class="nw-cat">Колонка врача</span>
+          <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=900&q=85&auto=format&fit=crop" alt="Дети">
+        </div>
+        <div class="nw-body">
+          <span class="nw-date">14 марта 2026</span>
+          <h3>«Само пройдёт»: 7 ситуаций, когда ребёнка нужно срочно к педиатру</h3>
+          <p>Зав. отделением Анна Литвинова объясняет, какие симптомы у детей нельзя «перележать» — и в каких случаях скорая вызывается без вариантов.</p>
+          <div class="nw-foot">
+            <span class="author">Анна Литвинова</span>
+            <a href="#" class="read">Читать <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-bg">
+  <div class="sec">
+    <div class="faq-grid">
+      <div class="faq-l fadeup">
+        <span class="sec-num" style="margin-bottom:1rem;display:inline-flex">12 / Частые вопросы</span>
+        <h2>Если не нашли ответа — <span class="em">просто позвоните</span>.</h2>
+        <p>Большинство вопросов про запись, цены, страховки и первый приём мы собрали ниже. На остальное ответим за пару минут по телефону или в Telegram.</p>
+        <a href="tel:+74951990000" class="btn btn-prime">
+          Позвонить в регистратуру
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </a>
+      </div>
+      <div class="faq-list fadeup">
+        <div class="faq-item open">
+          <button class="faq-q">Как записаться на приём?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">Через форму на сайте, по телефону +7 (495) 199-00-00 или в Telegram @polaris_clinic. Запись подтверждается в течение 5 минут. К большинству врачей принимаем сегодня или завтра.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Принимаете ли вы по полису ДМС или ОМС?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">Да. Мы работаем со всеми крупнейшими страховыми компаниями (Согласие, Ингосстрах, Альфа, ВТБ, Сбер, Ресо, Ренессанс и др.) и принимаем по ОМС в рамках программы. Перед визитом просто покажите полис.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Сколько ждать запись к узкому специалисту?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">К большинству — на сегодня или на следующий день. К отдельным заведующим отделениями — в течение 3–5 рабочих дней. Если ситуация срочная — куратор подберёт ближайшее окно у любого врача отделения.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Можно ли вызвать врача на дом?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">Да. Терапевт, педиатр и узкие специалисты выезжают по Москве и ближнему Подмосковью ежедневно с 8:00 до 22:00. Также возможен забор анализов и проведение ЭКГ на дому.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Делаете ли вы операции в день обращения?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">Экстренные операции — да, у нас круглосуточный стационар и операционный блок. Плановые — после полной диагностики и подготовки, обычно в течение 1–2 недель с момента первичной консультации.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Что входит в Premium Check-Up?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">38 показателей крови (включая онкомаркеры), консультации 6 врачей (терапевт, кардиолог, невролог, уролог/гинеколог, эндокринолог, офтальмолог), УЗИ органов брюшной полости и щитовидной железы, ЭКГ + холтер, личный куратор и завтрак.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Как получить результаты анализов?
+            <span class="faq-icn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-a">Все результаты автоматически попадают в ваш личный кабинет и приходят push-уведомлением в мобильное приложение. По запросу — на e-mail или в распечатанном виде в регистратуре.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations">
+  <div class="sec">
+    <div class="sec-head fadeup">
+      <span class="sec-num">13 / Филиалы</span>
+      <h2 class="sec-h">Три филиала в <span class="em">центре Москвы</span> — выбирайте удобный.</h2>
+      <span class="sec-side">Все рядом с метро<br>парковка для пациентов</span>
+    </div>
+    <div class="locs">
+
+      <article class="lc fadeup">
+        <div class="lc-img">
+          <span class="lc-tag"><span class="gd"></span>Главный корпус</span>
+          <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=900&q=85&auto=format&fit=crop" alt="Мясницкая корпус">
+          <div class="lc-img-cap"><b>«Полярис+» Мясницкая</b></div>
+        </div>
+        <div class="lc-body">
+          <div class="lc-info">
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> ул. Мясницкая, 14, стр. 2 · м. Чистые Пруды</div>
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Круглосуточно · 14 отделений</div>
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +7 (495) 199-00-00</div>
+          </div>
+          <div class="lc-foot">
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+            <a href="#" class="btn btn-ghost btn-sm">На карте</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="lc fadeup">
+        <div class="lc-img">
+          <span class="lc-tag"><span class="gd"></span>Северный филиал</span>
+          <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=900&q=85&auto=format&fit=crop" alt="Сокол корпус">
+          <div class="lc-img-cap"><b>«Полярис+» Сокол</b></div>
+        </div>
+        <div class="lc-body">
+          <div class="lc-info">
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Ленинградский пр-т, 71 · м. Сокол</div>
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 8:00–22:00 · 9 отделений</div>
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +7 (495) 199-00-71</div>
+          </div>
+          <div class="lc-foot">
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+            <a href="#" class="btn btn-ghost btn-sm">На карте</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="lc fadeup">
+        <div class="lc-img">
+          <span class="lc-tag"><span class="gd"></span>Южный филиал</span>
+          <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=900&q=85&auto=format&fit=crop" alt="ЗИЛ корпус">
+          <div class="lc-img-cap"><b>«Полярис+» Тульская</b></div>
+        </div>
+        <div class="lc-body">
+          <div class="lc-info">
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> ул. Большая Тульская, 15 · м. Тульская</div>
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 8:00–21:00 · 7 отделений + детский корпус</div>
+            <div class="it"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +7 (495) 199-00-15</div>
+          </div>
+          <div class="lc-foot">
+            <a href="#booking" class="btn btn-prime btn-sm">Запись</a>
+            <a href="#" class="btn btn-ghost btn-sm">На карте</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="contacts">
+  <div class="foot-wrap">
+    <div class="foot-top">
+      <div class="foot-l">
+        <h3>Полярис<span class="em">+</span><br>с 1998 года</h3>
+        <p>Многопрофильный медицинский центр в Москве. Команда из 240 врачей, собственный стационар, диагностический комплекс уровня европейских госпиталей и человеческое отношение к каждому пациенту.</p>
+        <div class="channels">
+          <a href="https://t.me/polaris_clinic" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+          <a href="https://wa.me/74951990000" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 14.2c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-1-.5-2.2-.9-3.5-2-.7-.6-1.3-1.4-1.7-2.3-.2-.4 0-.6.2-.8l.5-.6c.2-.2.2-.3.3-.5s.1-.4 0-.6-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.4c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 2.9 1.2 4.5 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+          <a href="#" aria-label="VK"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241c-5.21 0-8.18-3.572-8.305-9.515h2.617c.085 4.357 2.012 6.196 3.534 6.581V6.726h2.45v3.749c1.504-.16 3.082-1.873 3.616-3.749h2.45c-.41 2.32-2.119 4.033-3.337 4.738 1.218.572 3.165 2.07 3.91 4.777h-2.696c-.582-1.83-2.025-3.241-3.943-3.428v3.428z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2s-.2-1.6-.9-2.3c-.9-1-2-1-2.4-1C16.7 2.6 12 2.6 12 2.6s-4.7 0-8.2.3c-.5.1-1.5.1-2.4 1-.7.7-1 2.3-1 2.3S0 8.1 0 10v1.8c0 1.9.2 3.7.2 3.7s.2 1.6.9 2.3c.9 1 2.1.9 2.6 1 1.9.2 8.3.3 8.3.3s4.7 0 8.2-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.7V10c.1-1.9-.1-3.8-.1-3.8zM9.5 13.7V7.4l6.1 3.1-6.1 3.2z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Клиника</h4>
+        <ul>
+          <li><a href="#about">О клинике</a></li>
+          <li><a href="#doctors">Наши врачи</a></li>
+          <li><a href="#tech">Технологии</a></li>
+          <li><a href="#news">Новости</a></li>
+          <li><a href="#locations">Филиалы</a></li>
+          <li><a href="#">Лицензии</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Пациентам</h4>
+        <ul>
+          <li><a href="#booking">Записаться</a></li>
+          <li><a href="#programs">Программы</a></li>
+          <li><a href="#insurance">Страховые партнёры</a></li>
+          <li><a href="#faq">Частые вопросы</a></li>
+          <li><a href="#">Личный кабинет</a></li>
+          <li><a href="#">Цены и прайс</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+74951990000">+7 (495) 199-00-00 — регистратура</a></li>
+          <li><a href="tel:+74951990911">+7 (495) 199-09-11 — скорая 24/7</a></li>
+          <li><a href="mailto:hello@polaris-med.ru">hello@polaris-med.ru</a></li>
+          <li><a href="https://t.me/polaris_clinic">@polaris_clinic в Telegram</a></li>
+          <li><a href="#locations">Адреса филиалов</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-portfolio">
+      <div class="lbl">
+        <span class="star">M</span>
+        <div class="text">
+          <b>Сайт создан для портфолио Millerson Shop</b>
+          <span>Демо-работа · клиника вымышленная</span>
+        </div>
+      </div>
+      <button onclick="openModal()">Подробнее</button>
+    </div>
+
+    <div class="foot-bot">
+      <span>© 2026 ООО «Медицинский центр «Полярис+» · лицензия ЛО-77-01-018473</span>
+      <span class="made">
+        <span>Сделано для портфолио</span>
+        <b>Millerson Shop</b>
+      </span>
+      <div class="foot-legal">
+        <a href="#">Политика</a>
+        <a href="#">Cookies</a>
+        <a href="#">Карта сайта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MILLERSON MODAL -->
+<div class="mod-overlay" id="modOverlay">
+  <div class="mod">
+    <button class="mod-close" id="modClose" aria-label="Закрыть">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="mod-body">
+      <div class="mod-mark">M</div>
+      <span class="mod-eyebrow">Информация о работе</span>
+      <h2 class="mod-h">Этот сайт сделан для портфолио <span class="em">Millerson Shop</span>.</h2>
+      <p class="mod-text">
+        Клиника «Полярис+» вымышленная. Все данные, врачи, телефоны и отзывы — демонстрационные. Сайт создан как пример работы и существует только для портфолио.
+      </p>
+      <div class="mod-divider"></div>
+      <p class="mod-foot">Millerson Shop · <b>портфолио</b></p>
+    </div>
+  </div>
+</div>
+
+<script>
+// === THEME TOGGLE ===
+const themeBtn = document.getElementById('themeToggle');
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  try{localStorage.setItem('polaris-theme', t)}catch(e){}
+}
+themeBtn.addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  setTheme(cur === 'dark' ? 'light' : 'dark');
+});
+try{
+  const saved = localStorage.getItem('polaris-theme');
+  if(saved) setTheme(saved);
+}catch(e){}
+
+// === SIDE MENU ===
+const sideBtn = document.getElementById('menuBtn');
+const side = document.getElementById('side');
+const sideOverlay = document.getElementById('sideOverlay');
+const sideClose = document.getElementById('sideClose');
+function openSide(){side.classList.add('open');sideOverlay.classList.add('open');document.body.style.overflow='hidden'}
+function closeSide(){side.classList.remove('open');sideOverlay.classList.remove('open');document.body.style.overflow=''}
+sideBtn.addEventListener('click',openSide);
+sideClose.addEventListener('click',closeSide);
+sideOverlay.addEventListener('click',closeSide);
+document.querySelectorAll('.side-nav a, .side-link').forEach(a=>a.addEventListener('click',closeSide));
+
+// === HEADER SCROLL ===
+const hdr=document.getElementById('header');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>30)hdr.classList.add('scrolled');else hdr.classList.remove('scrolled');
+});
+
+// === FAQ ACCORDION ===
+document.querySelectorAll('.faq-item .faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+
+// === FADE UP ===
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fadeup').forEach(el=>obs.observe(el));
+
+// === BOOKING FORM ===
+function submitBooking(e){
+  e.preventDefault();
+  const msg=document.getElementById('formMsg');
+  msg.classList.add('show');
+  document.getElementById('bookingForm').reset();
+  setTimeout(()=>msg.classList.remove('show'),5000);
+  return false;
+}
+
+// === MILLERSON MODAL ===
+const modOverlay=document.getElementById('modOverlay');
+const modClose=document.getElementById('modClose');
+function openModal(){modOverlay.classList.add('open');document.body.style.overflow='hidden';closeSide()}
+function closeModal(){modOverlay.classList.remove('open');document.body.style.overflow=''}
+modClose.addEventListener('click',closeModal);
+modOverlay.addEventListener('click',(e)=>{if(e.target===modOverlay)closeModal()});
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape'){closeModal();closeSide()}
+});
+
+// === PHONE MASK ===
+const fp=document.getElementById('fphone');
+if(fp){
+  fp.addEventListener('input',(e)=>{
+    let v=e.target.value.replace(/\D/g,'');
+    if(v.startsWith('8'))v='7'+v.slice(1);
+    if(!v.startsWith('7'))v='7'+v;
+    v=v.slice(0,11);
+    let f='+7';
+    if(v.length>1)f+=' ('+v.slice(1,4);
+    if(v.length>=5)f+=') '+v.slice(4,7);
+    if(v.length>=8)f+='-'+v.slice(7,9);
+    if(v.length>=10)f+='-'+v.slice(9,11);
+    e.target.value=f;
+  });
+}
+</script>
+</body>
+</html>

@@ -82,12 +82,24 @@
 }
 .sh-btn--primary {
     background: var(--accent);
-    color: #fff;
+    color: #fff !important;
 }
 .sh-btn--primary:hover {
     background: var(--accent-hover);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3);
+    color: #fff !important;
+}
+.sh-btn--secondary {
+    background: transparent;
+    color: var(--accent) !important;
+    border: 1.5px solid var(--accent);
+}
+.sh-btn--secondary:hover {
+    background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.10);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.2);
+    color: var(--accent) !important;
 }
 .sh-btn--ghost {
     background: transparent;
@@ -441,22 +453,15 @@
 .sh-contact__link--tg i { color: #29a9e1; }
 .sh-contact__link--tg:hover { border-color: #29a9e1; }
 .sh-contact__link--kw i { color: var(--accent); }
-.sh-contact__link--kw:hover { border-color: var(--accent); }
+.sh-contact__link--kw:hover { border-color: var(--accent); box-shadow: 0 10px 28px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.18); }
 .sh-contact__link--em i { color: #ea4335; }
 .sh-contact__link--em:hover { border-color: #ea4335; }
 
-@media (max-width: 768px) {
-    .sh-steps { flex-direction: column; align-items: center; }
-    .sh-step__arrow { transform: rotate(90deg); padding: 4px 0; }
-    .sh-step { max-width: 100%; width: 100%; }
-    .sh-contact__inner { padding: 36px 20px; }
-    .sh-contact__link { min-width: auto; width: 100%; }
+/* Portfolio preview section */
+.sh-portfolio {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--border);
 }
-@media (max-width: 480px) {
-    .sh-grid { grid-template-columns: 1fr; }
-    .sh-important__grid { grid-template-columns: 1fr; }
-}
-
 .sh-portfolio__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -468,6 +473,8 @@
     overflow: hidden;
     border: 1.5px solid var(--border);
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
 }
 .sh-portfolio__card:hover {
     transform: translateY(-4px);
@@ -483,6 +490,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
     transition: transform 0.4s ease;
 }
 .sh-portfolio__card:hover .sh-portfolio__preview img {
@@ -561,3 +569,59 @@
     line-height: 1.7;
 }
 .sh-faq .faq-item.active .faq-answer { max-height: 400px; padding: 0 20px 16px; }
+
+/* =============================================
+   MOBILE IMPROVEMENTS
+   ============================================= */
+@media (max-width: 768px) {
+    .sh-hero { padding: 40px 0 36px; }
+    .sh-hero__sub { font-size: 0.97rem; }
+    .sh-hero__trust { gap: 6px 4px; }
+    .sh-trust-sep { display: none; }
+
+    .sh-steps { flex-direction: column; align-items: center; }
+    .sh-step__arrow { transform: rotate(90deg); padding: 4px 0; }
+    .sh-step { max-width: 100%; width: 100%; }
+
+    .sh-contact__inner { padding: 36px 20px; }
+    .sh-contact__link { min-width: auto; width: 100%; }
+    .sh-contact__links { flex-direction: column; align-items: stretch; }
+
+    .sh-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .sh-card {
+        padding: 22px 18px 18px;
+    }
+    .sh-card__actions {
+        flex-direction: column;
+    }
+    .sh-card__actions .sh-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sh-services { padding: 48px 0; }
+    .sh-how { padding: 48px 0; }
+    .sh-important { padding: 48px 0; }
+    .sh-contact { padding: 48px 0; }
+    .sh-portfolio { padding: 48px 0; }
+
+    .sh-portfolio__grid { grid-template-columns: 1fr; }
+    .sh-important__grid { grid-template-columns: 1fr 1fr; }
+
+    .sh-section-header { margin-bottom: 28px; }
+    .sh-section-header h2 { margin-bottom: 8px; }
+
+    .sh-btn { min-height: 48px; }
+    .sh-btn--sm { min-height: 44px; }
+}
+
+@media (max-width: 480px) {
+    .sh-grid { grid-template-columns: 1fr; }
+    .sh-important__grid { grid-template-columns: 1fr; }
+    .sh-portfolio__grid { grid-template-columns: 1fr; }
+    .sh-hero__actions { flex-direction: column; align-items: stretch; }
+    .sh-hero__actions .sh-btn { justify-content: center; }
+}
