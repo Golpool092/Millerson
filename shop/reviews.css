@@ -1,0 +1,214 @@
+/* ==============================================
+   reviews.css — Millerson Shop
+   ============================================== */
+
+/* ── Виджет рейтинга ── */
+.rv-summary {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 28px 32px;
+  border-radius: 18px;
+  background: var(--surface-solid);
+  border: 1px solid var(--border);
+}
+.rv-summary__score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 100px;
+}
+.rv-summary__num {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.rv-summary__stars {
+  color: #f59e0b;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+.rv-summary__label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.rv-summary__bars {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rv-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rv-bar-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  min-width: 22px;
+}
+.rv-bar-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--border);
+  overflow: hidden;
+}
+.rv-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #f59e0b, #f97316);
+  transition: width 0.6s ease;
+}
+.rv-bar-count {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  min-width: 22px;
+  text-align: right;
+}
+
+/* ── Кнопки фильтра ── */
+.rv-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.rv-filter-btn {
+  padding: 7px 16px;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.rv-filter-btn:hover,
+.rv-filter-btn--active {
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Сетка карточек ── */
+.rv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ── Карточка отзыва ── */
+.rv-card {
+  background: var(--surface-solid);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.rv-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.4);
+  box-shadow: 0 10px 30px -14px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3);
+}
+.rv-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rv-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.rv-card__meta {
+  flex: 1;
+  min-width: 0;
+}
+.rv-card__name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rv-card__cat {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+.rv-card__stars {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.rv-star { color: #f59e0b; font-size: 0.78rem; }
+.rv-star--empty { color: var(--border); }
+.rv-card__text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.rv-card__date {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* ── CTA блок ── */
+.rv-cta {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 28px 32px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(var(--accent-r),var(--accent-g),var(--accent-b),.10), rgba(245,158,11,.07));
+  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.22);
+}
+.rv-cta__text { flex: 1 1 260px; }
+.rv-cta__text h3 { margin: 0 0 4px; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+.rv-cta__text p  { margin: 0; font-size: 0.88rem; color: var(--text-secondary); }
+.rv-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.rv-cta__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(var(--accent-r),var(--accent-g),var(--accent-b),.35);
+}
+
+/* ── Секция отзывов на shop/portfolio ── */
+.sh-reviews-section { padding: 60px 0 0; }
+
+@media (max-width: 600px) {
+  .rv-summary { flex-direction: column; padding: 20px; }
+  .rv-grid { grid-template-columns: 1fr; }
+  .rv-cta { flex-direction: column; text-align: center; }
+}

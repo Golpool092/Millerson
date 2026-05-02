@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="shop.css">
+<link rel="stylesheet" href="reviews.css">
 
 <style>
 /* ===========================================
@@ -1085,7 +1086,7 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                 <div class="pf-cat-icon"><i class="fas fa-folder-tree"></i></div>
                 <div>
                     <h2 class="pf-cat-title">Другие категории</h2>
-                    <p class="pf-cat-sub">Разделы в работе — больше готовых работ можно посмотреть на моём профиле Kwork</p>
+                    <p class="pf-cat-sub">Работаю и над другими задачами — правки, SEO, по Figma, клоны. Работы пополняются</p>
                 </div>
             </div>
             <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="sh-btn sh-btn--primary sh-btn--sm">
@@ -1167,6 +1168,49 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                 </a>
             </div>
 
+
+            <div class="pf-empty-card">
+                <div class="pf-empty-card__icon"><i class="fab fa-figma"></i></div>
+                <h3 class="pf-empty-card__title">По дизайну Figma</h3>
+                <p class="pf-empty-card__text">Верстка готового Figma-макета пиксель в пиксель. 1 стр — от 2 000 ₽, многостраничный — от 3 500 ₽.</p>
+                <a href="shop.html" class="pf-empty-card__link">
+                    Заказать <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="pf-empty-card">
+                <div class="pf-empty-card__icon"><i class="fas fa-copy"></i></div>
+                <h3 class="pf-empty-card__title">Клон сайта</h3>
+                <p class="pf-empty-card__text">Воссоздаю структуру и стиль понравившегося сайта под ваш бренд. 1 стр — от 2 500 ₽.</p>
+                <a href="shop.html" class="pf-empty-card__link">
+                    Заказать <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============ REVIEWS ============ -->
+    <section style="padding:60px 0 0;">
+        <div class="sh-section-header">
+            <h2>Отзывы клиентов</h2>
+            <p>89 выполненных заказов · рейтинг <strong>4.6 ★</strong></p>
+        </div>
+        <div id="rv-summary" style="margin-top:24px;"></div>
+        <div class="rv-filters" style="margin-top:24px;" id="rv-filters">
+            <button class="rv-filter-btn rv-filter-btn--active" data-rv-filter="all">Все</button>
+            <button class="rv-filter-btn" data-rv-filter="сайт-визитка">Визитка</button>
+            <button class="rv-filter-btn" data-rv-filter="лендинг">Лендинг</button>
+            <button class="rv-filter-btn" data-rv-filter="многостраничный сайт">Многостраничный</button>
+            <button class="rv-filter-btn" data-rv-filter="по дизайну Figma">По Figma</button>
+            <button class="rv-filter-btn" data-rv-filter="клон сайта">Клон сайта</button>
+        </div>
+        <div class="rv-grid" id="rv-list" style="margin-top:24px;"></div>
+        <div style="text-align:center;margin-top:28px;">
+            <a href="feedback.html" class="sh-btn sh-btn--secondary">
+                <i class="fas fa-comments"></i> Все 89 отзывов
+            </a>
         </div>
     </section>
 
@@ -1260,6 +1304,7 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
 <button id="back-to-top" aria-label="Наверх"><i class="fas fa-chevron-up"></i></button>
 
 <script src="../menu.js"></script>
+<script src="reviews.js"></script>
 <script src="../main.js"></script>
 <script src="shop.js"></script>
 

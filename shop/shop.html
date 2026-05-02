@@ -45,6 +45,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="shop.css">
+<link rel="stylesheet" href="reviews.css">
 
 <script type="application/ld+json">
 {
@@ -96,7 +97,7 @@
         {"@type":"Offer","name":"Страница прайса","price":"1000","priceCurrency":"RUB"},
         {"@type":"Offer","name":"Страница контактов","price":"1000","priceCurrency":"RUB"},
         {"@type":"Offer","name":"Страница «О компании»","price":"1000","priceCurrency":"RUB"},
-        {"@type":"Offer","name":"Портфолио","price":"1000","priceCurrency":"RUB"}
+        {"@type":"Offer","name":"Портфолио","price":"1000","priceCurrency":"RUB"},{"@type":"Offer","name":"Разработка по дизайну Figma","price":"2000","priceCurrency":"RUB"},{"@type":"Offer","name":"Клон сайта","price":"2500","priceCurrency":"RUB"}
       ]
     }
   ]
@@ -459,6 +460,63 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                 </div>
             </div>
 
+
+            <div class="sh-card">
+                <div class="sh-card__icon"><i class="fab fa-figma"></i></div>
+                <h3 class="sh-card__title">По дизайну Figma</h3>
+                <p class="sh-card__desc">Есть готовый макет в Figma? Сверстаю его точно по дизайну на чистом HTML/CSS/JS. Пиксель в пиксель, анимации, адаптив.</p>
+                <ul class="sh-card__list">
+                    <li><i class="fas fa-check"></i> Верстка пиксель в пиксель</li>
+                    <li><i class="fas fa-check"></i> Анимации из прототипа</li>
+                    <li><i class="fas fa-check"></i> Адаптив под все устройства</li>
+                    <li><i class="fas fa-check"></i> Чистый HTML/CSS/JS</li>
+                </ul>
+                <div class="sh-card__need">
+                    <span class="sh-card__need-title"><i class="fas fa-list-check"></i> Нужно от вас:</span>
+                    Ссылка на Figma (доступ к просмотру), описание анимаций
+                </div>
+                <div class="sh-card__price-block">
+                    <div class="sh-price-row"><span>1 страница</span><strong>2 000 ₽</strong></div>
+                    <div class="sh-price-row sh-price-row--main"><span>Многостраничный</span><strong>от 3 500 ₽</strong></div>
+                </div>
+                <div class="sh-card__extras">
+                    <span class="sh-extra"><i class="fas fa-plus"></i> Сложные анимации +800₽</span>
+                    <span class="sh-extra"><i class="fas fa-bolt"></i> Срочно +1 000₽</span>
+                </div>
+                <div class="sh-card__actions">
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="sh-btn sh-btn--primary sh-btn--sm"><i class="fas fa-briefcase"></i> Заказать на Kwork</a>
+                    <a href="https://t.me/MillersonXIII" target="_blank" rel="noopener" class="sh-btn sh-btn--secondary sh-btn--sm"><i class="fab fa-telegram"></i> Telegram</a>
+                </div>
+            </div>
+
+            <div class="sh-card">
+                <div class="sh-card__icon"><i class="fas fa-copy"></i></div>
+                <h3 class="sh-card__title">Клон сайта</h3>
+                <p class="sh-card__desc">Понравился чужой сайт? Воссоздам его структуру и стиль под ваш бренд, контент и цвета. Без нарушения авторских прав.</p>
+                <ul class="sh-card__list">
+                    <li><i class="fas fa-check"></i> Структура как у референса</li>
+                    <li><i class="fas fa-check"></i> Ваши цвета, лого, тексты</li>
+                    <li><i class="fas fa-check"></i> Адаптив</li>
+                    <li><i class="fas fa-check"></i> Оригинальный код</li>
+                </ul>
+                <div class="sh-card__need">
+                    <span class="sh-card__need-title"><i class="fas fa-list-check"></i> Нужно от вас:</span>
+                    Ссылка на референс, ваш контент и логотип
+                </div>
+                <div class="sh-card__price-block">
+                    <div class="sh-price-row"><span>1 страница</span><strong>2 500 ₽</strong></div>
+                    <div class="sh-price-row sh-price-row--main"><span>Многостраничный</span><strong>от 4 000 ₽</strong></div>
+                </div>
+                <div class="sh-card__extras">
+                    <span class="sh-extra"><i class="fas fa-plus"></i> SEO-оптимизация +500₽</span>
+                    <span class="sh-extra"><i class="fas fa-bolt"></i> Срочно +1 000₽</span>
+                </div>
+                <div class="sh-card__actions">
+                    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="sh-btn sh-btn--primary sh-btn--sm"><i class="fas fa-briefcase"></i> Заказать на Kwork</a>
+                    <a href="https://t.me/MillersonXIII" target="_blank" rel="noopener" class="sh-btn sh-btn--secondary sh-btn--sm"><i class="fab fa-telegram"></i> Telegram</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -672,6 +730,39 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         </div>
     </section>
 
+
+    <!-- REVIEWS SECTION -->
+    <section class="sh-reviews-section">
+        <div class="sh-section-header">
+            <h2>Отзывы клиентов</h2>
+            <p>89 выполненных заказов · рейтинг <strong>4.6 ★</strong></p>
+        </div>
+        <div id="rv-summary" style="margin-top:24px;"></div>
+        <div class="rv-filters" style="margin-top:24px;">
+            <button class="rv-filter-btn rv-filter-btn--active" data-rv-filter="all">Все</button>
+            <button class="rv-filter-btn" data-rv-filter="сайт-визитка">Визитка</button>
+            <button class="rv-filter-btn" data-rv-filter="лендинг">Лендинг</button>
+            <button class="rv-filter-btn" data-rv-filter="многостраничный сайт">Многостраничный</button>
+            <button class="rv-filter-btn" data-rv-filter="по дизайну Figma">По Figma</button>
+            <button class="rv-filter-btn" data-rv-filter="клон сайта">Клон сайта</button>
+        </div>
+        <div class="rv-grid" id="rv-list" style="margin-top:24px;"></div>
+        <div class="rv-cta">
+            <div class="rv-cta__text">
+                <h3>Работали вместе?</h3>
+                <p>Напишите в Telegram — я добавлю ваш отзыв. Занимает 2 минуты.</p>
+            </div>
+            <a href="https://t.me/MillersonXIII" target="_blank" rel="noopener" class="rv-cta__btn">
+                <i class="fab fa-telegram"></i> @MillersonXIII
+            </a>
+        </div>
+        <div style="text-align:center;margin-top:20px;">
+            <a href="feedback.html" class="sh-btn sh-btn--secondary">
+                <i class="fas fa-comments"></i> Все 89 отзывов
+            </a>
+        </div>
+    </section>
+
 </div>
 </main>
 
@@ -703,7 +794,15 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
 </div>
 
 <script src="../menu.js"></script>
+<script src="reviews.js"></script>
 <script src="../main.js"></script>
 <script src="shop.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    renderRatingSummary('rv-summary');
+    renderReviews('rv-list', { limit: 6 });
+    initReviewFilters('rv-list');
+  });
+</script>
 </body>
 </html>
