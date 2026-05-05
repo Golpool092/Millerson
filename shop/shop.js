@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var scrollProgress = document.querySelector('.scroll-progress');
     var backToTop = document.getElementById('back-to-top');
-    
+
     if (scrollProgress) {
         window.addEventListener('scroll', function() {
             var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollProgress.style.width = (height > 0 ? (winScroll / height) * 100 : 0) + '%';
         });
     }
-    
+
     if (backToTop) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) backToTop.classList.add('visible');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
-    
+
     var faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(function(item) {
         var question = item.querySelector('.faq-question');
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-    
+
     var cookieBanner = document.getElementById('cookieBanner');
     var acceptBtn = document.getElementById('acceptCookies');
     if (cookieBanner && acceptBtn) {
