@@ -30,768 +30,9 @@
 <link rel="manifest" href="../site.webmanifest">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="portfolio.css">
 <link rel="stylesheet" href="shop.css">
 <link rel="stylesheet" href="reviews.css">
-
-<style>
-/* ===========================================
-   PORTFOLIO PAGE — Millerson Shop
-   =========================================== */
-
-.pf-hero {
-    position: relative;
-    padding: 70px 0 50px;
-    text-align: center;
-    overflow: hidden;
-}
-.pf-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, .18), transparent 50%),
-        radial-gradient(circle at 80% 60%, rgba(236, 72, 153, .14), transparent 55%);
-    pointer-events: none;
-    z-index: 0;
-}
-.pf-hero > * { position: relative; z-index: 1; }
-
-.pf-hero__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
-    border-radius: 999px;
-    background: rgba(99,102,241,.10);
-    border: 1px solid rgba(99,102,241,.32);
-    color: var(--accent);
-    font-weight: 600;
-    font-size: .82rem;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    margin-bottom: 22px;
-    backdrop-filter: blur(6px);
-}
-
-.pf-hero__title {
-    font-size: clamp(2.4rem, 6vw, 4.2rem);
-    font-weight: 800;
-    line-height: 1.05;
-    margin: 0 0 18px;
-    letter-spacing: -.02em;
-    color: var(--text-primary);
-}
-.pf-hero__title span {
-    background: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #f59e0b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.pf-hero__sub {
-    max-width: 720px;
-    margin: 0 auto 24px;
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: var(--text-secondary);
-}
-
-.pf-disclaimer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 14px 20px;
-    border-radius: 12px;
-    background: rgba(245, 158, 11, .08);
-    border: 1px solid rgba(245, 158, 11, .28);
-    color: var(--text-secondary);
-    font-size: .88rem;
-    line-height: 1.55;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    text-align: left;
-}
-.pf-disclaimer i {
-    color: #f59e0b;
-    font-size: 1.15rem;
-    margin-top: 2px;
-    flex-shrink: 0;
-}
-
-/* Category section */
-.pf-category {
-    margin: 60px 0 30px;
-    position: relative;
-}
-
-.pf-cat-head {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 26px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--border);
-}
-
-.pf-cat-head__left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.pf-cat-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, rgba(99,102,241,.20), rgba(236,72,153,.12));
-    border: 1px solid rgba(99,102,241,.28);
-    color: var(--accent);
-    font-size: 1.35rem;
-    flex-shrink: 0;
-}
-
-.pf-cat-title {
-    font-size: clamp(1.4rem, 3vw, 1.85rem);
-    font-weight: 700;
-    margin: 0;
-    color: var(--text-primary);
-    letter-spacing: -.01em;
-}
-.pf-cat-sub {
-    margin: 4px 0 0;
-    font-size: .88rem;
-    color: var(--text-secondary);
-}
-
-.pf-cat-count {
-    padding: 6px 14px;
-    border-radius: 999px;
-    background: rgba(99,102,241,.12);
-    color: var(--accent);
-    font-weight: 700;
-    font-size: .82rem;
-    letter-spacing: .02em;
-}
-
-.pf-cat-controls {
-    display: flex;
-    gap: 8px;
-}
-.pf-arrow {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--surface-solid);
-    color: var(--text-primary);
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    font-size: .95rem;
-    transition: all .2s ease;
-}
-.pf-arrow:hover {
-    background: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(99,102,241,.35);
-}
-.pf-arrow:disabled {
-    opacity: .35;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-    background: var(--surface-solid);
-    color: var(--text-primary);
-    border-color: var(--border);
-}
-
-/* Horizontal lent */
-.pf-lent-wrap {
-    position: relative;
-    margin: 0 -16px;
-    padding: 4px 0 18px;
-}
-.pf-lent {
-    display: flex;
-    gap: 22px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding: 8px 16px 22px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) transparent;
-}
-.pf-lent::-webkit-scrollbar { height: 6px; }
-.pf-lent::-webkit-scrollbar-track { background: transparent; }
-.pf-lent::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #6366f1, #ec4899);
-    border-radius: 999px;
-}
-
-/* Card */
-.pf-card {
-    flex: 0 0 360px;
-    scroll-snap-align: start;
-    background: var(--surface-solid);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
-    will-change: transform;
-}
-.pf-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(99,102,241,.55);
-    box-shadow: 0 24px 60px -20px rgba(99,102,241,.45);
-}
-
-.pf-card__media {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: #0d0d12;
-}
-.pf-card__media::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.65) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
-.pf-card__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-    transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .4s ease;
-}
-.pf-card:hover .pf-card__img {
-    transform: scale(1.06);
-    filter: brightness(.92) saturate(1.05);
-}
-
-.pf-card__tag {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 2;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(8px);
-    color: #fff;
-    font-size: .72rem;
-    font-weight: 600;
-    letter-spacing: .03em;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,.18);
-}
-
-.pf-card__view {
-    position: absolute;
-    bottom: 14px;
-    right: 14px;
-    z-index: 2;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(99,102,241,.92);
-    color: #fff;
-    display: grid;
-    place-items: center;
-    font-size: .95rem;
-    transition: transform .35s ease, background .35s ease;
-    box-shadow: 0 10px 24px rgba(99,102,241,.4);
-}
-.pf-card:hover .pf-card__view {
-    transform: rotate(45deg) scale(1.08);
-    background: #ec4899;
-    box-shadow: 0 14px 30px rgba(236,72,153,.5);
-}
-
-.pf-card__body {
-    padding: 18px 20px 22px;
-}
-.pf-card__title {
-    margin: 0 0 6px;
-    font-size: 1.12rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -.005em;
-}
-.pf-card__desc {
-    margin: 0;
-    font-size: .88rem;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-.pf-card__meta {
-    margin-top: 14px;
-    display: flex;
-    gap: 14px;
-    font-size: .78rem;
-    color: var(--text-secondary);
-}
-.pf-card__meta span { display: inline-flex; align-items: center; gap: 6px; }
-.pf-card__meta i { color: var(--accent); }
-
-/* Empty state */
-.pf-empty {
-    padding: 56px 28px;
-    border-radius: 18px;
-    background:
-        repeating-linear-gradient(45deg, rgba(99,102,241,.025) 0 12px, transparent 12px 24px),
-        var(--surface-solid);
-    border: 1.5px dashed var(--border);
-    text-align: center;
-    color: var(--text-secondary);
-}
-.pf-empty__icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: rgba(99,102,241,.10);
-    color: var(--accent);
-    font-size: 1.6rem;
-}
-.pf-empty__title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 6px;
-}
-.pf-empty__text {
-    margin: 0;
-    font-size: .9rem;
-    line-height: 1.55;
-}
-
-/* Other categories — compact empty grid */
-.pf-empty-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
-}
-.pf-empty-card {
-    padding: 22px 20px;
-    border-radius: 16px;
-    background:
-        repeating-linear-gradient(45deg, rgba(99,102,241,.025) 0 12px, transparent 12px 24px),
-        var(--surface-solid);
-    border: 1.5px dashed var(--border);
-    transition: all .25s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-}
-.pf-empty-card:hover {
-    border-color: rgba(99,102,241,.55);
-    transform: translateY(-3px);
-    box-shadow: 0 14px 32px -16px rgba(99,102,241,.4);
-}
-.pf-empty-card__icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    background: rgba(99,102,241,.10);
-    color: var(--accent);
-    font-size: 1.05rem;
-    margin-bottom: 6px;
-}
-.pf-empty-card__title {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -.005em;
-}
-.pf-empty-card__text {
-    margin: 0;
-    font-size: .82rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    flex: 1;
-}
-.pf-empty-card__link {
-    margin-top: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--accent);
-    text-decoration: none;
-    font-size: .82rem;
-    font-weight: 600;
-    transition: gap .2s ease, color .2s ease;
-}
-.pf-empty-card__link:hover {
-    gap: 10px;
-    color: #ec4899;
-}
-
-/* Kwork banner */
-.pf-kwork {
-    margin: 50px 0 30px;
-    padding: 28px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(245, 158, 11, .14), rgba(99,102,241,.10));
-    border: 1px solid rgba(245, 158, 11, .35);
-    position: relative;
-    overflow: hidden;
-}
-.pf-kwork::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 90% 20%, rgba(245,158,11,.18), transparent 55%);
-    pointer-events: none;
-}
-.pf-kwork__inner {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    flex-wrap: wrap;
-}
-.pf-kwork__icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #f59e0b, #ec4899);
-    color: #fff;
-    display: grid;
-    place-items: center;
-    font-size: 1.45rem;
-    flex-shrink: 0;
-    box-shadow: 0 12px 28px rgba(245,158,11,.35);
-}
-.pf-kwork__text {
-    flex: 1 1 320px;
-}
-.pf-kwork__text h3 {
-    margin: 0 0 6px;
-    font-size: 1.2rem;
-    color: var(--text-primary);
-    font-weight: 800;
-    letter-spacing: -.01em;
-}
-.pf-kwork__text p {
-    margin: 0;
-    color: var(--text-secondary);
-    font-size: .92rem;
-    line-height: 1.55;
-}
-
-/* CTA section */
-.pf-cta {
-    margin: 80px 0 40px;
-    padding: 50px 30px;
-    border-radius: 24px;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(99,102,241,.18), rgba(236,72,153,.12));
-    border: 1px solid rgba(99,102,241,.28);
-    position: relative;
-    overflow: hidden;
-}
-.pf-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 120%, rgba(245,158,11,.18), transparent 55%);
-    pointer-events: none;
-}
-.pf-cta > * { position: relative; }
-.pf-cta h2 {
-    font-size: clamp(1.5rem, 3.5vw, 2rem);
-    font-weight: 800;
-    margin: 0 0 12px;
-    color: var(--text-primary);
-    letter-spacing: -.01em;
-}
-.pf-cta p {
-    margin: 0 auto 22px;
-    max-width: 560px;
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* ===========================================
-   MODAL
-   =========================================== */
-.pf-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    display: none;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 30px 16px;
-    overflow-y: auto;
-    background: rgba(5, 5, 12, .82);
-    backdrop-filter: blur(14px);
-    opacity: 0;
-    transition: opacity .35s ease;
-}
-.pf-modal.is-open {
-    display: flex;
-    opacity: 1;
-}
-
-.pf-modal__inner {
-    width: 100%;
-    max-width: 1120px;
-    background: var(--surface-solid);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0,0,0,.6);
-    transform: translateY(20px) scale(.97);
-    opacity: 0;
-    transition: transform .45s cubic-bezier(.2,.85,.25,1), opacity .35s ease;
-    margin: auto;
-}
-.pf-modal.is-open .pf-modal__inner {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-}
-
-.pf-modal__header {
-    position: relative;
-    padding: 26px 28px 22px;
-    background: linear-gradient(135deg, rgba(99,102,241,.18), rgba(236,72,153,.10));
-    border-bottom: 1px solid var(--border);
-}
-.pf-modal__category-tag {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,.08);
-    color: var(--accent);
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-.pf-modal__title {
-    margin: 0 0 6px;
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
-    font-weight: 800;
-    color: var(--text-primary);
-    letter-spacing: -.01em;
-    padding-right: 60px;
-}
-.pf-modal__desc {
-    margin: 0;
-    color: var(--text-secondary);
-    font-size: .95rem;
-    line-height: 1.6;
-    max-width: 720px;
-}
-
-.pf-modal__close {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--surface-solid);
-    color: var(--text-primary);
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    transition: all .2s ease;
-    font-size: 1rem;
-}
-.pf-modal__close:hover {
-    background: #ec4899;
-    color: #fff;
-    border-color: #ec4899;
-    transform: rotate(90deg);
-}
-
-.pf-modal__body {
-    padding: 28px;
-}
-
-.pf-tabs {
-    display: inline-flex;
-    padding: 4px;
-    border-radius: 12px;
-    background: rgba(99,102,241,.08);
-    border: 1px solid var(--border);
-    margin-bottom: 22px;
-    gap: 4px;
-}
-.pf-tab {
-    padding: 9px 18px;
-    border-radius: 9px;
-    border: none;
-    background: transparent;
-    color: var(--text-secondary);
-    font-size: .88rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all .25s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-.pf-tab:hover { color: var(--text-primary); }
-.pf-tab.is-active {
-    background: linear-gradient(135deg, #6366f1, #ec4899);
-    color: #fff;
-    box-shadow: 0 6px 18px rgba(99,102,241,.4);
-}
-.pf-tab span.pf-tab-count {
-    display: inline-grid;
-    place-items: center;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 6px;
-    border-radius: 999px;
-    background: rgba(0,0,0,.20);
-    color: inherit;
-    font-size: .7rem;
-    font-weight: 700;
-}
-
-.pf-gallery {
-    display: grid;
-    gap: 20px;
-}
-.pf-gallery--desktop {
-    grid-template-columns: 1fr;
-}
-.pf-gallery--mobile {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-}
-.pf-gallery[hidden] { display: none; }
-
-.pf-shot {
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #0d0d12;
-    border: 1px solid var(--border);
-    opacity: 0;
-    transform: translateY(14px);
-    animation: pfShotIn .55s cubic-bezier(.2,.8,.2,1) forwards;
-}
-.pf-gallery .pf-shot:nth-child(1) { animation-delay: .05s; }
-.pf-gallery .pf-shot:nth-child(2) { animation-delay: .12s; }
-.pf-gallery .pf-shot:nth-child(3) { animation-delay: .19s; }
-.pf-gallery .pf-shot:nth-child(4) { animation-delay: .26s; }
-.pf-gallery .pf-shot:nth-child(5) { animation-delay: .33s; }
-.pf-gallery .pf-shot:nth-child(6) { animation-delay: .40s; }
-.pf-gallery .pf-shot:nth-child(7) { animation-delay: .47s; }
-.pf-gallery .pf-shot:nth-child(8) { animation-delay: .54s; }
-
-@keyframes pfShotIn {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.pf-shot--mobile {
-    aspect-ratio: 9 / 18;
-    max-width: 280px;
-    margin: 0 auto;
-    box-shadow: 0 12px 30px rgba(0,0,0,.4);
-}
-.pf-shot__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-}
-.pf-shot--desktop .pf-shot__img {
-    object-fit: contain;
-    background: #0d0d12;
-}
-
-/* Modal CTA */
-.pf-modal__cta {
-    margin-top: 28px;
-    padding: 24px 22px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(99,102,241,.14), rgba(236,72,153,.10));
-    border: 1px solid rgba(99,102,241,.28);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-.pf-modal__cta-text {
-    flex: 1 1 280px;
-}
-.pf-modal__cta-text strong {
-    display: block;
-    color: var(--text-primary);
-    font-size: 1.05rem;
-    margin-bottom: 4px;
-}
-.pf-modal__cta-text span {
-    color: var(--text-secondary);
-    font-size: .88rem;
-    line-height: 1.5;
-}
-.pf-modal__cta-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-body.pf-locked { overflow: hidden; }
-
-/* ===========================================
-   Responsive
-   =========================================== */
-@media (max-width: 768px) {
-    .pf-card { flex: 0 0 280px; }
-    .pf-cat-controls { display: none; }
-    .pf-modal { padding: 16px 10px; }
-    .pf-modal__header { padding: 22px 20px 18px; }
-    .pf-modal__body { padding: 20px; }
-    .pf-modal__title { padding-right: 50px; font-size: 1.3rem; }
-    .pf-modal__close { top: 14px; right: 14px; width: 38px; height: 38px; }
-    .pf-tabs { width: 100%; display: flex; }
-    .pf-tab { flex: 1; justify-content: center; }
-    .pf-gallery--mobile { grid-template-columns: repeat(2, 1fr); }
-    .pf-shot--mobile { max-width: none; }
-    .pf-cta { padding: 36px 20px; }
-}
-@media (max-width: 480px) {
-    .pf-card { flex: 0 0 86vw; }
-    .pf-gallery--mobile { grid-template-columns: 1fr; }
-    .pf-shot--mobile { max-width: 240px; }
-}
-</style>
 
 <script type="application/ld+json">
 {
@@ -853,15 +94,39 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         <span>Портфолио</span>
     </nav>
 
+    <!-- HERO -->
     <section class="pf-hero">
         <div class="pf-hero__badge"><i class="fas fa-images"></i> Портфолио работ</div>
         <h1 class="pf-hero__title">Наши <span>работы</span></h1>
         <p class="pf-hero__sub">Примеры реализованных проектов по категориям. Откройте любую карточку — увидите скриншоты ПК и мобильной версии, а также сможете перейти на живой проект.</p>
         <div class="pf-disclaimer">
             <i class="fas fa-circle-info"></i>
-            <div>Все работы, представленные на этой странице, выполнены в качестве портфолио. Любые упоминания брендов, имён, проектов и совпадения с реальными лицами или организациями случайны.</div>
+            <div>Все работы, представленные на этой странице, выполнены в качестве портфолио. Реальные сайты отмечены зелёным значком. Любые совпадения с реальными лицами или организациями случайны.</div>
         </div>
     </section>
+
+    <!-- FILTER BAR -->
+    <div class="pf-filter-bar" id="pfFilterBar">
+        <button class="pf-filter-btn is-active" data-filter="all">
+            <i class="fas fa-border-all"></i> Все работы
+        </button>
+        <button class="pf-filter-btn pf-filter-btn--real" data-filter="real">
+            <i class="fas fa-circle-check"></i> Реальный сайт
+        </button>
+        <button class="pf-filter-btn pf-filter-btn--demo" data-filter="demo">
+            <i class="fas fa-flask"></i> Демо
+        </button>
+        <button class="pf-filter-btn" data-filter="vizitki">
+            <i class="fas fa-id-card"></i> Визитки
+        </button>
+        <button class="pf-filter-btn" data-filter="landings">
+            <i class="fas fa-rocket"></i> Лендинги
+        </button>
+        <button class="pf-filter-btn" data-filter="multipage">
+            <i class="fas fa-building"></i> Многостраничные
+        </button>
+    </div>
+    <p class="pf-cards-count" id="pfCardsCount"></p>
 
     <!-- ============ CATEGORY: Сайты-визитки ============ -->
     <section class="pf-category" data-category="vizitki">
@@ -872,7 +137,7 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                     <h2 class="pf-cat-title">Сайты-визитки</h2>
                     <p class="pf-cat-sub">Личные и профессиональные одностраничники</p>
                 </div>
-                <span class="pf-cat-count">5 работ</span>
+                <span class="pf-cat-count">6 работ</span>
             </div>
             <div class="pf-cat-controls">
                 <button class="pf-arrow" data-dir="prev" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
@@ -883,9 +148,27 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         <div class="pf-lent-wrap">
             <div class="pf-lent">
 
-                <article class="pf-card" data-project="example3">
+                <article class="pf-card" data-project="example10" data-type="real" data-category="vizitki">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Визитка</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--real"><i class="fas fa-circle-check"></i> Реальный</span>
+                        <img class="pf-card__img" src="images/example10_1.jpg" alt="Car Purchase — выкуп автомобилей" loading="lazy">
+                        <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
+                    </div>
+                    <div class="pf-card__body">
+                        <h3 class="pf-card__title">Car Purchase</h3>
+                        <p class="pf-card__desc">Реальный сайт сервиса выкупа автомобилей. Форма заявки, калькулятор, галерея, полный адаптив.</p>
+                        <div class="pf-card__meta">
+                            <span><i class="fas fa-desktop"></i> ПК + Mobile</span>
+                            <span><i class="fas fa-bolt"></i> HTML/CSS/JS</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pf-card" data-project="example3" data-type="demo" data-category="vizitki">
+                    <div class="pf-card__media">
+                        <span class="pf-card__tag">Визитка</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example3_1.jpg" alt="Кира Эхо — TikTok creator" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -899,9 +182,10 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                     </div>
                 </article>
 
-                <article class="pf-card" data-project="example4">
+                <article class="pf-card" data-project="example4" data-type="demo" data-category="vizitki">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Визитка</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example4_1.jpg" alt="VOLT — Twitch стример" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -915,9 +199,10 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                     </div>
                 </article>
 
-                <article class="pf-card" data-project="example5">
+                <article class="pf-card" data-project="example5" data-type="demo" data-category="vizitki">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Визитка</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example5_1.jpg" alt="Артём Корсак — Beauty &amp; Fashion Retoucher" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -931,9 +216,10 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                     </div>
                 </article>
 
-                <article class="pf-card" data-project="example6">
+                <article class="pf-card" data-project="example6" data-type="demo" data-category="vizitki">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Визитка</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example6_1.jpg" alt="Никита НоваКаст — YouTube блогер" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -947,9 +233,10 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                     </div>
                 </article>
 
-                <article class="pf-card" data-project="example7">
+                <article class="pf-card" data-project="example7" data-type="demo" data-category="vizitki">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Визитка</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example7_1.jpg" alt="Анна Серебрякова — репетитор по математике" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -987,9 +274,10 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         <div class="pf-lent-wrap">
             <div class="pf-lent">
 
-                <article class="pf-card" data-project="example1">
+                <article class="pf-card" data-project="example1" data-type="demo" data-category="landings">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Лендинг</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example1_1.jpg" alt="Портфолио Millerson — лендинг" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -1003,9 +291,10 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                     </div>
                 </article>
 
-                <article class="pf-card" data-project="example2">
+                <article class="pf-card" data-project="example2" data-type="demo" data-category="landings">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Лендинг</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example2_1.jpg" alt="ATELIER NORD — портфолио арт-директора" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -1019,9 +308,10 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                     </div>
                 </article>
 
-                <article class="pf-card" data-project="example9">
+                <article class="pf-card" data-project="example9" data-type="demo" data-category="landings">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Лендинг</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example9_1.jpg" alt="ATELIER — Архитектурно-строительное бюро" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -1059,9 +349,10 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         <div class="pf-lent-wrap">
             <div class="pf-lent">
 
-                <article class="pf-card" data-project="example8">
+                <article class="pf-card" data-project="example8" data-type="demo" data-category="multipage">
                     <div class="pf-card__media">
                         <span class="pf-card__tag">Многостраничник</span>
+                        <span class="pf-card__real-badge pf-card__real-badge--demo"><i class="fas fa-flask"></i> Демо</span>
                         <img class="pf-card__img" src="images/example8_1.jpg" alt="Медицинский центр «Полярис+» — клиника" loading="lazy">
                         <div class="pf-card__view"><i class="fas fa-arrow-up-right-from-square"></i></div>
                     </div>
@@ -1079,8 +370,8 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         </div>
     </section>
 
-    <!-- ============ OTHER CATEGORIES (compact grid of empty placeholders) ============ -->
-    <section class="pf-category pf-other">
+    <!-- ============ OTHER CATEGORIES ============ -->
+    <section class="pf-category pf-other" data-category="other">
         <div class="pf-cat-head">
             <div class="pf-cat-head__left">
                 <div class="pf-cat-icon"><i class="fas fa-folder-tree"></i></div>
@@ -1167,7 +458,6 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                     Смотреть на Kwork <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-
 
             <div class="pf-empty-card">
                 <div class="pf-empty-card__icon"><i class="fab fa-figma"></i></div>
@@ -1285,6 +575,15 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
     </div>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="pf-lightbox" id="pfLightbox" role="dialog" aria-label="Просмотр изображения">
+    <button class="pf-lightbox__close" id="pfLightboxClose" aria-label="Закрыть"><i class="fas fa-xmark"></i></button>
+    <button class="pf-lightbox__nav pf-lightbox__nav--prev" id="pfLightboxPrev" aria-label="Предыдущее"><i class="fas fa-chevron-left"></i></button>
+    <img class="pf-lightbox__img" id="pfLightboxImg" src="" alt="">
+    <button class="pf-lightbox__nav pf-lightbox__nav--next" id="pfLightboxNext" aria-label="Следующее"><i class="fas fa-chevron-right"></i></button>
+    <div class="pf-lightbox__counter" id="pfLightboxCounter"></div>
+</div>
+
 <footer class="footer">
     <div class="container">
         <div class="footer__content">
@@ -1309,14 +608,19 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
 <script src="shop.js"></script>
 
 <script>
-/* ===========================================
-   PORTFOLIO INTERACTIONS
-   =========================================== */
 (function () {
     'use strict';
 
-    /* Project metadata: which screenshots are desktop vs mobile, plus copy */
+    /* ---- Project metadata ---- */
     const PROJECTS = {
+        example10: {
+            title: 'Car Purchase',
+            category: 'Визитка · Выкуп автомобилей',
+            desc: 'Реальный сайт сервиса срочного выкупа автомобилей. Форма заявки, калькулятор оценки стоимости, галерея выкупленных авто, блок преимуществ. Полный адаптив под мобильные устройства.',
+            link: 'car-purchase.html',
+            desktop: [1, 2, 3, 4, 5],
+            mobile:  [6, 7, 8]
+        },
         example1: {
             title: 'Портфолио Millerson',
             category: 'Лендинг',
@@ -1391,7 +695,7 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         }
     };
 
-    /* ---------- Horizontal lent: arrow controls + state ---------- */
+    /* ---- Horizontal lent: arrow controls + state ---- */
     document.querySelectorAll('.pf-category').forEach(section => {
         const lent = section.querySelector('.pf-lent');
         if (!lent) return;
@@ -1419,7 +723,46 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
         requestAnimationFrame(updateArrows);
     });
 
-    /* ---------- Modal ---------- */
+    /* ---- FILTER ---- */
+    const filterBtns = document.querySelectorAll('.pf-filter-btn');
+    const allCards   = document.querySelectorAll('.pf-card[data-project]');
+    const allCats    = document.querySelectorAll('.pf-category:not(.pf-other)');
+    const countEl   = document.getElementById('pfCardsCount');
+
+    function pluralWork(n) {
+        const mod10 = n % 10, mod100 = n % 100;
+        if (mod10 === 1 && mod100 !== 11) return 'работа';
+        if ([2,3,4].includes(mod10) && ![12,13,14].includes(mod100)) return 'работы';
+        return 'работ';
+    }
+
+    function applyFilter(f) {
+        let visible = 0;
+        allCards.forEach(card => {
+            const type = card.dataset.type || '';
+            const cat  = card.dataset.category || '';
+            const show = f === 'all' || f === type || f === cat;
+            card.classList.toggle('pf-hidden', !show);
+            if (show) visible++;
+        });
+        allCats.forEach(sec => {
+            const hasVisible = [...sec.querySelectorAll('.pf-card[data-project]')].some(c => !c.classList.contains('pf-hidden'));
+            sec.classList.toggle('pf-hidden', !hasVisible);
+        });
+        if (countEl) {
+            countEl.textContent = f === 'all' ? '' : 'Показано: ' + visible + ' ' + pluralWork(visible);
+        }
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+            applyFilter(btn.dataset.filter);
+        });
+    });
+
+    /* ---- Modal ---- */
     const modal     = document.getElementById('pfModal');
     const modalCat  = document.getElementById('pfModalCategory');
     const modalTtl  = document.getElementById('pfModalTitle');
@@ -1431,6 +774,9 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
     const cntDesk   = document.getElementById('pfCountDesktop');
     const cntMob    = document.getElementById('pfCountMobile');
     const tabs      = modal.querySelectorAll('.pf-tab');
+
+    let lightboxImages = [];
+    let lightboxIdx = 0;
 
     const openModal = (key) => {
         const p = PROJECTS[key];
@@ -1458,15 +804,27 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
 
         switchTab('desktop');
 
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
+        modal.style.display = 'flex';
+        requestAnimationFrame(() => {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+        });
         document.body.classList.add('pf-locked');
+
+        bindLightbox(key, p);
     };
 
     const closeModal = () => {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('pf-locked');
+        setTimeout(() => {
+            if (!modal.classList.contains('is-open')) {
+                modal.style.display = 'none';
+                galDesk.innerHTML = '';
+                galMob.innerHTML = '';
+            }
+        }, 400);
     };
 
     const switchTab = (which) => {
@@ -1482,11 +840,9 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
             galDesk.hidden = true;
             galMob.hidden  = false;
         }
-        /* re-trigger entrance animation */
         const visible = which === 'desktop' ? galDesk : galMob;
         visible.querySelectorAll('.pf-shot').forEach(s => {
             s.style.animation = 'none';
-            // eslint-disable-next-line no-unused-expressions
             s.offsetWidth;
             s.style.animation = '';
         });
@@ -1497,11 +853,94 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
     });
 
     closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            if (lightbox.classList.contains('is-open')) closeLightbox();
+            else if (modal.classList.contains('is-open')) closeModal();
+        }
+        if (lightbox.classList.contains('is-open')) {
+            if (e.key === 'ArrowLeft')  showLightboxImg(lightboxIdx - 1);
+            if (e.key === 'ArrowRight') showLightboxImg(lightboxIdx + 1);
+        }
     });
     tabs.forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+
+    /* ---- Lightbox ---- */
+    const lightbox     = document.getElementById('pfLightbox');
+    const lbImg        = document.getElementById('pfLightboxImg');
+    const lbCounter    = document.getElementById('pfLightboxCounter');
+    const lbClose      = document.getElementById('pfLightboxClose');
+    const lbPrev       = document.getElementById('pfLightboxPrev');
+    const lbNext       = document.getElementById('pfLightboxNext');
+
+    const bindLightbox = (key, p) => {
+        const allNums = [...p.desktop, ...p.mobile];
+        lightboxImages = allNums.map(n => ({
+            src: `images/${key}_${n}.jpg`,
+            alt: `${p.title} — скриншот ${n}`
+        }));
+
+        [galDesk, galMob].forEach(gal => {
+            gal.querySelectorAll('.pf-shot').forEach((shot, i) => {
+                const isDesktop = gal === galDesk;
+                const offset = isDesktop ? 0 : p.desktop.length;
+                shot.addEventListener('click', e => {
+                    e.stopPropagation();
+                    openLightbox(offset + i);
+                });
+            });
+        });
+    };
+
+    const openLightbox = (idx) => {
+        lightboxIdx = Math.max(0, Math.min(idx, lightboxImages.length - 1));
+        lightbox.style.display = 'flex';
+        requestAnimationFrame(() => lightbox.classList.add('is-open'));
+        showLightboxImg(lightboxIdx);
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('is-open');
+        setTimeout(() => { lightbox.style.display = 'none'; }, 320);
+    };
+
+    const showLightboxImg = (idx) => {
+        idx = (idx + lightboxImages.length) % lightboxImages.length;
+        lightboxIdx = idx;
+        lbImg.style.opacity = '0';
+        lbImg.style.transform = 'scale(.92)';
+        setTimeout(() => {
+            lbImg.src = lightboxImages[idx].src;
+            lbImg.alt = lightboxImages[idx].alt;
+            lbImg.onload = () => {
+                lbImg.style.opacity = '1';
+                lbImg.style.transform = 'scale(1)';
+            };
+        }, 120);
+        lbCounter.textContent = (idx + 1) + ' / ' + lightboxImages.length;
+        lbPrev.style.display = lightboxImages.length > 1 ? '' : 'none';
+        lbNext.style.display = lightboxImages.length > 1 ? '' : 'none';
+    };
+
+    lbImg.style.transition = 'opacity .22s ease, transform .28s ease';
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    lbPrev.addEventListener('click', e => { e.stopPropagation(); showLightboxImg(lightboxIdx - 1); });
+    lbNext.addEventListener('click', e => { e.stopPropagation(); showLightboxImg(lightboxIdx + 1); });
+
+    /* swipe on lightbox */
+    let lbTouchX = 0;
+    lightbox.addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - lbTouchX;
+        if (Math.abs(dx) > 50) showLightboxImg(lightboxIdx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    /* initial filter */
+    applyFilter('all');
+
 })();
 </script>
 

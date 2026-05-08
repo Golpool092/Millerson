@@ -10,7 +10,6 @@
 <link rel="dns-prefetch" href="https://mc.yandex.ru">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-
 <title>Millerson Shop — Веб-разработка на HTML/CSS/JS | Сайты, Лендинги, Правки</title>
 <meta name="description" content="Заказать разработку сайта у Millerson. Сайт-визитка от 1000₽, лендинг от 3000₽, многостраничный сайт от 2500₽. Чистый HTML/CSS/JS. Без CMS. Рейтинг 4.6 · 89 отзывов. Telegram: @millersonxiii.">
 <meta name="keywords" content="заказать сайт, разработка сайта HTML CSS JS, сайт визитка, лендинг, многостраничный сайт, веб-разработчик, Millerson Shop">
@@ -19,7 +18,6 @@
 <meta name="language" content="Russian">
 <meta name="geo.region" content="RU">
 <link rel="canonical" href="https://millerson.shop/shop/">
-
 <meta property="og:title" content="Millerson Shop — Веб-разработка на HTML/CSS/JS">
 <meta property="og:description" content="Сайт-визитка от 1000₽, лендинг от 3000₽. Чистый код, адаптив, SEO. Рейтинг 4.6 · 89 отзывов.">
 <meta property="og:type" content="website">
@@ -29,22 +27,18 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Millerson Company">
-
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Millerson Shop — Веб-разработка на HTML/CSS/JS">
 <meta name="twitter:description" content="Сайт-визитка от 1000₽, лендинг от 3000₽. Чистый код, адаптив, SEO. Рейтинг 4.6.">
 <meta name="twitter:image" content="https://millerson.shop/og-image.png">
-
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="shop.css">
 <link rel="stylesheet" href="reviews.css">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -155,7 +149,6 @@
   ]
 }
 </script>
-
 <script type="text/javascript">
 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
 m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
@@ -678,7 +671,7 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                 </div>
             </a>
         </div>
-        <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <div style="text-align:center;margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
             <a href="portfolio.html" class="sh-btn sh-btn--primary"><i class="fas fa-images"></i> Смотреть всё портфолио</a>
             <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="sh-btn sh-btn--secondary"><i class="fas fa-briefcase"></i> Профиль на Kwork</a>
         </div>
@@ -836,16 +829,37 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
             <h2>Отзывы клиентов</h2>
             <p>89 выполненных заказов · рейтинг <strong>4.6 ★</strong></p>
         </div>
-        <div id="rv-summary" style="margin-top:20px;"></div>
-        <div class="rv-filters" style="margin-top:22px;">
-            <button class="rv-filter-btn rv-filter-btn--active" data-rv-filter="all">Все</button>
-            <button class="rv-filter-btn" data-rv-filter="сайт-визитка">Визитка</button>
-            <button class="rv-filter-btn" data-rv-filter="лендинг">Лендинг</button>
-            <button class="rv-filter-btn" data-rv-filter="многостраничный сайт">Многостраничный</button>
-            <button class="rv-filter-btn" data-rv-filter="по дизайну Figma">По Figma</button>
-            <button class="rv-filter-btn" data-rv-filter="клон сайта">Клон сайта</button>
+        <div id="rv-summary" style="margin-top:16px;"></div>
+        <div class="rv-filters-wrap" style="margin-top:18px;">
+            <div class="rv-filter-group">
+                <span class="rv-filter-label">Источник</span>
+                <div class="rv-filters">
+                    <button class="rv-filter-btn rv-filter-btn--active" data-rv-source="all">Все</button>
+                    <button class="rv-filter-btn" data-rv-source="telegram"><i class="fab fa-telegram"></i> Telegram</button>
+                    <button class="rv-filter-btn" data-rv-source="kwork"><i class="fas fa-briefcase"></i> Kwork</button>
+                </div>
+            </div>
+            <div class="rv-filter-group">
+                <span class="rv-filter-label">Оценка</span>
+                <div class="rv-filters">
+                    <button class="rv-filter-btn rv-filter-btn--active" data-rv-sentiment="all">Все</button>
+                    <button class="rv-filter-btn" data-rv-sentiment="positive"><i class="fas fa-star"></i> Положительные</button>
+                    <button class="rv-filter-btn" data-rv-sentiment="negative">Отрицательные</button>
+                </div>
+            </div>
+            <div class="rv-filter-group">
+                <span class="rv-filter-label">Категория</span>
+                <div class="rv-filters">
+                    <button class="rv-filter-btn rv-filter-btn--active" data-rv-filter="all">Все</button>
+                    <button class="rv-filter-btn" data-rv-filter="сайт-визитка">Визитка</button>
+                    <button class="rv-filter-btn" data-rv-filter="лендинг">Лендинг</button>
+                    <button class="rv-filter-btn" data-rv-filter="многостраничный сайт">Многостраничный</button>
+                    <button class="rv-filter-btn" data-rv-filter="по дизайну Figma">По Figma</button>
+                    <button class="rv-filter-btn" data-rv-filter="клон сайта">Клон сайта</button>
+                </div>
+            </div>
         </div>
-        <div class="rv-grid" id="rv-list" style="margin-top:20px;"></div>
+        <div class="rv-grid" id="rv-list" style="margin-top:18px;"></div>
         <div class="rv-cta">
             <div class="rv-cta__text">
                 <h3>Работали вместе?</h3>
@@ -855,7 +869,7 @@ ym(107027516,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",
                 <i class="fab fa-telegram"></i> @MillersonXIII
             </a>
         </div>
-        <div style="text-align:center;margin-top:18px;">
+        <div style="text-align:center;margin-top:16px;padding-bottom:56px;">
             <a href="feedback.html" class="sh-btn sh-btn--secondary">
                 <i class="fas fa-comments"></i> Все 89 отзывов
             </a>
