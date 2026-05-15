@@ -2,17 +2,47 @@ User-agent: *
 Allow: /
 Disallow: /google*.html
 Disallow: /yandex*.html
+Disallow: /algebra/quadratic_nob.html
+Disallow: /algebra/quadratic_noc.html
+Disallow: /shop/feedback/
+Disallow: /shop/images/images
+Crawl-delay: 1
 
 User-agent: Yandex
 Allow: /
 Disallow: /google*.html
 Disallow: /yandex*.html
-Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
+Disallow: /algebra/quadratic_nob.html
+Disallow: /algebra/quadratic_noc.html
+Disallow: /shop/feedback/
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&fbclid&gclid
+Crawl-delay: 2
+Host: https://millerson.shop
 
 User-agent: Googlebot
 Allow: /
 Disallow: /google*.html
 Disallow: /yandex*.html
+Disallow: /algebra/quadratic_nob.html
+Disallow: /algebra/quadratic_noc.html
 
+User-agent: Googlebot-Image
+Allow: /shop/images/
+Allow: /geometry/logo.png
+Allow: /android-chrome-192x192.png
+Allow: /apple-touch-icon.png
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+Sitemap: https://millerson.shop/sitemap-index.xml
 Sitemap: https://millerson.shop/sitemap.xml
-Host: https://millerson.shop

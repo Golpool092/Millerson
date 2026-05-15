@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://millerson.shop/sitemap.xml</loc>
+    <lastmod>2026-05-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://millerson.shop/sitemap-algebra.xml</loc>
+    <lastmod>2026-05-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://millerson.shop/sitemap-geometry.xml</loc>
+    <lastmod>2026-05-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://millerson.shop/sitemap-finance.xml</loc>
+    <lastmod>2026-05-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://millerson.shop/sitemap-shop.xml</loc>
+    <lastmod>2026-05-10</lastmod>
+  </sitemap>
+</sitemapindex>

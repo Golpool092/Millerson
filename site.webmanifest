@@ -1,15 +1,70 @@
 {
-  "name": "Millerson Company",
+  "name": "Millerson Company — бесплатные онлайн-сервисы",
   "short_name": "Millerson",
+  "description": "207 бесплатных сервисов: калькуляторы и справочники по математике, геометрии, тригонометрии, алгебре и финансам. Без регистрации.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "lang": "ru",
+  "dir": "ltr",
+  "categories": ["education", "utilities", "math"],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000"
+  "screenshots": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "label": "Millerson Company — главная страница"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Все сервисы",
+      "short_name": "Сервисы",
+      "url": "/all.html",
+      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Геометрия",
+      "short_name": "Геометрия",
+      "url": "/geometry/geometry.html",
+      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Финансы",
+      "short_name": "Финансы",
+      "url": "/finance/allfinance.html",
+      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Алгебра",
+      "short_name": "Алгебра",
+      "url": "/algebra/algebra.html",
+      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
 }

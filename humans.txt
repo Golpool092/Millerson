@@ -1,13 +1,21 @@
 /* TEAM */
-Верстальщик: Millerson
-Сайт: https://millerson.shop
-Telegram: @MillersonShop
+Developer & Designer: Millerson
+Site: https://millerson.shop
+Telegram: @Millerson_Company
+Email: MillersonShop@gmail.com
 
 /* THANKS */
 Font Awesome: https://fontawesome.com
-Unsplash: https://unsplash.com
 Google Fonts: https://fonts.google.com
+Yandex Metrika: https://metrika.yandex.ru
+Cloudflare CDN: https://cdnjs.cloudflare.com
 
 /* SITE */
-Last update: 2026-02-02
-Standards: HTML5, CSS3
+Last update: 2026-05-10
+Language: Russian
+Doctype: HTML5
+Standards: HTML5, CSS3, ES6+, JSON-LD, Schema.org
+Components: 207 free calculators & reference guides
+Sections: Geometry 2D/3D, Trigonometry, Algebra, Finance
+Analytics: Yandex Metrika 107027516
+Ads: Yandex Advertising Network
