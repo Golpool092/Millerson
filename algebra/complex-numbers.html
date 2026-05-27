@@ -56,6 +56,15 @@
         .formula-card .formula{font-family:monospace;font-size:1.1rem;color:var(--text-primary);background:var(--card-bg);padding:8px 14px;border-radius:8px;display:inline-block;margin:6px 0}
         .copy-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--text-secondary);font-size:0.85rem;transition:var(--transition)}
         .copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    
+        .task-switcher{margin-bottom:24px}
+        .task-switcher__label{color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+        .task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+        .task-btn{flex:1;min-width:130px;padding:14px 12px;background:var(--card-bg);border:2px solid var(--border);border-radius:16px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+        .task-btn small{display:block;font-size:0.78rem;font-weight:400;color:var(--text-secondary);margin-top:5px}
+        .task-btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .task-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .task-btn.active small{color:rgba(255,255,255,0.85)}
     </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор комплексных чисел онлайн","description":"Сложение, вычитание, умножение, деление комплексных чисел онлайн. Модуль, аргумент. Пошаговое решение.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/complex-numbers.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
@@ -148,27 +157,21 @@
         <p class="main__description">Введите два комплексных числа (a+bi) и выберите операцию.</p>
 
         <div class="calculator glass">
-
-            <p style="color:var(--text-secondary);margin-bottom:16px">z₁ = a + bi, z₂ = c + di</p>
-            <div class="field-row"><label>a (Re z₁):</label><input type="number" id="cza" value="3" class="form-input" step="any"></div>
-            <div class="field-row"><label>b (Im z₁):</label><input type="number" id="czb" value="4" class="form-input" step="any"></div>
-            <div class="field-row"><label>c (Re z₂):</label><input type="number" id="czc" value="1" class="form-input" step="any"></div>
-            <div class="field-row"><label>d (Im z₂):</label><input type="number" id="czd" value="2" class="form-input" step="any"></div>
-            <div class="field-row"><label>Операция:</label>
-                <select id="czOp" class="form-input">
-                    <option value="add">z₁ + z₂</option>
-                    <option value="sub">z₁ − z₂</option>
-                    <option value="mul">z₁ · z₂</option>
-                    <option value="div">z₁ / z₂</option>
-                    <option value="mod">|z₁| и |z₂|</option>
-                </select>
+            <div class="task-switcher">
+                <p class="task-switcher__label">Выберите тип задачи:</p>
+                <div class="task-switcher__buttons">
+                    <button class="task-btn active" data-mode="arith">➕ Арифметика<br><small>Сложение, вычитание, умножение, деление</small></button>
+                    <button class="task-btn" data-mode="polar">📐 Модуль и аргумент<br><small>|z| и arg(z) в градусах</small></button>
+                    <button class="task-btn" data-mode="convert">🔄 Перевод форм<br><small>Алгебраическая ↔ тригонометрическая</small></button>
+                    <button class="task-btn" data-mode="power">🔢 Степень z^n<br><small>По формуле де Муавра</small></button>
+                </div>
             </div>
+            <div id="cnFieldsArea"></div>
             <div class="action-buttons">
                 <button class="action-btn" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
                 <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайное</button>
-                <button class="action-btn" onclick="navigator.clipboard.writeText(document.getElementById('resultBox').innerText).then(()=>showToast('Скопировано!'))"><i class="fas fa-copy"></i> Копировать</button>
+                <button class="action-btn" id="copyBtn"><i class="fas fa-copy"></i> Копировать</button>
             </div>
-  
             <div class="result-box" id="resultBox"><span style="color:var(--text-secondary)">Введите данные и нажмите «Рассчитать»</span></div>
             <div class="step-box" id="stepBox">
                 <h3>📝 Подробное решение</h3>
@@ -347,53 +350,174 @@
 </html>
 <script>
 (function(){
-
-    function fmt(n) { return (Math.round(n*1e6)/1e6).toString(); }
-    function cStr(r,i) {
-        if(i===0) return fmt(r);
-        if(r===0) return fmt(i)+'i';
-        return fmt(r)+(i<0?'':'+')+(i===1?'':i===-1?'-':fmt(i))+'i';
+    function fmt(n){return(Math.round(n*1e6)/1e6).toString();}
+    function fmtD(n,d){return parseFloat(n.toFixed(d||4)).toString();}
+    function cStr(r,i){
+        var re=fmtD(r,4), im=fmtD(Math.abs(i),4);
+        if(Math.abs(i)<1e-9)return re;
+        if(Math.abs(r)<1e-9)return (i<0?'-':'')+im+'i';
+        return re+(i<0?' − ':' + ')+im+'i';
     }
-    const resultBox = document.getElementById('resultBox');
-    const stepText = document.getElementById('stepText');
-    const stepSimple = document.getElementById('stepSimple');
-    const formulaText = document.getElementById('formulaText');
+    var resultBox=document.getElementById('resultBox');
+    var stepText=document.getElementById('stepText');
+    var stepSimple=document.getElementById('stepSimple');
+    var formulaText=document.getElementById('formulaText');
+    var fieldsArea=document.getElementById('cnFieldsArea');
+    var currentMode='arith';
 
-    function calculate() {
-        const a=parseFloat(document.getElementById('cza').value)||0;
-        const b=parseFloat(document.getElementById('czb').value)||0;
-        const c=parseFloat(document.getElementById('czc').value)||0;
-        const d=parseFloat(document.getElementById('czd').value)||0;
-        const op=document.getElementById('czOp').value;
-        let re,im,label,step;
-        if(op==='add'){ re=a+c; im=b+d; label='z₁+z₂'; step='('+a+'+'+b+'i)+('+c+'+'+d+'i)=('+a+'+'+c+')+('+b+'+'+d+')i'; }
-        else if(op==='sub'){ re=a-c; im=b-d; label='z₁−z₂'; step='('+a+'+'+b+'i)−('+c+'+'+d+'i)='+(a-c)+'+'+(b-d)+'i'; }
-        else if(op==='mul'){ re=a*c-b*d; im=a*d+b*c; label='z₁·z₂'; step='('+a+'·'+c+'−'+b+'·'+d+') + ('+a+'·'+d+'+'+b+'·'+c+')i = '+re+'+'+im+'i'; }
-        else if(op==='div'){
-            const denom=c*c+d*d;
-            if(denom===0){ resultBox.innerHTML='<span style="color:red">Деление на нуль</span>'; return; }
-            re=(a*c+b*d)/denom; im=(b*c-a*d)/denom;
-            label='z₁/z₂'; step='(('+a+'·'+c+'+'+b+'·'+d+') + ('+b+'·'+c+'−'+a+'·'+d+')i) / ('+c+'²+'+d+'²)';
+    function renderFields(){
+        var html='';
+        if(currentMode==='arith'){
+            html='<p style="color:var(--text-secondary);margin-bottom:12px">z₁ = a + bi &nbsp;|&nbsp; z₂ = c + di</p>'
+                +'<div class="field-row"><label>a (Re z₁):</label><input type="number" id="cza" value="3" class="form-input" step="any"></div>'
+                +'<div class="field-row"><label>b (Im z₁):</label><input type="number" id="czb" value="4" class="form-input" step="any"></div>'
+                +'<div class="field-row"><label>c (Re z₂):</label><input type="number" id="czc" value="1" class="form-input" step="any"></div>'
+                +'<div class="field-row"><label>d (Im z₂):</label><input type="number" id="czd" value="2" class="form-input" step="any"></div>'
+                +'<div class="field-row"><label>Операция:</label>'
+                +'<select id="czOp" class="form-input">'
+                +'<option value="add">z₁ + z₂ (сложение)</option>'
+                +'<option value="sub">z₁ − z₂ (вычитание)</option>'
+                +'<option value="mul">z₁ · z₂ (умножение)</option>'
+                +'<option value="div">z₁ / z₂ (деление)</option>'
+                +'</select></div>';
+        } else if(currentMode==='polar'){
+            html='<p style="color:var(--text-secondary);margin-bottom:12px">z = a + bi</p>'
+                +'<div class="field-row"><label>a (вещественная):</label><input type="number" id="cza" value="3" class="form-input" step="any"></div>'
+                +'<div class="field-row"><label>b (мнимая):</label><input type="number" id="czb" value="4" class="form-input" step="any"></div>';
+        } else if(currentMode==='convert'){
+            html='<p style="color:var(--text-secondary);margin-bottom:12px">z = a + bi → тригонометрическая форма</p>'
+                +'<div class="field-row"><label>a (вещественная):</label><input type="number" id="cza" value="1" class="form-input" step="any"></div>'
+                +'<div class="field-row"><label>b (мнимая):</label><input type="number" id="czb" value="1" class="form-input" step="any"></div>';
         } else {
-            const m1=Math.sqrt(a*a+b*b), m2=Math.sqrt(c*c+d*d);
-            formulaText.innerHTML='|z| = √(a²+b²)';
-            resultBox.innerHTML='<span class="answer-highlight">|z₁| = '+fmt(m1)+'</span><br><span class="answer-highlight">|z₂| = '+fmt(m2)+'</span>';
-            stepText.innerHTML='|z₁|=√('+a+'²+'+b+'²)=√'+fmt(a*a+b*b)+'='+fmt(m1)+'<br>|z₂|=√('+c+'²+'+d+'²)='+fmt(m2);
-            stepSimple.innerHTML='Модуль — расстояние от начала координат до точки на комплексной плоскости.';
-            return;
+            html='<p style="color:var(--text-secondary);margin-bottom:12px">z = a + bi, возвести в степень n</p>'
+                +'<div class="field-row"><label>a (вещественная):</label><input type="number" id="cza" value="1" class="form-input" step="any"></div>'
+                +'<div class="field-row"><label>b (мнимая):</label><input type="number" id="czb" value="1" class="form-input" step="any"></div>'
+                +'<div class="field-row"><label>Показатель n:</label><input type="number" id="czn" value="4" class="form-input" step="1"></div>';
         }
-        formulaText.innerHTML='Операция: '+label;
-        resultBox.innerHTML='<span class="answer-highlight">'+label+' = '+cStr(re,im)+'</span>';
-        stepText.innerHTML=step+'<br>Результат: '+cStr(re,im);
-        stepSimple.innerHTML=label+' = '+cStr(re,im);
+        fieldsArea.innerHTML=html;
     }
 
-    document.getElementById('calcBtn').addEventListener('click', calculate);
-    document.getElementById('randomBtn').addEventListener('click', function(){
-        ['cza','czb','czc','czd'].forEach(id=>{ document.getElementById(id).value=Math.ceil(Math.random()*10)-5; });
+    function blank(){
+        var msg='Введите данные и нажмите «Рассчитать»';
+        resultBox.innerHTML='<span style="color:var(--text-secondary)">'+msg+'</span>';
+        stepText.innerHTML=msg; stepSimple.innerHTML=msg; formulaText.innerHTML='—';
+    }
+
+    function gv(id){var el=document.getElementById(id);return el?parseFloat(el.value)||0:0;}
+
+    function calculate(){
+        if(currentMode==='arith'){
+            var a=gv('cza'),b=gv('czb'),c=gv('czc'),d=gv('czd');
+            var op=document.getElementById('czOp').value;
+            var re,im,label,step;
+            if(op==='add'){
+                re=a+c; im=b+d; label='z₁ + z₂';
+                formulaText.innerHTML='(a+bi)+(c+di) = (a+c)+(b+d)i';
+                step='<ol><li>('+fmtD(a,4)+' + '+fmtD(b,4)+'i) + ('+fmtD(c,4)+' + '+fmtD(d,4)+'i)</li>'
+                    +'<li>Re: '+fmtD(a,4)+' + '+fmtD(c,4)+' = '+fmtD(re,4)+'</li>'
+                    +'<li>Im: '+fmtD(b,4)+' + '+fmtD(d,4)+' = '+fmtD(im,4)+'</li></ol>';
+            } else if(op==='sub'){
+                re=a-c; im=b-d; label='z₁ − z₂';
+                formulaText.innerHTML='(a+bi)−(c+di) = (a−c)+(b−d)i';
+                step='<ol><li>('+fmtD(a,4)+' + '+fmtD(b,4)+'i) − ('+fmtD(c,4)+' + '+fmtD(d,4)+'i)</li>'
+                    +'<li>Re: '+fmtD(a,4)+' − '+fmtD(c,4)+' = '+fmtD(re,4)+'</li>'
+                    +'<li>Im: '+fmtD(b,4)+' − '+fmtD(d,4)+' = '+fmtD(im,4)+'</li></ol>';
+            } else if(op==='mul'){
+                re=a*c-b*d; im=a*d+b*c; label='z₁ · z₂';
+                formulaText.innerHTML='(a+bi)·(c+di) = (ac−bd)+(ad+bc)i';
+                step='<ol><li>Re = a·c − b·d = '+fmtD(a,4)+'·'+fmtD(c,4)+' − '+fmtD(b,4)+'·'+fmtD(d,4)+' = '+fmtD(re,4)+'</li>'
+                    +'<li>Im = a·d + b·c = '+fmtD(a,4)+'·'+fmtD(d,4)+' + '+fmtD(b,4)+'·'+fmtD(c,4)+' = '+fmtD(im,4)+'</li></ol>';
+            } else {
+                var den=c*c+d*d;
+                if(den<1e-12){resultBox.innerHTML='<span style="color:red">z₂ = 0: деление на ноль невозможно</span>';return;}
+                re=(a*c+b*d)/den; im=(b*c-a*d)/den; label='z₁ / z₂';
+                formulaText.innerHTML='z₁/z₂ = ((ac+bd)+(bc−ad)i) / (c²+d²)';
+                step='<ol><li>Знаменатель: c²+d² = '+fmtD(c*c,4)+'+'+fmtD(d*d,4)+' = '+fmtD(den,4)+'</li>'
+                    +'<li>Re = (a·c+b·d)/знам = ('+fmtD(a*c,4)+'+'+fmtD(b*d,4)+')/'+fmtD(den,4)+' = '+fmtD(re,4)+'</li>'
+                    +'<li>Im = (b·c−a·d)/знам = ('+fmtD(b*c,4)+'−'+fmtD(a*d,4)+')/'+fmtD(den,4)+' = '+fmtD(im,4)+'</li></ol>';
+            }
+            resultBox.innerHTML='<span class="answer-highlight">'+label+' = '+cStr(re,im)+'</span>';
+            stepText.innerHTML=step;
+            stepSimple.innerHTML='Результат: '+cStr(re,im);
+
+        } else if(currentMode==='polar'){
+            var a=gv('cza'),b=gv('czb');
+            var r=Math.sqrt(a*a+b*b);
+            var phi=Math.atan2(b,a)*180/Math.PI;
+            formulaText.innerHTML='|z| = √(a²+b²);  arg(z) = atan2(b, a)';
+            resultBox.innerHTML='<span class="answer-highlight">|z| = '+fmtD(r,6)+'</span>'
+                +'<br><span class="answer-highlight">arg(z) = '+fmtD(phi,4)+'°</span>';
+            stepText.innerHTML='<ol><li>z = '+fmtD(a,4)+' + '+fmtD(b,4)+'i</li>'
+                +'<li>|z| = √('+fmtD(a,4)+'² + '+fmtD(b,4)+'²) = √'+fmtD(a*a+b*b,6)+' = '+fmtD(r,6)+'</li>'
+                +'<li>arg(z) = atan2('+fmtD(b,4)+', '+fmtD(a,4)+') = '+fmtD(phi,4)+'°</li></ol>';
+            stepSimple.innerHTML='Модуль |z| = '+fmtD(r,6)+' — расстояние от нуля до точки ('+fmtD(a,4)+'; '+fmtD(b,4)+') на комплексной плоскости. Аргумент '+fmtD(phi,4)+'° — угол с положительной вещественной осью.';
+
+        } else if(currentMode==='convert'){
+            var a=gv('cza'),b=gv('czb');
+            var r=Math.sqrt(a*a+b*b);
+            var phi=Math.atan2(b,a)*180/Math.PI;
+            var phiRad=Math.atan2(b,a);
+            formulaText.innerHTML='z = r·(cos φ + i·sin φ),  r = |z|,  φ = arg(z)';
+            var trigForm='z = '+fmtD(r,4)+'·(cos '+fmtD(phi,2)+'° + i·sin '+fmtD(phi,2)+'°)';
+            var backRe=r*Math.cos(phiRad), backIm=r*Math.sin(phiRad);
+            resultBox.innerHTML='<span class="answer-highlight">'+trigForm+'</span>'
+                +'<br><small style="color:var(--text-secondary)">Обратно: '+cStr(backRe,backIm)+'</small>';
+            stepText.innerHTML='<ol><li>r = √(a²+b²) = √('+fmtD(a*a,4)+'+'+fmtD(b*b,4)+') = '+fmtD(r,4)+'</li>'
+                +'<li>φ = atan2('+fmtD(b,4)+', '+fmtD(a,4)+') = '+fmtD(phi,2)+'°</li>'
+                +'<li>Тригонометрическая форма: '+trigForm+'</li>'
+                +'<li>Проверка: r·cos φ = '+fmtD(backRe,4)+', r·sin φ = '+fmtD(backIm,4)+'</li></ol>';
+            stepSimple.innerHTML='Алгебраическая форма '+cStr(a,b)+' в тригонометрической: '+trigForm+'.';
+
+        } else {
+            var a=gv('cza'),b=gv('czb');
+            var n=parseInt(document.getElementById('czn').value)||1;
+            var r=Math.sqrt(a*a+b*b);
+            var phi=Math.atan2(b,a);
+            var rn=Math.pow(r,n);
+            var reN=rn*Math.cos(n*phi);
+            var imN=rn*Math.sin(n*phi);
+            var phiDeg=phi*180/Math.PI;
+            formulaText.innerHTML='z^n = r^n · (cos(n·φ) + i·sin(n·φ))  (формула де Муавра)';
+            resultBox.innerHTML='<span class="answer-highlight">z^'+n+' = '+cStr(reN,imN)+'</span>';
+            stepText.innerHTML='<ol><li>z = '+cStr(a,b)+', n = '+n+'</li>'
+                +'<li>r = |z| = √('+fmtD(a*a,4)+'+'+fmtD(b*b,4)+') = '+fmtD(r,4)+'</li>'
+                +'<li>φ = atan2('+fmtD(b,4)+', '+fmtD(a,4)+') = '+fmtD(phiDeg,4)+'°</li>'
+                +'<li>r^n = '+fmtD(r,4)+'^'+n+' = '+fmtD(rn,6)+'</li>'
+                +'<li>n·φ = '+n+' · '+fmtD(phiDeg,4)+'° = '+fmtD(n*phiDeg,4)+'°</li>'
+                +'<li>Re = '+fmtD(rn,6)+'·cos('+fmtD(n*phiDeg,4)+'°) = '+fmtD(reN,6)+'</li>'
+                +'<li>Im = '+fmtD(rn,6)+'·sin('+fmtD(n*phiDeg,4)+'°) = '+fmtD(imN,6)+'</li></ol>';
+            stepSimple.innerHTML='По формуле де Муавра: ('+cStr(a,b)+')^'+n+' = '+cStr(reN,imN)+'.';
+        }
+    }
+
+    document.querySelectorAll('.task-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+            this.classList.add('active');
+            currentMode=this.dataset.mode;
+            renderFields(); blank();
+        });
+    });
+    document.getElementById('calcBtn').addEventListener('click',calculate);
+    document.getElementById('copyBtn').addEventListener('click',function(){
+        navigator.clipboard.writeText(resultBox.innerText).then(function(){showToast('Скопировано!');});
+    });
+    document.getElementById('randomBtn').addEventListener('click',function(){
+        var a=Math.ceil(Math.random()*8)-4, b=Math.ceil(Math.random()*8)-4;
+        var c=Math.ceil(Math.random()*8)-4, d=Math.ceil(Math.random()*8)-4;
+        if(currentMode==='arith'){
+            document.getElementById('cza').value=a; document.getElementById('czb').value=b;
+            document.getElementById('czc').value=c||1; document.getElementById('czd').value=d;
+        } else if(currentMode==='polar'||currentMode==='convert'){
+            document.getElementById('cza').value=a; document.getElementById('czb').value=b;
+        } else {
+            document.getElementById('cza').value=a; document.getElementById('czb').value=b;
+            document.getElementById('czn').value=Math.ceil(Math.random()*6)+1;
+        }
         calculate();
     });
+
+    renderFields();
     calculate();
-  
 })();
 </script>

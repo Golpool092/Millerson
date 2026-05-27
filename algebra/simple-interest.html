@@ -56,6 +56,15 @@
         .formula-card .formula{font-family:monospace;font-size:1.1rem;color:var(--text-primary);background:var(--card-bg);padding:8px 14px;border-radius:8px;display:inline-block;margin:6px 0}
         .copy-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--text-secondary);font-size:0.85rem;transition:var(--transition)}
         .copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    
+        .task-switcher{margin-bottom:24px}
+        .task-switcher__label{color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+        .task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+        .task-btn{flex:1;min-width:130px;padding:14px 12px;background:var(--card-bg);border:2px solid var(--border);border-radius:16px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+        .task-btn small{display:block;font-size:0.78rem;font-weight:400;color:var(--text-secondary);margin-top:5px}
+        .task-btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .task-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .task-btn.active small{color:rgba(255,255,255,0.85)}
     </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор простых процентов онлайн","description":"Вычисление простых процентов онлайн: итоговая сумма, сумма процентов, период. Формула простых процентов.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/simple-interest.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
@@ -148,16 +157,21 @@
         <p class="main__description">Введите начальную сумму, ставку и срок для расчёта простых процентов.</p>
 
         <div class="calculator glass">
-
-            <div class="field-row"><label>Начальная сумма (₽):</label><input type="number" id="siP" value="10000" class="form-input" step="any" min="0"></div>
-            <div class="field-row"><label>Ставка (% годовых):</label><input type="number" id="siR" value="12" class="form-input" step="any" min="0"></div>
-            <div class="field-row"><label>Срок (лет):</label><input type="number" id="siT" value="3" class="form-input" step="any" min="0"></div>
+            <div class="task-switcher">
+                <p class="task-switcher__label">Выберите тип задачи:</p>
+                <div class="task-switcher__buttons">
+                    <button class="task-btn active" data-mode="find-s">💰 Вычислить итог<br><small>Знаю сумму, ставку и срок</small></button>
+                    <button class="task-btn" data-mode="find-r">📈 Найти ставку<br><small>Знаю суммы и срок</small></button>
+                    <button class="task-btn" data-mode="find-t">⏱ Найти срок<br><small>Знаю суммы и ставку</small></button>
+                    <button class="task-btn" data-mode="find-p">🏦 Найти начальную сумму<br><small>Знаю итог, ставку и срок</small></button>
+                </div>
+            </div>
+            <div id="fieldsArea"></div>
             <div class="action-buttons">
                 <button class="action-btn" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
                 <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайное</button>
-                <button class="action-btn" onclick="navigator.clipboard.writeText(document.getElementById('resultBox').innerText).then(()=>showToast('Скопировано!'))"><i class="fas fa-copy"></i> Копировать</button>
+                <button class="action-btn" id="copyBtn"><i class="fas fa-copy"></i> Копировать</button>
             </div>
-  
             <div class="result-box" id="resultBox"><span style="color:var(--text-secondary)">Введите данные и нажмите «Рассчитать»</span></div>
             <div class="step-box" id="stepBox">
                 <h3>📝 Подробное решение</h3>
@@ -328,37 +342,130 @@
 </html>
 <script>
 (function(){
+    function fmt(n){return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,' ');}
+    var resultBox=document.getElementById('resultBox');
+    var stepText=document.getElementById('stepText');
+    var stepSimple=document.getElementById('stepSimple');
+    var formulaText=document.getElementById('formulaText');
+    var fieldsArea=document.getElementById('fieldsArea');
+    var currentMode='find-s';
 
-    function fmt(n) { return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
-    const resultBox = document.getElementById('resultBox');
-    const stepText = document.getElementById('stepText');
-    const stepSimple = document.getElementById('stepSimple');
-    const formulaText = document.getElementById('formulaText');
+    var modes={
+        'find-s':{fields:[
+            {id:'siP',label:'Начальная сумма P (₽)',value:'10000'},
+            {id:'siR',label:'Ставка r (% годовых)',value:'12'},
+            {id:'siT',label:'Срок t (лет)',value:'3'}
+        ]},
+        'find-r':{fields:[
+            {id:'siP',label:'Начальная сумма P (₽)',value:'10000'},
+            {id:'siS',label:'Итоговая сумма S (₽)',value:'13600'},
+            {id:'siT',label:'Срок t (лет)',value:'3'}
+        ]},
+        'find-t':{fields:[
+            {id:'siP',label:'Начальная сумма P (₽)',value:'10000'},
+            {id:'siS',label:'Итоговая сумма S (₽)',value:'13600'},
+            {id:'siR',label:'Ставка r (% годовых)',value:'12'}
+        ]},
+        'find-p':{fields:[
+            {id:'siS',label:'Итоговая сумма S (₽)',value:'13600'},
+            {id:'siR',label:'Ставка r (% годовых)',value:'12'},
+            {id:'siT',label:'Срок t (лет)',value:'3'}
+        ]}
+    };
 
-    function calculate() {
-        const P = parseFloat(document.getElementById('siP').value)||0;
-        const r = parseFloat(document.getElementById('siR').value)/100||0;
-        const t = parseFloat(document.getElementById('siT').value)||0;
-        const I = P*r*t;
-        const S = P+I;
-        formulaText.innerHTML='S = P·(1 + r·t), I = P·r·t';
-        resultBox.innerHTML='<span class="answer-highlight">Итоговая сумма: '+fmt(S)+' ₽</span><br>'
-            +'<strong>Начальная сумма:</strong> '+fmt(P)+' ₽<br>'
-            +'<strong>Сумма процентов:</strong> '+fmt(I)+' ₽<br>'
-            +'<strong>Ставка:</strong> '+(r*100).toFixed(2)+'% годовых<br>'
-            +'<strong>Срок:</strong> '+t+' лет';
-        stepText.innerHTML='<ol><li>I = P·r·t = '+fmt(P)+' × '+r+' × '+t+' = '+fmt(I)+'</li><li>S = P + I = '+fmt(P)+' + '+fmt(I)+' = '+fmt(S)+'</li></ol>';
-        stepSimple.innerHTML='На вклад '+fmt(P)+' ₽ за '+t+' лет при ставке '+(r*100).toFixed(1)+'% начислено '+fmt(I)+' ₽. Итого: '+fmt(S)+' ₽.';
+    function renderFields(){
+        var html='';
+        modes[currentMode].fields.forEach(function(f){
+            html+='<div class="field-row"><label>'+f.label+':</label>'
+                +'<input type="number" id="'+f.id+'" value="'+f.value+'" class="form-input" step="any" min="0"></div>';
+        });
+        fieldsArea.innerHTML=html;
     }
 
-    document.getElementById('calcBtn').addEventListener('click', calculate);
-    document.getElementById('randomBtn').addEventListener('click', function(){
-        document.getElementById('siP').value = Math.ceil(Math.random()*50000/1000)*1000;
-        document.getElementById('siR').value = (Math.ceil(Math.random()*20)).toFixed(1);
-        document.getElementById('siT').value = Math.ceil(Math.random()*10);
+    function blank(){
+        var msg='Введите данные и нажмите «Рассчитать»';
+        resultBox.innerHTML='<span style="color:var(--text-secondary)">'+msg+'</span>';
+        stepText.innerHTML=msg; stepSimple.innerHTML=msg; formulaText.innerHTML='—';
+    }
+
+    function gv(id){return parseFloat(document.getElementById(id).value);}
+
+    function calculate(){
+        if(currentMode==='find-s'){
+            var P=gv('siP'),r=gv('siR')/100,t=gv('siT');
+            if(isNaN(P)||isNaN(r)||isNaN(t)||P<0||r<0||t<0){resultBox.innerHTML='<span style="color:red">Все значения должны быть ≥ 0</span>';return;}
+            var I=P*r*t, S=P+I;
+            formulaText.innerHTML='S = P · (1 + r · t)';
+            resultBox.innerHTML='<span class="answer-highlight">Итоговая сумма S = '+fmt(S)+' ₽</span>'
+                +'<br><strong>Начислено процентов:</strong> '+fmt(I)+' ₽';
+            stepText.innerHTML='<ol><li>I = P · r · t = '+fmt(P)+' × '+r+' × '+t+' = '+fmt(I)+' ₽</li>'
+                +'<li>S = P + I = '+fmt(P)+' + '+fmt(I)+' = '+fmt(S)+' ₽</li></ol>';
+            stepSimple.innerHTML='На '+fmt(P)+' ₽ за '+t+' лет при '+gv('siR')+'% годовых начислено '+fmt(I)+' ₽. Итог: '+fmt(S)+' ₽.';
+        } else if(currentMode==='find-r'){
+            var P=gv('siP'),S=gv('siS'),t=gv('siT');
+            if(isNaN(P)||isNaN(S)||isNaN(t)||P<=0||t<=0){resultBox.innerHTML='<span style="color:red">P > 0 и срок > 0</span>';return;}
+            if(S<=P){resultBox.innerHTML='<span style="color:red">Итоговая сумма должна быть больше начальной</span>';return;}
+            var r=(S/P-1)/t;
+            formulaText.innerHTML='S = P·(1 + r·t) → r = (S/P − 1) / t';
+            resultBox.innerHTML='<span class="answer-highlight">Ставка r = '+(r*100).toFixed(2)+'% годовых</span>';
+            stepText.innerHTML='<ol><li>r = (S/P − 1) / t</li>'
+                +'<li>r = ('+fmt(S)+' / '+fmt(P)+' − 1) / '+t+'</li>'
+                +'<li>r = '+fmt(S/P-1)+' / '+t+' = '+r.toFixed(6)+'</li>'
+                +'<li>r = '+(r*100).toFixed(2)+'% годовых</li></ol>';
+            stepSimple.innerHTML='Чтобы '+fmt(P)+' ₽ выросло до '+fmt(S)+' ₽ за '+t+' лет нужна ставка '+(r*100).toFixed(2)+'% годовых.';
+        } else if(currentMode==='find-t'){
+            var P=gv('siP'),S=gv('siS'),r=gv('siR')/100;
+            if(isNaN(P)||isNaN(S)||isNaN(r)||P<=0||r<=0){resultBox.innerHTML='<span style="color:red">P > 0 и ставка > 0</span>';return;}
+            if(S<=P){resultBox.innerHTML='<span style="color:red">Итоговая сумма должна быть больше начальной</span>';return;}
+            var t=(S/P-1)/r;
+            formulaText.innerHTML='S = P·(1 + r·t) → t = (S/P − 1) / r';
+            resultBox.innerHTML='<span class="answer-highlight">Срок t = '+t.toFixed(2)+' лет</span>';
+            stepText.innerHTML='<ol><li>t = (S/P − 1) / r</li>'
+                +'<li>t = ('+fmt(S)+' / '+fmt(P)+' − 1) / '+r+'</li>'
+                +'<li>t = '+fmt(S/P-1)+' / '+r+' = '+t.toFixed(4)+' лет</li></ol>';
+            stepSimple.innerHTML='Чтобы '+fmt(P)+' ₽ выросло до '+fmt(S)+' ₽ при ставке '+(r*100).toFixed(1)+'% нужно '+t.toFixed(2)+' лет.';
+        } else {
+            var S=gv('siS'),r=gv('siR')/100,t=gv('siT');
+            if(isNaN(S)||isNaN(r)||isNaN(t)||S<=0||t<=0){resultBox.innerHTML='<span style="color:red">S > 0 и срок > 0</span>';return;}
+            if(r*t>=-1){
+                var P=S/(1+r*t);
+                formulaText.innerHTML='S = P·(1 + r·t) → P = S / (1 + r·t)';
+                resultBox.innerHTML='<span class="answer-highlight">Начальная сумма P = '+fmt(P)+' ₽</span>';
+                stepText.innerHTML='<ol><li>P = S / (1 + r·t)</li>'
+                    +'<li>P = '+fmt(S)+' / (1 + '+r+' × '+t+')</li>'
+                    +'<li>P = '+fmt(S)+' / '+fmt(1+r*t)+' = '+fmt(P)+' ₽</li></ol>';
+                stepSimple.innerHTML='Чтобы через '+t+' лет при ставке '+(r*100).toFixed(1)+'% получить '+fmt(S)+' ₽, нужно вложить '+fmt(P)+' ₽.';
+            } else {
+                resultBox.innerHTML='<span style="color:red">Нет решения при данных параметрах</span>';
+            }
+        }
+    }
+
+    document.querySelectorAll('.task-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+            this.classList.add('active');
+            currentMode=this.dataset.mode;
+            renderFields(); blank();
+        });
+    });
+    document.getElementById('calcBtn').addEventListener('click',calculate);
+    document.getElementById('copyBtn').addEventListener('click',function(){
+        navigator.clipboard.writeText(resultBox.innerText).then(function(){showToast('Скопировано!');});
+    });
+    document.getElementById('randomBtn').addEventListener('click',function(){
+        var P=Math.ceil(Math.random()*50)*1000;
+        var r=Math.ceil(Math.random()*20);
+        var t=Math.ceil(Math.random()*10);
+        var S=P*(1+r/100*t);
+        if(currentMode==='find-s'){document.getElementById('siP').value=P;document.getElementById('siR').value=r;document.getElementById('siT').value=t;}
+        else if(currentMode==='find-r'){document.getElementById('siP').value=P;document.getElementById('siS').value=Math.round(S);document.getElementById('siT').value=t;}
+        else if(currentMode==='find-t'){document.getElementById('siP').value=P;document.getElementById('siS').value=Math.round(S);document.getElementById('siR').value=r;}
+        else{document.getElementById('siS').value=Math.round(S);document.getElementById('siR').value=r;document.getElementById('siT').value=t;}
         calculate();
     });
+
+    renderFields();
     calculate();
-  
 })();
 </script>

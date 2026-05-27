@@ -56,6 +56,15 @@
         .formula-card .formula{font-family:monospace;font-size:1.1rem;color:var(--text-primary);background:var(--card-bg);padding:8px 14px;border-radius:8px;display:inline-block;margin:6px 0}
         .copy-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--text-secondary);font-size:0.85rem;transition:var(--transition)}
         .copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    
+        .task-switcher{margin-bottom:24px}
+        .task-switcher__label{color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+        .task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+        .task-btn{flex:1;min-width:130px;padding:14px 12px;background:var(--card-bg);border:2px solid var(--border);border-radius:16px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+        .task-btn small{display:block;font-size:0.78rem;font-weight:400;color:var(--text-secondary);margin-top:5px}
+        .task-btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .task-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .task-btn.active small{color:rgba(255,255,255,0.85)}
     </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор арифметической прогрессии онлайн","description":"Онлайн калькулятор арифметической прогрессии: вычислите n-й член, сумму n членов, разность. Пошаговое решение и формулы.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/arithmetic-progression.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
@@ -148,16 +157,21 @@
         <p class="main__description">Введите первый член, разность и количество членов — получите всю информацию о прогрессии.</p>
 
         <div class="calculator glass">
-
-            <div class="field-row"><label>Первый член a₁:</label><input type="number" id="apA1" value="1" class="form-input" step="any"></div>
-            <div class="field-row"><label>Разность d:</label><input type="number" id="apD" value="2" class="form-input" step="any"></div>
-            <div class="field-row"><label>Количество членов n:</label><input type="number" id="apN" value="10" class="form-input" min="1" step="1"></div>
+            <div class="task-switcher">
+                <p class="task-switcher__label">Выберите тип задачи:</p>
+                <div class="task-switcher__buttons">
+                    <button class="task-btn active" data-mode="find-an">🔢 Найти n-й член<br><small>Знаю a₁, d и n — ищу aₙ</small></button>
+                    <button class="task-btn" data-mode="find-sn">∑ Найти сумму Sₙ<br><small>Знаю a₁, d и n — ищу сумму</small></button>
+                    <button class="task-btn" data-mode="find-d">📐 Найти разность d<br><small>Знаю a₁, aₙ и n — ищу d</small></button>
+                    <button class="task-btn" data-mode="find-n">🔍 Найти номер n<br><small>Знаю a₁, d и aₙ — ищу n</small></button>
+                </div>
+            </div>
+            <div id="fieldsArea"></div>
             <div class="action-buttons">
                 <button class="action-btn" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
                 <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайное</button>
-                <button class="action-btn" onclick="navigator.clipboard.writeText(document.getElementById('resultBox').innerText).then(()=>showToast('Скопировано!'))"><i class="fas fa-copy"></i> Копировать</button>
+                <button class="action-btn" id="copyBtn"><i class="fas fa-copy"></i> Копировать</button>
             </div>
-  
             <div class="result-box" id="resultBox"><span style="color:var(--text-secondary)">Введите данные и нажмите «Рассчитать»</span></div>
             <div class="step-box" id="stepBox">
                 <h3>📝 Подробное решение</h3>
@@ -332,37 +346,147 @@
 </html>
 <script>
 (function(){
+    function fmt(n){return(Math.round(n*10000)/10000).toString();}
+    var resultBox=document.getElementById('resultBox');
+    var stepText=document.getElementById('stepText');
+    var stepSimple=document.getElementById('stepSimple');
+    var formulaText=document.getElementById('formulaText');
+    var fieldsArea=document.getElementById('fieldsArea');
+    var currentMode='find-an';
 
-    function fmt(n) { return (Math.round(n*10000)/10000).toString(); }
-    const resultBox = document.getElementById('resultBox');
-    const stepText = document.getElementById('stepText');
-    const stepSimple = document.getElementById('stepSimple');
-    const formulaText = document.getElementById('formulaText');
+    var modes={
+        'find-an':{fields:[
+            {id:'apA1',label:'Первый член a₁',value:'1'},
+            {id:'apD', label:'Разность d',value:'2'},
+            {id:'apN', label:'Номер члена n',value:'10',min:'1',step:'1'}
+        ]},
+        'find-sn':{fields:[
+            {id:'apA1',label:'Первый член a₁',value:'1'},
+            {id:'apD', label:'Разность d',value:'2'},
+            {id:'apN', label:'Количество членов n',value:'10',min:'1',step:'1'}
+        ]},
+        'find-d':{fields:[
+            {id:'apA1',label:'Первый член a₁',value:'1'},
+            {id:'apAN',label:'n-й член aₙ',value:'19'},
+            {id:'apN', label:'Номер члена n',value:'10',min:'2',step:'1'}
+        ]},
+        'find-n':{fields:[
+            {id:'apA1',label:'Первый член a₁',value:'1'},
+            {id:'apD', label:'Разность d',value:'2'},
+            {id:'apAN',label:'Искомый член aₙ',value:'19'}
+        ]}
+    };
 
-    function calculate() {
-        const a1=parseFloat(document.getElementById('apA1').value)||0;
-        const d=parseFloat(document.getElementById('apD').value)||0;
-        const n=parseInt(document.getElementById('apN').value)||1;
-        if(n<1){ resultBox.innerHTML='<span style="color:red">n должно быть ≥ 1</span>'; return; }
-        const an = a1 + (n-1)*d;
-        const sn = n*(a1+an)/2;
-        const terms = [];
-        for(let i=0;i<Math.min(n,10);i++) terms.push(fmt(a1+i*d));
-        if(n>10) terms.push('...');
-        formulaText.innerHTML='aₙ = a₁+(n−1)·d; Sₙ = n·(a₁+aₙ)/2';
-        resultBox.innerHTML='<span class="answer-highlight">a₊'+n+' = '+fmt(an)+'</span><br><span class="answer-highlight">S₊'+n+' = '+fmt(sn)+'</span>';
-        stepText.innerHTML='<ol><li>a₁='+a1+', d='+d+', n='+n+'</li><li>a'+n+' = '+a1+'+('+n+'-1)·'+d+' = '+a1+'+'+(n-1)+'·'+d+' = '+fmt(an)+'</li><li>S'+n+' = '+n+'·('+a1+'+'+fmt(an)+')/2 = '+n+'·'+fmt(a1+an)+'/2 = '+fmt(sn)+'</li><li>Начало прогрессии: '+terms.join(', ')+'</li></ol>';
-        stepSimple.innerHTML='Первые '+Math.min(n,10)+' членов: '+terms.join(', ')+(n>10?'...':'')+'. Сумма всех '+n+' членов: '+fmt(sn)+'.';
+    function renderFields(){
+        var cfg=modes[currentMode];
+        var html='';
+        cfg.fields.forEach(function(f){
+            var extra='';
+            if(f.min) extra+=' min="'+f.min+'"';
+            if(f.step) extra+=' step="'+f.step+'"'; else extra+=' step="any"';
+            html+='<div class="field-row"><label>'+f.label+':</label>'
+                +'<input type="number" id="'+f.id+'" value="'+f.value+'" class="form-input"'+extra+'></div>';
+        });
+        fieldsArea.innerHTML=html;
     }
 
-    document.getElementById('calcBtn').addEventListener('click', calculate);
-    document.getElementById('randomBtn').addEventListener('click', function(){
-        document.getElementById('apA1').value = Math.ceil(Math.random()*10)-5;
-        document.getElementById('apD').value = Math.ceil(Math.random()*6)-2;
-        document.getElementById('apN').value = Math.ceil(Math.random()*20)+2;
+    function blank(){
+        var msg='Введите данные и нажмите «Рассчитать»';
+        resultBox.innerHTML='<span style="color:var(--text-secondary)">'+msg+'</span>';
+        stepText.innerHTML=msg; stepSimple.innerHTML=msg; formulaText.innerHTML='—';
+    }
+
+    function gv(id){return parseFloat(document.getElementById(id).value);}
+    function gi(id){return parseInt(document.getElementById(id).value);}
+
+    function calculate(){
+        if(currentMode==='find-an'){
+            var a1=gv('apA1'),d=gv('apD'),n=gi('apN');
+            if(isNaN(a1)||isNaN(d)||isNaN(n)||n<1){resultBox.innerHTML='<span style="color:red">n ≥ 1, все поля заполнены</span>';return;}
+            var an=a1+(n-1)*d;
+            var terms=[];for(var i=0;i<Math.min(n,8);i++)terms.push(fmt(a1+i*d));if(n>8)terms.push('...');
+            formulaText.innerHTML='aₙ = a₁ + (n − 1) · d';
+            resultBox.innerHTML='<span class="answer-highlight">a<sub>'+n+'</sub> = '+fmt(an)+'</span>';
+            stepText.innerHTML='<ol><li>a₁ = '+a1+', d = '+d+', n = '+n+'</li>'
+                +'<li>a<sub>'+n+'</sub> = '+a1+' + ('+n+' − 1) · '+d+'</li>'
+                +'<li>= '+a1+' + '+(n-1)+' · '+d+' = '+fmt(an)+'</li></ol>';
+            stepSimple.innerHTML='Прогрессия: '+terms.join(', ')+(n>8?'...':'')+'. Член №'+n+' равен '+fmt(an)+'.';
+        } else if(currentMode==='find-sn'){
+            var a1=gv('apA1'),d=gv('apD'),n=gi('apN');
+            if(isNaN(a1)||isNaN(d)||isNaN(n)||n<1){resultBox.innerHTML='<span style="color:red">n ≥ 1, все поля заполнены</span>';return;}
+            var an=a1+(n-1)*d;
+            var sn=n*(a1+an)/2;
+            var terms=[];for(var i=0;i<Math.min(n,8);i++)terms.push(fmt(a1+i*d));if(n>8)terms.push('...');
+            formulaText.innerHTML='Sₙ = n · (a₁ + aₙ) / 2 = n · (2a₁ + (n−1)·d) / 2';
+            resultBox.innerHTML='<span class="answer-highlight">S<sub>'+n+'</sub> = '+fmt(sn)+'</span>';
+            stepText.innerHTML='<ol><li>a₁ = '+a1+', d = '+d+', n = '+n+'</li>'
+                +'<li>aₙ = a<sub>'+n+'</sub> = '+a1+' + ('+n+' − 1) · '+d+' = '+fmt(an)+'</li>'
+                +'<li>S<sub>'+n+'</sub> = '+n+' · ('+a1+' + '+fmt(an)+') / 2 = '+n+' · '+fmt(a1+an)+' / 2 = '+fmt(sn)+'</li></ol>';
+            stepSimple.innerHTML='Члены: '+terms.join(', ')+(n>8?'...':'')+'. Сумма первых '+n+' членов равна '+fmt(sn)+'.';
+        } else if(currentMode==='find-d'){
+            var a1=gv('apA1'),an=gv('apAN'),n=gi('apN');
+            if(isNaN(a1)||isNaN(an)||isNaN(n)||n<2){resultBox.innerHTML='<span style="color:red">n ≥ 2, все поля заполнены</span>';return;}
+            var d=(an-a1)/(n-1);
+            formulaText.innerHTML='d = (aₙ − a₁) / (n − 1)';
+            resultBox.innerHTML='<span class="answer-highlight">Разность d = '+fmt(d)+'</span>';
+            stepText.innerHTML='<ol><li>a₁ = '+a1+', a<sub>'+n+'</sub> = '+an+', n = '+n+'</li>'
+                +'<li>d = (aₙ − a₁) / (n − 1)</li>'
+                +'<li>d = ('+an+' − '+a1+') / ('+n+' − 1) = '+fmt(an-a1)+' / '+(n-1)+' = '+fmt(d)+'</li></ol>';
+            stepSimple.innerHTML='Разность прогрессии d = '+fmt(d)+'. Каждый следующий член '+(d>=0?'больше':'меньше')+' предыдущего на '+Math.abs(fmt(d))+'.';
+        } else {
+            var a1=gv('apA1'),d=gv('apD'),an=gv('apAN');
+            if(isNaN(a1)||isNaN(d)||isNaN(an)||d===0){resultBox.innerHTML='<span style="color:red">Разность d ≠ 0, все поля заполнены</span>';return;}
+            var n=(an-a1)/d+1;
+            if(n<1||Math.round(n)!==Math.round(n*1000)/1000){resultBox.innerHTML='<span style="color:red">Такого члена нет в прогрессии (n не целое)</span>';return;}
+            n=Math.round(n);
+            formulaText.innerHTML='n = (aₙ − a₁) / d + 1';
+            resultBox.innerHTML='<span class="answer-highlight">Номер n = '+n+'</span>';
+            stepText.innerHTML='<ol><li>a₁ = '+a1+', d = '+d+', aₙ = '+an+'</li>'
+                +'<li>n = (aₙ − a₁) / d + 1</li>'
+                +'<li>n = ('+an+' − '+a1+') / '+d+' + 1 = '+fmt((an-a1)/d)+' + 1 = '+n+'</li></ol>';
+            stepSimple.innerHTML='Член '+an+' стоит на месте №'+n+' в прогрессии.';
+        }
+    }
+
+    document.querySelectorAll('.task-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+            this.classList.add('active');
+            currentMode=this.dataset.mode;
+            renderFields(); blank();
+        });
+    });
+
+    document.getElementById('calcBtn').addEventListener('click',calculate);
+    document.getElementById('copyBtn').addEventListener('click',function(){
+        navigator.clipboard.writeText(resultBox.innerText).then(function(){showToast('Скопировано!');});
+    });
+    document.getElementById('randomBtn').addEventListener('click',function(){
+        var a1=Math.ceil(Math.random()*10)-5;
+        var d=Math.ceil(Math.random()*6)-2||1;
+        var n=Math.ceil(Math.random()*15)+2;
+        var an=a1+(n-1)*d;
+        if(currentMode==='find-an'){
+            document.getElementById('apA1').value=a1;
+            document.getElementById('apD').value=d;
+            document.getElementById('apN').value=n;
+        } else if(currentMode==='find-sn'){
+            document.getElementById('apA1').value=a1;
+            document.getElementById('apD').value=d;
+            document.getElementById('apN').value=n;
+        } else if(currentMode==='find-d'){
+            document.getElementById('apA1').value=a1;
+            document.getElementById('apAN').value=an;
+            document.getElementById('apN').value=n;
+        } else {
+            document.getElementById('apA1').value=a1;
+            document.getElementById('apD').value=d;
+            document.getElementById('apAN').value=an;
+        }
         calculate();
     });
+
+    renderFields();
     calculate();
-  
 })();
 </script>

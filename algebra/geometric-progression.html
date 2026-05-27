@@ -56,6 +56,15 @@
         .formula-card .formula{font-family:monospace;font-size:1.1rem;color:var(--text-primary);background:var(--card-bg);padding:8px 14px;border-radius:8px;display:inline-block;margin:6px 0}
         .copy-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--text-secondary);font-size:0.85rem;transition:var(--transition)}
         .copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    
+        .task-switcher{margin-bottom:24px}
+        .task-switcher__label{color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+        .task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+        .task-btn{flex:1;min-width:130px;padding:14px 12px;background:var(--card-bg);border:2px solid var(--border);border-radius:16px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+        .task-btn small{display:block;font-size:0.78rem;font-weight:400;color:var(--text-secondary);margin-top:5px}
+        .task-btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .task-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .task-btn.active small{color:rgba(255,255,255,0.85)}
     </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор геометрической прогрессии онлайн","description":"Онлайн калькулятор геометрической прогрессии: n-й член, сумма n членов, знаменатель. Пошаговое решение.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/geometric-progression.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
@@ -148,16 +157,21 @@
         <p class="main__description">Введите первый член и знаменатель геометрической прогрессии, чтобы найти n-й член и сумму.</p>
 
         <div class="calculator glass">
-
-            <div class="field-row"><label>Первый член b₁:</label><input type="number" id="gpB1" value="2" class="form-input" step="any"></div>
-            <div class="field-row"><label>Знаменатель q:</label><input type="number" id="gpQ" value="3" class="form-input" step="any"></div>
-            <div class="field-row"><label>Количество членов n:</label><input type="number" id="gpN" value="6" class="form-input" min="1" step="1"></div>
+            <div class="task-switcher">
+                <p class="task-switcher__label">Выберите тип задачи:</p>
+                <div class="task-switcher__buttons">
+                    <button class="task-btn active" data-mode="find-bn">🔢 Найти n-й член<br><small>Знаю b₁, q и n — ищу bₙ</small></button>
+                    <button class="task-btn" data-mode="find-sn">∑ Найти сумму Sₙ<br><small>Знаю b₁, q и n — ищу сумму</small></button>
+                    <button class="task-btn" data-mode="find-q">📐 Найти знаменатель q<br><small>Знаю b₁, bₙ и n — ищу q</small></button>
+                    <button class="task-btn" data-mode="find-n">🔍 Найти номер n<br><small>Знаю b₁, q и bₙ — ищу n</small></button>
+                </div>
+            </div>
+            <div id="fieldsArea"></div>
             <div class="action-buttons">
                 <button class="action-btn" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
                 <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайное</button>
-                <button class="action-btn" onclick="navigator.clipboard.writeText(document.getElementById('resultBox').innerText).then(()=>showToast('Скопировано!'))"><i class="fas fa-copy"></i> Копировать</button>
+                <button class="action-btn" id="copyBtn"><i class="fas fa-copy"></i> Копировать</button>
             </div>
-  
             <div class="result-box" id="resultBox"><span style="color:var(--text-secondary)">Введите данные и нажмите «Рассчитать»</span></div>
             <div class="step-box" id="stepBox">
                 <h3>📝 Подробное решение</h3>
@@ -333,39 +347,157 @@
 </html>
 <script>
 (function(){
+    function fmt(n){if(Math.abs(n)>1e12)return n.toExponential(4);return(Math.round(n*10000)/10000).toString();}
+    var resultBox=document.getElementById('resultBox');
+    var stepText=document.getElementById('stepText');
+    var stepSimple=document.getElementById('stepSimple');
+    var formulaText=document.getElementById('formulaText');
+    var fieldsArea=document.getElementById('fieldsArea');
+    var currentMode='find-bn';
 
-    function fmt(n) { if(Math.abs(n)>1e12) return n.toExponential(4); return (Math.round(n*10000)/10000).toString(); }
-    const resultBox = document.getElementById('resultBox');
-    const stepText = document.getElementById('stepText');
-    const stepSimple = document.getElementById('stepSimple');
-    const formulaText = document.getElementById('formulaText');
+    var modes={
+        'find-bn':{fields:[
+            {id:'gpB1',label:'Первый член b₁',value:'2'},
+            {id:'gpQ', label:'Знаменатель q',value:'3'},
+            {id:'gpN', label:'Номер члена n',value:'6',min:'1',step:'1'}
+        ]},
+        'find-sn':{fields:[
+            {id:'gpB1',label:'Первый член b₁',value:'2'},
+            {id:'gpQ', label:'Знаменатель q',value:'3'},
+            {id:'gpN', label:'Количество членов n',value:'6',min:'1',step:'1'}
+        ]},
+        'find-q':{fields:[
+            {id:'gpB1',label:'Первый член b₁',value:'2'},
+            {id:'gpBN',label:'n-й член bₙ',value:'1458'},
+            {id:'gpN', label:'Номер члена n',value:'6',min:'2',step:'1'}
+        ]},
+        'find-n':{fields:[
+            {id:'gpB1',label:'Первый член b₁',value:'2'},
+            {id:'gpQ', label:'Знаменатель q',value:'3'},
+            {id:'gpBN',label:'Искомый член bₙ',value:'1458'}
+        ]}
+    };
 
-    function calculate() {
-        const b1=parseFloat(document.getElementById('gpB1').value)||1;
-        const q=parseFloat(document.getElementById('gpQ').value);
-        const n=parseInt(document.getElementById('gpN').value)||1;
-        if(isNaN(q)){ resultBox.innerHTML='<span style="color:red">Введите знаменатель</span>'; return; }
-        const bn = b1 * Math.pow(q, n-1);
-        let sn;
-        if(q===1) sn = n*b1;
-        else sn = b1*(Math.pow(q,n)-1)/(q-1);
-        const terms=[];
-        for(let i=0;i<Math.min(n,8);i++) terms.push(fmt(b1*Math.pow(q,i)));
-        if(n>8) terms.push('...');
-        formulaText.innerHTML='bₙ = b₁·q^(n−1); Sₙ = b₁·(q^n−1)/(q−1)';
-        resultBox.innerHTML='<span class="answer-highlight">b'+n+' = '+fmt(bn)+'</span><br><span class="answer-highlight">S'+n+' = '+fmt(sn)+'</span>';
-        stepText.innerHTML='<ol><li>b₁='+b1+', q='+q+', n='+n+'</li><li>b'+n+' = '+b1+'·'+q+'^'+(n-1)+' = '+fmt(bn)+'</li><li>S'+n+' = '+b1+'·('+q+'^'+n+'−1)/('+q+'−1) = '+fmt(sn)+'</li><li>Члены: '+terms.join(', ')+'</li></ol>';
-        stepSimple.innerHTML='Первые '+Math.min(n,8)+' членов: '+terms.join(', ')+(n>8?'...':'')+'. Сумма всех '+n+' членов: '+fmt(sn)+'.';
+    function renderFields(){
+        var cfg=modes[currentMode];
+        var html='';
+        cfg.fields.forEach(function(f){
+            var extra='';
+            if(f.min) extra+=' min="'+f.min+'"';
+            if(f.step) extra+=' step="'+f.step+'"'; else extra+=' step="any"';
+            html+='<div class="field-row"><label>'+f.label+':</label>'
+                +'<input type="number" id="'+f.id+'" value="'+f.value+'" class="form-input"'+extra+'></div>';
+        });
+        fieldsArea.innerHTML=html;
     }
 
-    document.getElementById('calcBtn').addEventListener('click', calculate);
-    document.getElementById('randomBtn').addEventListener('click', function(){
-        document.getElementById('gpB1').value = Math.ceil(Math.random()*5);
-        document.getElementById('gpQ').value = (Math.ceil(Math.random()*5)-2||1);
-        document.getElementById('gpN').value = Math.ceil(Math.random()*10)+2;
+    function blank(){
+        var msg='Введите данные и нажмите «Рассчитать»';
+        resultBox.innerHTML='<span style="color:var(--text-secondary)">'+msg+'</span>';
+        stepText.innerHTML=msg; stepSimple.innerHTML=msg; formulaText.innerHTML='—';
+    }
+
+    function gv(id){return parseFloat(document.getElementById(id).value);}
+    function gi(id){return parseInt(document.getElementById(id).value);}
+
+    function calculate(){
+        if(currentMode==='find-bn'){
+            var b1=gv('gpB1'),q=gv('gpQ'),n=gi('gpN');
+            if(isNaN(b1)||isNaN(q)||isNaN(n)||n<1){resultBox.innerHTML='<span style="color:red">n ≥ 1, все поля заполнены</span>';return;}
+            var bn=b1*Math.pow(q,n-1);
+            var terms=[];for(var i=0;i<Math.min(n,8);i++)terms.push(fmt(b1*Math.pow(q,i)));if(n>8)terms.push('...');
+            formulaText.innerHTML='bₙ = b₁ · q^(n − 1)';
+            resultBox.innerHTML='<span class="answer-highlight">b<sub>'+n+'</sub> = '+fmt(bn)+'</span>';
+            stepText.innerHTML='<ol><li>b₁ = '+b1+', q = '+q+', n = '+n+'</li>'
+                +'<li>b<sub>'+n+'</sub> = '+b1+' · '+q+'^('+n+' − 1)</li>'
+                +'<li>= '+b1+' · '+q+'^'+(n-1)+' = '+fmt(bn)+'</li></ol>';
+            stepSimple.innerHTML='Прогрессия: '+terms.join(', ')+(n>8?'...':'')+'. Член №'+n+' равен '+fmt(bn)+'.';
+        } else if(currentMode==='find-sn'){
+            var b1=gv('gpB1'),q=gv('gpQ'),n=gi('gpN');
+            if(isNaN(b1)||isNaN(q)||isNaN(n)||n<1){resultBox.innerHTML='<span style="color:red">n ≥ 1, все поля заполнены</span>';return;}
+            var bn=b1*Math.pow(q,n-1);
+            var sn=(q===1)?n*b1:b1*(Math.pow(q,n)-1)/(q-1);
+            var terms=[];for(var i=0;i<Math.min(n,8);i++)terms.push(fmt(b1*Math.pow(q,i)));if(n>8)terms.push('...');
+            formulaText.innerHTML=(q===1)?'Sₙ = n · b₁ (при q = 1)':'Sₙ = b₁ · (q^n − 1) / (q − 1)';
+            resultBox.innerHTML='<span class="answer-highlight">S<sub>'+n+'</sub> = '+fmt(sn)+'</span>';
+            if(q===1){
+                stepText.innerHTML='<ol><li>b₁ = '+b1+', q = 1, n = '+n+'</li>'
+                    +'<li>При q = 1: Sₙ = n · b₁ = '+n+' · '+b1+' = '+fmt(sn)+'</li></ol>';
+            } else {
+                stepText.innerHTML='<ol><li>b₁ = '+b1+', q = '+q+', n = '+n+'</li>'
+                    +'<li>S<sub>'+n+'</sub> = '+b1+' · ('+q+'^'+n+' − 1) / ('+q+' − 1)</li>'
+                    +'<li>= '+b1+' · '+fmt(Math.pow(q,n)-1)+' / '+fmt(q-1)+' = '+fmt(sn)+'</li></ol>';
+            }
+            stepSimple.innerHTML='Члены: '+terms.join(', ')+(n>8?'...':'')+'. Сумма первых '+n+' членов равна '+fmt(sn)+'.';
+        } else if(currentMode==='find-q'){
+            var b1=gv('gpB1'),bn=gv('gpBN'),n=gi('gpN');
+            if(isNaN(b1)||isNaN(bn)||isNaN(n)||n<2||b1===0){resultBox.innerHTML='<span style="color:red">n ≥ 2, b₁ ≠ 0, все поля заполнены</span>';return;}
+            if(bn/b1<0&&(n-1)%2===0){resultBox.innerHTML='<span style="color:red">При чётном (n−1) q должен быть положительным</span>';return;}
+            var q=Math.pow(Math.abs(bn/b1),1/(n-1))*(bn/b1<0?-1:1);
+            formulaText.innerHTML='bₙ = b₁ · q^(n−1) → q = (bₙ / b₁)^(1/(n−1))';
+            resultBox.innerHTML='<span class="answer-highlight">Знаменатель q = '+fmt(q)+'</span>';
+            stepText.innerHTML='<ol><li>b₁ = '+b1+', b<sub>'+n+'</sub> = '+bn+', n = '+n+'</li>'
+                +'<li>q = (bₙ / b₁)^(1/(n−1))</li>'
+                +'<li>q = ('+bn+' / '+b1+')^(1/'+(n-1)+')</li>'
+                +'<li>q = '+fmt(bn/b1)+'^(1/'+(n-1)+') = '+fmt(q)+'</li></ol>';
+            stepSimple.innerHTML='Знаменатель q = '+fmt(q)+'. Каждый следующий член умножается на '+fmt(q)+'.';
+        } else {
+            var b1=gv('gpB1'),q=gv('gpQ'),bn=gv('gpBN');
+            if(isNaN(b1)||isNaN(q)||isNaN(bn)||b1===0||q<=0||q===1){resultBox.innerHTML='<span style="color:red">b₁ ≠ 0, q > 0 и q ≠ 1</span>';return;}
+            if(bn/b1<=0){resultBox.innerHTML='<span style="color:red">bₙ и b₁ должны иметь одинаковый знак</span>';return;}
+            var n=Math.log(bn/b1)/Math.log(q)+1;
+            var nRound=Math.round(n);
+            if(Math.abs(n-nRound)>0.0001){resultBox.innerHTML='<span style="color:red">Такого члена нет (n = '+fmt(n)+' — не целое)</span>';return;}
+            n=nRound;
+            formulaText.innerHTML='bₙ = b₁ · q^(n−1) → n = log_q(bₙ/b₁) + 1';
+            resultBox.innerHTML='<span class="answer-highlight">Номер n = '+n+'</span>';
+            stepText.innerHTML='<ol><li>b₁ = '+b1+', q = '+q+', bₙ = '+bn+'</li>'
+                +'<li>n = ln(bₙ/b₁) / ln(q) + 1</li>'
+                +'<li>n = ln('+fmt(bn/b1)+') / ln('+q+') + 1</li>'
+                +'<li>n = '+fmt(Math.log(bn/b1))+' / '+fmt(Math.log(q))+' + 1 = '+n+'</li></ol>';
+            stepSimple.innerHTML='Член '+bn+' стоит на месте №'+n+' в прогрессии.';
+        }
+    }
+
+    document.querySelectorAll('.task-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+            this.classList.add('active');
+            currentMode=this.dataset.mode;
+            renderFields(); blank();
+        });
+    });
+
+    document.getElementById('calcBtn').addEventListener('click',calculate);
+    document.getElementById('copyBtn').addEventListener('click',function(){
+        navigator.clipboard.writeText(resultBox.innerText).then(function(){showToast('Скопировано!');});
+    });
+    document.getElementById('randomBtn').addEventListener('click',function(){
+        var b1=Math.ceil(Math.random()*5);
+        var q=Math.ceil(Math.random()*4)||2;
+        var n=Math.ceil(Math.random()*7)+2;
+        var bn=b1*Math.pow(q,n-1);
+        if(currentMode==='find-bn'){
+            document.getElementById('gpB1').value=b1;
+            document.getElementById('gpQ').value=q;
+            document.getElementById('gpN').value=n;
+        } else if(currentMode==='find-sn'){
+            document.getElementById('gpB1').value=b1;
+            document.getElementById('gpQ').value=q;
+            document.getElementById('gpN').value=n;
+        } else if(currentMode==='find-q'){
+            document.getElementById('gpB1').value=b1;
+            document.getElementById('gpBN').value=bn;
+            document.getElementById('gpN').value=n;
+        } else {
+            document.getElementById('gpB1').value=b1;
+            document.getElementById('gpQ').value=q;
+            document.getElementById('gpBN').value=bn;
+        }
         calculate();
     });
+
+    renderFields();
     calculate();
-  
 })();
 </script>

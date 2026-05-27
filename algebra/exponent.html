@@ -56,6 +56,15 @@
         .formula-card .formula{font-family:monospace;font-size:1.1rem;color:var(--text-primary);background:var(--card-bg);padding:8px 14px;border-radius:8px;display:inline-block;margin:6px 0}
         .copy-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--text-secondary);font-size:0.85rem;transition:var(--transition)}
         .copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    
+        .task-switcher{margin-bottom:24px}
+        .task-switcher__label{color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+        .task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+        .task-btn{flex:1;min-width:130px;padding:14px 12px;background:var(--card-bg);border:2px solid var(--border);border-radius:16px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+        .task-btn small{display:block;font-size:0.78rem;font-weight:400;color:var(--text-secondary);margin-top:5px}
+        .task-btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .task-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .task-btn.active small{color:rgba(255,255,255,0.85)}
     </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор степеней онлайн","description":"Онлайн вычисление степени числа aⁿ. Любые вещественные основания и показатели, отрицательные степени, дробные показатели.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/exponent.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
@@ -148,15 +157,20 @@
         <p class="main__description">Введите основание a и показатель n для вычисления aⁿ.</p>
 
         <div class="calculator glass">
-
-            <div class="field-row"><label>Основание a:</label><input type="number" id="expA" value="2" class="form-input" step="any"></div>
-            <div class="field-row"><label>Показатель n:</label><input type="number" id="expN" value="10" class="form-input" step="any"></div>
+            <div class="task-switcher">
+                <p class="task-switcher__label">Выберите тип задачи:</p>
+                <div class="task-switcher__buttons">
+                    <button class="task-btn active" data-mode="calc">🔢 Вычислить степень<br><small>Знаю основание и показатель — ищу результат</small></button>
+                    <button class="task-btn" data-mode="find-n">🔍 Найти показатель<br><small>Знаю основание и результат — ищу показатель</small></button>
+                    <button class="task-btn" data-mode="find-a">📦 Найти основание<br><small>Знаю показатель и результат — ищу основание</small></button>
+                </div>
+            </div>
+            <div id="fieldsArea"></div>
             <div class="action-buttons">
                 <button class="action-btn" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
                 <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайное</button>
-                <button class="action-btn" onclick="navigator.clipboard.writeText(document.getElementById('resultBox').innerText).then(()=>showToast('Скопировано!'))"><i class="fas fa-copy"></i> Копировать</button>
+                <button class="action-btn" id="copyBtn"><i class="fas fa-copy"></i> Копировать</button>
             </div>
-  
             <div class="result-box" id="resultBox"><span style="color:var(--text-secondary)">Введите данные и нажмите «Рассчитать»</span></div>
             <div class="step-box" id="stepBox">
                 <h3>📝 Подробное решение</h3>
@@ -332,32 +346,113 @@
 </html>
 <script>
 (function(){
+    function fmtBig(n){if(Math.abs(n)>1e15)return n.toExponential(6);return(Math.round(n*1e8)/1e8).toString();}
+    function fmtSm(n){return(Math.round(n*1000000)/1000000).toString();}
+    var resultBox=document.getElementById('resultBox');
+    var stepText=document.getElementById('stepText');
+    var stepSimple=document.getElementById('stepSimple');
+    var formulaText=document.getElementById('formulaText');
+    var fieldsArea=document.getElementById('fieldsArea');
+    var currentMode='calc';
 
-    function fmtBig(n) { if(Math.abs(n)>1e15) return n.toExponential(6); return (Math.round(n*1e8)/1e8).toString(); }
-    const resultBox = document.getElementById('resultBox');
-    const stepText = document.getElementById('stepText');
-    const stepSimple = document.getElementById('stepSimple');
-    const formulaText = document.getElementById('formulaText');
+    var modes={
+        'calc':{fields:[
+            {id:'expA',label:'Основание a',value:'2'},
+            {id:'expN',label:'Показатель n (степень)',value:'10'}
+        ]},
+        'find-n':{fields:[
+            {id:'expA',label:'Основание a',value:'2'},
+            {id:'expR',label:'Результат — чему равна степень',value:'1024'}
+        ]},
+        'find-a':{fields:[
+            {id:'expN',label:'Показатель n (степень)',value:'10'},
+            {id:'expR',label:'Результат — чему равна степень',value:'1024'}
+        ]}
+    };
 
-    function calculate() {
-        const a = parseFloat(document.getElementById('expA').value);
-        const n = parseFloat(document.getElementById('expN').value);
-        if(isNaN(a)||isNaN(n)){ resultBox.innerHTML='<span style="color:red">Введите числа</span>'; return; }
-        if(a<0 && !Number.isInteger(n)){ resultBox.innerHTML='<span style="color:red">Отрицательное основание возможно только с целым показателем</span>'; return; }
-        const result = Math.pow(a, n);
-        formulaText.innerHTML='aⁿ = a × a × ... × a (n раз)';
-        resultBox.innerHTML='<span class="answer-highlight">'+a+'^'+n+' = '+fmtBig(result)+'</span>';
-        stepText.innerHTML='<ol><li>Основание: a = '+a+'</li><li>Показатель: n = '+n+'</li><li>'+a+'^'+n+' = '+fmtBig(result)+'</li></ol>';
-        stepSimple.innerHTML=a+' в степени '+n+' равно '+fmtBig(result)+'.';
+    function renderFields(){
+        var cfg=modes[currentMode];
+        var html='';
+        cfg.fields.forEach(function(f){
+            html+='<div class="field-row"><label>'+f.label+':</label>'
+                +'<input type="number" id="'+f.id+'" value="'+f.value+'" class="form-input" step="any"></div>';
+        });
+        fieldsArea.innerHTML=html;
     }
 
-    document.getElementById('calcBtn').addEventListener('click', calculate);
-    document.getElementById('randomBtn').addEventListener('click', function(){
-        document.getElementById('expA').value = Math.ceil(Math.random()*10)-3;
-        document.getElementById('expN').value = Math.ceil(Math.random()*12)-3;
+    function blank(){
+        var msg='Введите данные и нажмите «Рассчитать»';
+        resultBox.innerHTML='<span style="color:var(--text-secondary)">'+msg+'</span>';
+        stepText.innerHTML=msg; stepSimple.innerHTML=msg; formulaText.innerHTML='—';
+    }
+
+    function calculate(){
+        if(currentMode==='calc'){
+            var a=parseFloat(document.getElementById('expA').value);
+            var n=parseFloat(document.getElementById('expN').value);
+            if(isNaN(a)||isNaN(n)){resultBox.innerHTML='<span style="color:red">Введите числа</span>';return;}
+            if(a<0&&!Number.isInteger(n)){resultBox.innerHTML='<span style="color:red">Отрицательное основание — только с целым показателем</span>';return;}
+            var r=Math.pow(a,n);
+            formulaText.innerHTML='a<sup>n</sup> = a × a × ... × a (n раз)';
+            resultBox.innerHTML='<span class="answer-highlight">'+a+'^'+n+' = '+fmtBig(r)+'</span>';
+            stepText.innerHTML='<ol><li>Основание: a = '+a+'</li><li>Показатель: n = '+n+'</li><li>'+a+'^'+n+' = '+fmtBig(r)+'</li></ol>';
+            stepSimple.innerHTML=a+' в степени '+n+' равно '+fmtBig(r)+'.';
+        } else if(currentMode==='find-n'){
+            var a=parseFloat(document.getElementById('expA').value);
+            var r=parseFloat(document.getElementById('expR').value);
+            if(isNaN(a)||isNaN(r)||a<=0||a===1||r<=0){resultBox.innerHTML='<span style="color:red">Основание a > 0, a ≠ 1; результат > 0</span>';return;}
+            var n=Math.log(r)/Math.log(a);
+            formulaText.innerHTML='a<sup>n</sup> = r → n = log<sub>a</sub>(r) = ln(r) / ln(a)';
+            resultBox.innerHTML='<span class="answer-highlight">Показатель n = '+fmtSm(n)+'</span>';
+            stepText.innerHTML='<ol><li>Из a<sup>n</sup> = r следует n = log<sub>a</sub>(r)</li>'
+                +'<li>Используем формулу: n = ln(r) / ln(a)</li>'
+                +'<li>ln('+r+') = '+Math.log(r).toFixed(6)+'</li>'
+                +'<li>ln('+a+') = '+Math.log(a).toFixed(6)+'</li>'
+                +'<li>n = '+fmtSm(n)+'</li></ol>';
+            stepSimple.innerHTML='Показатель n = '+fmtSm(n)+'. Проверка: '+a+' в степени '+fmtSm(n)+' ≈ '+r+'.';
+        } else {
+            var n=parseFloat(document.getElementById('expN').value);
+            var r=parseFloat(document.getElementById('expR').value);
+            if(isNaN(n)||isNaN(r)||n===0||r<=0){resultBox.innerHTML='<span style="color:red">Показатель n ≠ 0, результат > 0</span>';return;}
+            var a=Math.pow(r,1/n);
+            formulaText.innerHTML='a<sup>n</sup> = r → a = r<sup>1/n</sup> = ⁿ√r';
+            resultBox.innerHTML='<span class="answer-highlight">Основание a = '+fmtSm(a)+'</span>';
+            stepText.innerHTML='<ol><li>Из a<sup>n</sup> = r следует a = r<sup>1/n</sup></li>'
+                +'<li>a = '+r+'^(1/'+n+') = корень степени '+n+' из '+r+'</li>'
+                +'<li>a = '+fmtSm(a)+'</li></ol>';
+            stepSimple.innerHTML='Основание a = '+fmtSm(a)+'. Проверка: '+fmtSm(a)+' в степени '+n+' ≈ '+r+'.';
+        }
+    }
+
+    document.querySelectorAll('.task-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+            this.classList.add('active');
+            currentMode=this.dataset.mode;
+            renderFields();
+            blank();
+        });
+    });
+
+    document.getElementById('calcBtn').addEventListener('click',calculate);
+    document.getElementById('copyBtn').addEventListener('click',function(){
+        navigator.clipboard.writeText(resultBox.innerText).then(function(){showToast('Скопировано!');});
+    });
+    document.getElementById('randomBtn').addEventListener('click',function(){
+        if(currentMode==='calc'){
+            document.getElementById('expA').value=Math.ceil(Math.random()*10);
+            document.getElementById('expN').value=Math.ceil(Math.random()*12);
+        } else if(currentMode==='find-n'){
+            document.getElementById('expA').value=[2,3,5,10][Math.floor(Math.random()*4)];
+            document.getElementById('expR').value=Math.ceil(Math.random()*10000);
+        } else {
+            document.getElementById('expN').value=Math.ceil(Math.random()*8)+1;
+            document.getElementById('expR').value=Math.ceil(Math.random()*10000);
+        }
         calculate();
     });
+
+    renderFields();
     calculate();
-  
 })();
 </script>

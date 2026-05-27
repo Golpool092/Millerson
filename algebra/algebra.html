@@ -54,6 +54,12 @@
         .similar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
         .similar-grid a{display:block;padding:12px;background:var(--card-bg);border-radius:20px;text-align:center;color:var(--text-primary);text-decoration:none;border:1px solid var(--border);transition:var(--transition)}
         .similar-grid a:hover{background:var(--accent);color:#fff;transform:translateY(-3px)}
+    
+        .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 28px}
+        .filter-bar__btn{padding:9px 20px;background:var(--card-bg);border:2px solid var(--border);border-radius:30px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:inherit}
+        .filter-bar__btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .filter-bar__btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .project-card[hidden]{display:none}
     </style>
     <script type="application/ld+json">
     {
@@ -269,9 +275,16 @@
 
         <h1 class="main__title">Алгебра: онлайн калькуляторы процентов, дробей и уравнений</h1>
         <p class="main__description">Удобные инструменты для работы с процентами, дробями, пропорциями, а также для решения квадратных уравнений и нахождения дискриминанта.</p>
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-bar__btn active" data-filter="все">Все</button>
+            <button class="filter-bar__btn" data-filter="калькулятор">Калькуляторы</button>
+            <button class="filter-bar__btn" data-filter="уравнение">Уравнения</button>
+            <button class="filter-bar__btn" data-filter="прогрессия">Прогрессии</button>
+            <button class="filter-bar__btn" data-filter="справочник">Справочники</button>
+        </div>
 
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-percent"></i>
                 </div>
@@ -281,7 +294,7 @@
                     <a href="percent.html" class="btn btn--primary project-link">Перейти к процентам</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-divide"></i>
                 </div>
@@ -291,7 +304,7 @@
                     <a href="fraction.html" class="btn btn--primary project-link">Перейти к дробям</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="уравнение">
                 <div class="project-preview">
                     <i class="fas fa-square-root-alt"></i>
                 </div>
@@ -301,7 +314,7 @@
                     <a href="../allquadratic.html" class="btn btn--primary project-link">Перейти к уравнениям</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-not-equal"></i>
                 </div>
@@ -311,7 +324,7 @@
                     <a href="absolute-value.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-book"></i>
                 </div>
@@ -321,7 +334,7 @@
                     <a href="algebra-formulas.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-spell-check"></i>
                 </div>
@@ -331,7 +344,7 @@
                     <a href="algebra-glossary.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-history"></i>
                 </div>
@@ -341,7 +354,7 @@
                     <a href="algebra-history.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-wave-square"></i>
                 </div>
@@ -351,7 +364,7 @@
                     <a href="arithmetic-mean.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="прогрессия">
                 <div class="project-preview">
                     <i class="fas fa-list-ol"></i>
                 </div>
@@ -361,7 +374,7 @@
                     <a href="arithmetic-progression.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-superscript"></i>
                 </div>
@@ -371,7 +384,7 @@
                     <a href="binomial-theorem.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-object-group"></i>
                 </div>
@@ -381,7 +394,7 @@
                     <a href="combinations.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-sitemap"></i>
                 </div>
@@ -391,7 +404,7 @@
                     <a href="combinatorics-reference.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-project-diagram"></i>
                 </div>
@@ -401,7 +414,7 @@
                     <a href="complex-numbers-theory.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-atom"></i>
                 </div>
@@ -411,7 +424,7 @@
                     <a href="complex-numbers.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-chart-line"></i>
                 </div>
@@ -421,7 +434,7 @@
                     <a href="compound-interest.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-calculator"></i>
                 </div>
@@ -431,7 +444,7 @@
                     <a href="discriminant-reference.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-th"></i>
                 </div>
@@ -441,7 +454,7 @@
                     <a href="divisibility-rules.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-superscript"></i>
                 </div>
@@ -451,7 +464,7 @@
                     <a href="exponent.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-exclamation"></i>
                 </div>
@@ -461,7 +474,7 @@
                     <a href="factorial.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-infinity"></i>
                 </div>
@@ -471,7 +484,7 @@
                     <a href="famous-constants.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-bezier-curve"></i>
                 </div>
@@ -481,7 +494,7 @@
                     <a href="functions-reference.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-code-branch"></i>
                 </div>
@@ -491,7 +504,7 @@
                     <a href="gcd-lcm.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="прогрессия">
                 <div class="project-preview">
                     <i class="fas fa-expand-alt"></i>
                 </div>
@@ -501,7 +514,7 @@
                     <a href="geometric-progression.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-not-equal"></i>
                 </div>
@@ -511,7 +524,7 @@
                     <a href="inequalities-reference.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="уравнение">
                 <div class="project-preview">
                     <i class="fas fa-grip-lines"></i>
                 </div>
@@ -521,7 +534,7 @@
                     <a href="linear-equation.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="уравнение">
                 <div class="project-preview">
                     <i class="fas fa-less-than-equal"></i>
                 </div>
@@ -531,7 +544,7 @@
                     <a href="linear-inequality.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-subscript"></i>
                 </div>
@@ -541,7 +554,7 @@
                     <a href="log-rules.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-subscript"></i>
                 </div>
@@ -551,7 +564,7 @@
                     <a href="logarithm.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-table"></i>
                 </div>
@@ -561,7 +574,7 @@
                     <a href="matrix-2x2.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-th"></i>
                 </div>
@@ -571,7 +584,7 @@
                     <a href="matrix-3x3.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-border-all"></i>
                 </div>
@@ -581,7 +594,7 @@
                     <a href="matrix-theory.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-equals"></i>
                 </div>
@@ -591,7 +604,7 @@
                     <a href="mixed-numbers.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-square-root-alt"></i>
                 </div>
@@ -601,7 +614,7 @@
                     <a href="nth-root.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-hashtag"></i>
                 </div>
@@ -611,7 +624,7 @@
                     <a href="number-bases.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-sort-numeric-up"></i>
                 </div>
@@ -621,7 +634,7 @@
                     <a href="number-systems.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-brain"></i>
                 </div>
@@ -631,7 +644,7 @@
                     <a href="number-theory.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-percent"></i>
                 </div>
@@ -641,7 +654,7 @@
                     <a href="percent-change.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-random"></i>
                 </div>
@@ -651,7 +664,7 @@
                     <a href="permutations.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-subscript"></i>
                 </div>
@@ -661,7 +674,7 @@
                     <a href="polynomial-identities.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-bolt"></i>
                 </div>
@@ -671,7 +684,7 @@
                     <a href="power-rules.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-puzzle-piece"></i>
                 </div>
@@ -681,7 +694,7 @@
                     <a href="prime-factorization.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="прогрессия">
                 <div class="project-preview">
                     <i class="fas fa-sort-amount-up"></i>
                 </div>
@@ -691,7 +704,7 @@
                     <a href="progressions-reference.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-balance-scale"></i>
                 </div>
@@ -701,7 +714,7 @@
                     <a href="proportion.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="уравнение">
                 <div class="project-preview">
                     <i class="fas fa-square-root-alt"></i>
                 </div>
@@ -711,7 +724,7 @@
                     <a href="quadratic-formula.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="уравнение">
                 <div class="project-preview">
                     <i class="fas fa-not-equal"></i>
                 </div>
@@ -721,7 +734,7 @@
                     <a href="quadratic-inequality.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-divide"></i>
                 </div>
@@ -731,7 +744,7 @@
                     <a href="ratio.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-compact-disc"></i>
                 </div>
@@ -741,7 +754,7 @@
                     <a href="rounding.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-flask"></i>
                 </div>
@@ -751,7 +764,7 @@
                     <a href="scientific-notation.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="прогрессия">
                 <div class="project-preview">
                     <i class="fas fa-ellipsis-h"></i>
                 </div>
@@ -761,7 +774,7 @@
                     <a href="sequences-reference.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="справочник">
                 <div class="project-preview">
                     <i class="fas fa-circle-notch"></i>
                 </div>
@@ -771,7 +784,7 @@
                     <a href="sets-theory.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="калькулятор">
                 <div class="project-preview">
                     <i class="fas fa-coins"></i>
                 </div>
@@ -781,7 +794,7 @@
                     <a href="simple-interest.html" class="btn btn--primary project-link">Открыть</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-type="уравнение">
                 <div class="project-preview">
                     <i class="fas fa-equals"></i>
                 </div>
@@ -943,6 +956,21 @@
         document.querySelector('.projects-grid').scrollIntoView({ behavior: 'smooth' });
     });
 })();
+    (function(){
+        var btns=document.querySelectorAll('#filterBar .filter-bar__btn');
+        var cards=document.querySelectorAll('.projects-grid .project-card');
+        btns.forEach(function(btn){
+            btn.addEventListener('click',function(){
+                btns.forEach(function(b){b.classList.remove('active');});
+                this.classList.add('active');
+                var f=this.dataset.filter;
+                cards.forEach(function(card){
+                    if(f==='все'||card.dataset.type===f){card.removeAttribute('hidden');}
+                    else{card.setAttribute('hidden','');}
+                });
+            });
+        });
+    })();
 </script>
 <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:20px;z-index:9999;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;">

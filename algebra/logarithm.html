@@ -56,6 +56,15 @@
         .formula-card .formula{font-family:monospace;font-size:1.1rem;color:var(--text-primary);background:var(--card-bg);padding:8px 14px;border-radius:8px;display:inline-block;margin:6px 0}
         .copy-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--text-secondary);font-size:0.85rem;transition:var(--transition)}
         .copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    
+        .task-switcher{margin-bottom:24px}
+        .task-switcher__label{color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+        .task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+        .task-btn{flex:1;min-width:130px;padding:14px 12px;background:var(--card-bg);border:2px solid var(--border);border-radius:16px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+        .task-btn small{display:block;font-size:0.78rem;font-weight:400;color:var(--text-secondary);margin-top:5px}
+        .task-btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .task-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .task-btn.active small{color:rgba(255,255,255,0.85)}
     </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор логарифмов онлайн","description":"Онлайн вычисление логарифма любого числа по любому основанию. log₂, log₁₀ (lg), ln и произвольные основания. Пошаговое решение.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/logarithm.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
@@ -148,21 +157,25 @@
         <p class="main__description">Вычислите логарифм числа по любому основанию: log_b(x) = ln(x)/ln(b).</p>
 
         <div class="calculator glass">
-
-            <div class="field-row"><label>Число x:</label><input type="number" id="logX" value="100" class="form-input" step="any" min="0.0001"></div>
-            <div class="field-row"><label>Основание b:</label><input type="number" id="logB" value="10" class="form-input" step="any" min="0.0001"></div>
-            <p style="color:var(--text-secondary);margin-bottom:10px">Или выберите быстро:</p>
-            <div class="action-buttons" style="margin-bottom:16px">
-                <button class="action-btn" onclick="document.getElementById('logB').value=Math.E.toFixed(5)">ln (e)</button>
-                <button class="action-btn" onclick="document.getElementById('logB').value=10">lg (10)</button>
-                <button class="action-btn" onclick="document.getElementById('logB').value=2">log₂</button>
+            <div class="task-switcher">
+                <p class="task-switcher__label">Выберите тип задачи:</p>
+                <div class="task-switcher__buttons">
+                    <button class="task-btn active" data-mode="calc">🔢 Вычислить логарифм<br><small>Знаю число и основание — ищу результат</small></button>
+                    <button class="task-btn" data-mode="find-base">🔍 Найти основание<br><small>Знаю число и результат — ищу основание</small></button>
+                    <button class="task-btn" data-mode="find-arg">📦 Найти аргумент<br><small>Знаю основание и результат — ищу число</small></button>
+                </div>
+            </div>
+            <div id="fieldsArea"></div>
+            <div class="action-buttons" id="quickBtns" style="margin-bottom:16px">
+                <button class="action-btn" id="quickLn">ln (e)</button>
+                <button class="action-btn" id="quickLg">lg (10)</button>
+                <button class="action-btn" id="quickLog2">log₂</button>
             </div>
             <div class="action-buttons">
                 <button class="action-btn" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
                 <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайное</button>
-                <button class="action-btn" onclick="navigator.clipboard.writeText(document.getElementById('resultBox').innerText).then(()=>showToast('Скопировано!'))"><i class="fas fa-copy"></i> Копировать</button>
+                <button class="action-btn" id="copyBtn"><i class="fas fa-copy"></i> Копировать</button>
             </div>
-  
             <div class="result-box" id="resultBox"><span style="color:var(--text-secondary)">Введите данные и нажмите «Рассчитать»</span></div>
             <div class="step-box" id="stepBox">
                 <h3>📝 Подробное решение</h3>
@@ -343,31 +356,128 @@
 </html>
 <script>
 (function(){
+    function fmt(n){return(Math.round(n*1000000)/1000000).toString();}
+    var resultBox=document.getElementById('resultBox');
+    var stepText=document.getElementById('stepText');
+    var stepSimple=document.getElementById('stepSimple');
+    var formulaText=document.getElementById('formulaText');
+    var fieldsArea=document.getElementById('fieldsArea');
+    var quickBtns=document.getElementById('quickBtns');
+    var currentMode='calc';
 
-    function fmt(n) { return (Math.round(n*1000000)/1000000).toString(); }
-    const resultBox = document.getElementById('resultBox');
-    const stepText = document.getElementById('stepText');
-    const stepSimple = document.getElementById('stepSimple');
-    const formulaText = document.getElementById('formulaText');
+    var modes={
+        'calc':{
+            fields:[
+                {id:'logX',label:'Число x — что логарифмируем',value:'100'},
+                {id:'logB',label:'Основание b',value:'10'}
+            ],
+            showQuick:true,quickTarget:'logB'
+        },
+        'find-base':{
+            fields:[
+                {id:'logX',label:'Число x (аргумент)',value:'1000'},
+                {id:'logY',label:'Результат y — чему равен логарифм',value:'3'}
+            ],
+            showQuick:false
+        },
+        'find-arg':{
+            fields:[
+                {id:'logB',label:'Основание b',value:'10'},
+                {id:'logY',label:'Результат y — чему равен логарифм',value:'3'}
+            ],
+            showQuick:true,quickTarget:'logB'
+        }
+    };
 
-    function calculate() {
-        const x = parseFloat(document.getElementById('logX').value);
-        const b = parseFloat(document.getElementById('logB').value);
-        if(isNaN(x)||isNaN(b)||x<=0||b<=0||b===1){ resultBox.innerHTML='<span style="color:red">x > 0 и b > 0, b ≠ 1</span>'; return; }
-        const result = Math.log(x)/Math.log(b);
-        formulaText.innerHTML='log_b(x) = ln(x) / ln(b) = '+Math.log(x).toFixed(6)+' / '+Math.log(b).toFixed(6);
-        resultBox.innerHTML='<span class="answer-highlight">log_'+fmt(b)+'('+x+') = '+fmt(result)+'</span>';
-        stepText.innerHTML='<ol><li>Используем формулу перехода: log_b(x) = ln(x)/ln(b)</li><li>ln('+x+') = '+Math.log(x).toFixed(6)+'</li><li>ln('+fmt(b)+') = '+Math.log(b).toFixed(6)+'</li><li>Результат: '+Math.log(x).toFixed(6)+' / '+Math.log(b).toFixed(6)+' = '+fmt(result)+'</li></ol>';
-        stepSimple.innerHTML='log_'+fmt(b)+'('+x+') = '+fmt(result)+'. Это значит, что '+fmt(b)+' в степени '+fmt(result)+' ≈ '+x+'.';
+    function renderFields(){
+        var cfg=modes[currentMode];
+        var html='';
+        cfg.fields.forEach(function(f){
+            html+='<div class="field-row"><label>'+f.label+':</label>'
+                +'<input type="number" id="'+f.id+'" value="'+f.value+'" class="form-input" step="any"></div>';
+        });
+        fieldsArea.innerHTML=html;
+        quickBtns.style.display=cfg.showQuick?'flex':'none';
+        var qt=cfg.quickTarget||'logB';
+        document.getElementById('quickLn').onclick=function(){var el=document.getElementById(qt);if(el)el.value=Math.E.toFixed(5);};
+        document.getElementById('quickLg').onclick=function(){var el=document.getElementById(qt);if(el)el.value=10;};
+        document.getElementById('quickLog2').onclick=function(){var el=document.getElementById(qt);if(el)el.value=2;};
     }
 
-    document.getElementById('calcBtn').addEventListener('click', calculate);
-    document.getElementById('randomBtn').addEventListener('click', function(){
-        document.getElementById('logX').value = Math.ceil(Math.random()*1000);
-        document.getElementById('logB').value = [2,3,5,10][Math.floor(Math.random()*4)];
+    function blank(){
+        var msg='Введите данные и нажмите «Рассчитать»';
+        resultBox.innerHTML='<span style="color:var(--text-secondary)">'+msg+'</span>';
+        stepText.innerHTML=msg; stepSimple.innerHTML=msg; formulaText.innerHTML='—';
+    }
+
+    function calculate(){
+        if(currentMode==='calc'){
+            var x=parseFloat(document.getElementById('logX').value);
+            var b=parseFloat(document.getElementById('logB').value);
+            if(isNaN(x)||isNaN(b)||x<=0||b<=0||b===1){resultBox.innerHTML='<span style="color:red">Число x > 0, основание b > 0 и b ≠ 1</span>';return;}
+            var r=Math.log(x)/Math.log(b);
+            formulaText.innerHTML='log<sub>b</sub>(x) = ln(x) / ln(b)';
+            resultBox.innerHTML='<span class="answer-highlight">log<sub>'+fmt(b)+'</sub>('+x+') = '+fmt(r)+'</span>';
+            stepText.innerHTML='<ol><li>Формула перехода: log<sub>b</sub>(x) = ln(x) / ln(b)</li>'
+                +'<li>ln('+x+') = '+Math.log(x).toFixed(6)+'</li>'
+                +'<li>ln('+fmt(b)+') = '+Math.log(b).toFixed(6)+'</li>'
+                +'<li>Результат: '+Math.log(x).toFixed(6)+' / '+Math.log(b).toFixed(6)+' = '+fmt(r)+'</li></ol>';
+            stepSimple.innerHTML='log<sub>'+fmt(b)+'</sub>('+x+') = '+fmt(r)
+                +'. Это значит: '+fmt(b)+' в степени '+fmt(r)+' ≈ '+x+'.';
+        } else if(currentMode==='find-base'){
+            var x=parseFloat(document.getElementById('logX').value);
+            var y=parseFloat(document.getElementById('logY').value);
+            if(isNaN(x)||isNaN(y)||x<=0||x===1||y===0){resultBox.innerHTML='<span style="color:red">x > 0, x ≠ 1, результат y ≠ 0</span>';return;}
+            var b=Math.pow(x,1/y);
+            formulaText.innerHTML='log<sub>b</sub>(x) = y → b<sup>y</sup> = x → b = x<sup>1/y</sup>';
+            resultBox.innerHTML='<span class="answer-highlight">Основание b = '+fmt(b)+'</span>';
+            stepText.innerHTML='<ol><li>По определению логарифма: если log<sub>b</sub>(x) = y, то b<sup>y</sup> = x</li>'
+                +'<li>Значит: b = x<sup>1/y</sup> = '+x+'^(1/'+y+')</li>'
+                +'<li>b = '+fmt(b)+'</li></ol>';
+            stepSimple.innerHTML='Основание b = '+fmt(b)+'. Проверка: '+fmt(b)+' в степени '+y+' ≈ '+x+'.';
+        } else {
+            var b=parseFloat(document.getElementById('logB').value);
+            var y=parseFloat(document.getElementById('logY').value);
+            if(isNaN(b)||isNaN(y)||b<=0||b===1){resultBox.innerHTML='<span style="color:red">Основание b > 0 и b ≠ 1</span>';return;}
+            var x=Math.pow(b,y);
+            formulaText.innerHTML='log<sub>b</sub>(x) = y → x = b<sup>y</sup>';
+            resultBox.innerHTML='<span class="answer-highlight">Аргумент x = '+fmt(x)+'</span>';
+            stepText.innerHTML='<ol><li>По определению логарифма: если log<sub>b</sub>(x) = y, то x = b<sup>y</sup></li>'
+                +'<li>x = '+fmt(b)+'^'+y+'</li>'
+                +'<li>x = '+fmt(x)+'</li></ol>';
+            stepSimple.innerHTML='Число x = '+fmt(x)+'. Проверка: log<sub>'+fmt(b)+'</sub>('+fmt(x)+') = '+y+'.';
+        }
+    }
+
+    document.querySelectorAll('.task-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+            this.classList.add('active');
+            currentMode=this.dataset.mode;
+            renderFields();
+            blank();
+        });
+    });
+
+    document.getElementById('calcBtn').addEventListener('click',calculate);
+    document.getElementById('copyBtn').addEventListener('click',function(){
+        navigator.clipboard.writeText(resultBox.innerText).then(function(){showToast('Скопировано!');});
+    });
+    document.getElementById('randomBtn').addEventListener('click',function(){
+        if(currentMode==='calc'){
+            document.getElementById('logX').value=Math.ceil(Math.random()*1000);
+            document.getElementById('logB').value=[2,3,5,10][Math.floor(Math.random()*4)];
+        } else if(currentMode==='find-base'){
+            document.getElementById('logX').value=Math.ceil(Math.random()*1000)+1;
+            document.getElementById('logY').value=Math.ceil(Math.random()*5)+1;
+        } else {
+            document.getElementById('logB').value=[2,3,5,10][Math.floor(Math.random()*4)];
+            document.getElementById('logY').value=Math.ceil(Math.random()*10)-2;
+        }
         calculate();
     });
+
+    renderFields();
     calculate();
-  
 })();
 </script>

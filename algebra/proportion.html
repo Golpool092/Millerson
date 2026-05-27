@@ -56,6 +56,15 @@
         .formula-card .formula{font-family:monospace;font-size:1.1rem;color:var(--text-primary);background:var(--card-bg);padding:8px 14px;border-radius:8px;display:inline-block;margin:6px 0}
         .copy-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--text-secondary);font-size:0.85rem;transition:var(--transition)}
         .copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    
+        .task-switcher{margin-bottom:24px}
+        .task-switcher__label{color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+        .task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+        .task-btn{flex:1;min-width:130px;padding:14px 12px;background:var(--card-bg);border:2px solid var(--border);border-radius:16px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+        .task-btn small{display:block;font-size:0.78rem;font-weight:400;color:var(--text-secondary);margin-top:5px}
+        .task-btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .task-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .task-btn.active small{color:rgba(255,255,255,0.85)}
     </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор пропорций онлайн","description":"Решение пропорций онлайн: найдите неизвестный член пропорции a:b = c:d. Пошаговое решение бесплатно.","applicationCategory":"EducationalApplication","operatingSystem":"All","url":"https://millerson.shop/mathematics/proportion.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
@@ -148,18 +157,21 @@
         <p class="main__description">Введите три известных члена пропорции a/b = c/d и найдите четвёртый.</p>
 
         <div class="calculator glass">
-
-            <p style="color:var(--text-secondary);margin-bottom:16px">Пропорция: a / b = c / d. Оставьте одно поле пустым для нахождения неизвестного.</p>
-            <div class="field-row"><label>a:</label><input type="number" id="pa" value="2" class="form-input" step="any" placeholder="a"></div>
-            <div class="field-row"><label>b:</label><input type="number" id="pb" value="5" class="form-input" step="any" placeholder="b"></div>
-            <div class="field-row"><label>c:</label><input type="number" id="pc" value="6" class="form-input" step="any" placeholder="c"></div>
-            <div class="field-row"><label>d:</label><input type="number" id="pd" value="" class="form-input" step="any" placeholder="d (найти)"></div>
+            <div class="task-switcher">
+                <p class="task-switcher__label">Выберите тип задачи:</p>
+                <div class="task-switcher__buttons">
+                    <button class="task-btn active" data-mode="find-d">🔢 Найти d<br><small>a / b = c / d → d = ?</small></button>
+                    <button class="task-btn" data-mode="find-c">🔢 Найти c<br><small>a / b = c / d → c = ?</small></button>
+                    <button class="task-btn" data-mode="find-b">🔢 Найти b<br><small>a / b = c / d → b = ?</small></button>
+                    <button class="task-btn" data-mode="check">✅ Проверить пропорцию<br><small>Все четыре числа известны</small></button>
+                </div>
+            </div>
+            <div id="prFieldsArea"></div>
             <div class="action-buttons">
                 <button class="action-btn" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
                 <button class="action-btn" id="randomBtn"><i class="fas fa-dice"></i> Случайное</button>
-                <button class="action-btn" onclick="navigator.clipboard.writeText(document.getElementById('resultBox').innerText).then(()=>showToast('Скопировано!'))"><i class="fas fa-copy"></i> Копировать</button>
+                <button class="action-btn" id="copyBtn"><i class="fas fa-copy"></i> Копировать</button>
             </div>
-  
             <div class="result-box" id="resultBox"><span style="color:var(--text-secondary)">Введите данные и нажмите «Рассчитать»</span></div>
             <div class="step-box" id="stepBox">
                 <h3>📝 Подробное решение</h3>
@@ -337,34 +349,120 @@
 </html>
 <script>
 (function(){
+    function fmt(n){return(Math.round(n*10000)/10000).toString();}
+    var resultBox=document.getElementById('resultBox');
+    var stepText=document.getElementById('stepText');
+    var stepSimple=document.getElementById('stepSimple');
+    var formulaText=document.getElementById('formulaText');
+    var fieldsArea=document.getElementById('prFieldsArea');
+    var currentMode='find-d';
 
-    function fmt(n) { return (Math.round(n*10000)/10000).toString(); }
-    const resultBox = document.getElementById('resultBox');
-    const stepText = document.getElementById('stepText');
-    const stepSimple = document.getElementById('stepSimple');
-    const formulaText = document.getElementById('formulaText');
+    var prModes={
+        'find-d':{fields:['pa','pb','pc'],labels:['a','b','c'],vals:['2','5','6']},
+        'find-c':{fields:['pa','pb','pd'],labels:['a','b','d'],vals:['2','5','15']},
+        'find-b':{fields:['pa','pc','pd'],labels:['a','c','d'],vals:['2','6','15']},
+        'check': {fields:['pa','pb','pc','pd'],labels:['a','b','c','d'],vals:['2','5','6','15']}
+    };
 
-    function calculate() {
-        const aR=document.getElementById('pa').value, bR=document.getElementById('pb').value;
-        const cR=document.getElementById('pc').value, dR=document.getElementById('pd').value;
-        const a=parseFloat(aR), b=parseFloat(bR), c=parseFloat(cR), d=parseFloat(dR);
-        const emptyFields = [aR,bR,cR,dR].filter(v=>v==='').length;
-        if(emptyFields!==1){ resultBox.innerHTML='<span style="color:red">Оставьте ровно одно поле пустым для нахождения неизвестного</span>'; return; }
-        formulaText.innerHTML='a · d = b · c (основное свойство пропорции)';
-        if(aR===''){ const x=b*c/d; resultBox.innerHTML='<span class="answer-highlight">a = '+fmt(x)+'</span>'; stepText.innerHTML='a = b·c/d = '+b+'·'+c+'/'+d+' = '+fmt(x); stepSimple.innerHTML='Делим '+b+'·'+c+' на '+d+', получаем a = '+fmt(x)+'.'; }
-        else if(bR===''){ const x=a*d/c; resultBox.innerHTML='<span class="answer-highlight">b = '+fmt(x)+'</span>'; stepText.innerHTML='b = a·d/c = '+a+'·'+d+'/'+c+' = '+fmt(x); stepSimple.innerHTML='b = '+fmt(x); }
-        else if(cR===''){ const x=a*d/b; resultBox.innerHTML='<span class="answer-highlight">c = '+fmt(x)+'</span>'; stepText.innerHTML='c = a·d/b = '+a+'·'+d+'/'+b+' = '+fmt(x); stepSimple.innerHTML='c = '+fmt(x); }
-        else { const x=b*c/a; resultBox.innerHTML='<span class="answer-highlight">d = '+fmt(x)+'</span>'; stepText.innerHTML='d = b·c/a = '+b+'·'+c+'/'+a+' = '+fmt(x); stepSimple.innerHTML='Делим '+b+'·'+c+' на '+a+', получаем d = '+fmt(x)+'.'; }
+    function renderFields(){
+        var cfg=prModes[currentMode];
+        var html='';
+        cfg.fields.forEach(function(id,i){
+            html+='<div class="field-row"><label>'+cfg.labels[i]+':</label>'
+                +'<input type="number" id="'+id+'" value="'+cfg.vals[i]+'" class="form-input" step="any"></div>';
+        });
+        fieldsArea.innerHTML=html;
     }
 
-    document.getElementById('calcBtn').addEventListener('click', calculate);
-    document.getElementById('randomBtn').addEventListener('click', function(){
-        const a=Math.ceil(Math.random()*10), b=Math.ceil(Math.random()*10), c=Math.ceil(Math.random()*10);
-        document.getElementById('pa').value=a; document.getElementById('pb').value=b;
-        document.getElementById('pc').value=c; document.getElementById('pd').value='';
+    function blank(){
+        var msg='Введите данные и нажмите «Рассчитать»';
+        resultBox.innerHTML='<span style="color:var(--text-secondary)">'+msg+'</span>';
+        stepText.innerHTML=msg; stepSimple.innerHTML=msg; formulaText.innerHTML='—';
+    }
+
+    function gv(id){var el=document.getElementById(id);return el?parseFloat(el.value):NaN;}
+
+    function calculate(){
+        formulaText.innerHTML='a · d = b · c (основное свойство пропорции)';
+        if(currentMode==='find-d'){
+            var a=gv('pa'),b=gv('pb'),c=gv('pc');
+            if(isNaN(a)||isNaN(b)||isNaN(c)||a===0){resultBox.innerHTML='<span style="color:red">a ≠ 0, все поля заполнены</span>';return;}
+            var d=b*c/a;
+            resultBox.innerHTML='<span class="answer-highlight">d = '+fmt(d)+'</span>'
+                +'<br>Пропорция: '+fmt(a)+' / '+fmt(b)+' = '+fmt(c)+' / '+fmt(d);
+            stepText.innerHTML='<ol><li>Из a/b = c/d следует a·d = b·c</li>'
+                +'<li>d = b·c / a = '+fmt(b)+'·'+fmt(c)+' / '+fmt(a)+'</li>'
+                +'<li>d = '+fmt(b*c)+' / '+fmt(a)+' = '+fmt(d)+'</li></ol>';
+            stepSimple.innerHTML='Пропорция '+fmt(a)+' : '+fmt(b)+' = '+fmt(c)+' : '+fmt(d)+'. Проверка: '+fmt(a*d)+' = '+fmt(b*c)+'.';
+        } else if(currentMode==='find-c'){
+            var a=gv('pa'),b=gv('pb'),d=gv('pd');
+            if(isNaN(a)||isNaN(b)||isNaN(d)||b===0){resultBox.innerHTML='<span style="color:red">b ≠ 0, все поля заполнены</span>';return;}
+            var c=a*d/b;
+            resultBox.innerHTML='<span class="answer-highlight">c = '+fmt(c)+'</span>'
+                +'<br>Пропорция: '+fmt(a)+' / '+fmt(b)+' = '+fmt(c)+' / '+fmt(d);
+            stepText.innerHTML='<ol><li>Из a/b = c/d следует c = a·d / b</li>'
+                +'<li>c = '+fmt(a)+'·'+fmt(d)+' / '+fmt(b)+'</li>'
+                +'<li>c = '+fmt(a*d)+' / '+fmt(b)+' = '+fmt(c)+'</li></ol>';
+            stepSimple.innerHTML='Пропорция '+fmt(a)+' : '+fmt(b)+' = '+fmt(c)+' : '+fmt(d)+'. Проверка: '+fmt(a*d)+' = '+fmt(b*c)+'.';
+        } else if(currentMode==='find-b'){
+            var a=gv('pa'),c=gv('pc'),d=gv('pd');
+            if(isNaN(a)||isNaN(c)||isNaN(d)||c===0){resultBox.innerHTML='<span style="color:red">c ≠ 0, все поля заполнены</span>';return;}
+            var b=a*d/c;
+            resultBox.innerHTML='<span class="answer-highlight">b = '+fmt(b)+'</span>'
+                +'<br>Пропорция: '+fmt(a)+' / '+fmt(b)+' = '+fmt(c)+' / '+fmt(d);
+            stepText.innerHTML='<ol><li>Из a/b = c/d следует b = a·d / c</li>'
+                +'<li>b = '+fmt(a)+'·'+fmt(d)+' / '+fmt(c)+'</li>'
+                +'<li>b = '+fmt(a*d)+' / '+fmt(c)+' = '+fmt(b)+'</li></ol>';
+            stepSimple.innerHTML='Пропорция '+fmt(a)+' : '+fmt(b)+' = '+fmt(c)+' : '+fmt(d)+'. Проверка: '+fmt(a*d)+' = '+fmt(b*c)+'.';
+        } else {
+            var a=gv('pa'),b=gv('pb'),c=gv('pc'),d=gv('pd');
+            if(isNaN(a)||isNaN(b)||isNaN(c)||isNaN(d)||b===0||d===0){resultBox.innerHTML='<span style="color:red">b ≠ 0 и d ≠ 0, все поля заполнены</span>';return;}
+            var left=a*d, right=b*c;
+            var diff=Math.abs(left-right);
+            var isProp=Math.abs(left-right)<1e-9;
+            var ratio1=fmt(a/b), ratio2=fmt(c/d);
+            if(isProp){
+                resultBox.innerHTML='<span class="answer-highlight" style="color:#22c55e">✅ Да, это пропорция!</span>'
+                    +'<br>'+fmt(a)+'·'+fmt(d)+' = '+fmt(b)+'·'+fmt(c)+' = '+fmt(left);
+            } else {
+                resultBox.innerHTML='<span class="answer-highlight" style="color:#ef4444">❌ Нет, не пропорция</span>'
+                    +'<br>'+fmt(a)+'·'+fmt(d)+' = '+fmt(left)+', '+fmt(b)+'·'+fmt(c)+' = '+fmt(right)
+                    +'<br>Разница: '+fmt(diff);
+            }
+            stepText.innerHTML='<ol><li>Проверяем: a·d = b·c?</li>'
+                +'<li>'+fmt(a)+' · '+fmt(d)+' = '+fmt(left)+'</li>'
+                +'<li>'+fmt(b)+' · '+fmt(c)+' = '+fmt(right)+'</li>'
+                +'<li>a/b = '+ratio1+', c/d = '+ratio2+'</li>'
+                +'<li>'+(isProp?'Равны → пропорция верна':'Не равны → пропорция не верна')+'</li></ol>';
+            stepSimple.innerHTML=(isProp?'Пропорция '+fmt(a)+':'+fmt(b)+' = '+fmt(c)+':'+fmt(d)+' верна.':'Пропорция не выполняется. Разница произведений крайних и средних членов: '+fmt(diff)+'.');
+        }
+    }
+
+    document.querySelectorAll('.task-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+            this.classList.add('active');
+            currentMode=this.dataset.mode;
+            renderFields(); blank();
+        });
+    });
+    document.getElementById('calcBtn').addEventListener('click',calculate);
+    document.getElementById('copyBtn').addEventListener('click',function(){
+        navigator.clipboard.writeText(resultBox.innerText).then(function(){showToast('Скопировано!');});
+    });
+    document.getElementById('randomBtn').addEventListener('click',function(){
+        var a=Math.ceil(Math.random()*9)+1;
+        var b=Math.ceil(Math.random()*9)+1;
+        var c=Math.ceil(Math.random()*9)+1;
+        var d=Math.round(b*c/a*100)/100;
+        if(currentMode==='find-d'){document.getElementById('pa').value=a;document.getElementById('pb').value=b;document.getElementById('pc').value=c;}
+        else if(currentMode==='find-c'){document.getElementById('pa').value=a;document.getElementById('pb').value=b;document.getElementById('pd').value=d;}
+        else if(currentMode==='find-b'){document.getElementById('pa').value=a;document.getElementById('pc').value=c;document.getElementById('pd').value=d;}
+        else{document.getElementById('pa').value=a;document.getElementById('pb').value=b;document.getElementById('pc').value=c;document.getElementById('pd').value=d;}
         calculate();
     });
+
+    renderFields();
     calculate();
-  
 })();
 </script>
