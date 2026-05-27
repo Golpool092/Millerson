@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>АРТЕРИЯ — Кавер-группа</title>
+<link rel="stylesheet" href="example11.css"/>
+</head>
+<body>
+<div id="toasts"></div>
+<nav id="nav">
+  <a class="nav-logo" href="example11.html">АРТЕ<span>РИЯ</span></a>
+  <div class="nav-center">
+    <a class="nav-link" href="example/example11_about.html">О группе</a>
+    <a class="nav-link" href="example/example11_vocalists.html">Вокалисты</a>
+    <a class="nav-link" href="example/example11_repertoire.html">Репертуар</a>
+    <a class="nav-link" href="example/example11_gallery.html">Галерея</a>
+    <a class="nav-link" href="example/example11_shows.html">Концерты</a>
+    <a class="nav-link" href="example/example11_booking.html">Заказать</a>
+  </div>
+  <div class="nav-right">
+    <button id="theme-btn" onclick="toggleTheme()" title="Сменить тему"></button>
+    <a class="nav-icon" href="#" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+    <a class="nav-icon" href="#" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9" stroke-linejoin="round"/></svg></a>
+    <button id="burger" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="drawer">
+  <a class="drawer-link" href="example/example11_about.html">О группе<span>→</span></a>
+  <a class="drawer-link" href="example/example11_vocalists.html">Вокалисты<span>→</span></a>
+  <a class="drawer-link" href="example/example11_repertoire.html">Репертуар<span>→</span></a>
+  <a class="drawer-link" href="example/example11_gallery.html">Галерея<span>→</span></a>
+  <a class="drawer-link" href="example/example11_shows.html">Концерты<span>→</span></a>
+  <a class="drawer-link" href="example/example11_booking.html">Заказать<span>→</span></a>
+  <div class="drawer-bottom">
+    <span class="drawer-soc">Instagram</span>
+    <span class="drawer-soc">Telegram</span>
+    <span class="drawer-soc">WhatsApp</span>
+  </div>
+</div>
+<nav id="mob-tabs">
+  <button class="mob-tab active" onclick="location.href='example11.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Главная</button>
+  <button class="mob-tab" onclick="location.href='example/example11_vocalists.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Состав</button>
+  <button class="mob-tab" onclick="location.href='example/example11_repertoire.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Репертуар</button>
+  <button class="mob-tab" onclick="location.href='example/example11_shows.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Концерты</button>
+  <button class="mob-tab" onclick="location.href='example/example11_booking.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Заказать</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-photo">
+    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1800&q=85&fit=crop&crop=top&auto=format" alt="АРТЕРИЯ на сцене"/>
+  </div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Кавер-группа · Москва · с 2017</div>
+    <div class="hero-title">АРТЕ<br/>РИЯ</div>
+    <span class="hero-script">Cover band</span>
+    <div class="hero-row">
+      <p class="hero-sub">Больше, чем музыка.<br/>Больше, чем шоу.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="example/example11_booking.html">Заказать выступление</a>
+        <a class="btn-outline" href="example/example11_vocalists.html" style="border-color:rgba(255,255,255,.3);color:#fff">Наш состав</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">АРТЕРИЯ<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">КАВЕР-ГРУППА<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">ЖИВОЙ ЗВУК<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">РОК · МЕТАЛЛ · ПОП<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">КОРПОРАТИВЫ · СВАДЬБЫ<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">МОСКВА · РОССИЯ<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">АРТЕРИЯ<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">КАВЕР-ГРУППА<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">ЖИВОЙ ЗВУК<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">РОК · МЕТАЛЛ · ПОП<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">КОРПОРАТИВЫ · СВАДЬБЫ<span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">МОСКВА · РОССИЯ<span class="ticker-sep">◆</span></span>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item rv"><div class="stat-num">300<em>+</em></div><div class="stat-lbl">выступлений</div></div>
+  <div class="stat-item rv d1"><div class="stat-num">7<em> лет</em></div><div class="stat-lbl">на сцене</div></div>
+  <div class="stat-item rv d2"><div class="stat-num">200<em>+</em></div><div class="stat-lbl">треков в репертуаре</div></div>
+  <div class="stat-item rv d3"><div class="stat-num">6<em> чел</em></div><div class="stat-lbl">профессионалов</div></div>
+</div>
+<div class="wave-wrap" style="background:var(--bg2);border-bottom:1px solid var(--border)">
+  <canvas id="wave-canvas"></canvas>
+</div>
+
+<section class="section" style="background:var(--bg2)">
+  <div class="inner" style="text-align:center">
+    <div class="sec-kicker rv" style="justify-content:center">Промо-видео</div>
+    <div class="rv d1" style="font-family:'Unbounded',sans-serif;font-size:clamp(4.5rem,13vw,14rem);font-weight:900;text-transform:uppercase;line-height:.88;background:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&q=85&fit=crop&auto=format') center 30%/cover;-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.025em">ПРОМО<br/>ВИДЕО</div>
+    <p class="sec-p rv d2" style="margin:1.2rem auto 1.8rem;max-width:480px">Посмотрите концертную съёмку — почувствуйте атмосферу живого шоу</p>
+    <button class="btn-primary rv d3" onclick="showToast('Открываем YouTube...','info')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42C1 8.14 1 11.75 1 11.75s0 3.61.46 5.33a2.78 2.78 0 0 0 1.95 1.96C5.12 19.5 12 19.5 12 19.5s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96C23 15.36 23 11.75 23 11.75s0-3.61-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="var(--bg)"/></svg>
+      Смотреть на YouTube
+    </button>
+  </div>
+</section>
+
+<section class="section">
+  <div class="inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem">
+      <div>
+        <div class="sec-kicker rv">Наш состав</div>
+        <h2 class="sec-h rv d1">Наши <span>вокалисты</span></h2>
+      </div>
+      <a class="btn-ghost rv d1" href="example/example11_vocalists.html">Смотреть всех <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="voc-grid" style="grid-template-columns:repeat(3,1fr)">
+      <a class="voc-card rv" href="example/example11_vocalist.html?v=1">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80&fit=crop&crop=top&auto=format" alt="Мария Волошина"/>
+        <div class="voc-card-info"><div class="voc-card-name">Мария</div><div class="voc-card-role">Ведущий вокалист</div><div class="voc-card-link">Подробнее <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
+      </a>
+      <a class="voc-card rv d1" href="example/example11_vocalist.html?v=2">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop&crop=top&auto=format" alt="Андрей Красилов"/>
+        <div class="voc-card-info"><div class="voc-card-name">Андрей</div><div class="voc-card-role">Вокалист · Гитарист</div><div class="voc-card-link">Подробнее <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
+      </a>
+      <a class="voc-card rv d2" href="example/example11_vocalist.html?v=3">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80&fit=crop&crop=top&auto=format" alt="Алина Светова"/>
+        <div class="voc-card-info"><div class="voc-card-name">Алина</div><div class="voc-card-role">Вокалист · Soul &amp; R&amp;B</div><div class="voc-card-link">Подробнее <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg2)">
+  <div class="inner">
+    <div class="sec-kicker rv">Почему мы</div>
+    <h2 class="sec-h rv d1" style="margin-bottom:3rem">С нами <span>комфортно</span></h2>
+    <div class="ben-grid">
+      <div class="ben-card rv"><span class="ben-num">01</span><div class="ben-title">Гибкость формата</div><div class="ben-desc">От камерного торжества до шоу на 2000 гостей. Адаптируемся под любую концепцию.</div></div>
+      <div class="ben-card accent rv d1"><span class="ben-num">02</span><div class="ben-title">Постоянный состав</div><div class="ben-desc">Профессионалы с консерваторским образованием. Безупречное качество на каждом выступлении.</div></div>
+      <div class="ben-card rv d2"><span class="ben-num">03</span><div class="ben-title">Шоу-балет</div><div class="ben-desc">Хореографические номера превращают выступление в полноценное театральное шоу.</div></div>
+      <div class="ben-card rv d3"><span class="ben-num">04</span><div class="ben-title">Авторские образы</div><div class="ben-desc">Уникальные сценические костюмы для каждого номера. Незабываемые визуальные истории.</div></div>
+      <div class="ben-card accent rv d4"><span class="ben-num">05</span><div class="ben-title">Барабанное шоу</div><div class="ben-desc">Мощный старт события — живое барабанное шоу на открытии программы.</div></div>
+      <div class="ben-card rv d5"><span class="ben-num">06</span><div class="ben-title">200+ треков</div><div class="ben-desc">Рок, металл, поп, джаз, русская классика — выучим любую песню по заявке.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-logo">АРТЕ<span>РИЯ</span></div>
+      <div class="ft-tagline">Кавер-группа премиального уровня. Живой звук, Москва, с 2017 года.</div>
+      <div class="ft-soc">
+        <a class="ft-s" href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        <a class="ft-s" href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9" stroke-linejoin="round"/></svg></a>
+        <a class="ft-s" href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42C1 8.14 1 11.75 1 11.75s0 3.61.46 5.33a2.78 2.78 0 0 0 1.95 1.96C5.12 19.5 12 19.5 12 19.5s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96C23 15.36 23 11.75 23 11.75s0-3.61-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-col-h">Навигация</div>
+      <div class="ft-links">
+        <a href="example/example11_about.html">О группе</a>
+        <a href="example/example11_vocalists.html">Вокалисты</a>
+        <a href="example/example11_repertoire.html">Репертуар</a>
+        <a href="example/example11_gallery.html">Галерея</a>
+        <a href="example/example11_shows.html">Концерты</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-col-h">Контакты</div>
+      <div class="ft-links">
+        <a href="tel:+79990000000">+7 (999) 000-00-00</a>
+        <a href="mailto:booking@arteriya.ru">booking@arteriya.ru</a>
+        <a href="#">Telegram: @arteriya</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-col-h">Документы</div>
+      <div class="ft-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Обработка данных</a>
+        <a href="#">Оферта</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span class="ft-copy">© 2025 АРТЕРИЯ. Все права защищены.</span>
+    <span class="ft-mock">★ Макет — портфолио Millerson</span>
+  </div>
+</footer>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+<script>
+var MOON='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+var SUN='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>';
+(function(){var t=localStorage.getItem('e11t')||'dark';document.documentElement.dataset.theme=t;document.getElementById('theme-btn').innerHTML=t==='dark'?MOON:SUN;})();
+function toggleTheme(){var h=document.documentElement,n=h.dataset.theme==='dark'?'light':'dark';h.dataset.theme=n;localStorage.setItem('e11t',n);document.getElementById('theme-btn').innerHTML=n==='dark'?MOON:SUN;showToast(n==='dark'?'Тёмная тема':'Светлая тема');}
+function showToast(msg,type){type=type||'info';var c=document.getElementById('toasts'),el=document.createElement('div');el.className='toast toast-'+type;el.textContent=msg;c.appendChild(el);setTimeout(function(){el.classList.add('show')},10);setTimeout(function(){el.classList.remove('show');setTimeout(function(){el.remove()},400)},3000);}
+function toggleDrawer(){var d=document.getElementById('drawer'),b=document.getElementById('burger'),o=d.classList.toggle('open');b.dataset.open=o;}
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('stuck',scrollY>60);document.getElementById('back-top').classList.toggle('visible',scrollY>400);},{passive:true});
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}});},{threshold:0.1});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+(function(){
+  var cv=document.getElementById('hero-canvas');if(!cv)return;
+  var cx=cv.getContext('2d'),W,H,pts=[];
+  function resize(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;pts=[];var n=Math.min(Math.floor(W*H/9000),75);for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.1+.4});}
+  function tick(){cx.clearRect(0,0,W,H);var dark=document.documentElement.dataset.theme!=='light',c=dark?'255,82,0':'160,46,0';for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;for(var j=i+1;j<pts.length;j++){var q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.strokeStyle='rgba('+c+','+(1-d/130)*.15+')';cx.lineWidth=.55;cx.stroke();}}cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fillStyle='rgba('+c+',.4)';cx.fill();}requestAnimationFrame(tick);}
+  window.addEventListener('resize',resize);resize();tick();
+})();
+
+(function(){
+  var cv=document.getElementById('wave-canvas');if(!cv)return;
+  var cx=cv.getContext('2d'),t=0;
+  var bars=Array.from({length:52},function(){return{phase:Math.random()*Math.PI*2,sp:Math.random()*.015+.012};});
+  function draw(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;var W=cv.width,H=cv.height;cx.clearRect(0,0,W,H);var dark=document.documentElement.dataset.theme!=='light',bw=W/bars.length;bars.forEach(function(b,i){var h=(Math.sin(t*b.sp*40+b.phase)*.35+Math.sin(t*b.sp*22+b.phase+1)*.2+.55)*H*.7,a=dark?(.18+(i/bars.length)*.42):(.12+(i/bars.length)*.32);cx.fillStyle=dark?'rgba(255,82,0,'+a+')':'rgba(160,46,0,'+a+')';cx.fillRect(i*bw+1,H-h,bw-2,h);});t++;requestAnimationFrame(draw);}
+  draw();
+})();
+</script>
+</body>
+</html>
