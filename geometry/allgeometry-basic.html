@@ -167,6 +167,12 @@
         .seo-text li {
             margin-bottom: 8px;
         }
+    
+        .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 28px}
+        .filter-bar__btn{padding:9px 20px;background:var(--card-bg);border:2px solid var(--border);border-radius:30px;color:var(--text-primary);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:inherit}
+        .filter-bar__btn:hover{border-color:var(--accent);background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08)}
+        .filter-bar__btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .project-card[hidden]{display:none}
     </style>
     
 <script src="https://yandex.ru/ads/system/context.js" async></script>
@@ -229,6 +235,13 @@
         <a href="https://millerson.shop/mathematics.html" class="back-button"><i class="fas fa-arrow-left"></i> Назад в математику</a>
         <h1 class="main__title">Все геометрические калькуляторы</h1>
         <p class="main__description">Выберите фигуру для расчёта площади, периметра, сторон, углов, диагоналей, радиусов и других параметров.</p>
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-bar__btn active" data-filter="все">Все</button>
+            <button class="filter-bar__btn" data-filter="треугольник">Треугольники</button>
+            <button class="filter-bar__btn" data-filter="четырёхугольник">Четырёхугольники</button>
+            <button class="filter-bar__btn" data-filter="окружность">Окружности</button>
+            <button class="filter-bar__btn" data-filter="прочее">Прочее</button>
+        </div>
 
         <div class="search-wrapper">
             <i class="fas fa-search"></i>
@@ -390,61 +403,58 @@
     });
 
     const projects = [
-        { name: 'Круг', description: 'Площадь, длина окружности, радиус, диаметр. По радиусу, диаметру, длине или площади.', icon: 'fa-circle', link: 'circle.html' },
-        { name: 'Сектор круга', description: 'Площадь сектора, длина дуги, радиус, центральный угол. По радиусу и углу или радиусу и дуге.', icon: 'fa-chart-pie', link: 'sector.html' },
-        { name: 'Квадрат', description: 'Сторона, периметр, площадь, диагональ. По стороне, периметру, площади или диагонали.', icon: 'fa-square', link: 'square.html' },
-        { name: 'Прямоугольник', description: 'Стороны, периметр, площадь, диагональ. По двум сторонам, стороне и диагонали, стороне и периметру, стороне и площади.', icon: 'fa-rectangle-wide', link: 'rectangle.html' },
-        { name: 'Ромб', description: 'Сторона, периметр, площадь, диагонали, высота, углы. По стороне и углу, диагоналям или стороне и высоте.', icon: 'fa-diamond', link: 'rhombus.html' },
-        { name: 'Параллелограмм', description: 'Стороны, периметр, площадь, диагонали, высоты. По сторонам и углу, стороне и высоте, диагоналям и углу.', icon: 'fa-draw-polygon', link: 'parallelogram.html' },
-        { name: 'Трапеция', description: 'Площадь, периметр, средняя линия, высота. По основаниям и высоте или по четырём сторонам.', icon: 'fa-trapezoid', link: 'trapezoid.html' },
-        { name: 'Равнобедренная трапеция', description: 'Площадь, периметр, высота, средняя линия. По основаниям и боковой стороне.', icon: 'fa-trapezoid', link: 'isosceles-trapezoid.html' },
-        { name: 'Треугольник (универсальный)', description: 'Все стороны, углы, площадь, периметр, высоты, радиусы. 9 способов задания.', icon: 'fa-shape-triangle', link: 'triangle.html' },
-        { name: 'Равносторонний треугольник', description: 'Сторона, периметр, площадь, высота, радиусы вписанной и описанной окружности.', icon: 'fa-shape-triangle', link: 'equilateral-triangle.html' },
-        { name: 'Прямоугольный треугольник', description: 'Катеты, гипотенуза, площадь, периметр, высота, радиусы. По двум катетам или гипотенузе и катету.', icon: 'fa-shape-triangle', link: 'right-triangle.html' },
-        { name: 'Правильный многоугольник', description: 'Сторона, периметр, площадь, радиусы вписанной и описанной окружности. По стороне и числу сторон или радиусу описанной.', icon: 'fa-hexagon', link: 'regular-polygon.html' },
-        { name: 'Эллипс', description: 'Площадь, периметр, полуоси, фокусное расстояние, эксцентриситет. По большой и малой полуосям, площади и полуоси.', icon: 'fa-egg', link: 'ellipse.html' },
-        { name: 'Кольцо (Annulus)', description: 'Площадь кольца, длина внешней и внутренней окружностей, ширина. По двум радиусам, площади и одному радиусу.', icon: 'fa-ring', link: 'annulus.html' },
-        { name: 'Полукруг', description: 'Площадь, периметр (дуга + диаметр), длина дуги. По радиусу, диаметру, площади или периметру.', icon: 'fa-adjust', link: 'semicircle.html' },
-        { name: 'Прямоугольная трапеция', description: 'Площадь, периметр, наклонная сторона, диагонали, острый угол. По основаниям и высоте или основаниям и наклонной стороне.', icon: 'fa-trapezoid', link: 'right-trapezoid.html' },
-        { name: 'Дельтоид (воздушный змей)', description: 'Площадь, периметр, обе диагонали. По двум парам смежных сторон или по диагоналям.', icon: 'fa-diamond', link: 'kite.html' }
+        { name: 'Круг', description: 'Площадь, длина окружности, радиус, диаметр. По радиусу, диаметру, длине или площади.', icon: 'fa-circle', link: 'circle.html', type: 'окружность' },
+        { name: 'Сектор круга', description: 'Площадь сектора, длина дуги, радиус, центральный угол. По радиусу и углу или радиусу и дуге.', icon: 'fa-chart-pie', link: 'sector.html', type: 'окружность' },
+        { name: 'Квадрат', description: 'Сторона, периметр, площадь, диагональ. По стороне, периметру, площади или диагонали.', icon: 'fa-square', link: 'square.html', type: 'четырёхугольник' },
+        { name: 'Прямоугольник', description: 'Стороны, периметр, площадь, диагональ. По двум сторонам, стороне и диагонали, стороне и периметру, стороне и площади.', icon: 'fa-rectangle-wide', link: 'rectangle.html', type: 'четырёхугольник' },
+        { name: 'Ромб', description: 'Сторона, периметр, площадь, диагонали, высота, углы. По стороне и углу, диагоналям или стороне и высоте.', icon: 'fa-diamond', link: 'rhombus.html', type: 'четырёхугольник' },
+        { name: 'Параллелограмм', description: 'Стороны, периметр, площадь, диагонали, высоты. По сторонам и углу, стороне и высоте, диагоналям и углу.', icon: 'fa-draw-polygon', link: 'parallelogram.html', type: 'четырёхугольник' },
+        { name: 'Трапеция', description: 'Площадь, периметр, средняя линия, высота. По основаниям и высоте или по четырём сторонам.', icon: 'fa-trapezoid', link: 'trapezoid.html', type: 'четырёхугольник' },
+        { name: 'Равнобедренная трапеция', description: 'Площадь, периметр, высота, средняя линия. По основаниям и боковой стороне.', icon: 'fa-trapezoid', link: 'isosceles-trapezoid.html', type: 'четырёхугольник' },
+        { name: 'Треугольник (универсальный)', description: 'Все стороны, углы, площадь, периметр, высоты, радиусы. 9 способов задания.', icon: 'fa-shape-triangle', link: 'triangle.html', type: 'треугольник' },
+        { name: 'Равносторонний треугольник', description: 'Сторона, периметр, площадь, высота, радиусы вписанной и описанной окружности.', icon: 'fa-shape-triangle', link: 'equilateral-triangle.html', type: 'треугольник' },
+        { name: 'Прямоугольный треугольник', description: 'Катеты, гипотенуза, площадь, периметр, высота, радиусы. По двум катетам или гипотенузе и катету.', icon: 'fa-shape-triangle', link: 'right-triangle.html', type: 'треугольник' },
+        { name: 'Правильный многоугольник', description: 'Сторона, периметр, площадь, радиусы вписанной и описанной окружности. По стороне и числу сторон или радиусу описанной.', icon: 'fa-hexagon', link: 'regular-polygon.html', type: 'прочее' },
+        { name: 'Эллипс', description: 'Площадь, периметр, полуоси, фокусное расстояние, эксцентриситет. По большой и малой полуосям, площади и полуоси.', icon: 'fa-egg', link: 'ellipse.html', type: 'окружность' },
+        { name: 'Кольцо (Annulus)', description: 'Площадь кольца, длина внешней и внутренней окружностей, ширина. По двум радиусам, площади и одному радиусу.', icon: 'fa-ring', link: 'annulus.html', type: 'окружность' },
+        { name: 'Полукруг', description: 'Площадь, периметр (дуга + диаметр), длина дуги. По радиусу, диаметру, площади или периметру.', icon: 'fa-adjust', link: 'semicircle.html', type: 'окружность' },
+        { name: 'Прямоугольная трапеция', description: 'Площадь, периметр, наклонная сторона, диагонали, острый угол. По основаниям и высоте или основаниям и наклонной стороне.', icon: 'fa-trapezoid', link: 'right-trapezoid.html', type: 'четырёхугольник' },
+        { name: 'Дельтоид (воздушный змей)', description: 'Площадь, периметр, обе диагонали. По двум парам смежных сторон или по диагоналям.', icon: 'fa-diamond', link: 'kite.html', type: 'четырёхугольник' }
     ];
 
     const projectsGrid = document.getElementById('projectsGrid');
     const searchInput = document.getElementById('projectSearch');
 
-    function renderProjects(search = '') {
-        const filtered = projects.filter(project => 
-            project.name.toLowerCase().includes(search.toLowerCase()) || 
-            project.description.toLowerCase().includes(search.toLowerCase())
-        );
+    var currentFilter='все';
 
-        if (filtered.length === 0) {
-            projectsGrid.innerHTML = '<div class="no-results">Фигуры не найдены</div>';
-            return;
-        }
-
-        let html = '';
-        filtered.forEach(proj => {
-            html += `
-                <div class="project-card">
-                    <div class="project-preview">
-                        <i class="fas ${proj.icon}"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>${proj.name}</h3>
-                        <p>${proj.description}</p>
-                        <a href="${proj.link}" class="btn btn--primary project-link">Перейти</a>
-                    </div>
-                </div>
-            `;
+    function renderProjects(search) {
+        search=search||'';
+        const filtered=projects.filter(function(project){
+            const ms=project.name.toLowerCase().includes(search.toLowerCase())||project.description.toLowerCase().includes(search.toLowerCase());
+            const mf=currentFilter==='все'||project.type===currentFilter;
+            return ms&&mf;
         });
-        projectsGrid.innerHTML = html;
+        if(filtered.length===0){projectsGrid.innerHTML='<div class="no-results">Фигуры не найдены</div>';return;}
+        let html='';
+        filtered.forEach(function(proj){
+            html+='<div class="project-card" data-type="'+proj.type+'">'
+                +'<div class="project-preview"><i class="fas '+proj.icon+'"></i></div>'
+                +'<div class="project-info"><h3>'+proj.name+'</h3>'
+                +'<p>'+proj.description+'</p>'
+                +'<a href="'+proj.link+'" class="btn btn--primary project-link">Перейти</a>'
+                +'</div></div>';
+        });
+        projectsGrid.innerHTML=html;
     }
-
-    searchInput.addEventListener('input', function() {
-        renderProjects(this.value);
+    searchInput.addEventListener('input',function(){renderProjects(this.value);});
+    document.querySelectorAll('#filterBar .filter-bar__btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('#filterBar .filter-bar__btn').forEach(function(b){b.classList.remove('active');});
+            this.classList.add('active');
+            currentFilter=this.dataset.filter;
+            renderProjects(searchInput.value);
+        });
     });
-
     renderProjects();
 })();
 </script>
