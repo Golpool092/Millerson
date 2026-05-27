@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Вокалист — АРТЕРИЯ</title>
+<link rel="stylesheet" href="../example11.css"/>
+</head>
+<body>
+<div id="toasts"></div>
+<nav id="nav">
+  <a class="nav-logo" href="../example11.html">АРТЕ<span>РИЯ</span></a>
+  <div class="nav-center">
+    <a class="nav-link" href="example11_about.html">О группе</a>
+    <a class="nav-link active" href="example11_vocalists.html">Вокалисты</a>
+    <a class="nav-link" href="example11_repertoire.html">Репертуар</a>
+    <a class="nav-link" href="example11_gallery.html">Галерея</a>
+    <a class="nav-link" href="example11_shows.html">Концерты</a>
+    <a class="nav-link" href="example11_booking.html">Заказать</a>
+  </div>
+  <div class="nav-right">
+    <button id="theme-btn" onclick="toggleTheme()"></button>
+    <a class="nav-icon" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+    <a class="nav-icon" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9" stroke-linejoin="round"/></svg></a>
+    <button id="burger" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="drawer">
+  <a class="drawer-link" href="../example11.html">Главная<span>→</span></a>
+  <a class="drawer-link" href="example11_about.html">О группе<span>→</span></a>
+  <a class="drawer-link" href="example11_vocalists.html">Вокалисты<span>→</span></a>
+  <a class="drawer-link" href="example11_repertoire.html">Репертуар<span>→</span></a>
+  <a class="drawer-link" href="example11_gallery.html">Галерея<span>→</span></a>
+  <a class="drawer-link" href="example11_shows.html">Концерты<span>→</span></a>
+  <a class="drawer-link" href="example11_booking.html">Заказать<span>→</span></a>
+  <div class="drawer-bottom"><span class="drawer-soc">Instagram</span><span class="drawer-soc">Telegram</span></div>
+</div>
+<nav id="mob-tabs">
+  <button class="mob-tab" onclick="location.href='../example11.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Главная</button>
+  <button class="mob-tab active" onclick="location.href='example11_vocalists.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Состав</button>
+  <button class="mob-tab" onclick="location.href='example11_repertoire.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Репертуар</button>
+  <button class="mob-tab" onclick="location.href='example11_shows.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Концерты</button>
+  <button class="mob-tab" onclick="location.href='example11_booking.html'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Заказать</button>
+</nav>
+
+<div id="voc-hero" class="voc-hero">
+  <div class="voc-hero-img"><img id="voc-photo" src="" alt=""/></div>
+  <div class="voc-hero-content">
+    <a class="back-link" href="example11_vocalists.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Все вокалисты</a>
+    <div class="voc-big-name" id="voc-name"></div>
+    <span class="voc-role-script" id="voc-role"></span>
+  </div>
+</div>
+
+<div class="voc-body-wrap">
+  <div class="voc-layout">
+    <div>
+      <blockquote class="voc-quote" id="voc-quote"></blockquote>
+      <p class="voc-bio" id="voc-bio"></p>
+      <div class="voc-tags" id="voc-tags"></div>
+      <div class="voc-nav-row">
+        <a class="btn-primary" href="example11_booking.html">Заказать выступление</a>
+        <button class="btn-outline" onclick="showToast('Открываем Instagram...','info')">Instagram</button>
+        <button class="btn-outline" onclick="showToast('Открываем Telegram...','info')">Telegram</button>
+      </div>
+    </div>
+    <div>
+      <div class="voc-right" id="voc-stats"></div>
+      <div class="voc-mini-grid" style="margin-top:1.2rem" id="voc-imgs"></div>
+    </div>
+  </div>
+</div>
+
+<div class="prev-next" id="prev-next"></div>
+
+<footer>
+  <div class="ft-inner">
+    <div><div class="ft-logo">АРТЕ<span>РИЯ</span></div><div class="ft-tagline">Кавер-группа премиального уровня. Живой звук, Москва, с 2017 года.</div><div class="ft-soc"><a class="ft-s" href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a><a class="ft-s" href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9" stroke-linejoin="round"/></svg></a></div></div>
+    <div><div class="ft-col-h">Навигация</div><div class="ft-links"><a href="../example11.html">Главная</a><a href="example11_about.html">О группе</a><a href="example11_vocalists.html">Вокалисты</a><a href="example11_repertoire.html">Репертуар</a><a href="example11_shows.html">Концерты</a></div></div>
+    <div><div class="ft-col-h">Контакты</div><div class="ft-links"><a href="tel:+79990000000">+7 (999) 000-00-00</a><a href="mailto:booking@arteriya.ru">booking@arteriya.ru</a><a href="#">Telegram: @arteriya</a></div></div>
+    <div><div class="ft-col-h">Документы</div><div class="ft-links"><a href="#">Политика конфиденциальности</a><a href="#">Оферта</a></div></div>
+  </div>
+  <div class="ft-bot"><span class="ft-copy">© 2025 АРТЕРИЯ. Все права защищены.</span><span class="ft-mock">★ Макет — портфолио Millerson</span></div>
+</footer>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+<script>
+var MOON='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+var SUN='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>';
+(function(){var t=localStorage.getItem('e11t')||'dark';document.documentElement.dataset.theme=t;document.getElementById('theme-btn').innerHTML=t==='dark'?MOON:SUN;})();
+function toggleTheme(){var h=document.documentElement,n=h.dataset.theme==='dark'?'light':'dark';h.dataset.theme=n;localStorage.setItem('e11t',n);document.getElementById('theme-btn').innerHTML=n==='dark'?MOON:SUN;showToast(n==='dark'?'Тёмная тема':'Светлая тема');}
+function showToast(msg,type){type=type||'info';var c=document.getElementById('toasts'),el=document.createElement('div');el.className='toast toast-'+type;el.textContent=msg;c.appendChild(el);setTimeout(function(){el.classList.add('show')},10);setTimeout(function(){el.classList.remove('show');setTimeout(function(){el.remove()},400)},3000);}
+function toggleDrawer(){var d=document.getElementById('drawer'),b=document.getElementById('burger'),o=d.classList.toggle('open');b.dataset.open=o;}
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('stuck',scrollY>60);document.getElementById('back-top').classList.toggle('visible',scrollY>400);},{passive:true});
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}});},{threshold:0.1});
+
+var V=[
+  {id:1,fn:'Мария',ln:'Волошина',role:'Ведущий вокалист',
+   photo:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1400&q=85&fit=crop&crop=top&auto=format',
+   thumb:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&q=80&fit=crop&crop=top&auto=format',
+   q:'"Сцена — это единственное место, где я чувствую себя полностью собой."',
+   bio:'Мария окончила Московскую государственную консерваторию по специальности «эстрадный вокал» с отличием. Её голос охватывает более трёх октав — от глубокого меццо до воздушного сопрано. В составе АРТЕРИИ с 2017 года. Участница телешоу «Ярче звезда», финалистка международного вокального конкурса в Варшаве.',
+   tags:['Поп-рок','R&B','Баллады','Хореография','3+ октавы'],shows:120,years:7,hits:45,
+   e1:'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500&q=75&fit=crop&auto=format',
+   e2:'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=500&q=75&fit=crop&auto=format'},
+  {id:2,fn:'Андрей',ln:'Красилов',role:'Вокалист · Гитарист',
+   photo:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1400&q=85&fit=crop&crop=top&auto=format',
+   thumb:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80&fit=crop&crop=top&auto=format',
+   q:'"Хорошая музыка не требует объяснений — она просто попадает прямо в сердце."',
+   bio:'Андрей — мастер рок-вокала и виртуозный гитарист с 15 годами сценического опыта. В АРТЕРИЮ пришёл в 2018 году, привнеся настоящий рок-дух. Технически исполняет партии Metallica, Queen и Led Zeppelin. Преподаёт вокал в музыкальной школе Москвы.',
+   tags:['Рок','Металл','Гитара','Classic Rock','Хардрок'],shows:95,years:5,hits:55,
+   e1:'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500&q=75&fit=crop&auto=format',
+   e2:'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&q=75&fit=crop&auto=format'},
+  {id:3,fn:'Алина',ln:'Светова',role:'Вокалист',
+   photo:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1400&q=85&fit=crop&crop=top&auto=format',
+   thumb:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&q=80&fit=crop&crop=top&auto=format',
+   q:'"Каждая песня — это маленькая жизнь. Я проживаю её вместе с аудиторией."',
+   bio:'Алина — обладательница бархатного контральто с невероятной эмоциональной глубиной. Специализируется на соул, джазе и R&B. Её исполнение Adele, Beyoncé и Amy Winehouse вызывает неизменный восторг. В составе АРТЕРИИ отвечает за особую атмосферу медленных программ.',
+   tags:['Soul','Jazz','R&B','Adele','Beyoncé'],shows:80,years:4,hits:38,
+   e1:'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=500&q=75&fit=crop&auto=format',
+   e2:'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=500&q=75&fit=crop&auto=format'},
+  {id:4,fn:'Кирилл',ln:'Дементьев',role:'Вокалист · Клавишник',
+   photo:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1400&q=85&fit=crop&crop=top&auto=format',
+   thumb:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80&fit=crop&crop=top&auto=format',
+   q:'"Джаз — это не просто жанр. Это способ мышления, способ жить."',
+   bio:'Кирилл — джазовый вокалист и пианист, выпускник Гнесинки. Участник международных джазовых фестивалей. В АРТЕРИИ отвечает за фанк, джаз и поп-блоки. Его уникальная способность — импровизировать вживую, превращая каждое выступление в неповторимый опыт.',
+   tags:['Jazz','Funk','Piano','Импровизация','Гнесинка'],shows:110,years:6,hits:42,
+   e1:'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=500&q=75&fit=crop&auto=format',
+   e2:'https://images.unsplash.com/photo-1574169208507-84376144848b?w=500&q=75&fit=crop&auto=format'},
+  {id:5,fn:'Александра',ln:'Кима',role:'Вокалист · Хореограф',
+   photo:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1400&q=85&fit=crop&crop=top&auto=format',
+   thumb:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80&fit=crop&crop=top&auto=format',
+   q:'"Красивый голос — инструмент. Но искренность — то, что заставляет плакать."',
+   bio:'Александра — яркая поп-вокалистка с природным сопрано и врождённым артистизмом. Специализируется на современном западном попе. В её арсенале хиты Billie Eilish, Taylor Swift, Dua Lipa. Является хореографом группы и создаёт авторские сценические постановки.',
+   tags:['Поп','Taylor Swift','Dua Lipa','Хореограф','Сопрано'],shows:90,years:4,hits:48,
+   e1:'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=500&q=75&fit=crop&auto=format',
+   e2:'https://images.unsplash.com/photo-1511735111819-9a3efd16269c?w=500&q=75&fit=crop&auto=format'},
+  {id:6,fn:'Сергей',ln:'Новиков',role:'Вокалист · Бас-гитарист',
+   photo:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1400&q=85&fit=crop&crop=top&auto=format',
+   thumb:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&q=80&fit=crop&crop=top&auto=format',
+   q:'"Бас-гитара — скелет музыки. Без ритмической основы всё рассыпается."',
+   bio:'Сергей — музыкант с 20-летним опытом, виртуозный бас-гитарист и глубокий вокалист. Его низкий тембр создаёт особую атмосферу в блюзовых и рок-блоках. Работал с несколькими профессиональными коллективами по всей России. Опора ритм-секции АРТЕРИИ.',
+   tags:['Blues','Rock','Бас-гитара','Многоголосие','20+ лет'],shows:130,years:7,hits:36,
+   e1:'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=500&q=75&fit=crop&auto=format',
+   e2:'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=500&q=75&fit=crop&auto=format'},
+];
+
+var id=parseInt(new URLSearchParams(location.search).get('v'))||1;
+var v=V.find(function(x){return x.id===id})||V[0];
+document.title=v.fn+' '+v.ln+' — АРТЕРИЯ';
+document.getElementById('voc-photo').src=v.photo;
+document.getElementById('voc-photo').alt=v.fn+' '+v.ln;
+document.getElementById('voc-name').textContent=v.fn+'\n'+v.ln;
+document.getElementById('voc-role').textContent=v.role;
+document.getElementById('voc-quote').textContent=v.q;
+document.getElementById('voc-bio').textContent=v.bio;
+document.getElementById('voc-tags').innerHTML=v.tags.map(function(t){return'<span class="voc-tag">'+t+'</span>';}).join('');
+document.getElementById('voc-stats').innerHTML=[
+  [v.shows+'+','выступлений'],[''+v.years+' лет','на сцене'],[''+v.hits+'+','треков в репертуаре']
+].map(function(s){return'<div class="voc-stat-card"><div class="vsc-n">'+s[0]+'</div><div class="vsc-l">'+s[1]+'</div></div>';}).join('');
+document.getElementById('voc-imgs').innerHTML='<div class="voc-mini"><img src="'+v.e1+'" alt=""/></div><div class="voc-mini" style="margin-top:1.5rem"><img src="'+v.e2+'" alt=""/></div>';
+
+var prev=V.find(function(x){return x.id===id-1}),next=V.find(function(x){return x.id===id+1});
+document.getElementById('prev-next').innerHTML=
+  (prev?'<div class="pn-btn" onclick="location.href=\'example11_vocalist.html?v='+prev.id+'\'"><div class="pn-thumb"><img src="'+prev.thumb+'" alt="'+prev.fn+'"/></div><div><div class="pn-lbl">← Предыдущий</div><div class="pn-name">'+prev.fn+'</div></div></div>':'<div></div>')+
+  (next?'<div class="pn-btn right" onclick="location.href=\'example11_vocalist.html?v='+next.id+'\'"><div class="pn-thumb"><img src="'+next.thumb+'" alt="'+next.fn+'"/></div><div><div class="pn-lbl">Следующий →</div><div class="pn-name">'+next.fn+'</div></div></div>':'<div></div>');
+
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
