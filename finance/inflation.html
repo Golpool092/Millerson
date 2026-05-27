@@ -32,6 +32,25 @@
 <link rel="icon" type="image/png" href="../favicon.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="style.css" />
+<style>
+.task-switcher{margin-bottom:24px}
+.task-switcher__label{font-size:0.85rem;margin-bottom:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#6b7280}
+.task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+.task-btn{flex:1;min-width:140px;padding:14px 12px;background:#f9fafb;border:2px solid #e5e7eb;border-radius:14px;color:#111827;font-size:0.88rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+.task-btn small{display:block;font-size:0.76rem;font-weight:400;color:#6b7280;margin-top:4px}
+.task-btn:hover{border-color:#22c55e;background:#f0fdf4}
+.task-btn.active{background:#22c55e;border-color:#22c55e;color:#fff}
+.task-btn.active small{color:rgba(255,255,255,0.85)}
+.result-box-fin{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:16px;padding:20px;margin-top:20px}
+.result-box-fin .answer-highlight{font-size:1.4rem;font-weight:700;color:#16a34a;display:block;margin:8px 0}
+.step-box-fin{margin-top:16px;background:#f8fafc;border-radius:14px;padding:16px;border:1px solid #e5e7eb;font-size:0.9rem;color:#374151;line-height:1.7}
+body.dark-theme .task-btn{background:#1f2937;border-color:#374151;color:#f9fafb}
+body.dark-theme .task-btn:hover{border-color:#22c55e;background:#052e16}
+body.dark-theme .result-box-fin{background:#052e16;border-color:#166534}
+body.dark-theme .result-box-fin .answer-highlight{color:#4ade80}
+body.dark-theme .step-box-fin{background:#111827;border-color:#374151;color:#d1d5db}
+</style>
+
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Millerson Company","url":"https://millerson.shop","logo":"https://millerson.shop/favicon.png","email":"MillersonShop@gmail.com"}
 </script>
@@ -79,12 +98,17 @@
     </div>
   </div>
   <div class="calc-card__body">
-    <div class="form-grid">
-      <div class="form-group"><label for="iamt">Сумма (₽)</label><input type="number" id="iamt" value="1000000" min="1" step="1000"></div>
-      <div class="form-group"><label for="iinfl">Годовая инфляция (%)</label><input type="number" id="iinfl" value="8" min="0" step="0.1"></div>
-      <div class="form-group"><label for="iyears">Срок (лет)</label><input type="number" id="iyears" value="10" min="1" max="50"></div>
+    <div class="task-switcher">
+      <p class="task-switcher__label">Выберите тип задачи:</p>
+      <div class="task-switcher__buttons">
+        <button class="task-btn active" data-mode="future">📈 Что будет стоить<br><small>Цена через N лет с учётом инфляции</small></button>
+        <button class="task-btn" data-mode="past">📉 Сколько стоило раньше<br><small>Цена N лет назад</small></button>
+        <button class="task-btn" data-mode="find-infl">🔍 Найти инфляцию<br><small>Знаю цену тогда и сейчас</small></button>
+      </div>
     </div>
-    <div id="inflRes" class="result-grid" style="display:none;"></div><div id="inflChart" class="chart-wrap" style="display:none;"></div>
+    <div id="infFieldsArea"></div>
+    <button id="infCalcBtn" style="margin-top:16px;padding:12px 28px;background:#22c55e;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;width:100%">Рассчитать</button>
+    <div id="infResult"></div>
   </div>
 </div>
 <section class="seo-text">
@@ -141,30 +165,96 @@
 <script src="particles.js"></script>
 <script>
 (function(){
-
 function fmt(v){return Math.round(v).toLocaleString('ru-RU');}
-function calc(){
-  var S=+document.getElementById('iamt').value||0;
-  var inf=+document.getElementById('iinfl').value/100||0;
-  var t=+document.getElementById('iyears').value||1;
-  var real=S/Math.pow(1+inf,t);
-  var lost=S-real;
-  var needed=S*Math.pow(1+inf,t);
-  document.getElementById('inflRes').style.display='grid';
-  document.getElementById('inflRes').innerHTML=
-    '<div class="result-item"><div class="result-item__label">Реальная стоимость через '+t+' лет</div><div class="result-item__value">'+fmt(real)+' ₽</div><div class="result-item__note">В сегодняшних ценах</div></div>'+
-    '<div class="result-item orange"><div class="result-item__label">Потеря покупательной способности</div><div class="result-item__value">'+fmt(lost)+' ₽</div></div>'+
-    '<div class="result-item"><div class="result-item__label">Нужно накопить</div><div class="result-item__value">'+fmt(needed)+' ₽</div><div class="result-item__note">Для той же покупательной способности</div></div>'+
-    '<div class="result-item"><div class="result-item__label">Обесценивание</div><div class="result-item__value">'+(lost/S*100).toFixed(1)+'%</div></div>';
-  var ch='<div class="bar-chart">';var maxV=S;var vals=[];
-  for(var y=1;y<=t;y++){var v=S/Math.pow(1+inf,y);vals.push(v);}
-  vals.forEach(function(v,i){ch+='<div class="bar secondary" style="height:'+Math.max(4,Math.round(v/maxV*140))+'px" title="Год '+(i+1)+': '+fmt(v)+' ₽"></div>';});
-  ch+='</div><div style="font-size:0.75rem;color:var(--text-secondary);text-align:center;margin-top:8px;">Покупательная способность по годам</div>';
-  document.getElementById('inflChart').style.display='block';
-  document.getElementById('inflChart').innerHTML=ch;
+function fmtDec(v,d){return v.toLocaleString('ru-RU',{minimumFractionDigits:d||2,maximumFractionDigits:d||2});}
+
+var infMode='future';
+
+var infModes={
+    'future':{fields:[
+        {id:'infP',label:'Цена сейчас (₽)',value:'1000000',step:'1000',min:'1'},
+        {id:'infI',label:'Годовая инфляция (%)',value:'8',step:'0.1',min:'0'},
+        {id:'infN',label:'Количество лет',value:'10',step:'1',min:'1'}
+    ]},
+    'past':{fields:[
+        {id:'infP',label:'Цена сейчас (₽)',value:'1000000',step:'1000',min:'1'},
+        {id:'infI',label:'Годовая инфляция (%)',value:'8',step:'0.1',min:'0'},
+        {id:'infN',label:'Количество лет назад',value:'10',step:'1',min:'1'}
+    ]},
+    'find-infl':{fields:[
+        {id:'infThen',label:'Цена тогда (₽)',value:'500000',step:'1000',min:'1'},
+        {id:'infP',label:'Цена сейчас (₽)',value:'1000000',step:'1000',min:'1'},
+        {id:'infN',label:'Количество лет',value:'10',step:'1',min:'1'}
+    ]}
+};
+
+function renderFields(){
+    var html='<div class="form-grid">';
+    infModes[infMode].fields.forEach(function(f){
+        html+='<div class="form-group"><label>'+f.label+'</label>'
+            +'<input type="number" id="'+f.id+'" value="'+f.value+'" step="'+f.step+'" min="'+(f.min||'0')+'"></div>';
+    });
+    html+='</div>';
+    document.getElementById('infFieldsArea').innerHTML=html;
 }
-document.querySelectorAll('#iamt,#iinfl,#iyears').forEach(function(el){el.addEventListener('input',calc);});
-calc();
+
+function gv(id){var el=document.getElementById(id);return el?parseFloat(el.value)||0:0;}
+
+function infCalc(){
+    var res=document.getElementById('infResult');
+    if(infMode==='future'){
+        var P=gv('infP'),i=gv('infI')/100,n=gv('infN');
+        if(P<=0||n<1){res.innerHTML='<div class="result-box-fin" style="background:#fef2f2;border-color:#fecaca"><strong style="color:#dc2626">Цена > 0 и лет ≥ 1</strong></div>';return;}
+        var future=P*Math.pow(1+i,n);
+        var rise=future-P;
+        res.innerHTML='<div class="result-box-fin">'
+            +'<span class="answer-highlight">Цена через '+n+' лет: '+fmt(future)+' ₽</span>'
+            +'<div style="margin-top:8px;line-height:1.8">'
+            +'<strong>Рост цены:</strong> +'+fmt(rise)+' ₽ (+'+(rise/P*100).toFixed(1)+'%)<br>'
+            +'<strong>Формула:</strong> '+fmt(P)+' × (1 + '+gv('infI')+'%)^'+n
+            +'</div></div>'
+            +'<div class="step-box-fin">При инфляции '+gv('infI')+'% годовых товар, стоящий сейчас '+fmt(P)+' ₽, через '+n+' лет будет стоить '+fmt(future)+' ₽.</div>';
+    } else if(infMode==='past'){
+        var P=gv('infP'),i=gv('infI')/100,n=gv('infN');
+        if(P<=0||n<1){res.innerHTML='<div class="result-box-fin" style="background:#fef2f2;border-color:#fecaca"><strong style="color:#dc2626">Цена > 0 и лет ≥ 1</strong></div>';return;}
+        var past=P/Math.pow(1+i,n);
+        var rise=P-past;
+        res.innerHTML='<div class="result-box-fin">'
+            +'<span class="answer-highlight">Цена '+n+' лет назад: '+fmt(past)+' ₽</span>'
+            +'<div style="margin-top:8px;line-height:1.8">'
+            +'<strong>Выросло на:</strong> +'+fmt(rise)+' ₽ (+'+(rise/past*100).toFixed(1)+'%)<br>'
+            +'<strong>Формула:</strong> '+fmt(P)+' ÷ (1 + '+gv('infI')+'%)^'+n
+            +'</div></div>'
+            +'<div class="step-box-fin">Если инфляция была '+gv('infI')+'% в год, то '+n+' лет назад этот товар стоил всего '+fmt(past)+' ₽.</div>';
+    } else {
+        var then=gv('infThen'),now=gv('infP'),n=gv('infN');
+        if(then<=0||now<=0||n<1){res.innerHTML='<div class="result-box-fin" style="background:#fef2f2;border-color:#fecaca"><strong style="color:#dc2626">Все значения должны быть > 0</strong></div>';return;}
+        if(now<=then){res.innerHTML='<div class="result-box-fin" style="background:#fef2f2;border-color:#fecaca"><strong style="color:#dc2626">Текущая цена должна быть выше старой</strong></div>';return;}
+        var rate=(Math.pow(now/then,1/n)-1)*100;
+        var rise=now-then;
+        res.innerHTML='<div class="result-box-fin">'
+            +'<span class="answer-highlight">Среднегодовая инфляция: '+fmtDec(rate)+'% в год</span>'
+            +'<div style="margin-top:8px;line-height:1.8">'
+            +'<strong>Рост цены за '+n+' лет:</strong> +'+fmt(rise)+' ₽ (+'+(rise/then*100).toFixed(1)+'%)<br>'
+            +'<strong>Формула:</strong> (('+fmt(now)+' / '+fmt(then)+')^(1/'+n+') − 1) × 100'
+            +'</div></div>'
+            +'<div class="step-box-fin">Если товар подорожал с '+fmt(then)+' до '+fmt(now)+' ₽ за '+n+' лет, то среднегодовая инфляция составила '+fmtDec(rate)+'%.</div>';
+    }
+}
+
+document.querySelectorAll('.task-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+        document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+        this.classList.add('active');
+        infMode=this.dataset.mode;
+        renderFields();
+        document.getElementById('infResult').innerHTML='';
+    });
+});
+document.getElementById('infCalcBtn').addEventListener('click',infCalc);
+
+renderFields();
+infCalc();
 })();
 </script>
 <script src="menu.js"></script>

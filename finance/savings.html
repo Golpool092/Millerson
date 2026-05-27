@@ -32,6 +32,25 @@
 <link rel="icon" type="image/png" href="../favicon.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="style.css" />
+<style>
+.task-switcher{margin-bottom:24px}
+.task-switcher__label{font-size:0.85rem;margin-bottom:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#6b7280}
+.task-switcher__buttons{display:flex;gap:10px;flex-wrap:wrap}
+.task-btn{flex:1;min-width:140px;padding:14px 12px;background:#f9fafb;border:2px solid #e5e7eb;border-radius:14px;color:#111827;font-size:0.88rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4;font-family:inherit}
+.task-btn small{display:block;font-size:0.76rem;font-weight:400;color:#6b7280;margin-top:4px}
+.task-btn:hover{border-color:#22c55e;background:#f0fdf4}
+.task-btn.active{background:#22c55e;border-color:#22c55e;color:#fff}
+.task-btn.active small{color:rgba(255,255,255,0.85)}
+.result-box-fin{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:16px;padding:20px;margin-top:20px}
+.result-box-fin .answer-highlight{font-size:1.4rem;font-weight:700;color:#16a34a;display:block;margin:8px 0}
+.step-box-fin{margin-top:16px;background:#f8fafc;border-radius:14px;padding:16px;border:1px solid #e5e7eb;font-size:0.9rem;color:#374151;line-height:1.7}
+body.dark-theme .task-btn{background:#1f2937;border-color:#374151;color:#f9fafb}
+body.dark-theme .task-btn:hover{border-color:#22c55e;background:#052e16}
+body.dark-theme .result-box-fin{background:#052e16;border-color:#166534}
+body.dark-theme .result-box-fin .answer-highlight{color:#4ade80}
+body.dark-theme .step-box-fin{background:#111827;border-color:#374151;color:#d1d5db}
+</style>
+
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Millerson Company","url":"https://millerson.shop","logo":"https://millerson.shop/favicon.png","email":"MillersonShop@gmail.com"}
 </script>
@@ -79,14 +98,17 @@
     </div>
   </div>
   <div class="calc-card__body">
-    <div class="form-grid">
-      <div class="form-group"><label for="principal">Начальная сумма (₽)</label><input type="number" id="principal" value="100000" min="0" step="1000"></div>
-      <div class="form-group"><label for="monthly">Ежемесячное пополнение (₽)</label><input type="number" id="monthly" value="10000" min="0" step="500"></div>
-      <div class="form-group"><label for="srate">Ставка (% годовых)</label><input type="number" id="srate" value="16" min="0" step="0.1"></div>
-      <div class="form-group"><label for="syears">Срок (лет)</label><input type="number" id="syears" value="5" min="1" max="50"></div>
-      <div class="form-group"><label for="cap">Капитализация</label><select id="cap"><option value="12">Ежемесячно</option><option value="4">Ежеквартально</option><option value="2">Раз в полгода</option><option value="1">Ежегодно</option></select></div>
+    <div class="task-switcher">
+      <p class="task-switcher__label">Выберите тип задачи:</p>
+      <div class="task-switcher__buttons">
+        <button class="task-btn active" data-mode="find-total">💰 Найти итоговую сумму<br><small>Знаю вклад, пополнение, ставку и срок</small></button>
+        <button class="task-btn" data-mode="find-months">⏱ Найти срок накопления<br><small>Знаю пополнение, ставку и цель</small></button>
+        <button class="task-btn" data-mode="find-rate">📈 Найти нужную ставку<br><small>Знаю пополнение, срок и цель</small></button>
+      </div>
     </div>
-    <div id="savResult" class="result-grid" style="display:none;"></div><div id="savChart" class="chart-wrap" style="display:none;"></div>
+    <div id="svFieldsArea"></div>
+    <button id="svCalcBtn" style="margin-top:16px;padding:12px 28px;background:#22c55e;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;width:100%">Рассчитать</button>
+    <div id="svResult"></div>
   </div>
 </div>
 <section class="seo-text">
@@ -148,49 +170,123 @@
 <script src="particles.js"></script>
 <script>
 (function(){
-
 function fmt(v){return Math.round(v).toLocaleString('ru-RU');}
-function calc(){
-  var P=+document.getElementById('principal').value||0;
-  var M=+document.getElementById('monthly').value||0;
-  var r=+document.getElementById('srate').value/100||0;
-  var t=+document.getElementById('syears').value||1;
-  var n=+document.getElementById('cap').value||12;
-  var months=t*12;
-  var rPer=r/n;
-  var nTotal=n*t;
-  var FV_P=P*Math.pow(1+rPer,nTotal);
-  // Monthly contribution: assume monthly additions regardless of cap
-  var FV_M=M*((Math.pow(1+rPer,nTotal)-1)/rPer)*(n/12);
-  var FV=FV_P+FV_M;
-  var contributed=P+M*months;
-  var interest=FV-contributed;
+function fmtDec(v){return v.toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2});}
 
-  document.getElementById('savResult').style.display='grid';
-  document.getElementById('savResult').innerHTML=
-    '<div class="result-item"><div class="result-item__label">Итоговая сумма</div><div class="result-item__value">'+fmt(FV)+' ₽</div></div>'+
-    '<div class="result-item orange"><div class="result-item__label">Доход от процентов</div><div class="result-item__value">'+fmt(interest)+' ₽</div></div>'+
-    '<div class="result-item"><div class="result-item__label">Внесено вами</div><div class="result-item__value">'+fmt(contributed)+' ₽</div></div>'+
-    '<div class="result-item"><div class="result-item__label">Эффективная доходность</div><div class="result-item__value">'+(contributed>0?(interest/contributed*100).toFixed(1):0)+'%</div></div>';
+var currentMode='find-total';
 
-  // bar chart by year
-  var chartEl=document.getElementById('savChart');
-  chartEl.style.display='block';
-  var yearVals=[];
-  for(var y=1;y<=t;y++){
-    var nY=n*y;
-    var fvY=P*Math.pow(1+rPer,nY)+M*((Math.pow(1+rPer,nY)-1)/rPer)*(n/12);
-    yearVals.push(fvY);
-  }
-  var maxV=Math.max.apply(null,yearVals);
-  var ch='<div class="bar-chart">';
-  yearVals.forEach(function(v,i){ch+='<div class="bar" style="height:'+Math.max(4,Math.round(v/maxV*140))+'px" title="Год '+(i+1)+': '+fmt(v)+' ₽"></div>';});
-  ch+='</div><div style="font-size:0.75rem;color:var(--text-secondary);text-align:center;margin-top:8px;">Рост накоплений по годам</div>';
-  chartEl.innerHTML=ch;
+var svModes={
+    'find-total':{fields:[
+        {id:'svP',label:'Начальная сумма (₽)',value:'100000',step:'1000',min:'0'},
+        {id:'svM',label:'Ежемесячное пополнение (₽)',value:'10000',step:'500',min:'0'},
+        {id:'svR',label:'Ставка (% годовых)',value:'16',step:'0.1',min:'0'},
+        {id:'svT',label:'Срок (лет)',value:'5',step:'1',min:'1'}
+    ]},
+    'find-months':{fields:[
+        {id:'svP',label:'Начальная сумма (₽)',value:'100000',step:'1000',min:'0'},
+        {id:'svM',label:'Ежемесячное пополнение (₽)',value:'10000',step:'500',min:'1'},
+        {id:'svR',label:'Ставка (% годовых)',value:'16',step:'0.1',min:'0'},
+        {id:'svG',label:'Целевая сумма (₽)',value:'1000000',step:'1000',min:'1'}
+    ]},
+    'find-rate':{fields:[
+        {id:'svP',label:'Начальная сумма (₽)',value:'100000',step:'1000',min:'0'},
+        {id:'svM',label:'Ежемесячное пополнение (₽)',value:'10000',step:'500',min:'0'},
+        {id:'svT',label:'Срок (лет)',value:'5',step:'1',min:'1'},
+        {id:'svG',label:'Целевая сумма (₽)',value:'1000000',step:'1000',min:'1'}
+    ]}
+};
+
+function renderFields(){
+    var html='<div class="form-grid">';
+    svModes[currentMode].fields.forEach(function(f){
+        html+='<div class="form-group"><label>'+f.label+'</label>'
+            +'<input type="number" id="'+f.id+'" value="'+f.value+'" step="'+f.step+'" min="'+(f.min||'0')+'"></div>';
+    });
+    html+='</div>';
+    document.getElementById('svFieldsArea').innerHTML=html;
 }
-document.querySelectorAll('#principal,#monthly,#srate,#syears').forEach(function(el){el.addEventListener('input',calc);});
-document.getElementById('cap').addEventListener('change',calc);
-calc();
+
+function gv(id){var el=document.getElementById(id);return el?parseFloat(el.value)||0:0;}
+
+function calcFV(P,M,r,months){
+    var rM=r/12/100;
+    var bal=P;
+    for(var i=0;i<months;i++){bal=bal*(1+rM)+M;}
+    return bal;
+}
+
+function svCalc(){
+    var res=document.getElementById('svResult');
+    if(currentMode==='find-total'){
+        var P=gv('svP'),M=gv('svM'),r=gv('svR'),t=gv('svT');
+        var months=Math.round(t*12);
+        var FV=calcFV(P,M,r,months);
+        var contrib=P+M*months;
+        var interest=FV-contrib;
+        res.innerHTML='<div class="result-box-fin">'
+            +'<span class="answer-highlight">Итоговая сумма: '+fmt(FV)+' ₽</span>'
+            +'<div style="margin-top:8px;line-height:1.8">'
+            +'<strong>Доход от процентов:</strong> '+fmt(interest)+' ₽<br>'
+            +'<strong>Внесено вами:</strong> '+fmt(contrib)+' ₽<br>'
+            +'<strong>Эффективная доходность:</strong> '+(contrib>0?(interest/contrib*100).toFixed(1):0)+'%'
+            +'</div></div>'
+            +'<div class="step-box-fin"><strong>Как считается:</strong> каждый месяц к балансу прибавляется '
+            +(r/12).toFixed(3)+'% (годовая ставка '+r+'% ÷ 12) и вносится '+fmt(M)+' ₽. Итого за '+months+' месяцев.</div>';
+    } else if(currentMode==='find-months'){
+        var P=gv('svP'),M=gv('svM'),r=gv('svR'),G=gv('svG');
+        if(M<=0){res.innerHTML='<div class="result-box-fin" style="background:#fef2f2;border-color:#fecaca"><strong style="color:#dc2626">Ежемесячное пополнение должно быть > 0</strong></div>';return;}
+        if(G<=P&&M===0){res.innerHTML='<div class="result-box-fin" style="background:#fef2f2;border-color:#fecaca"><strong style="color:#dc2626">Цель уже достигнута</strong></div>';return;}
+        var bal=P, months=0, maxM=12*100;
+        while(bal<G&&months<maxM){bal=bal*(1+r/12/100)+M;months++;}
+        if(bal<G){res.innerHTML='<div class="result-box-fin" style="background:#fef2f2;border-color:#fecaca"><strong style="color:#dc2626">Цель недостижима за 100 лет — увеличьте пополнение или ставку</strong></div>';return;}
+        var years=Math.floor(months/12), mo=months%12;
+        var contrib=P+M*months, interest=bal-contrib;
+        res.innerHTML='<div class="result-box-fin">'
+            +'<span class="answer-highlight">Срок: '+months+' мес. ('+years+' лет '+mo+' мес.)</span>'
+            +'<div style="margin-top:8px;line-height:1.8">'
+            +'<strong>Итоговая сумма:</strong> '+fmt(bal)+' ₽<br>'
+            +'<strong>Внесено вами:</strong> '+fmt(contrib)+' ₽<br>'
+            +'<strong>Доход от процентов:</strong> '+fmt(interest)+' ₽'
+            +'</div></div>'
+            +'<div class="step-box-fin">При ставке '+r+'% годовых и пополнении '+fmt(M)+' ₽/мес. целевая сумма '+fmt(G)+' ₽ будет достигнута через '+months+' месяцев.</div>';
+    } else {
+        var P=gv('svP'),M=gv('svM'),T=gv('svT'),G=gv('svG');
+        var months=Math.round(T*12);
+        if(calcFV(P,M,0,months)>=G){
+            res.innerHTML='<div class="result-box-fin"><span class="answer-highlight">Ставка: 0% — цель достигается без процентов</span></div>';return;
+        }
+        var lo=0,hi=500,rate=0;
+        for(var i=0;i<60;i++){
+            var mid=(lo+hi)/2;
+            if(calcFV(P,M,mid,months)>=G)hi=mid; else lo=mid;
+        }
+        rate=(lo+hi)/2;
+        var FV=calcFV(P,M,rate,months);
+        var contrib=P+M*months, interest=FV-contrib;
+        res.innerHTML='<div class="result-box-fin">'
+            +'<span class="answer-highlight">Минимальная ставка: '+rate.toFixed(2)+'% годовых</span>'
+            +'<div style="margin-top:8px;line-height:1.8">'
+            +'<strong>Итоговая сумма:</strong> '+fmt(FV)+' ₽<br>'
+            +'<strong>Внесено вами:</strong> '+fmt(contrib)+' ₽<br>'
+            +'<strong>Доход от процентов:</strong> '+fmt(interest)+' ₽'
+            +'</div></div>'
+            +'<div class="step-box-fin">Чтобы за '+months+' месяцев накопить '+fmt(G)+' ₽ при начальной сумме '+fmt(P)+' ₽ и пополнении '+fmt(M)+' ₽/мес., нужна ставка минимум '+rate.toFixed(2)+'% годовых.</div>';
+    }
+}
+
+document.querySelectorAll('.task-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+        document.querySelectorAll('.task-btn').forEach(function(b){b.classList.remove('active');});
+        this.classList.add('active');
+        currentMode=this.dataset.mode;
+        renderFields();
+        document.getElementById('svResult').innerHTML='';
+    });
+});
+document.getElementById('svCalcBtn').addEventListener('click',svCalc);
+
+renderFields();
+svCalc();
 })();
 </script>
 <script src="menu.js"></script>
