@@ -38,7 +38,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 ::-webkit-scrollbar-track { background: var(--bg) }
 ::-webkit-scrollbar-thumb { background: var(--or); border-radius: 2px }
 
-/* ─── TOASTS ─── */
 #toasts {
   position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
   display: flex; flex-direction: column; gap: .6rem; align-items: flex-end;
@@ -59,7 +58,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 [data-theme="light"] .toast-info { background: rgba(250,248,245,.96) }
 [data-theme="light"] .toast-success { background: rgba(240,255,240,.96) }
 
-/* ─── NAV ─── */
 #nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
@@ -117,7 +115,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 #burger[data-open="true"] span:nth-child(2) { opacity: 0 }
 #burger[data-open="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg) }
 
-/* ─── DRAWER ─── */
 #drawer {
   position: fixed; inset: 0; z-index: 490; background: var(--bg);
   display: flex; flex-direction: column; padding: 5.5rem 2rem 2.5rem; gap: .1rem;
@@ -140,7 +137,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 .drawer-soc:hover { border-color: var(--or); color: var(--or) }
 
-/* ─── MOB TABS ─── */
 #mob-tabs {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 400;
   background: var(--bg2); border-top: 1px solid var(--border);
@@ -155,7 +151,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .mob-tab svg { display: block }
 .mob-tab.active, .mob-tab:hover { color: var(--or) }
 
-/* ─── BACK TOP ─── */
 #back-top {
   position: fixed; bottom: 2rem; left: 2rem; z-index: 300;
   width: 42px; height: 42px; border-radius: 50%;
@@ -169,7 +164,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 #back-top:hover { transform: translateY(-3px); box-shadow: var(--glow) }
 #back-top svg { pointer-events: none }
 
-/* ─── REVEAL ─── */
 .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .75s ease }
 .rv.in { opacity: 1; transform: none }
 .d1 { transition-delay: .1s }
@@ -178,7 +172,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .d4 { transition-delay: .4s }
 .d5 { transition-delay: .5s }
 
-/* ─── COMMON ─── */
 .sec-kicker {
   display: inline-flex; align-items: center; gap: .65rem;
   font-size: .58rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase;
@@ -204,7 +197,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .back-link svg { transition: transform .25s }
 .back-link:hover svg { transform: translateX(-3px) }
 
-/* ─── BUTTONS ─── */
 .btn-primary {
   display: inline-flex; align-items: center; gap: .5rem;
   padding: .9rem 1.9rem; background: var(--or); color: #fff;
@@ -230,14 +222,12 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 .btn-outline:hover { border-color: var(--or); color: var(--or); transform: translateY(-2px) }
 
-/* ─── CARDS ─── */
 .card {
   background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r2);
   transition: border-color .3s, transform .3s, box-shadow .3s;
 }
 .card:hover { border-color: var(--border-h); transform: translateY(-5px); box-shadow: var(--sh2) }
 
-/* ─── TICKER ─── */
 .ticker { overflow: hidden; background: var(--or); padding: .7rem 0 }
 .ticker-track { display: flex; width: max-content; animation: tick 55s linear infinite }
 .ticker-item {
@@ -248,7 +238,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .ticker-sep { font-size: .4rem; opacity: .5 }
 @keyframes tick { from { transform: translateX(0) } to { transform: translateX(-50%) } }
 
-/* ─── HOME HERO ─── */
 .hero {
   position: relative; min-height: 100vh;
   display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;
@@ -303,7 +292,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .hero-btns { display: flex; gap: .7rem; flex-wrap: wrap }
 @keyframes hup { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }
 
-/* ─── STATS BAR ─── */
 .stats-bar {
   display: grid; grid-template-columns: repeat(4,1fr);
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
@@ -322,11 +310,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .stat-num em { font-style: normal; color: var(--or); font-size: 1.5rem }
 .stat-lbl { font-size: .73rem; color: var(--tx2); margin-top: .3rem }
 
-/* ─── WAVE CANVAS ─── */
 .wave-wrap { position: relative; overflow: hidden }
 #wave-canvas { display: block; width: 100%; height: 80px; opacity: .6 }
 
-/* ─── VOCALIST GRID ─── */
 .voc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3rem }
 .voc-card {
   border-radius: var(--r2); overflow: hidden; position: relative;
@@ -362,7 +348,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .voc-card-link svg { transition: transform .25s }
 .voc-card:hover .voc-card-link svg { transform: translateX(4px) }
 
-/* ─── VOCALIST INDIVIDUAL ─── */
 .voc-hero {
   position: relative; height: 100vh; min-height: 600px; overflow: hidden;
   display: flex; flex-direction: column; justify-content: flex-end;
@@ -428,7 +413,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .pn-lbl { font-size: .58rem; color: var(--tx3); letter-spacing: .14em; text-transform: uppercase; margin-bottom: .2rem }
 .pn-name { font-family: 'Unbounded', sans-serif; font-size: .78rem; font-weight: 700; text-transform: uppercase }
 
-/* ─── ABOUT ─── */
 .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 4rem }
 .about-img-wrap { position: relative }
 .about-img-main { border-radius: var(--r2); overflow: hidden; aspect-ratio: 4/5 }
@@ -450,7 +434,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .tl-year { font-family: 'Unbounded', sans-serif; font-size: .72rem; font-weight: 700; color: var(--or); margin-bottom: .22rem }
 .tl-text { font-size: .84rem; color: var(--tx2); font-weight: 300; line-height: 1.6 }
 
-/* ─── BENEFITS GRID ─── */
 .ben-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3rem }
 .ben-card {
   padding: 2rem 1.8rem; border-radius: var(--r2);
@@ -473,7 +456,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .ben-desc { font-size: .8rem; font-weight: 300; line-height: 1.7; color: var(--tx2) }
 .ben-card.accent .ben-desc { color: rgba(255,255,255,.85) }
 
-/* ─── GENRE GRID ─── */
 .genre-grid {
   display: grid; grid-template-columns: repeat(3,1fr);
   gap: 1px; background: var(--border); border: 1px solid var(--border);
@@ -515,7 +497,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .sr-genre { padding: .18rem .58rem; border-radius: 99px; font-size: .58rem; letter-spacing: .1em; border: 1px solid var(--border); color: var(--tx3) }
 .sr-dur { font-family: 'Unbounded', sans-serif; font-size: .62rem; color: var(--tx3) }
 
-/* ─── GALLERY ─── */
 .gallery-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: .7rem; margin-top: 3rem }
 .gi { overflow: hidden; border-radius: var(--r); background: var(--bg2); position: relative; cursor: zoom-in }
 .gi img { width: 100%; height: 100%; transition: transform .7s, filter .4s }
@@ -531,7 +512,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .gg { grid-column: 5/9; aspect-ratio: 16/7 }
 .gh { grid-column: 9/13; aspect-ratio: 16/7 }
 
-/* ─── SHOWS ─── */
 .shows-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 4rem }
 .show-item {
   display: grid; grid-template-columns: 3.2rem 1fr auto; gap: 1.4rem; align-items: center;
@@ -560,7 +540,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .sic-title { font-family: 'Unbounded', sans-serif; font-size: 1.5rem; font-weight: 900; text-transform: uppercase; line-height: 1.1 }
 .sic-sub { font-size: .78rem; color: var(--tx2); font-weight: 300; margin-top: .3rem }
 
-/* ─── BOOKING ─── */
 .booking-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; margin-top: 4rem }
 .contact-items { display: flex; flex-direction: column; gap: .7rem; margin-top: 2rem }
 .contact-item {
@@ -598,7 +577,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 .fsub:hover { background: var(--or2); box-shadow: var(--glow-sm); transform: translateY(-2px) }
 
-/* ─── FAQ ─── */
 .faq-list { display: flex; flex-direction: column }
 .faq-item { border-bottom: 1px solid var(--border) }
 .faq-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; text-align: left }
@@ -610,7 +588,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .faq-body { display: none; padding: 0 1.6rem 1.1rem; font-size: .83rem; color: var(--tx2); line-height: 1.8; font-weight: 300 }
 .faq-item.open .faq-body { display: block }
 
-/* ─── FOOTER ─── */
 footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 3.5rem 2.6rem 2rem }
 .ft-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem }
 .ft-logo { font-family: 'Unbounded', sans-serif; font-size: 1.3rem; font-weight: 900; margin-bottom: .65rem }
@@ -627,7 +604,6 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 3
 .ft-copy { font-size: .7rem; color: var(--tx3); font-weight: 300 }
 .ft-mock { font-size: .62rem; color: var(--tx3); opacity: .5; font-style: italic }
 
-/* ─── RESPONSIVE ─── */
 @media (max-width:1100px) {
   .ft-inner { grid-template-columns: 1fr 1fr; gap: 2rem }
   .voc-layout, .about-layout, .shows-layout, .booking-layout { grid-template-columns: 1fr; gap: 3rem }

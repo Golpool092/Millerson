@@ -677,10 +677,6 @@ input:checked + .slider:before {
     .container { padding: 0 15px; }
 }
 
-
-/* =============================================
-   PORTFOLIO — HERO
-   ============================================= */
 .pf-hero {
     position: relative;
     padding: 70px 0 50px;
@@ -761,10 +757,6 @@ input:checked + .slider:before {
     flex-shrink: 0;
 }
 
-
-/* =============================================
-   FILTER BAR
-   ============================================= */
 .pf-filter-bar {
     display: flex;
     align-items: center;
@@ -827,10 +819,6 @@ input:checked + .slider:before {
 .pf-category.pf-hidden { display: none; }
 .pf-card.pf-hidden { display: none; }
 
-
-/* =============================================
-   CATEGORY SECTION
-   ============================================= */
 .pf-category {
     margin: 60px 0 30px;
     position: relative;
@@ -925,10 +913,6 @@ input:checked + .slider:before {
     border-color: var(--border);
 }
 
-
-/* =============================================
-   HORIZONTAL LENT
-   ============================================= */
 .pf-lent-wrap {
     position: relative;
     margin: 0 -16px;
@@ -953,10 +937,6 @@ input:checked + .slider:before {
     border-radius: 999px;
 }
 
-
-/* =============================================
-   CARD
-   ============================================= */
 .pf-card {
     flex: 0 0 360px;
     scroll-snap-align: start;
@@ -1102,10 +1082,6 @@ input:checked + .slider:before {
 .pf-card__meta span { display: inline-flex; align-items: center; gap: 6px; }
 .pf-card__meta i { color: var(--accent); }
 
-
-/* =============================================
-   EMPTY STATES
-   ============================================= */
 .pf-empty {
     padding: 56px 28px;
     border-radius: 18px;
@@ -1172,10 +1148,6 @@ input:checked + .slider:before {
 }
 .pf-empty-card__link:hover { gap: 10px; color: var(--accent-light); }
 
-
-/* =============================================
-   KWORK BANNER
-   ============================================= */
 .pf-kwork {
     margin: 50px 0 30px;
     padding: 28px;
@@ -1208,10 +1180,6 @@ input:checked + .slider:before {
 .pf-kwork__text h3 { margin: 0 0 6px; font-size: 1.2rem; color: var(--text-primary); font-weight: 800; }
 .pf-kwork__text p { margin: 0; color: var(--text-secondary); font-size: .92rem; line-height: 1.55; }
 
-
-/* =============================================
-   CTA SECTION
-   ============================================= */
 .pf-cta {
     margin: 80px 0 40px;
     padding: 50px 30px;
@@ -1250,10 +1218,6 @@ input:checked + .slider:before {
     gap: 12px;
 }
 
-
-/* =============================================
-   MODAL
-   ============================================= */
 .pf-modal {
     position: fixed;
     inset: 0;
@@ -1454,10 +1418,6 @@ input:checked + .slider:before {
 .pf-modal__cta-text span { color: var(--text-secondary); font-size: .88rem; line-height: 1.5; }
 .pf-modal__cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-
-/* =============================================
-   LIGHTBOX (fullscreen image viewer)
-   ============================================= */
 .pf-lightbox {
     position: fixed;
     inset: 0;
@@ -1520,10 +1480,6 @@ input:checked + .slider:before {
     user-select: none;
 }
 
-
-/* =============================================
-   RESPONSIVE
-   ============================================= */
 @media (max-width: 768px) {
     .pf-card { flex: 0 0 280px; }
     .pf-cat-controls { display: none; }
