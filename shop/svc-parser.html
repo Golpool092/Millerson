@@ -3,133 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Парсинг сайтов — Millerson Shop</title>
-<meta name="description" content="Заказать парсинг сайта от 1500 ₽. Python, BeautifulSoup, Selenium. Выгрузка в Excel/CSV/JSON. Срок 1–2 дня.">
-<link rel="icon" href="../favicon.ico" sizes="any">
+<title>Парсинг данных — от 1 500 ₽ | Millerson Shop</title>
+<meta name="description" content="Парсинг любых сайтов: Python, BeautifulSoup, Selenium. Отдам данные в Excel/JSON/CSV. @Mson_Shop">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="shop.css">
+<link rel="stylesheet" href="svc-common.css">
+<link rel="stylesheet" href="reviews.css">
+<meta name="yandex-verification" content="09a9906cfe75b11e">
+<link rel="preconnect" href="https://mc.yandex.ru">
+<link rel="dns-prefetch" href="https://mc.yandex.ru">
+<link rel="preconnect" href="https://yandex.ru">
+<link rel="dns-prefetch" href="https://yandex.ru">
 </head>
 <body>
 <div class="scroll-bar" id="scrollBar"></div>
-<header class="header"></header>
 <main class="svc-page">
-<div class="container"><nav class="breadcrumbs"><a href="../index.html">Главная</a><i class="fas fa-chevron-right"></i><a href="shop.html">Millerson Shop</a><i class="fas fa-chevron-right"></i><span>Парсинг сайтов</span></nav></div>
-
+<div class="container">
+<nav class="breadcrumbs"><a href="shop.html">Каталог</a><i class="fas fa-chevron-right" style="font-size:.55rem"></i><span>Парсинг данных</span></nav>
 <section class="svc-hero">
-<div class="container">
-  <div class="svc-hero__inner">
-    <div>
-      <div class="svc-hero__eyebrow"><span class="badge badge--new"><i class="fas fa-spider"></i> Python · BeautifulSoup · Selenium</span><span class="badge badge--hot"><i class="fas fa-clock"></i> 1–2 дня</span></div>
-      <h1 class="svc-hero__title">Парсинг <span>сайтов</span></h1>
-      <p class="svc-hero__desc">Автоматический сбор данных: цены конкурентов, контакты, каталоги, объявления, вакансии. Выгрузка в Excel, CSV или JSON. Работает с защитами и динамическим контентом.</p>
-      <div class="svc-hero__rating"><div class="svc-hero__stars" style="color:var(--c-green)">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="svc-hero__rval">4.9</span><span class="svc-hero__rcnt">10 заказов</span></div>
-    </div>
-    <div class="price-card">
-      <div class="price-card__from">Цена от</div>
-      <div class="price-card__price" style="color:var(--c-green)">1 500 ₽</div>
-      <div class="price-card__label">простой парсер</div>
-      <div class="price-card__rows">
-        <div class="price-row accent"><span>Простой парсер</span><strong>от 1 500 ₽</strong></div>
-        <div class="price-row"><span>С авторизацией</span><strong>+1 000 ₽</strong></div>
-        <div class="price-row"><span>Обход антибота</span><strong>+1 000 ₽</strong></div>
-        <div class="price-row"><span>Периодический запуск</span><strong>+500 ₽</strong></div>
-        <div class="price-row"><span>Срочно</span><strong>+300 ₽</strong></div>
-      </div>
-      <div class="price-card__extras">
-        <span class="price-extra"><i class="fas fa-user-lock"></i> Авторизация +1000₽</span>
-        <span class="price-extra"><i class="fas fa-shield-alt"></i> Антибот +1000₽</span>
-        <span class="price-extra"><i class="fas fa-sync"></i> Автозапуск +500₽</span>
-      </div>
-      <div class="price-card__btns">
-        <button class="btn btn--ghost btn--block" style="border-color:var(--c-green);color:var(--c-green)" onclick="openOrder()"><i class="fas fa-paper-plane"></i> Заказать через Telegram</button>
-        <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--ghost btn--block"><i class="fas fa-briefcase"></i> Заказать на Kwork</a>
-      </div>
-    </div>
+<div class="svc-hero__grid">
+<div>
+  <div class="svc-hero__eyebrow"><span class="svc-hero__badge"><i class="fas fa-spider"></i> Парсинг данных</span></div>
+  <h1 class="svc-hero__title">Парсинг<br><span>любого сайта</span></h1>
+  <p class="svc-hero__desc">Соберу данные с любого сайта: каталоги товаров, контакты, вакансии, цены, объявления. Результат — чистый Excel, CSV или JSON. Python + BeautifulSoup/Selenium.</p>
+  <div class="svc-hero__trust">
+    <div class="svc-trust-item"><i class="fas fa-star"></i> Рейтинг <strong>5.0</strong></div>
+    <div class="svc-trust-item"><i class="fas fa-table"></i> Excel/CSV/JSON</div>
+    <div class="svc-trust-item"><i class="fas fa-infinity"></i> Любое кол-во записей</div>
+    <div class="svc-trust-item"><i class="fas fa-shield-alt"></i> Без предоплаты</div>
   </div>
+  <div class="svc-hero__actions">
+    <button class="btn btn--primary btn--lg" onclick="openOrder('parser')"><i class="fas fa-paper-plane"></i> Заказать</button>
+    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--kw btn--lg"><i class="fas fa-briefcase"></i> На Kwork</a>
+  </div>
+</div>
+<div class="price-card">
+  <div class="price-card__from">Стоимость от</div>
+  <div class="price-card__price">1 500 ₽</div>
+  <div class="price-card__label">Разовый сбор данных</div>
+  <div class="price-card__rows">
+    <div class="price-row"><span>Срок</span><strong>1–2 дня</strong></div>
+    <div class="price-row"><span>Формат</span><strong>Excel / CSV / JSON</strong></div>
+    <div class="price-row"><span>Обход защиты</span><strong>cloudflare, JS-рендер</strong></div>
+    <div class="price-row"><span>Кол-во записей</span><strong>Без ограничений</strong></div>
+    <div class="price-row hi"><span>Предоплата</span><strong>Нет</strong></div>
+  </div>
+  <div class="price-card__extras">
+    <div class="price-extra"><i class="fas fa-plus"></i> Скрипт-парсер +700₽</div>
+    <div class="price-extra"><i class="fas fa-plus"></i> Автозапуск по расписанию +500₽</div>
+    <div class="price-extra"><i class="fas fa-plus"></i> Фото + медиа +400₽</div>
+    <div class="price-extra"><i class="fas fa-bolt"></i> Срочно +400₽</div>
+  </div>
+  <div class="price-card__btns">
+    <button class="btn btn--primary btn--block" onclick="openOrder('parser')"><i class="fab fa-telegram"></i> Оформить заказ</button>
+    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--ghost btn--block"><i class="fas fa-briefcase"></i> Kwork</a>
+  </div>
+</div>
+</div>
+</section>
+</div>
+
+<div class="sect--dark">
+<div class="container" style="padding:40px 24px">
+<div class="sect-hdr"><div class="sect-hdr__eyebrow"><i class="fas fa-check-circle"></i> Что умею</div><h2 class="sect-hdr__title">Парсю <span>всё подряд</span></h2></div>
+<div class="feats-grid">
+  <div class="feat-card"><div class="feat-card__icon"><i class="fas fa-shopping-cart"></i></div><h4>Каталоги товаров</h4><p>Название, цена, остаток, описание, артикул, фото. Ozon, Wildberries, собственные магазины.</p></div>
+  <div class="feat-card"><div class="feat-card__icon"><i class="fas fa-address-book"></i></div><h4>Контакты и компании</h4><p>Телефоны, e-mail, адреса, ИНН — с сайтов-агрегаторов, справочников, gis2.</p></div>
+  <div class="feat-card"><div class="feat-card__icon"><i class="fas fa-bullhorn"></i></div><h4>Объявления</h4><p>Авито, ЦИАН, HH.ru — вакансии, квартиры, объявления с фильтрами.</p></div>
+  <div class="feat-card"><div class="feat-card__icon"><i class="fas fa-shield-alt"></i></div><h4>Обход защит</h4><p>Selenium для JS-рендера, ротация User-Agent и прокси. Справляюсь с большинством защит.</p></div>
+  <div class="feat-card"><div class="feat-card__icon"><i class="fas fa-clock"></i></div><h4>Автоматизация</h4><p>Настрою скрипт с автозапуском по расписанию — данные всегда актуальны. +500₽.</p></div>
+  <div class="feat-card"><div class="feat-card__icon"><i class="fas fa-table"></i></div><h4>Удобный формат</h4><p>Отдаю в Excel с отформатированными столбцами, CSV или JSON — как удобнее вам.</p></div>
+</div>
+</div>
+</div>
+
+<section class="sect" id="results">
+<div class="container" style="padding:40px 24px">
+<div class="sect-hdr"><div class="sect-hdr__eyebrow"><i class="fas fa-gift"></i> Итог работы</div><h2 class="sect-hdr__title">Что <span>получите</span></h2></div>
+<div class="results-grid">
+<div class="result-item"><div class="result-item__icon"><i class="fas fa-table"></i></div><strong>Данные в нужном формате</strong><span>Excel (.xlsx), CSV или JSON — как удобно. Чистые, структурированные данные без дублей.</span></div>
+<div class="result-item"><div class="result-item__icon"><i class="fas fa-file-code"></i></div><strong>Исходный код парсера</strong><span>Python-скрипт — можно запускать повторно или адаптировать под другой сайт. +700₽.</span></div>
+<div class="result-item"><div class="result-item__icon"><i class="fas fa-book"></i></div><strong>Инструкция по запуску</strong><span>Объясню как повторно запустить и изменить параметры сбора.</span></div>
+<div class="result-item"><div class="result-item__icon"><i class="fas fa-edit"></i></div><strong>Бесплатные правки</strong><span>Исправлю если что-то изменилось на сайте-источнике в течение 14 дней.</span></div>
+<div class="result-item"><div class="result-item__icon"><i class="fas fa-headset"></i></div><strong>Поддержка 14 дней</strong><span>Отвечу на вопросы и помогу запустить повторно.</span></div>
+<div class="result-item"><div class="result-item__icon"><i class="fas fa-check-circle"></i></div><strong>Проверенные данные</strong><span>Данные проверены на полноту и корректность до сдачи.</span></div>
+</div>
 </div>
 </section>
 
 <section class="sect">
-<div class="container">
-  <div class="sect-hdr"><div class="sect-hdr__eyebrow"><i class="fas fa-database"></i> Что умею</div><h2 class="sect-hdr__title">Что можно <span>парсить</span></h2></div>
-  <div class="features-grid">
-    <div class="feature-item"><div class="feature-item__icon" style="background:rgba(61,220,132,.1);color:var(--c-green)"><i class="fas fa-tags"></i></div><h4>Цены и каталоги</h4><p>Мониторинг цен конкурентов, сбор каталогов товаров с Avito, Wildberries, сайтов магазинов.</p></div>
-    <div class="feature-item"><div class="feature-item__icon" style="background:rgba(61,220,132,.1);color:var(--c-green)"><i class="fas fa-phone"></i></div><h4>Контакты</h4><p>Сбор телефонов, email, адресов компаний — из справочников, каталогов, сайтов.</p></div>
-    <div class="feature-item"><div class="feature-item__icon" style="background:rgba(61,220,132,.1);color:var(--c-green)"><i class="fas fa-briefcase"></i></div><h4>Вакансии и объявления</h4><p>Парсинг HH.ru, SuperJob, Avito, Циан — сбор объявлений с нужными фильтрами.</p></div>
-    <div class="feature-item"><div class="feature-item__icon" style="background:rgba(61,220,132,.1);color:var(--c-green)"><i class="fas fa-star"></i></div><h4>Отзывы и рейтинги</h4><p>Сбор отзывов с 2ГИС, Google Maps, маркетплейсов для анализа конкурентов.</p></div>
-    <div class="feature-item"><div class="feature-item__icon" style="background:rgba(61,220,132,.1);color:var(--c-green)"><i class="fas fa-file-excel"></i></div><h4>Выгрузка в Excel/CSV/JSON</h4><p>Готовая таблица или файл данных — удобный формат для дальнейшей работы.</p></div>
-    <div class="feature-item"><div class="feature-item__icon" style="background:rgba(61,220,132,.1);color:var(--c-green)"><i class="fas fa-sync-alt"></i></div><h4>Автоматический запуск</h4><p>Парсер с расписанием — собирает данные раз в день/час без вашего участия.</p></div>
-  </div>
+<div class="container" style="max-width:780px">
+<div class="sect-hdr"><div class="sect-hdr__eyebrow"><i class="fas fa-question-circle"></i> FAQ</div><h2 class="sect-hdr__title">Часто <span>спрашивают</span></h2></div>
+<div class="faq-list">
+  <div class="faq-item"><div class="faq-q">Что если сайт закрыт авторизацией?<i class="fas fa-plus"></i></div><div class="faq-a"><p>Если предоставите логин — войду и распарсю. Если нет — скажу заранее что не получится.</p></div></div>
+  <div class="faq-item"><div class="faq-q">Сколько записей можете собрать?<i class="fas fa-plus"></i></div><div class="faq-a"><p>Без ограничений. 10 или 100 000 — цена зависит от сложности структуры сайта и нужных полей.</p></div></div>
+  <div class="faq-item"><div class="faq-q">Получу ли я скрипт-парсер?<i class="fas fa-plus"></i></div><div class="faq-a"><p>По умолчанию отдаю только данные. Скрипт — дополнительно +700₽. Тогда сможете запускать самостоятельно.</p></div></div>
+  <div class="faq-item"><div class="faq-q">Нужна ли предоплата?<i class="fas fa-plus"></i></div><div class="faq-a"><p>Нет. Оплата после того, как получили данные и проверили их.</p></div></div>
+</div>
 </div>
 </section>
 
-<section class="sect sect--dark">
-<div class="container">
-  <div class="sect-hdr"><div class="sect-hdr__eyebrow"><i class="fas fa-question-circle"></i> FAQ</div><h2 class="sect-hdr__title">Частые <span>вопросы</span></h2></div>
-  <div class="faq-list">
-    <div class="faq-item"><div class="faq-q">Законен ли парсинг? <i class="fas fa-plus"></i></div><div class="faq-a"><p>Парсинг публично доступных данных — правовая серая зона. Нарушение ToS сайта — ответственность на вас. Персональные данные (паспорта, СНИЛС) не собираю.</p></div></div>
-    <div class="faq-item"><div class="faq-q">Что если сайт защищён Cloudflare или CAPTCHA? <i class="fas fa-plus"></i></div><div class="faq-a"><p>Лёгкие защиты обходятся заменой заголовков или ротацией прокси. Cloudflare Enterprise и рекламные CAPTCHA — сложнее, стоит дороже.</p></div></div>
-    <div class="faq-item"><div class="faq-q">Насколько большой объём данных можете обработать? <i class="fas fa-plus"></i></div><div class="faq-a"><p>Десятки тысяч записей — без проблем. Миллионы — нужно обсуждать отдельно, возможно с распределённым парсингом.</p></div></div>
-    <div class="faq-item"><div class="faq-q">Дадите исходный код парсера? <i class="fas fa-plus"></i></div><div class="faq-a"><p>Да. Вы получаете .py-скрипт с комментариями, можете запускать сами.</p></div></div>
-  </div>
+<section class="sect--dark" style="padding:48px 0">
+<div class="container"><div class="cta-block">
+<h2>Нужен парсинг данных?</h2>
+<p>Пришлите ссылку на сайт и список нужных полей — оценю за несколько минут.</p>
+<div class="cta-block__actions">
+  <button class="btn btn--primary btn--lg" onclick="openOrder('parser')"><i class="fab fa-telegram"></i> Заказать</button>
+  <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--kw btn--lg"><i class="fas fa-briefcase"></i> Kwork</a>
 </div>
-</section>
-
-<section class="sect">
-<div class="container">
-  <div class="cta-block">
-    <h2>Нужны данные?</h2>
-    <p>Отправьте ссылку на сайт и опишите, что собрать — рассчитаю стоимость</p>
-    <div class="cta-block__actions">
-      <button class="btn btn--primary btn--lg" onclick="openOrder()"><i class="fas fa-paper-plane"></i> Заказать через Telegram</button>
-      <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--ghost btn--lg"><i class="fas fa-briefcase"></i> На Kwork</a>
-    </div>
-  </div>
-</div>
+</div></div>
 </section>
 </main>
 
-<footer class="ms-footer"><div class="container"><div class="ms-footer__inner"><p>&copy; 2026 Millerson Company</p><div class="ms-footer__links"><a href="shop.html">Каталог</a><a href="portfolio.html">Портфолио</a><a href="feedback.html">Отзывы</a><a href="../privacy.html">Конфиденциальность</a></div></div></div></footer>
-<button class="back-top" id="backTop" aria-label="Наверх"><i class="fas fa-chevron-up"></i></button>
+<footer class="ms-footer"><div class="container"><div class="ms-footer__inner"><p>© 2026 Millerson Shop · @Mson_Shop</p><div class="ms-footer__links"><a href="shop.html">Каталог</a><a href="portfolio.html">Портфолио</a><a href="feedback.html">Отзывы</a><a href="https://millerson.shop/contacts.html" target="_blank" rel="noopener">Контакты</a><a href="https://millerson.shop/privacy.html">Политика</a></div></div></div></footer>
+<button class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></button>
+
+<div class="svc-lightbox" id="svcLb"><button class="svc-lb-close" id="svcLbClose"><i class="fas fa-times"></i></button><button class="svc-lb-prev" id="svcLbPrev"><i class="fas fa-chevron-left"></i></button><button class="svc-lb-next" id="svcLbNext"><i class="fas fa-chevron-right"></i></button><img class="svc-lb-img" id="svcLbImg" src="" alt=""><div class="svc-lb-counter" id="svcLbCounter"></div></div>
 
 <div class="order-overlay" id="orderOverlay"></div>
-<div class="order-wrap">
-<div class="order-box">
-  <div class="order-head"><div class="order-head__title">Заказать: Парсинг</div><div class="order-head__sub">от 1 500 ₽ · 1–2 дня</div><button class="order-close" id="orderClose"><i class="fas fa-times"></i></button></div>
-  <div class="order-body">
-    <div class="order-field"><label>Сайт для парсинга</label><input type="text" id="f_site" placeholder="https://site.ru" oninput="upd()"></div>
-    <div class="order-field"><label>Что нужно собрать</label><input type="text" id="f_data" placeholder="Цены, названия, телефоны, описания..." oninput="upd()"></div>
-    <div class="order-field"><label>Формат выгрузки</label><div class="order-chips"><button class="order-chip" data-g="fmt">Excel</button><button class="order-chip" data-g="fmt">CSV</button><button class="order-chip" data-g="fmt">JSON</button></div></div>
-    <div class="order-field"><label>Срочность</label><div class="order-chips"><button class="order-chip" data-g="urgent">Обычная</button><button class="order-chip" data-g="urgent">Срочно (+300 ₽)</button></div></div>
-    <div class="order-field"><label>Особенности</label><textarea id="f_extra" placeholder="Авторизация, антибот-защита, периодичность запуска..." oninput="upd()"></textarea></div>
-  </div>
-  <div class="order-preview"><div class="order-preview__lbl"><i class="fas fa-comment-dots"></i> Готовое сообщение для Telegram</div><div class="order-preview__text" id="orderPreview"></div></div>
-  <div class="order-foot">
-    <button class="btn btn--tg btn--block" id="tgBtn"><i class="fab fa-telegram"></i> Открыть Telegram с готовым текстом</button>
-    <a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--ghost btn--block"><i class="fas fa-briefcase"></i> Или написать на Kwork</a>
-    <p class="order-hint"><i class="fas fa-info-circle"></i> Текст автоматически вставится в чат</p>
-  </div>
-</div>
-</div>
-<div class="cookie-bar" id="cookieBar"><div class="cookie-bar__inner"><p>Используем cookie. <a href="../privacy.html">Подробнее</a>.</p><button class="btn btn--primary btn--sm" id="cookieOk">Принять</button></div></div>
+<div class="order-wrap"><div class="order-box"><div class="order-head"><div class="order-head__title" id="orderTitle">Заказать</div><div class="order-head__sub" id="orderSub"></div><button class="order-close" id="orderClose"><i class="fas fa-times"></i></button></div><div class="order-body"><input type="hidden" id="orderService"><div class="order-field"><label>Ваш контакт</label><input type="text" id="orderName" placeholder="@username"></div><div class="order-field"><label>Ссылка и описание</label><textarea id="orderDesc" rows="3" placeholder="Ссылка на сайт, нужные поля, кол-во записей…"></textarea></div><div class="order-field"><label>Дополнительно</label><div class="order-chips" id="orderChips"></div></div><div class="order-preview"><div class="order-preview__lbl"><i class="fab fa-telegram"></i> Готовый текст</div><div class="order-preview__text" id="orderPreviewText"></div></div></div><div class="order-foot"><button class="btn btn--tg btn--block" id="orderSend"><i class="fab fa-telegram"></i> Открыть Telegram</button><a href="https://kwork.ru/user/Millerson_Shop" target="_blank" rel="noopener" class="btn btn--ghost btn--block"><i class="fas fa-briefcase"></i> Kwork</a><div class="order-hint"><i class="fas fa-lock"></i> Без регистрации · Оплата после сдачи</div></div></div></div>
 
+<script src="menu.js"></script>
+<script src="shop.js"></script>
+<script src="reviews.js"></script>
 <script>
-var vals={site:'',data:'',fmt:'',urgent:'',extra:''};
-function upd(){vals.site=document.getElementById('f_site').value;vals.data=document.getElementById('f_data').value;vals.extra=document.getElementById('f_extra').value;document.getElementById('orderPreview').textContent='Здравствуйте! Хочу заказать парсинг сайта.\n\nСайт: '+(vals.site||'(не указан)')+'\nЧто собрать: '+(vals.data||'(не указано)')+'\nФормат: '+(vals.fmt||'Excel')+'\nСрочность: '+(vals.urgent||'обычная')+(vals.extra?'\n\nДополнительно: '+vals.extra:'')+'\n\nГотов обсудить детали.';}
-document.querySelectorAll('.order-chip').forEach(function(btn){btn.addEventListener('click',function(){var g=btn.dataset.g;document.querySelectorAll('[data-g="'+g+'"]').forEach(function(b){b.classList.remove('sel');});btn.classList.add('sel');vals[g]=btn.textContent;upd();});});
-upd();
-function openOrder(){document.getElementById('orderOverlay').classList.add('open');document.body.style.overflow='hidden';}
-function closeOrder(){document.getElementById('orderOverlay').classList.remove('open');document.body.style.overflow='';}
-document.getElementById('orderClose').addEventListener('click',closeOrder);
-document.getElementById('orderOverlay').addEventListener('click',closeOrder);
-document.getElementById('tgBtn').addEventListener('click',function(){window.open('https://t.me/Mson_Shop?text='+encodeURIComponent(document.getElementById('orderPreview').textContent),'_blank');});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeOrder();});
-window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('scrollBar').style.width=(h>0?window.scrollY/h*100:0)+'%';document.getElementById('backTop').classList.toggle('visible',window.scrollY>400);},{passive:true});
-document.getElementById('backTop').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-if(!localStorage.getItem('ck')){document.getElementById('cookieBar').style.display='block';}
-document.getElementById('cookieOk').addEventListener('click',function(){localStorage.setItem('ck','1');document.getElementById('cookieBar').style.display='none';});
-document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
+var SVC_IMGS={};
+var lbImgs=[],lbIdx=0;
+function openLb(proj){lbImgs=SVC_IMGS[proj]||[];if(!lbImgs.length)return;lbIdx=0;showLbImg();document.getElementById('svcLb').classList.add('open');document.body.style.overflow='hidden';}
+function showLbImg(){if(!lbImgs.length)return;if(lbIdx<0)lbIdx=lbImgs.length-1;if(lbIdx>=lbImgs.length)lbIdx=0;document.getElementById('svcLbImg').src=lbImgs[lbIdx];document.getElementById('svcLbCounter').textContent=(lbIdx+1)+' / '+lbImgs.length;}
+function closeLb(){document.getElementById('svcLb').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('DOMContentLoaded',function(){
+document.querySelectorAll('.gallery-item').forEach(function(el){el.addEventListener('click',function(){openLb(el.dataset.proj);});});
+document.getElementById('svcLbClose').addEventListener('click',closeLb);
+document.getElementById('svcLbPrev').addEventListener('click',function(){lbIdx--;showLbImg();});
+document.getElementById('svcLbNext').addEventListener('click',function(){lbIdx++;showLbImg();});
+document.getElementById('svcLb').addEventListener('click',function(e){if(e.target===this)closeLb();});
+document.addEventListener('keydown',function(e){var lb=document.getElementById('svcLb');if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'){lbIdx--;showLbImg();}if(e.key==='ArrowRight'){lbIdx++;showLbImg();}});
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var i=q.closest('.faq-item');var w=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(x){x.classList.remove('open');});if(!w)i.classList.add('open');});});
+});
 </script>
-<script src="shopmenu.js"></script>
+<script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=107027516","ym");ym(107027516,"init",{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/107027516" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script data-page-id="18829281" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
 </body>
 </html>
