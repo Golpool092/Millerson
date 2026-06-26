@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>БФ «Благовещение» — Благотворительный фонд</title>
+<meta name="description" content="Благотворительный фонд помощи нуждающимся и инвалидам «Благовещение», г. Миллерово, Ростовская обл.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#f4f9f4;
+--bg2:#ffffff;
+--surface:#ffffff;
+--surface2:#edf7ed;
+--border:rgba(76,175,80,.15);
+--text:#1a2e1a;
+--text2:#4a6e4a;
+--text3:#8aaa8a;
+--g1:#56c757;
+--g2:#a3e635;
+--g3:#2e7d32;
+--shadow:rgba(76,175,80,.12);
+--shadowHover:rgba(76,175,80,.22);
+}
+html{scroll-behavior:smooth}
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+line-height:1.6;
+min-height:100vh;
+overflow-x:hidden;
+}
+canvas#bg{
+position:fixed;inset:0;
+z-index:0;pointer-events:none;
+opacity:.55;
+}
+#app{position:relative;z-index:1;min-height:100vh}
+
+.hdr{
+position:fixed;top:0;left:0;right:0;height:68px;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 36px;
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);
+box-shadow:0 2px 20px var(--shadow);
+z-index:100;
+}
+.logo{
+font-size:.95rem;font-weight:900;letter-spacing:.08em;
+color:var(--g3);
+display:flex;align-items:center;gap:10px;
+}
+.logo-icon{
+width:34px;height:34px;
+background:linear-gradient(135deg,var(--g1),var(--g2));
+border-radius:9px;
+display:flex;align-items:center;justify-content:center;
+box-shadow:0 4px 12px var(--shadow);
+}
+.logo-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.hdr-r{display:flex;align-items:center;gap:10px}
+.btn-help{
+padding:9px 24px;
+background:linear-gradient(135deg,var(--g1),var(--g2));
+border:none;border-radius:9px;
+color:#1a2e1a;font-size:.82rem;font-weight:800;letter-spacing:.04em;
+cursor:pointer;
+box-shadow:0 4px 18px var(--shadow);
+transition:transform .15s,box-shadow .2s,opacity .2s;
+}
+.btn-help:hover{transform:translateY(-1px);box-shadow:0 8px 28px var(--shadowHover);opacity:.92}
+.btn-help:active{transform:translateY(0)}
+.burger{
+width:42px;height:42px;
+background:none;border:1px solid var(--border);border-radius:9px;
+cursor:pointer;
+display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+transition:border-color .2s,background .2s;
+}
+.burger:hover{border-color:rgba(76,175,80,.4);background:rgba(76,175,80,.07)}
+.burger span{display:block;width:18px;height:1.5px;background:var(--text2);border-radius:2px;transition:background .2s}
+.burger:hover span{background:var(--g3)}
+
+.sb-ov{
+position:fixed;inset:0;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.sb-ov.open{opacity:1;pointer-events:all}
+.sidebar{
+position:fixed;top:0;left:0;width:280px;height:100vh;
+background:#fff;
+border-right:1px solid var(--border);
+box-shadow:4px 0 40px var(--shadow);
+z-index:201;transform:translateX(-100%);
+transition:transform .34s cubic-bezier(.4,0,.2,1);
+display:flex;flex-direction:column;
+}
+.sidebar.open{transform:translateX(0)}
+.sb-head{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.sb-logo-wrap{display:flex;align-items:center;gap:10px}
+.sb-icon{
+width:38px;height:38px;border-radius:10px;
+background:linear-gradient(135deg,var(--g1),var(--g2));
+display:flex;align-items:center;justify-content:center;
+box-shadow:0 4px 12px var(--shadow);
+}
+.sb-icon svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sb-titles{}
+.sb-logo{font-size:.88rem;font-weight:900;letter-spacing:.07em;color:var(--g3)}
+.sb-sub{font-size:.68rem;color:var(--text3);margin-top:2px}
+.sidebar nav{display:flex;flex-direction:column;gap:3px;padding:20px 14px;flex:1}
+.sidebar nav a{
+display:block;padding:13px 16px;border-radius:10px;
+color:var(--text2);text-decoration:none;
+font-size:.92rem;font-weight:500;
+cursor:pointer;transition:background .2s,color .2s,padding-left .25s;
+}
+.sidebar nav a:hover{background:rgba(76,175,80,.08);color:var(--text);padding-left:22px}
+.sidebar nav a.active{
+background:linear-gradient(120deg,rgba(86,199,87,.15),rgba(163,230,53,.1));
+color:var(--g3);padding-left:22px;font-weight:700;
+}
+.sb-foot{padding:18px 18px 32px}
+.sb-close{
+width:100%;padding:11px;background:none;
+border:1px solid var(--border);border-radius:10px;
+color:var(--text3);cursor:pointer;
+font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+transition:border-color .2s,color .2s,background .2s;
+}
+.sb-close:hover{border-color:rgba(76,175,80,.4);color:var(--text2);background:rgba(76,175,80,.06)}
+
+.main{padding-top:68px;min-height:100vh}
+.page{display:none;animation:fadeUp .38s ease both}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.hero{
+position:relative;height:88vh;min-height:500px;
+display:flex;align-items:center;justify-content:center;
+overflow:hidden;
+}
+.hero-img{
+position:absolute;inset:0;
+background-image:url('https://images.pexels.com/photos/4145775/pexels-photo-4145775.jpeg?auto=compress&cs=tinysrgb&w=1600');
+background-size:cover;background-position:center;
+transition:transform 8s ease;
+}
+.hero:hover .hero-img{transform:scale(1.04)}
+.hero-over{
+position:absolute;inset:0;
+background:linear-gradient(
+  135deg,
+  rgba(46,125,50,.82) 0%,
+  rgba(46,125,50,.55) 40%,
+  rgba(46,125,50,.4) 70%,
+  rgba(163,230,53,.25) 100%
+);
+}
+.hero-content{
+position:relative;text-align:center;padding:0 24px;max-width:780px;
+}
+.tag{
+display:inline-block;padding:5px 16px;
+background:rgba(255,255,255,.2);
+border:1px solid rgba(255,255,255,.4);
+border-radius:100px;
+color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+margin-bottom:24px;backdrop-filter:blur(8px);
+}
+.hero h1{
+font-size:clamp(2.4rem,6.5vw,4.6rem);
+font-weight:900;letter-spacing:-.03em;line-height:1.05;
+color:#fff;
+text-shadow:0 2px 40px rgba(0,0,0,.3);
+margin-bottom:20px;
+}
+.hero h1 span{
+background:linear-gradient(135deg,#d4f99a,#a3e635);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero p{
+max-width:500px;margin:0 auto 34px;
+color:rgba(255,255,255,.88);font-size:1rem;line-height:1.75;
+text-shadow:0 1px 12px rgba(0,0,0,.2);
+}
+.hero-btn{
+display:inline-block;padding:15px 38px;
+background:#fff;
+border-radius:12px;border:none;
+color:var(--g3);font-size:.95rem;font-weight:800;letter-spacing:.03em;
+cursor:pointer;
+box-shadow:0 8px 32px rgba(0,0,0,.2);
+transition:transform .2s,box-shadow .2s;
+}
+.hero-btn:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(0,0,0,.28)}
+.hero-scroll{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;
+color:rgba(255,255,255,.55);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+}
+.hero-scroll-line{
+width:1px;height:28px;
+background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);
+}
+
+.photo-strip{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:4px;height:300px;
+}
+.ps-item{overflow:hidden;position:relative;background:#e8f5e9}
+.ps-item img{
+width:100%;height:100%;object-fit:cover;
+transition:transform .5s ease,filter .4s ease;
+filter:brightness(.92) saturate(1.05);
+}
+.ps-item:hover img{transform:scale(1.06);filter:brightness(1) saturate(1.15)}
+.ps-label{
+position:absolute;bottom:14px;left:14px;
+background:rgba(255,255,255,.88);
+backdrop-filter:blur(10px);
+border-radius:7px;padding:5px 12px;
+color:var(--g3);font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+}
+@media(max-width:640px){.photo-strip{grid-template-columns:1fr;height:auto}.ps-item{height:180px}}
+
+.sec{max-width:1060px;margin:0 auto;padding:60px 24px 80px}
+.sec-head{margin-bottom:40px}
+.sec-head .tag2{
+display:inline-block;padding:4px 14px;
+background:rgba(76,175,80,.12);
+border:1px solid rgba(76,175,80,.2);
+border-radius:100px;
+color:var(--g3);font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+margin-bottom:14px;
+}
+.sec-title{font-size:1.5rem;font-weight:900;letter-spacing:-.025em;color:var(--text);margin-bottom:8px}
+.sec-sub{color:var(--text2);font-size:.92rem;line-height:1.65;max-width:520px}
+
+.cards{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;
+}
+.card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:18px;padding:30px;
+box-shadow:0 2px 16px var(--shadow);
+transition:transform .3s cubic-bezier(.34,1.4,.64,1),box-shadow .3s,border-color .3s;
+cursor:default;
+}
+.card:hover{
+transform:translateY(-7px);
+box-shadow:0 18px 52px var(--shadowHover);
+border-color:rgba(76,175,80,.28);
+}
+.ci{
+width:48px;height:48px;border-radius:13px;
+background:linear-gradient(135deg,rgba(86,199,87,.18),rgba(163,230,53,.18));
+border:1px solid rgba(76,175,80,.15);
+margin-bottom:18px;
+display:flex;align-items:center;justify-content:center;
+}
+.ci svg{width:22px;height:22px;stroke:var(--g3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1rem;font-weight:700;margin-bottom:9px;color:var(--text)}
+.card p{color:var(--text2);font-size:.87rem;line-height:1.65}
+
+.photo-banner{
+position:relative;height:400px;overflow:hidden;
+}
+.photo-banner img{width:100%;height:100%;object-fit:cover;filter:brightness(.78) saturate(1.1)}
+.photo-banner-over{
+position:absolute;inset:0;
+background:linear-gradient(120deg,rgba(46,125,50,.85) 0%,rgba(46,125,50,.4) 55%,transparent 100%);
+display:flex;align-items:center;padding:0 80px;
+}
+.photo-banner-text .tag{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.35);margin-bottom:16px}
+.photo-banner-text h2{
+font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-.03em;
+color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.25);margin-bottom:12px;
+}
+.photo-banner-text p{color:rgba(255,255,255,.82);font-size:.92rem;line-height:1.7;max-width:440px}
+@media(max-width:640px){.photo-banner{height:280px}.photo-banner-over{padding:0 22px}}
+
+.ib{
+background:var(--surface);border:1px solid var(--border);
+border-radius:18px;padding:32px;margin-bottom:18px;
+box-shadow:0 2px 16px var(--shadow);
+}
+.ib h2{font-size:1.1rem;font-weight:800;margin-bottom:14px;color:var(--text)}
+.ib p{color:var(--text2);font-size:.9rem;line-height:1.75}
+.mock{
+display:inline-flex;align-items:center;gap:7px;
+padding:8px 16px;
+background:rgba(76,175,80,.08);
+border:1px dashed rgba(76,175,80,.3);
+border-radius:9px;
+color:var(--g3);font-size:.78rem;font-weight:700;letter-spacing:.04em;
+margin-top:14px;
+}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:640px){.two{grid-template-columns:1fr}}
+.docs{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.docs li{
+display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+padding:13px 16px;
+background:var(--bg);border:1px solid var(--border);
+border-radius:10px;color:var(--text2);font-size:.87rem;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));flex-shrink:0}
+
+.pc{
+background:var(--surface);border:1px solid var(--border);
+border-radius:18px;overflow:hidden;
+box-shadow:0 2px 16px var(--shadow);
+transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.pc:hover{transform:translateY(-5px);box-shadow:0 18px 52px var(--shadowHover);border-color:rgba(76,175,80,.3)}
+.pc-top{height:4px;background:linear-gradient(90deg,var(--g1),var(--g2))}
+.pc-body{padding:26px}
+.pc-body h3{font-size:.97rem;font-weight:700;margin-bottom:9px;color:var(--text)}
+.pc-body p{color:var(--text2);font-size:.86rem;line-height:1.65}
+.pw{margin-top:18px}
+.pl{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text3);margin-bottom:7px}
+.pb{height:3px;background:rgba(76,175,80,.12);border-radius:3px;overflow:hidden}
+.pf{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--g1),var(--g2))}
+
+.cg{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:44px;
+}
+.ci2{
+background:var(--surface);border:1px solid var(--border);
+border-radius:18px;padding:26px;
+box-shadow:0 2px 16px var(--shadow);
+}
+.ci2-l{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--g3);margin-bottom:9px}
+.ci2-v{font-size:.9rem;color:var(--text);font-weight:600;margin-bottom:6px}
+.ci2 p{color:var(--text2);font-size:.82rem;line-height:1.5}
+
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:8px 0 44px}
+
+.requisites-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px;
+}
+.req-item{
+background:var(--bg);border:1px solid var(--border);
+border-radius:12px;padding:16px 18px;
+}
+.req-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
+.req-value{font-size:.9rem;font-weight:600;color:var(--text)}
+
+.footer{
+background:var(--g3);
+color:#fff;
+padding:48px 36px 32px;
+position:relative;
+overflow:hidden;
+}
+.footer::before{
+content:'';position:absolute;inset:0;
+background:linear-gradient(135deg,#1b5e20 0%,var(--g3) 60%,#388e3c 100%);
+}
+.footer-inner{position:relative;max-width:1060px;margin:0 auto}
+.footer-grid{
+display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px;
+}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand .fb-logo{
+font-size:.88rem;font-weight:900;letter-spacing:.1em;
+color:#a5e887;margin-bottom:10px;
+}
+.footer-brand p{color:rgba(255,255,255,.65);font-size:.82rem;line-height:1.65;max-width:280px}
+.footer-col h4{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px}
+.footer-col a,.footer-col p{
+display:block;color:rgba(255,255,255,.8);font-size:.86rem;
+text-decoration:none;margin-bottom:8px;cursor:pointer;
+transition:color .2s;
+}
+.footer-col a:hover{color:#a5e887}
+.footer-bottom{
+border-top:1px solid rgba(255,255,255,.12);
+padding-top:22px;
+display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.footer-bottom p{color:rgba(255,255,255,.45);font-size:.76rem}
+.footer-email{
+color:rgba(255,255,255,.75);font-size:.82rem;
+text-decoration:none;
+}
+.footer-email:hover{color:#a5e887}
+
+.mo{
+position:fixed;inset:0;
+background:rgba(0,0,0,.5);
+backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+z-index:500;
+display:flex;align-items:center;justify-content:center;
+padding:24px;
+opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.mo.open{opacity:1;pointer-events:all}
+.mw{
+background:#fff;
+border:1px solid rgba(76,175,80,.2);
+border-radius:22px;
+padding:50px 42px;
+max-width:430px;width:100%;text-align:center;
+transform:scale(.94) translateY(14px);
+transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+box-shadow:0 50px 120px rgba(0,0,0,.2),0 0 0 1px rgba(76,175,80,.08);
+}
+.mo.open .mw{transform:scale(1) translateY(0)}
+.mw .tag2{
+display:inline-block;padding:4px 14px;
+background:rgba(76,175,80,.1);
+border:1px solid rgba(76,175,80,.2);
+border-radius:100px;
+color:var(--g3);font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+margin-bottom:22px;
+}
+.mw h2{font-size:1.7rem;font-weight:900;letter-spacing:-.025em;color:var(--text);margin-bottom:14px}
+.mw p{color:var(--text2);font-size:.9rem;line-height:1.72;margin-bottom:30px}
+.mc{
+padding:13px 34px;
+background:linear-gradient(135deg,var(--g1),var(--g2));
+border:none;border-radius:10px;
+color:#1a2e1a;font-size:.9rem;font-weight:800;
+cursor:pointer;transition:opacity .2s,transform .15s;
+box-shadow:0 4px 18px var(--shadow);
+}
+.mc:hover{opacity:.88;transform:translateY(-1px)}
+
+@media(max-width:768px){
+.hdr{padding:0 16px}
+.sec{padding:40px 16px 60px}
+.footer{padding:40px 20px 28px}
+.mw{padding:36px 22px}
+}
+@media(max-width:480px){.btn-help{padding:8px 14px;font-size:.78rem}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="app">
+  <header class="hdr">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      БЛАГОВЕЩЕНИЕ
+    </div>
+    <div class="hdr-r">
+      <button class="btn-help" id="helpBtn">Помочь</button>
+      <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="sb-ov" id="sbOv"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-head">
+      <div class="sb-logo-wrap">
+        <div class="sb-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="sb-titles">
+          <div class="sb-logo">БЛАГОВЕЩЕНИЕ</div>
+          <div class="sb-sub">Благотворительный фонд</div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <a class="active" data-page="home">Главная</a>
+      <a data-page="about">О фонде</a>
+      <a data-page="projects">Проекты</a>
+      <a data-page="contacts">Контакты</a>
+    </nav>
+    <div class="sb-foot">
+      <button class="sb-close" id="sbClose">Закрыть меню</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-img"></div>
+        <div class="hero-over"></div>
+        <div class="hero-content">
+          <div class="tag">Благотворительный фонд · г. Миллерово</div>
+          <h1>Помогаем тем,<br>кому нужна <span>поддержка</span></h1>
+          <p>Фонд «Благовещение» объединяет неравнодушных людей ради реальных изменений в жизни нуждающихся и людей с инвалидностью.</p>
+          <button class="hero-btn" id="heroDonate">Поддержать фонд</button>
+        </div>
+        <div class="hero-scroll">
+          <div class="hero-scroll-line"></div>
+          Листать вниз
+        </div>
+      </div>
+
+      <div class="photo-strip">
+        <div class="ps-item">
+          <img src="https://images.pexels.com/photos/8465434/pexels-photo-8465434.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Дети" loading="lazy">
+          <div class="ps-label">Дети</div>
+        </div>
+        <div class="ps-item">
+          <img src="https://images.pexels.com/photos/4936021/pexels-photo-4936021.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Забота" loading="lazy">
+          <div class="ps-label">Забота</div>
+        </div>
+        <div class="ps-item">
+          <img src="https://images.pexels.com/photos/31864414/pexels-photo-31864414/free-photo-of-young-girl-engaged-in-montessori-learning-activity.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Образование" loading="lazy">
+          <div class="ps-label">Образование</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-head">
+          <div class="tag2">Направления</div>
+          <div class="sec-title">Наши направления</div>
+          <div class="sec-sub">Мы работаем там, где помощь нужна больше всего</div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="ci"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <h3>Социальная поддержка</h3>
+            <p>Адресная помощь семьям в трудной жизненной ситуации, поддержка одиноких пожилых людей и людей с ограниченными возможностями.</p>
+          </div>
+          <div class="card">
+            <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3>Защита детства</h3>
+            <p>Программы для детей из неблагополучных семей, реабилитация, творческое развитие, поддержка детей-сирот.</p>
+          </div>
+          <div class="card">
+            <div class="ci"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.64 18a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 3.18 2 2 0 0 1 4.11 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <h3>Медицинская помощь</h3>
+            <p>Содействие в получении медицинской помощи, закупка лекарств и оборудования для подопечных.</p>
+          </div>
+          <div class="card">
+            <div class="ci"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+            <h3>Образование</h3>
+            <p>Поддержка детей из малоимущих семей: учебники, дополнительные занятия, кружки и секции.</p>
+          </div>
+          <div class="card">
+            <div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <h3>Кризисная помощь</h3>
+            <p>Оперативное реагирование на экстренные ситуации, помощь семьям, попавшим в острый кризис.</p>
+          </div>
+          <div class="card">
+            <div class="ci"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Волонтёрство</h3>
+            <p>Привлечение добровольцев, обучение и координация помощи в регионах присутствия фонда.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-about">
+      <div class="photo-banner">
+        <img src="https://images.pexels.com/photos/8618068/pexels-photo-8618068.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="О фонде" loading="lazy">
+        <div class="photo-banner-over">
+          <div class="photo-banner-text">
+            <div class="tag">О фонде</div>
+            <h2>История<br>и миссия</h2>
+            <p>Зарегистрирован 31 июля 2015 года в г. Миллерово Ростовской области.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="ib">
+          <h2>О фонде</h2>
+          <p>Полное официальное наименование: <strong>БЛАГОТВОРИТЕЛЬНЫЙ ФОНД ПОМОЩИ НУЖДАЮЩИМСЯ И ИНВАЛИДАМ «БЛАГОВЕЩЕНИЕ»</strong>. Краткое наименование: БФ «БЛАГОВЕЩЕНИЕ».</p>
+          <p style="margin-top:12px">Фонд зарегистрирован <strong>31.07.2015</strong> и оказывает помощь нуждающимся и людям с инвалидностью в Ростовской области и за её пределами.</p>
+        </div>
+        <div class="two">
+          <div class="ib">
+            <h2>Руководство</h2>
+            <p><strong>Президент:</strong> Токарева Анна Игоревна</p>
+          </div>
+          <div class="ib">
+            <h2>Миссия</h2>
+            <p>Создавать системную поддержку для людей в уязвимых ситуациях — детей, пожилых, людей с инвалидностью.</p>
+          </div>
+        </div>
+        <div class="ib">
+          <h2>Реквизиты организации</h2>
+          <div class="requisites-grid">
+            <div class="req-item">
+              <div class="req-label">ОГРН</div>
+              <div class="req-value">1156100001925</div>
+            </div>
+            <div class="req-item">
+              <div class="req-label">ИНН</div>
+              <div class="req-value">6149019448</div>
+            </div>
+            <div class="req-item">
+              <div class="req-label">КПП</div>
+              <div class="req-value">614901001</div>
+            </div>
+            <div class="req-item">
+              <div class="req-label">Дата регистрации</div>
+              <div class="req-value">31.07.2015</div>
+            </div>
+            <div class="req-item" style="grid-column:1/-1">
+              <div class="req-label">Юридический адрес</div>
+              <div class="req-value">Ростовская обл., г. Миллерово, ул. Набережная, д. 80</div>
+            </div>
+          </div>
+        </div>
+        <div class="ib">
+          <h2>Учредительные документы</h2>
+          <ul class="docs">
+            <li><span class="dot"></span>Устав благотворительного фонда &mdash; <span class="mock">[это макет]</span></li>
+            <li><span class="dot"></span>Свидетельство о государственной регистрации &mdash; <span class="mock">[это макет]</span></li>
+            <li><span class="dot"></span>Выписка из ЕГРЮЛ &mdash; <span class="mock">[это макет]</span></li>
+            <li><span class="dot"></span>Годовой отчёт &mdash; <span class="mock">[это макет]</span></li>
+            <li><span class="dot"></span>Аудиторское заключение &mdash; <span class="mock">[это макет]</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-projects">
+      <div class="photo-banner">
+        <img src="https://images.pexels.com/photos/4936021/pexels-photo-4936021.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Проекты" loading="lazy">
+        <div class="photo-banner-over">
+          <div class="photo-banner-text">
+            <div class="tag">Проекты</div>
+            <h2>Программы<br>и инициативы</h2>
+            <p>Системная работа для долгосрочного результата.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="ib" style="margin-bottom:32px">
+          <h2>Текущие сборы</h2>
+          <p>В этом разделе будет размещён актуальный список открытых благотворительных сборов с реквизитами и целевыми суммами.</p>
+          <div class="mock">[это макет]</div>
+        </div>
+        <div class="sec-head">
+          <div class="tag2">Программы</div>
+          <div class="sec-title">Действующие программы</div>
+          <div class="sec-sub">Содержание будет добавлено после предоставления информации</div>
+        </div>
+        <div class="two" style="margin-top:0">
+          <div class="pc"><div class="pc-top"></div><div class="pc-body"><h3><span class="mock">[это макет]</span></h3><p>Описание программы будет добавлено.</p><div class="pw"><div class="pl"><span>Сбор</span><span><span class="mock">[макет]</span></span></div><div class="pb"><div class="pf" style="width:0%"></div></div></div></div></div>
+          <div class="pc"><div class="pc-top"></div><div class="pc-body"><h3><span class="mock">[это макет]</span></h3><p>Описание программы будет добавлено.</p><div class="pw"><div class="pl"><span>Сбор</span><span><span class="mock">[макет]</span></span></div><div class="pb"><div class="pf" style="width:0%"></div></div></div></div></div>
+          <div class="pc"><div class="pc-top"></div><div class="pc-body"><h3><span class="mock">[это макет]</span></h3><p>Описание программы будет добавлено.</p><div class="pw"><div class="pl"><span>Сбор</span><span><span class="mock">[макет]</span></span></div><div class="pb"><div class="pf" style="width:0%"></div></div></div></div></div>
+          <div class="pc"><div class="pc-top"></div><div class="pc-body"><h3><span class="mock">[это макет]</span></h3><p>Описание программы будет добавлено.</p><div class="pw"><div class="pl"><span>Сбор</span><span><span class="mock">[макет]</span></span></div><div class="pb"><div class="pf" style="width:0%"></div></div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-contacts">
+      <div class="photo-banner">
+        <img src="https://images.pexels.com/photos/8465434/pexels-photo-8465434.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Контакты" loading="lazy">
+        <div class="photo-banner-over">
+          <div class="photo-banner-text">
+            <div class="tag">Контакты</div>
+            <h2>Свяжитесь<br>с нами</h2>
+            <p>Мы открыты для диалога — партнёрам, волонтёрам, жертвователям и журналистам.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="cg">
+          <div class="ci2">
+            <div class="ci2-l">Юридический адрес</div>
+            <div class="ci2-v">Ростовская обл., г. Миллерово, ул. Набережная, д. 80</div>
+          </div>
+          <div class="ci2">
+            <div class="ci2-l">Телефон</div>
+            <div class="ci2-v"><span class="mock">[это макет]</span></div>
+            <p>Рабочие часы: пн–пт, 10:00–18:00</p>
+          </div>
+          <div class="ci2">
+            <div class="ci2-l">Электронная почта</div>
+            <div class="ci2-v"><span class="mock">[это макет]</span></div>
+          </div>
+          <div class="ci2">
+            <div class="ci2-l">Расчётный счёт</div>
+            <div class="ci2-v"><span class="mock">[это макет]</span></div>
+            <p>Реквизиты для пожертвований</p>
+          </div>
+        </div>
+        <div class="ib" style="margin-top:28px">
+          <h2>Стать волонтёром</h2>
+          <p>Мы всегда рады неравнодушным людям. Если вы хотите помогать — свяжитесь с нами, и наш координатор ответит вам.</p>
+          <div class="mock">[это макет — форма обратной связи]</div>
+        </div>
+        <div class="ib">
+          <h2>Для СМИ</h2>
+          <p>Пресс-служба фонда готова предоставить комментарии и организовать встречи для журналистов.</p>
+          <div class="mock">[это макет]</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fb-logo">БФ «БЛАГОВЕЩЕНИЕ»</div>
+          <p>БЛАГОТВОРИТЕЛЬНЫЙ ФОНД ПОМОЩИ НУЖДАЮЩИМСЯ И ИНВАЛИДАМ «БЛАГОВЕЩЕНИЕ»</p>
+          <p style="margin-top:10px">ИНН 6149019448 · ОГРН 1156100001925</p>
+          <p style="margin-top:4px">Ростовская обл., г. Миллерово, ул. Набережная, д. 80</p>
+        </div>
+        <div class="footer-col">
+          <h4>Разделы</h4>
+          <a data-page="home">Главная</a>
+          <a data-page="about">О фонде</a>
+          <a data-page="projects">Проекты</a>
+          <a data-page="contacts">Контакты</a>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <a href="mailto:этомакет@макет.com">этомакет@макет.com</a>
+          <p>Ростовская обл.,<br>г. Миллерово,<br>ул. Набережная, д. 80</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2015 — 2025 БФ «Благовещение». Все права защищены.</p>
+        <p>Зарегистрирован 31.07.2015 · <span class="mock" style="font-size:.72rem;padding:4px 10px;margin-top:0">[это макет]</span></p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div class="mo" id="mo">
+  <div class="mw">
+    <div class="tag2">Макет</div>
+    <h2>Это макет</h2>
+    <p>Платёжная система находится в разработке. В финальной версии сайта здесь будет возможность сделать пожертвование удобным способом — картой, по QR-коду или через банковские реквизиты.</p>
+    <button class="mc" id="mc">Закрыть</button>
+  </div>
+</div>
+
+<script>
+(function(){
+var c=document.getElementById('bg'),ctx=c.getContext('2d'),W,H,dots;
+var N=60,D=130,S=.32;
+function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}
+function mk(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*S,vy:(Math.random()-.5)*S,r:Math.random()*1.4+.4,a:Math.random()*.3+.1}}
+function init(){resize();dots=Array.from({length:N},mk)}
+function draw(){
+ctx.clearRect(0,0,W,H);
+for(var i=0;i<dots.length;i++){
+var d=dots[i];
+d.x+=d.vx;d.y+=d.vy;
+if(d.x<0||d.x>W)d.vx*=-1;
+if(d.y<0||d.y>H)d.vy*=-1;
+ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+ctx.fillStyle='rgba(76,175,80,'+d.a+')';ctx.fill();
+for(var j=i+1;j<dots.length;j++){
+var e=dots[j],dx=d.x-e.x,dy=d.y-e.y,dist=Math.sqrt(dx*dx+dy*dy);
+if(dist<D){
+ctx.beginPath();ctx.moveTo(d.x,d.y);ctx.lineTo(e.x,e.y);
+ctx.strokeStyle='rgba(139,195,74,'+(1-dist/D)*.12+')';
+ctx.lineWidth=.65;ctx.stroke();
+}}}
+requestAnimationFrame(draw);
+}
+init();draw();
+var _rt;window.addEventListener('resize',function(){clearTimeout(_rt);_rt=setTimeout(resize,80)});
+
+var burger=document.getElementById('burgerBtn');
+var sb=document.getElementById('sidebar');
+var ov=document.getElementById('sbOv');
+var sbCl=document.getElementById('sbClose');
+var navLinks=document.querySelectorAll('.sidebar nav a');
+var footLinks=document.querySelectorAll('.footer-col a[data-page]');
+function openSb(){sb.classList.add('open');ov.classList.add('open')}
+function closeSb(){sb.classList.remove('open');ov.classList.remove('open')}
+burger.addEventListener('click',openSb);
+ov.addEventListener('click',closeSb);
+sbCl.addEventListener('click',closeSb);
+
+function goPage(t){
+document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+var target=document.getElementById('page-'+t);
+if(target)target.classList.add('active');
+navLinks.forEach(function(l){l.classList.toggle('active',l.dataset.page===t)});
+window.scrollTo({top:0,behavior:'smooth'});
+closeSb();
+}
+navLinks.forEach(function(a){a.addEventListener('click',function(){goPage(this.dataset.page)})});
+footLinks.forEach(function(a){a.addEventListener('click',function(){goPage(this.dataset.page)})});
+
+var mo=document.getElementById('mo');
+function openMo(){mo.classList.add('open')}
+function closeMo(){mo.classList.remove('open')}
+document.getElementById('helpBtn').addEventListener('click',openMo);
+document.getElementById('heroDonate').addEventListener('click',openMo);
+document.getElementById('mc').addEventListener('click',closeMo);
+mo.addEventListener('click',function(e){if(e.target===this)closeMo()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMo()});
+})();
+</script>
+</body>
+</html>
